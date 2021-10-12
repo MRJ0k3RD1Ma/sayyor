@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+#    Options +SymLinksIfOwnerMatch
+    RewriteEngine On
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    php_value upload_max_filesize 500M
+    php_value post_max_size 1000M
+    php_value max_execution_time 5000
+    php_value max_input_time 5000
+    RewriteCond %{REQUEST_URI} ^/.*
+    RewriteCond %{REQUEST_URI} !^/web/
+    RewriteCond %{REQUEST_URI} !^/web/upload/extra/
+    RewriteRule ^(.*)$ web/$1 [L]
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ web/index.php
+
+</IfModule>
+
