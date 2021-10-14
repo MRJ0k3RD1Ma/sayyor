@@ -11,6 +11,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'language'=>'ru',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -26,11 +27,28 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
+            'class' => 'yii\web\User',
             'identityClass' => 'app\models\Employees',
             'enableAutoLogin' => true,
+            'loginUrl'=>['/admin/default/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                    //'on missingTranslation' => ['app\components\TranslationEventHandler', 'handleMissingTranslation']
+
+                ],
+            ],
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -53,7 +71,10 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru', 'uz', 'oz'],
             'rules' => [
+
             ],
         ],
 

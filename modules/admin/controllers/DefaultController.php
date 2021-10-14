@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 /**
@@ -10,11 +12,43 @@ use yii\web\Controller;
 class DefaultController extends Controller
 {
     /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow'=>true,
+                        'actions'=>['login'],
+                        'roles'=> ['?']
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }
+    /**
      * Renders the index view for the module
      * @return string
      */
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionLogin(){
+        echo 1;
     }
 }

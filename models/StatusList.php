@@ -11,7 +11,6 @@ use Yii;
  * @property string|null $name
  *
  * @property EmpPosts[] $empPosts
- * @property EmpPostsHistory[] $empPostsHistories
  */
 class StatusList extends \yii\db\ActiveRecord
 {
@@ -39,8 +38,8 @@ class StatusList extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 
@@ -52,15 +51,5 @@ class StatusList extends \yii\db\ActiveRecord
     public function getEmpPosts()
     {
         return $this->hasMany(EmpPosts::className(), ['status_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[EmpPostsHistories]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEmpPostsHistories()
-    {
-        return $this->hasMany(EmpPostsHistory::className(), ['status_id' => 'id']);
     }
 }

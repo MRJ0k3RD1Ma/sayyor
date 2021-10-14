@@ -28,10 +28,7 @@ class Roles extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['id'], 'unique'],
         ];
     }
 
@@ -41,8 +38,8 @@ class Roles extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 

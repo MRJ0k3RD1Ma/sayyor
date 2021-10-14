@@ -30,10 +30,8 @@ class Districts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'region_id', 'type'], 'integer'],
+            [['region_id', 'type'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
             [['region_id'], 'exist', 'skipOnError' => true, 'targetClass' => Regions::className(), 'targetAttribute' => ['region_id' => 'id']],
         ];
     }
@@ -44,10 +42,10 @@ class Districts extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'region_id' => 'Region ID',
-            'type' => 'Type',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'region_id' => Yii::t('app', 'Region ID'),
+            'type' => Yii::t('app', 'Type'),
         ];
     }
 

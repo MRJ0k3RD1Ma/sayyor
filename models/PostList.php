@@ -13,7 +13,6 @@ use Yii;
  *
  * @property Roles $defRole
  * @property EmpPosts[] $empPosts
- * @property EmpPostsHistory[] $empPostsHistories
  */
 class PostList extends \yii\db\ActiveRecord
 {
@@ -31,10 +30,8 @@ class PostList extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'def_role'], 'integer'],
+            [['def_role'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['id'], 'unique'],
             [['def_role'], 'exist', 'skipOnError' => true, 'targetClass' => Roles::className(), 'targetAttribute' => ['def_role' => 'id']],
         ];
     }
@@ -45,9 +42,9 @@ class PostList extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'def_role' => 'Def Role',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'def_role' => Yii::t('app', 'Def Role'),
         ];
     }
 
@@ -69,15 +66,5 @@ class PostList extends \yii\db\ActiveRecord
     public function getEmpPosts()
     {
         return $this->hasMany(EmpPosts::className(), ['post_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[EmpPostsHistories]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEmpPostsHistories()
-    {
-        return $this->hasMany(EmpPostsHistory::className(), ['post_id' => 'id']);
     }
 }

@@ -16,7 +16,6 @@ use Yii;
  * @property int|null $org_id Ташкилот (Бўлим)
  *
  * @property Employees $emp
- * @property EmpPostsHistory[] $empPostsHistories
  * @property Organizations $org
  * @property PostList $post
  * @property StateList $state
@@ -55,13 +54,13 @@ class EmpPosts extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'emp_id' => 'Emp ID',
-            'post_id' => 'Post ID',
-            'date' => 'Date',
-            'state_id' => 'State ID',
-            'status_id' => 'Status ID',
-            'org_id' => 'Org ID',
+            'id' => Yii::t('app', 'ID'),
+            'emp_id' => Yii::t('app', 'Emp ID'),
+            'post_id' => Yii::t('app', 'Post ID'),
+            'date' => Yii::t('app', 'Date'),
+            'state_id' => Yii::t('app', 'State ID'),
+            'status_id' => Yii::t('app', 'Status ID'),
+            'org_id' => Yii::t('app', 'Org ID'),
         ];
     }
 
@@ -73,16 +72,6 @@ class EmpPosts extends \yii\db\ActiveRecord
     public function getEmp()
     {
         return $this->hasOne(Employees::className(), ['id' => 'emp_id']);
-    }
-
-    /**
-     * Gets query for [[EmpPostsHistories]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEmpPostsHistories()
-    {
-        return $this->hasMany(EmpPostsHistory::className(), ['emp_id' => 'emp_id']);
     }
 
     /**

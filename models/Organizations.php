@@ -15,7 +15,6 @@ use Yii;
  *
  * @property Regions $district
  * @property EmpPosts[] $empPosts
- * @property EmpPostsHistory[] $empPostsHistories
  * @property StateList $state0
  */
 class Organizations extends \yii\db\ActiveRecord
@@ -47,11 +46,11 @@ class Organizations extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'parent_id' => 'Parent ID',
-            'state' => 'State',
-            'district_id' => 'District ID',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'parent_id' => Yii::t('app', 'Parent ID'),
+            'state' => Yii::t('app', 'State'),
+            'district_id' => Yii::t('app', 'District ID'),
         ];
     }
 
@@ -73,16 +72,6 @@ class Organizations extends \yii\db\ActiveRecord
     public function getEmpPosts()
     {
         return $this->hasMany(EmpPosts::className(), ['org_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[EmpPostsHistories]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getEmpPostsHistories()
-    {
-        return $this->hasMany(EmpPostsHistory::className(), ['org_id' => 'id']);
     }
 
     /**

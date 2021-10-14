@@ -43,11 +43,11 @@ class Employees extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'password' => 'Password',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'email' => Yii::t('app', 'Email'),
+            'phone' => Yii::t('app', 'Phone'),
+            'password' => Yii::t('app', 'Password'),
         ];
     }
 
