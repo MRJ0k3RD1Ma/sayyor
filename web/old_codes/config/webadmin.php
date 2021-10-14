@@ -1,16 +1,12 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+$params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
-    ],
+    'language'=>'uz',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -19,16 +15,18 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'z61Wfi_wLM395ChJMefkD05AqWUlinVv',
-            'baseUrl'=>''
+            'cookieValidationKey' => 'murojaatlarwebappstarted20200117',
+			'baseUrl'=>''
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\Employees',
+            'identityClass' => 'app\models\Admin',
             'enableAutoLogin' => true,
         ],
+
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -48,15 +46,13 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
-
+        'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-
     ],
     'params' => $params,
 ];
