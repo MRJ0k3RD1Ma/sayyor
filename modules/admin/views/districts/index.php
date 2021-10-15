@@ -12,34 +12,37 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="districts-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="card">
+        <div class="card-header">
+            <p>
+                <?= Html::a(Yii::t('app', 'Create Districts'), ['create'], ['class' => 'btn btn-success']) ?>
+            </p>
+        </div>
+        <div class="card-body">
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Districts'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            'name',
+                    'name',
 //            'region_id',
-            [
-                'attribute'=>'regions',
-                'value'=>function($d){
-                    return $d->region->name;
-                },
-            ],
-            'type',
+                    [
+                        'attribute'=>'regions',
+                        'value'=>function($d){
+                            return $d->region->name;
+                        },
+                    ],
+                    'type',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]); ?>
+
+        </div>
+    </div>
 
 
 </div>

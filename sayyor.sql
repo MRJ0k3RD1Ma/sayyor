@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 03:02 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.18
+-- Хост: 127.0.0.1
+-- Время создания: Окт 15 2021 г., 17:26
+-- Версия сервера: 10.4.21-MariaDB
+-- Версия PHP: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sayyor`
+-- База данных: `sayyor`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `districts`
+-- Структура таблицы `districts`
 --
 
 CREATE TABLE `districts` (
@@ -34,10 +34,216 @@ CREATE TABLE `districts` (
   `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `districts`
+--
+
+INSERT INTO `districts` (`id`, `name`, `region_id`, `type`) VALUES
+(15, 'Amudaryo tumani', 1, NULL),
+(16, 'Beruniy tumani', 1, NULL),
+(17, 'Kegayli tumani', 1, NULL),
+(18, 'Qonliko‘l tumani', 1, NULL),
+(19, 'Qorao‘zak tumani', 1, NULL),
+(20, 'Qo‘ng‘irot tumani', 1, NULL),
+(21, 'Mo‘ynoq tumani', 1, NULL),
+(22, 'Nukus tumani', 1, NULL),
+(23, 'Nukus shahri', 1, NULL),
+(24, 'Taxtako‘pir tumani', 1, NULL),
+(25, 'To‘rtko‘l tumani', 1, NULL),
+(26, 'Xo‘jayli tumani', 1, NULL),
+(27, 'CHimboy tumani', 1, NULL),
+(28, 'SHumanay tumani', 1, NULL),
+(29, 'Ellikqal‘a tumani', 1, NULL),
+(30, 'Andijon shahri', 2, NULL),
+(31, 'Andijon tumani', 2, NULL),
+(32, 'Asaka tumani', 2, NULL),
+(33, 'Baliqchi tumani', 2, NULL),
+(34, 'Buloqboshi tumani', 2, NULL),
+(35, 'Bo‘z tumani', 2, NULL),
+(36, 'Jalaquduq tumani', 2, NULL),
+(37, 'Izbosgan tumani', 2, NULL),
+(38, 'Qorasuv shahri', 2, NULL),
+(39, 'Qo‘rg‘ontepa tumani', 2, NULL),
+(40, 'Marhamat tumani', 2, NULL),
+(41, 'Oltinko‘l tumani', 2, NULL),
+(42, 'Paxtaobod tumani', 2, NULL),
+(43, 'Ulug‘nor tumani', 2, NULL),
+(44, 'Xonabod tumani', 2, NULL),
+(45, 'Xo‘jaobod shahri', 2, NULL),
+(46, 'Shaxrixon tumani', 2, NULL),
+(47, 'Buxoro shahri', 3, NULL),
+(48, 'Buxoro tumani', 3, NULL),
+(49, 'Vobkent tumani', 3, NULL),
+(50, 'G‘ijduvon tumani', 3, NULL),
+(51, 'Jondor tumani', 3, NULL),
+(52, 'Kogon tumani', 3, NULL),
+(53, 'Kogon shahri', 3, NULL),
+(54, 'Qorako‘l tumani', 3, NULL),
+(55, 'Qorovulbozor tumani', 3, NULL),
+(56, 'Olot tumani', 3, NULL),
+(57, 'Peshku tumani', 3, NULL),
+(58, 'Romitan tumani', 3, NULL),
+(59, 'Shofirkon tumani', 3, NULL),
+(60, 'Arnasoy tumani', 4, NULL),
+(61, 'Baxmal tumani', 4, NULL),
+(62, 'G‘allaorol tumani', 4, NULL),
+(63, 'Do‘stlik tumani', 4, NULL),
+(64, 'Sh.Rashidov tumani', 4, NULL),
+(65, 'Jizzax shahri', 4, NULL),
+(66, 'Zarbdor tumani', 4, NULL),
+(67, 'Zafarobod tumani', 4, NULL),
+(68, 'Zomin tumani', 4, NULL),
+(69, 'Mirzacho‘l tumani', 4, NULL),
+(70, 'Paxtakor tumani', 4, NULL),
+(71, 'Forish tumani', 4, NULL),
+(72, 'Yangiobod tumani', 4, NULL),
+(73, 'G‘uzor tumani', 5, NULL),
+(74, 'Dehqonobod tumani', 5, NULL),
+(75, 'Qamashi tumani', 5, NULL),
+(76, 'Qarshi tumani', 5, NULL),
+(77, 'Qarshi shahri', 5, NULL),
+(78, 'Kasbi tumani', 5, NULL),
+(79, 'Kitob tumani', 5, NULL),
+(80, 'Koson tumani', 5, NULL),
+(81, 'Mirishkor tumani', 5, NULL),
+(82, 'Muborak tumani', 5, NULL),
+(83, 'Nishon tumani', 5, NULL),
+(84, 'Chiroqchi tumani', 5, NULL),
+(85, 'Shahrisabz tumani', 5, NULL),
+(86, 'Yakkabog‘ tumani', 5, NULL),
+(87, 'Zarafshon shahri', 6, NULL),
+(88, 'Karmana tumani', 6, NULL),
+(89, 'Qiziltepa tumani', 6, NULL),
+(90, 'Konimex tumani', 6, NULL),
+(91, 'Navbahor tumani', 6, NULL),
+(92, 'Navoiy shahri', 6, NULL),
+(93, 'Nurota tumani', 6, NULL),
+(94, 'Tomdi tumani', 6, NULL),
+(95, 'Uchquduq tumani', 6, NULL),
+(96, 'Xatirchi tumani', 6, NULL),
+(97, 'Kosonsoy tumani', 7, NULL),
+(98, 'Mingbuloq tumani', 7, NULL),
+(99, 'Namangan tumani', 7, NULL),
+(100, 'Namangan shahri', 7, NULL),
+(101, 'Norin tumani', 7, NULL),
+(102, 'Pop tumani', 7, NULL),
+(103, 'To‘raqo‘rg‘on tumani', 7, NULL),
+(104, 'Uychi tumani', 7, NULL),
+(105, 'Uchqo‘rg‘on tumani', 7, NULL),
+(106, 'Chortoq tumani', 7, NULL),
+(107, 'Chust tumani', 7, NULL),
+(108, 'Yangiqo‘rg‘on tumani', 7, NULL),
+(109, 'Bulung‘ur tumani', 8, NULL),
+(110, 'Jomboy tumani', 8, NULL),
+(111, 'Ishtixon tumani', 8, NULL),
+(112, 'Kattaqo‘rg‘on tumani', 8, NULL),
+(113, 'Kattaqo‘rg‘on shahri', 8, NULL),
+(114, 'Qo‘shrabot tumani', 8, NULL),
+(115, 'Narpay tumani', 8, NULL),
+(116, 'Nurabod tumani', 8, NULL),
+(117, 'Oqdaryo tumani', 8, NULL),
+(118, 'Payariq tumani', 8, NULL),
+(119, 'Pastarg‘om tumani', 8, NULL),
+(120, 'Paxtachi tumani', 8, NULL),
+(121, 'Samarqand tumani', 8, NULL),
+(122, 'Samarqand shahri', 8, NULL),
+(123, 'Toyloq tumani', 8, NULL),
+(124, 'Urgut tumani', 8, NULL),
+(125, 'Angor tumani', 9, NULL),
+(126, 'Boysun tumani', 9, NULL),
+(127, 'Denov tumani', 9, NULL),
+(128, 'Jarqo‘rg‘on tumani', 9, NULL),
+(129, 'Qiziriq tumani', 9, NULL),
+(130, 'Qo‘mqo‘rg‘on tumani', 9, NULL),
+(131, 'Muzrabot tumani', 9, NULL),
+(132, 'Oltinsoy tumani', 9, NULL),
+(133, 'Sariosiy tumani', 9, NULL),
+(134, 'Termiz tumani', 9, NULL),
+(135, 'Termiz shahri', 9, NULL),
+(136, 'Uzun tumani', 9, NULL),
+(137, 'Sherobod tumani', 9, NULL),
+(138, 'Sho‘rchi tumani', 9, NULL),
+(139, 'Boyovut tumani', 10, NULL),
+(140, 'Guliston tumani', 10, NULL),
+(141, 'Guliston shahri', 10, NULL),
+(142, 'Mirzaobod tumani', 10, NULL),
+(143, 'Oqoltin tumani', 10, NULL),
+(144, 'Sayxunobod tumani', 10, NULL),
+(145, 'Sardoba tumani', 10, NULL),
+(146, 'Sirdaryo tumani', 10, NULL),
+(147, 'Xavos tumani', 10, NULL),
+(148, 'Shirin shahri', 10, NULL),
+(149, 'Yangier shahri', 10, NULL),
+(150, 'Angiren shahri', 11, NULL),
+(151, 'Bekabod tumani', 11, NULL),
+(152, 'Bekabod shahri', 11, NULL),
+(153, 'Bo‘ka tumani', 11, NULL),
+(154, 'Bo‘stonliq tumani', 11, NULL),
+(155, 'Zangiota tumani', 11, NULL),
+(156, 'Qibray tumani', 11, NULL),
+(157, 'Quyichirchiq tumani', 11, NULL),
+(158, 'Oqqo‘rg‘on tumani', 11, NULL),
+(159, 'Olmaliq shahri', 11, NULL),
+(160, 'Ohangaron tumani', 11, NULL),
+(161, 'Parkent tumani', 11, NULL),
+(162, 'Piskent tumani', 11, NULL),
+(163, 'O‘rtachirchiq tumani', 11, NULL),
+(164, 'Chinoz tumani', 11, NULL),
+(165, 'Chirchiq shahri', 11, NULL),
+(166, 'Yuqorichirchiq tumani', 11, NULL),
+(167, 'Yangiyo‘l tumani', 11, NULL),
+(168, 'Beshariq tumani', 12, NULL),
+(169, 'Bog‘dod tumani', 12, NULL),
+(170, 'Buvayda tumani', 12, NULL),
+(171, 'Dang‘ara tumani', 12, NULL),
+(172, 'Yozyovon tumani', 12, NULL),
+(173, 'Quva tumani', 12, NULL),
+(174, 'Quvasoy shahri', 12, NULL),
+(175, 'Qo‘qon shahri', 12, NULL),
+(176, 'Qo‘shtepa tumani', 12, NULL),
+(177, 'Marg‘ilon shahri', 12, NULL),
+(178, 'Oltiariq tumani', 12, NULL),
+(179, 'Rishton tumani', 12, NULL),
+(180, 'So‘x tumani', 12, NULL),
+(181, 'Toshloq tumani', 12, NULL),
+(182, 'Uchko‘prik tumani', 12, NULL),
+(183, 'O‘zbekiston tumani', 12, NULL),
+(184, 'Farg‘ona tumani', 12, NULL),
+(185, 'Farg‘ona shahri', 12, NULL),
+(186, 'Furqat tumani', 12, NULL),
+(187, 'Bog‘ot tumani', 13, NULL),
+(188, 'Gurlan tumani', 13, NULL),
+(189, 'Qo‘shko‘pir tumani', 13, NULL),
+(190, 'Urganch tumani', 13, NULL),
+(191, 'Urganch shahri', 13, NULL),
+(192, 'Xiva tumani', 13, NULL),
+(193, 'Xazarasp tumani', 13, NULL),
+(194, 'Xonqa tumani', 13, NULL),
+(195, 'Shavot tumani', 13, NULL),
+(196, 'Yangiariq tumani', 13, NULL),
+(197, 'Yangibozor tumani', 13, NULL),
+(198, 'Bektimer tumani', 14, NULL),
+(199, 'M.Ulug‘bek tumani', 14, NULL),
+(200, 'Mirobod tumani', 14, NULL),
+(201, 'Olmazor tumani', 14, NULL),
+(202, 'Sergeli tumani', 14, NULL),
+(203, 'Uchtepa tumani', 14, NULL),
+(204, 'Yashnobod tumani', 14, NULL),
+(205, 'Chilonzor tumani', 14, NULL),
+(206, 'Shayxontohur tumani', 14, NULL),
+(207, 'Yunusobod tumani', 14, NULL),
+(208, 'Yakkasaroy tumani', 14, NULL),
+(209, 'Taxiatosh shahri', 1, NULL),
+(210, 'Asaka shahri', 2, NULL),
+(211, 'Bandixon tumani', 9, NULL),
+(212, 'Ohangaron shahri', 11, NULL),
+(213, 'Yangiyo‘l shahri', 11, NULL),
+(215, 'Toshkent tumani', 11, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Структура таблицы `employees`
 --
 
 CREATE TABLE `employees` (
@@ -51,7 +257,7 @@ CREATE TABLE `employees` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emp_posts`
+-- Структура таблицы `emp_posts`
 --
 
 CREATE TABLE `emp_posts` (
@@ -67,7 +273,7 @@ CREATE TABLE `emp_posts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emp_posts_history`
+-- Структура таблицы `emp_posts_history`
 --
 
 CREATE TABLE `emp_posts_history` (
@@ -82,13 +288,79 @@ CREATE TABLE `emp_posts_history` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `organizations`
+-- Структура таблицы `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL,
+  `language` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `translation` text COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `message`
+--
+
+INSERT INTO `message` (`id`, `language`, `translation`) VALUES
+(1, 'ru', 'Regions'),
+(2, 'ru', 'Create Regions'),
+(3, 'ru', 'ID'),
+(4, 'ru', 'Name'),
+(5, 'ru', 'Save'),
+(6, 'ru', 'Update Regions: {name}'),
+(7, 'ru', 'Update'),
+(8, 'ru', 'Viloyatlar'),
+(9, 'ru', 'Tumanlar'),
+(10, 'ru', 'Language'),
+(11, 'ru', 'Translation'),
+(12, 'ru', 'Region ID'),
+(13, 'ru', 'Type'),
+(14, 'ru', 'Districts'),
+(15, 'ru', 'Create Districts'),
+(16, 'ru', 'Qoraqalpog‘iston Respublikasi'),
+(17, 'ru', 'Andijon viloyati'),
+(18, 'ru', 'Buxoro viloyati'),
+(19, 'ru', 'Jizzax viloyati'),
+(20, 'ru', 'Qashqadaryo viloyati'),
+(21, 'ru', 'Navoiy viloyati'),
+(22, 'ru', 'Namangan viloyati'),
+(23, 'ru', 'Samarqand viloyati'),
+(24, 'ru', 'Surxandaryo viloyati'),
+(25, 'ru', 'Sirdaryo viloyati'),
+(26, 'ru', 'Toshkent viloyati'),
+(27, 'ru', 'Farg‘ona viloyati'),
+(28, 'ru', 'Xorazm viloyati'),
+(29, 'ru', 'Toshkent shahri');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `migration`
+--
+
+CREATE TABLE `migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `migration`
+--
+
+INSERT INTO `migration` (`version`, `apply_time`) VALUES
+('m000000_000000_base', 1634305914),
+('m150207_210500_i18n_init', 1634305916);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `organizations`
 --
 
 CREATE TABLE `organizations` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id` int(11) DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT -1,
   `state` int(11) DEFAULT NULL,
   `district_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -96,7 +368,7 @@ CREATE TABLE `organizations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_list`
+-- Структура таблицы `post_list`
 --
 
 CREATE TABLE `post_list` (
@@ -108,25 +380,38 @@ CREATE TABLE `post_list` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `regions`
+-- Структура таблицы `regions`
 --
 
 CREATE TABLE `regions` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `regions`
+-- Дамп данных таблицы `regions`
 --
 
 INSERT INTO `regions` (`id`, `name`) VALUES
-(1, 'Город Ташкент');
+(1, 'Qoraqalpog‘iston Respublikasi'),
+(2, 'Andijon viloyati'),
+(3, 'Buxoro viloyati'),
+(4, 'Jizzax viloyati'),
+(5, 'Qashqadaryo viloyati'),
+(6, 'Navoiy viloyati'),
+(7, 'Namangan viloyati'),
+(8, 'Samarqand viloyati'),
+(9, 'Surxandaryo viloyati'),
+(10, 'Sirdaryo viloyati'),
+(11, 'Toshkent viloyati'),
+(12, 'Farg‘ona viloyati'),
+(13, 'Xorazm viloyati'),
+(14, 'Toshkent shahri');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Структура таблицы `roles`
 --
 
 CREATE TABLE `roles` (
@@ -137,7 +422,54 @@ CREATE TABLE `roles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `state_list`
+-- Структура таблицы `source_message`
+--
+
+CREATE TABLE `source_message` (
+  `id` int(11) NOT NULL,
+  `category` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `source_message`
+--
+
+INSERT INTO `source_message` (`id`, `category`, `message`) VALUES
+(1, 'app', 'Regions'),
+(2, 'app', 'Create Regions'),
+(3, 'app', 'ID'),
+(4, 'app', 'Name'),
+(5, 'app', 'Save'),
+(6, 'app', 'Update Regions: {name}'),
+(7, 'app', 'Update'),
+(8, 'app', 'Viloyatlar'),
+(9, 'app', 'Tumanlar'),
+(10, 'app', 'Language'),
+(11, 'app', 'Translation'),
+(12, 'app', 'Region ID'),
+(13, 'app', 'Type'),
+(14, 'app', 'Districts'),
+(15, 'app', 'Create Districts'),
+(16, 'app', 'Qoraqalpog‘iston Respublikasi'),
+(17, 'app', 'Andijon viloyati'),
+(18, 'app', 'Buxoro viloyati'),
+(19, 'app', 'Jizzax viloyati'),
+(20, 'app', 'Qashqadaryo viloyati'),
+(21, 'app', 'Navoiy viloyati'),
+(22, 'app', 'Namangan viloyati'),
+(23, 'app', 'Samarqand viloyati'),
+(24, 'app', 'Surxandaryo viloyati'),
+(25, 'app', 'Sirdaryo viloyati'),
+(26, 'app', 'Toshkent viloyati'),
+(27, 'app', 'Farg‘ona viloyati'),
+(28, 'app', 'Xorazm viloyati'),
+(29, 'app', 'Toshkent shahri');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `state_list`
 --
 
 CREATE TABLE `state_list` (
@@ -148,7 +480,7 @@ CREATE TABLE `state_list` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_list`
+-- Структура таблицы `status_list`
 --
 
 CREATE TABLE `status_list` (
@@ -157,24 +489,24 @@ CREATE TABLE `status_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Статуслар рўйхати. Масалан: доимий, вақтинчалик вазифасини бажарувчи, ходатайство ва ҳ.к.';
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `districts`
+-- Индексы таблицы `districts`
 --
 ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_districts_regions_id` (`region_id`);
 
 --
--- Indexes for table `employees`
+-- Индексы таблицы `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `emp_posts`
+-- Индексы таблицы `emp_posts`
 --
 ALTER TABLE `emp_posts`
   ADD PRIMARY KEY (`id`),
@@ -185,114 +517,150 @@ ALTER TABLE `emp_posts`
   ADD KEY `FK_emp_posts_state_list_id` (`state_id`);
 
 --
--- Indexes for table `organizations`
+-- Индексы таблицы `emp_posts_history`
+--
+ALTER TABLE `emp_posts_history`
+  ADD KEY `FK_emp_posts_history_emp_posts_emp_id` (`emp_id`),
+  ADD KEY `FK_emp_posts_history_organizations_id` (`org_id`),
+  ADD KEY `FK_emp_posts_history_post_list_id` (`post_id`),
+  ADD KEY `FK_emp_posts_history_state_list_id` (`state_id`),
+  ADD KEY `FK_emp_posts_history_status_list_id` (`status_id`);
+
+--
+-- Индексы таблицы `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`,`language`),
+  ADD KEY `idx_message_language` (`language`);
+
+--
+-- Индексы таблицы `migration`
+--
+ALTER TABLE `migration`
+  ADD PRIMARY KEY (`version`);
+
+--
+-- Индексы таблицы `organizations`
 --
 ALTER TABLE `organizations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_organizations_regions_id` (`district_id`),
+  ADD KEY `FK_organizations_districts_id` (`district_id`),
   ADD KEY `FK_organizations_state_list_id` (`state`);
 
 --
--- Indexes for table `post_list`
+-- Индексы таблицы `post_list`
 --
 ALTER TABLE `post_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_post_list_roles_id` (`def_role`);
 
 --
--- Indexes for table `regions`
+-- Индексы таблицы `regions`
 --
 ALTER TABLE `regions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roles`
+-- Индексы таблицы `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `state_list`
+-- Индексы таблицы `source_message`
+--
+ALTER TABLE `source_message`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_source_message_category` (`category`);
+
+--
+-- Индексы таблицы `state_list`
 --
 ALTER TABLE `state_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `status_list`
+-- Индексы таблицы `status_list`
 --
 ALTER TABLE `status_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `districts`
+-- AUTO_INCREMENT для таблицы `districts`
 --
 ALTER TABLE `districts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
 
 --
--- AUTO_INCREMENT for table `employees`
+-- AUTO_INCREMENT для таблицы `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `emp_posts`
+-- AUTO_INCREMENT для таблицы `emp_posts`
 --
 ALTER TABLE `emp_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `organizations`
+-- AUTO_INCREMENT для таблицы `organizations`
 --
 ALTER TABLE `organizations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `post_list`
+-- AUTO_INCREMENT для таблицы `post_list`
 --
 ALTER TABLE `post_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `regions`
+-- AUTO_INCREMENT для таблицы `regions`
 --
 ALTER TABLE `regions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT для таблицы `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `state_list`
+-- AUTO_INCREMENT для таблицы `source_message`
+--
+ALTER TABLE `source_message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT для таблицы `state_list`
 --
 ALTER TABLE `state_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `status_list`
+-- AUTO_INCREMENT для таблицы `status_list`
 --
 ALTER TABLE `status_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `districts`
+-- Ограничения внешнего ключа таблицы `districts`
 --
 ALTER TABLE `districts`
   ADD CONSTRAINT `FK_districts_regions_id` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `emp_posts`
+-- Ограничения внешнего ключа таблицы `emp_posts`
 --
 ALTER TABLE `emp_posts`
   ADD CONSTRAINT `FK_emp_posts` FOREIGN KEY (`status_id`) REFERENCES `status_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -302,17 +670,33 @@ ALTER TABLE `emp_posts`
   ADD CONSTRAINT `FK_emp_roles_employees_id` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `organizations`
+-- Ограничения внешнего ключа таблицы `emp_posts_history`
+--
+ALTER TABLE `emp_posts_history`
+  ADD CONSTRAINT `FK_emp_posts_history_emp_posts_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `emp_posts` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_emp_posts_history_organizations_id` FOREIGN KEY (`org_id`) REFERENCES `organizations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_emp_posts_history_post_list_id` FOREIGN KEY (`post_id`) REFERENCES `post_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_emp_posts_history_state_list_id` FOREIGN KEY (`state_id`) REFERENCES `state_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_emp_posts_history_status_list_id` FOREIGN KEY (`status_id`) REFERENCES `status_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ограничения внешнего ключа таблицы `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `fk_message_source_message` FOREIGN KEY (`id`) REFERENCES `source_message` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `organizations`
 --
 ALTER TABLE `organizations`
-  ADD CONSTRAINT `FK_organizations_regions_id` FOREIGN KEY (`district_id`) REFERENCES `regions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_organizations_districts_id` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_organizations_state_list_id` FOREIGN KEY (`state`) REFERENCES `state_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `post_list`
+-- Ограничения внешнего ключа таблицы `roles`
 --
-ALTER TABLE `post_list`
-  ADD CONSTRAINT `FK_post_list_roles_id` FOREIGN KEY (`def_role`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `roles`
+  ADD CONSTRAINT `FK_roles_post_list_def_role` FOREIGN KEY (`id`) REFERENCES `post_list` (`def_role`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
