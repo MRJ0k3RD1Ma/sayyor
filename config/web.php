@@ -13,7 +13,7 @@ $config = [
     ],
     'language'=>'ru',
     'modules' => [
-        'admin' => [
+        'employee' => [
             'class' => 'app\modules\admin\Module',
         ],
     ],
@@ -30,7 +30,7 @@ $config = [
             'class' => 'yii\web\User',
             'identityClass' => 'app\models\Employees',
             'enableAutoLogin' => true,
-            'loginUrl'=>['/admin/default/login'],
+            'loginUrl'=>['/employee/default/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
