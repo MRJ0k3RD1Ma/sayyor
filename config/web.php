@@ -38,14 +38,13 @@ $config = [
         'i18n' => [
             'translations' => [
                 'app*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\DbMessageSource',
                     //'basePath' => '@app/messages',
-                    //'sourceLanguage' => 'en-US',
-                    'fileMap' => [
-                        'app' => 'app.php',
-                        'app/error' => 'error.php',
-                    ],
-                    //'on missingTranslation' => ['app\components\TranslationEventHandler', 'handleMissingTranslation']
+                    'sourceLanguage' => 'uz',
+                    'enableCaching' => true,
+                    'cachingDuration' => 10,
+                    'forceTranslation'=>true,
+                    'on missingTranslation' => ['app\components\TranslationEventHandler', 'handleMissingTranslation']
 
                 ],
             ],
@@ -72,7 +71,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['ru', 'uz', 'oz'],
+            'languages' => ['uz', 'oz','ru'],
             'rules' => [
 
             ],
