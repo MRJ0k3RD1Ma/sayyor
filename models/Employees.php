@@ -15,7 +15,7 @@ use Yii;
  *
  * @property EmpPosts $empPosts
  */
-class Employees extends \yii\db\ActiveRecord
+class Employees extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -59,5 +59,87 @@ class Employees extends \yii\db\ActiveRecord
     public function getEmpPosts()
     {
         return $this->hasOne(EmpPosts::className(), ['emp_id' => 'id']);
+    }
+
+    public static function findIdentity($id)
+    {
+        /*$sql = '(
+         (`active_to` IS NOT NULL and `active_each`IS NOT NULL) and (CURDATE() BETWEEN `active_to` and `active_each`)
+         ) OR (
+         (`active_to` IS NOT NULL and `active_each` IS NULL) and (CURDATE()>=`active_to`)
+         ) OR (
+         (`active_to` IS NULL and `active_each` IS NOT NULL) and (CURDATE()<=`active_each`)
+         ) OR (`active_to` IS NULL and `active_each` IS NULL)
+         ';
+        return static::find()->where(['id'=>$id])->andWhere($sql)->andWhere(['status'=>1])->one();*/
+        return static::findOne($id);
+
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return null;
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByUsername($username)
+    {
+        /*$sql = '(
+         (`active_to` IS NOT NULL and `active_each`IS NOT NULL) and (CURDATE() BETWEEN `active_to` and `active_each`)
+         ) OR (
+         (`active_to` IS NOT NULL and `active_each` IS NULL) and (CURDATE()>=`active_to`)
+         ) OR (
+         (`active_to` IS NULL and `active_each` IS NOT NULL) and (CURDATE()<=`active_each`)
+         ) OR (`active_to` IS NULL and `active_each` IS NULL)
+         ';
+        return static::find()->where(['email'=>$username])->andWhere(['status'=>1])->andWhere($sql)->one();*/
+        return static::findOne(['username'=>$username]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAuthKey()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function validateAuthKey($authKey)
+    {
+        return $this->password === $authKey;
+    }
+
+    /**
+     * Validates password
+     *
+     * @param string $password password to validate
+     * @return bool if password provided is valid for current user
+     */
+    public function validatePassword($password)
+    {
+        return Yii::$app->getSecurity()->validatePassword($password,$this->password);
+    }
+    public function encrypt(){
+        $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+        return true;
     }
 }
