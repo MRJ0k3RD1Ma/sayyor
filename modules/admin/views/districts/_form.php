@@ -14,7 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'region_id')->textInput() ?>
+    <?= $form->field($model, 'region_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Regions::find()->all(),'id','name'),[
+            'prompt'=>Yii::t('app','Viloyatni tanlang...')
+    ]) ?>
 
     <?= $form->field($model, 'type')->textInput() ?>
 

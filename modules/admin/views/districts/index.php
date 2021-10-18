@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     'type',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    ['class' => 'yii\grid\ActionColumn','template'=>'{update} {delete}'],
                 ],
             ]); ?>
 
