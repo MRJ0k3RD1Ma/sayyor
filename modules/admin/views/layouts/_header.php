@@ -61,33 +61,45 @@
             <div class="dropdown d-none d-sm-inline-block">
                 <button type="button" class="btn header-item"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img id="header-lang-img" src="/design/assets/images/us.jpg" alt="Header Language" height="16">
+
+                    <img src="/design/assets/images/<?= Yii::$app->language ?>.jpg" alt="Header Language" height="16">
+
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                        <img src="/design/assets/images/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="uz">
+                        <img src="/design/assets/images/uz.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">O'zbek</span>
                     </a>
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                        <img src="/design/assets/images/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                        <img src="/design/assets/images/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                        <img src="/design/assets/images/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="oz">
+                        <img src="/design/assets/images/oz.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Узбек</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                        <img src="/design/assets/images/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                        <img src="/design/assets/images/ru.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Русский</span>
                     </a>
+
+                    <?php
+                        $url = Yii::$app->request->url;
+                        if($url[1]=='u' and $url[2] == 'z'){
+                            $url = substr($url,3,strlen($url)-2);
+                        }
+                        if($url[1]=='r' and $url[2] == 'u'){
+                            $url = substr($url,3,strlen($url)-2);
+                        }
+                        if($url[1]=='o' and $url[2] == 'z'){
+                            $url = substr($url,3,strlen($url)-2);
+                        }
+                        $this->registerJs("
+                            $('.language').click(function(){
+                                var lang = this.getAttribute('data-lang');
+                                window.location = '/'+lang+'{$url}';
+                            })
+                        ");
+                    ?>
+
                 </div>
             </div>
 

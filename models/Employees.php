@@ -8,10 +8,10 @@ use Yii;
  * This is the model class for table "employees".
  *
  * @property int $id
- * @property string|null $name
- * @property string|null $email
- * @property string|null $phone
- * @property string|null $password
+ * @property string $name
+ * @property string $email
+ * @property string $phone
+ * @property string $password
  *
  * @property EmpPosts $empPosts
  */
@@ -31,9 +31,11 @@ class Employees extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterf
     public function rules()
     {
         return [
+            [['name', 'email', 'phone', ], 'required'],
+            ['password','required','on'=>'insert'],
             [['name', 'email'], 'string', 'max' => 100],
             [['phone'], 'string', 'max' => 20],
-            [['password'], 'string', 'max' => 50],
+            [['password'], 'string', 'max' => 500],
         ];
     }
 
@@ -59,22 +61,20 @@ class Employees extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterf
     public function getEmpPosts()
     {
         return $this->hasOne(EmpPosts::className(), ['emp_id' => 'id']);
-    }
+    }  public static function findIdentity($id)
+{
+    /*$sql = '(
+     (`active_to` IS NOT NULL and `active_each`IS NOT NULL) and (CURDATE() BETWEEN `active_to` and `active_each`)
+     ) OR (
+     (`active_to` IS NOT NULL and `active_each` IS NULL) and (CURDATE()>=`active_to`)
+     ) OR (
+     (`active_to` IS NULL and `active_each` IS NOT NULL) and (CURDATE()<=`active_each`)
+     ) OR (`active_to` IS NULL and `active_each` IS NULL)
+     ';
+    return static::find()->where(['id'=>$id])->andWhere($sql)->andWhere(['status'=>1])->one();*/
+    return static::findOne($id);
 
-    public static function findIdentity($id)
-    {
-        /*$sql = '(
-         (`active_to` IS NOT NULL and `active_each`IS NOT NULL) and (CURDATE() BETWEEN `active_to` and `active_each`)
-         ) OR (
-         (`active_to` IS NOT NULL and `active_each` IS NULL) and (CURDATE()>=`active_to`)
-         ) OR (
-         (`active_to` IS NULL and `active_each` IS NOT NULL) and (CURDATE()<=`active_each`)
-         ) OR (`active_to` IS NULL and `active_each` IS NULL)
-         ';
-        return static::find()->where(['id'=>$id])->andWhere($sql)->andWhere(['status'=>1])->one();*/
-        return static::findOne($id);
-
-    }
+}
 
     /**
      * @inheritdoc
@@ -101,7 +101,7 @@ class Employees extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterf
          ) OR (`active_to` IS NULL and `active_each` IS NULL)
          ';
         return static::find()->where(['email'=>$username])->andWhere(['status'=>1])->andWhere($sql)->one();*/
-        return static::findOne(['username'=>$username]);
+        return static::findOne(['email'=>$username]);
     }
 
     /**

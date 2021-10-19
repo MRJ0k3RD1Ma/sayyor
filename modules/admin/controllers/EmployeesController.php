@@ -67,10 +67,12 @@ class EmployeesController extends Controller
     public function actionCreate()
     {
         $model = new Employees();
-
+        $model->scenario = 'insert';
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-                $model->password = $model->encrypt();
+
+                $model->encrypt();
+
                 if($model->save()){
                     return $this->redirect(['view', 'id' => $model->id]);
                 }else{
@@ -99,6 +101,7 @@ class EmployeesController extends Controller
     {
         $model = $this->findModel($id);
         $pas = $model->password;
+        $model->password = "";
         if ($this->request->isPost && $model->load($this->request->post())) {
             if($model->password){
                 $model->encrypt();
