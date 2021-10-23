@@ -71,10 +71,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 
-            /*'class' => 'codemix\localeurls\UrlManager',
+            'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['uz', 'oz','ru' ],
             'enableDefaultLanguageUrlCode' => true,
-            'enableLanguagePersistence' => false,*/
+            'enableLanguagePersistence' => false,
             'rules' => [
 
             ],
