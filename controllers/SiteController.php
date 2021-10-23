@@ -125,4 +125,17 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+    public function actionChangelanguage($lang = -1){
+        if($lang != -1){
+            Yii::$app->language = $lang;
+            Yii::$app->session->set('language', $lang);
+//            echo Yii::$app->language;
+            echo 1;
+        }else{
+            echo -1;
+        }
+        exit;
+    }
 }

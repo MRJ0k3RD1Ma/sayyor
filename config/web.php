@@ -11,12 +11,12 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'language'=>'ru',
     'modules' => [
-        'employee' => [
+        'cp' => [
             'class' => 'app\modules\admin\Module',
         ],
     ],
+
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -37,7 +37,7 @@ $config = [
         ],
         'i18n' => [
             'translations' => [
-                'app*' => [
+                '*' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     //'basePath' => '@app/messages',
                     'sourceLanguage' => 'uz',
@@ -70,8 +70,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'class' => 'codemix\localeurls\UrlManager',
+
+            /*'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['uz', 'oz','ru' ],
+            'enableDefaultLanguageUrlCode' => true,
+            'enableLanguagePersistence' => false,*/
             'rules' => [
 
             ],

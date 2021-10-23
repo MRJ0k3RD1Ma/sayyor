@@ -28,13 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
 
 //                    'id',
-//                    'name',
-                    [
-                        'attribute'=>'name',
-                        'value'=>function($d){
-                            return Yii::t('app',$d->name);
-                        },
-                    ],
+                    'name',
 
                     ['class' => 'yii\grid\ActionColumn','template'=>'{update} {delete}'],
                 ],
