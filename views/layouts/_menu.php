@@ -19,7 +19,6 @@
 
                 <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('app','Elements')?></li>
 
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="sliders"></i>
@@ -30,6 +29,8 @@
                         <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('app','Tumanlar')?></a></li>
                     </ul>
                 </li>
+
+
                 <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('app','Sozlamalar')?></li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">

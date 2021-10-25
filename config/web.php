@@ -70,7 +70,6 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-
             'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['uz', 'oz','ru' ],
             'enableDefaultLanguageUrlCode' => true,

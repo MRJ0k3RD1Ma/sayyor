@@ -35,7 +35,7 @@ class BackAsset extends AssetBundle
         'design/assets/js/apexcharts.min.js',
         'design/assets/js/jquery-jvectormap-1.2.2.min.js',
         'design/assets/js/jquery-jvectormap-world-mill-en.js',
-        'design/assets/js/dashboard.init.js',
+//        'design/assets/js/dashboard.init.js',
         'design/assets/js/app.js',
     ];
     public $depends = [
