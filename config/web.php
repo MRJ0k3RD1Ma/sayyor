@@ -30,7 +30,7 @@ $config = [
             'class' => 'yii\web\User',
             'identityClass' => 'app\models\Employees',
             'enableAutoLogin' => true,
-            'loginUrl'=>['/employee/default/login'],
+            'loginUrl'=>['/cp/default/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

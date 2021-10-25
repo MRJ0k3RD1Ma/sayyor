@@ -7,9 +7,8 @@ use yii\widgets\ActiveForm;
     <div class="form-container sign-in-container">
         <div class="overlay">
             <div class="overlay-panel overlay-right">
-                <h1>"Э-Аҳоли"</h1>
-                <p>Хоразм вилояти ҳокимлигининг маҳаллабай аҳоли - оилалар, аёллар ва ёшлар билан ишлаш бўйича <u><big>аҳборот
-                            тизими</big></u></p>
+                <h1>"Sayyor"</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, odit! <u><big>Lorem ipsum.</big></u></p>
             </div>
         </div>
     </div>
@@ -18,7 +17,7 @@ use yii\widgets\ActiveForm;
         <?php $form = ActiveForm::begin()?>
 
             <h1>Тизимга кириш</h1>
-            <span><p>"Э-Аҳоли" ахборот тизимига кириш учун логин ва парольни киритинг.</p></span>
+            <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, ducimus!</p></span>
             <span>маълумотларни киритинг</span>
 
             <?= $form->field($model,'email')->textInput(['autofocus' => true,'placeholder'=>$model->getAttributeLabel('email')])->label(false) ?>
