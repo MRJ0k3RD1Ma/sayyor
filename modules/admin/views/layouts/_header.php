@@ -82,26 +82,30 @@
                     </a>
 
                     <?php
-                        $url = Yii::$app->request->url;
-                        if($url[1]=='u' and $url[2] == 'z'){
-                            $url = substr($url,3,strlen($url)-2);
-                        }
-                        if($url[1]=='r' and $url[2] == 'u'){
-                            $url = substr($url,3,strlen($url)-2);
-                        }
-                        if($url[1]=='o' and $url[2] == 'z'){
-                            $url = substr($url,3,strlen($url)-2);
-                        }
+
                         $site = Yii::$app->urlManager->createUrl(['/site/changelanguage']);
                         $this->registerJs("
                             $('.language').click(function(){
                                 var lang = this.getAttribute('data-lang');
-//                                window.location = '/'+lang+'{$url}';
-                                $.get('{$site}?lang='+lang).done(function(data){
-                                    if(data == 1){
-                                        location.reload();
-                                    }
-                                })
+                                var url = document.URL;
+                                if(url.substr(url.length - 1) != '/'){
+                                    url  = url + '/';
+                                }
+                                
+                                if(lang == 'uz'){
+                                    url = url.replace('/oz/','/'+lang+'/');
+                                    url = url.replace('/ru/','/'+lang+'/');
+                                   
+                                }
+                                if(lang == 'oz'){
+                                    url = url.replace('/uz/','/'+lang+'/');
+                                    url = url.replace('/ru/','/'+lang+'/');
+                                }
+                                if(lang == 'ru'){
+                                    url = url.replace('/uz/','/'+lang+'/');
+                                    url = url.replace('/oz/','/'+lang+'/');
+                                }
+                                window.location.replace(url);
                             })
                         ");
                     ?>

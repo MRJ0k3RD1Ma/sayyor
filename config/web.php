@@ -15,6 +15,9 @@ $config = [
         'cp' => [
             'class' => 'app\modules\admin\Module',
         ],
+        'imtodb' => [
+            'class' => 'app\modules\imtodb\Module',
+        ],
     ],
 
     'components' => [
