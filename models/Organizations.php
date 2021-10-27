@@ -8,14 +8,17 @@ use Yii;
  * This is the model class for table "organizations".
  *
  * @property int $id
- * @property string|null $name
- * @property int|null $parent_id
+ * @property string $name
+ * @property int $parent_id
  * @property int|null $state
  * @property int|null $district_id
+ * @property int|null $type_id
  *
- * @property Regions $district
+ * @property Districts $district
  * @property EmpPosts[] $empPosts
+ * @property EmpPostsHistory[] $empPostsHistories
  * @property StateList $state0
+ * @property OrganizationType $type
  */
 class Organizations extends \yii\db\ActiveRecord
 {
@@ -33,10 +36,12 @@ class Organizations extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'state', 'district_id'], 'integer'],
+            [['name'], 'required'],
+            [['parent_id', 'state', 'district_id', 'type_id'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['district_id'], 'exist', 'skipOnError' => true, 'targetClass' => Regions::className(), 'targetAttribute' => ['district_id' => 'id']],
+            [['district_id'], 'exist', 'skipOnError' => true, 'targetClass' => Districts::className(), 'targetAttribute' => ['district_id' => 'id']],
             [['state'], 'exist', 'skipOnError' => true, 'targetClass' => StateList::className(), 'targetAttribute' => ['state' => 'id']],
+            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => OrganizationType::className(), 'targetAttribute' => ['type_id' => 'id']],
         ];
     }
 
@@ -51,6 +56,7 @@ class Organizations extends \yii\db\ActiveRecord
             'parent_id' => Yii::t('app', 'Parent ID'),
             'state' => Yii::t('app', 'State'),
             'district_id' => Yii::t('app', 'District ID'),
+            'type_id' => Yii::t('app', 'Type ID'),
         ];
     }
 
@@ -61,7 +67,7 @@ class Organizations extends \yii\db\ActiveRecord
      */
     public function getDistrict()
     {
-        return $this->hasOne(Regions::className(), ['id' => 'district_id']);
+        return $this->hasOne(Districts::className(), ['id' => 'district_id']);
     }
 
     /**
@@ -75,6 +81,16 @@ class Organizations extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[EmpPostsHistories]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEmpPostsHistories()
+    {
+        return $this->hasMany(EmpPostsHistory::className(), ['org_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[State0]].
      *
      * @return \yii\db\ActiveQuery
@@ -82,5 +98,15 @@ class Organizations extends \yii\db\ActiveRecord
     public function getState0()
     {
         return $this->hasOne(StateList::className(), ['id' => 'state']);
+    }
+
+    /**
+     * Gets query for [[Type]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getType()
+    {
+        return $this->hasOne(OrganizationType::className(), ['id' => 'type_id']);
     }
 }

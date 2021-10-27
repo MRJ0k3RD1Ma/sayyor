@@ -24,6 +24,7 @@ class BackAsset extends AssetBundle
         'design/assets/css/bootstrap.min.css',
         'design/assets/css/icons.min.css',
         'design/assets/css/app.min.css',
+        'design/assets/css/custom.css',
     ];
     public $js = [
         'design/assets/js/bootstrap.bundle.min.js',
