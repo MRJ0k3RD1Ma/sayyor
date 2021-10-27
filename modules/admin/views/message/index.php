@@ -12,12 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="message-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Message'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -27,6 +21,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
+//            'translation:ntext',
+            [
+                'attribute'=>'translation',
+                'value'=>function($d){
+                    $url = \yii\helpers\Url::to(['update','id'=>$d->id,'lang'=>$d->language]);
+                    return "<a href='$url'>{$d->translation}</a>";
+                },
+                'format'=>'raw'
+            ],
+            'language',
             [
                 'value'=>function($d){
                     return $d->id0->category;
@@ -39,10 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $d->id0->message;
                 }
             ],
-            'language',
-            'translation:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+
         ],
     ]); ?>
 

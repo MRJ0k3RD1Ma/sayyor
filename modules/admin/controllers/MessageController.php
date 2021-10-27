@@ -90,12 +90,12 @@ class MessageController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id, $language)
+    public function actionUpdate($id, $lang)
     {
-        $model = $this->findModel($id, $language);
+        $model = $this->findModel($id, $lang);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'language' => $model->language]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

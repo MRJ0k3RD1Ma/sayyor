@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="btns flex">
             <div class="search">
 
-                <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],])?>
+                <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],'method'=>'get'])?>
                     <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
                     <button class="btn" type="submit"><span class="fa fa-search"></span></button>
                 <?php \yii\widgets\ActiveForm::end()?>
