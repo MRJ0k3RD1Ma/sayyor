@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Districts;
+use app\models\Region;
 use app\models\search\DistrictsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -128,6 +129,34 @@ class DistrictsController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(\Yii::t('app', 'The requested page does not exist.'));
+    }
+    public function actionGetselect($id){
+        $model = Districts::find()->where(['region_id'=>$id])->all();
+        $txt = \Yii::t('cp','-Tumanni tanlang-');
+        $res = "<option value=''>{$txt}</option>";
+        foreach ($model as $item){
+            $res .= "<option value='{$item->id}'>{$item->name}</option>";
+        }
+        echo $res;
+        exit;
+    }
+    public function actionGetjson($id){
+        $model = Districts::find()->where(['region_id'=>$id])->all();
+        $txt = \Yii::t('cp','-Tumanni tanlang-');
+        $res = "\"district\":{";
+        $cnt = count($model);
+        $n=0;
+        foreach ($model as $item){
+            $n++;
+            if($n==$cnt){
+                $res .= "{$item->id}:\"{$item->name}\"";
+            }else{
+                $res .= "{$item->id}:\"{$item->name}\",";
+            }
+        }
+        $res .="}";
+        echo $res;
+        exit;
     }
 }

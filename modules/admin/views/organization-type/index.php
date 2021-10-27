@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
                     <button class="btn" type="submit"><span class="fa fa-search"></span></button>
                 <?php \yii\widgets\ActiveForm::end()?>
+
             </div>
             <div class="export">
 
@@ -52,8 +53,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'label'=>Yii::t('cp','Ташкилотлар сони'),
                         'value'=>function($d){
-                            return $d->count();
-                        }
+                            $url = Yii::$app->urlManager->createUrl(['/cp/organizations']);
+                            $txt = Yii::t('cp','ta');
+                            return "<a href='{$url}'>{$d->count()} {$txt}</a>";
+                        },
+                        'format'=>'raw',
                     ],
 
                     ['class' => 'yii\grid\ActionColumn','template'=>'{update} {delete}'],
