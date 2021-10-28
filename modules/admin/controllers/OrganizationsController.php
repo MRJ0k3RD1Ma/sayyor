@@ -91,7 +91,7 @@ class OrganizationsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $model->reg = $model->district->region_id;
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -128,6 +128,27 @@ class OrganizationsController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(\Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionGetselect($dist=-1,$type=0){
+        $model = Organizations::find()->all();
+        if($type != 0){
+            $model = Organizations::find()->where(['type_id'=>$type])->all();
+        }
+        if($dist != -1){
+            $model = Organizations::find()->andWhere(['district_id'=>$dist])->all();
+        }
+        if($type != 0 and $dist != -1){
+            $model = Organizations::find()->andWhere(['district_id'=>$dist,'type_id'=>$type])->all();
+        }
+        $txt = \Yii::t('cp','Yuqori turuvchi tashkilotni tanlang');
+        $res = "<option value=''>-{$txt}-</option>";
+
+        foreach ($model as $item){
+            $res .= "<option value='{$item->id}'>{$item->name}</option>";
+        }
+        echo $res;
+        exit;
     }
 }

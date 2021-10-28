@@ -22,6 +22,7 @@ use Yii;
  */
 class Organizations extends \yii\db\ActiveRecord
 {
+    public $reg,$yuqori_reg,$yuqori_dist,$yuqori_type;
     /**
      * {@inheritdoc}
      */
@@ -36,8 +37,8 @@ class Organizations extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['parent_id', 'state', 'district_id', 'type_id'], 'integer'],
+            [['name', 'state', 'district_id', 'type_id'], 'required'],
+            [['parent_id','yuqori_dist','yuqori_reg','reg', 'state', 'district_id', 'type_id'], 'integer'],
             [['name'], 'string', 'max' => 50],
             [['district_id'], 'exist', 'skipOnError' => true, 'targetClass' => Districts::className(), 'targetAttribute' => ['district_id' => 'id']],
             [['state'], 'exist', 'skipOnError' => true, 'targetClass' => StateList::className(), 'targetAttribute' => ['state' => 'id']],
@@ -57,6 +58,7 @@ class Organizations extends \yii\db\ActiveRecord
             'state' => Yii::t('app', 'State'),
             'district_id' => Yii::t('app', 'District ID'),
             'type_id' => Yii::t('app', 'Type ID'),
+            'reg' => Yii::t('app', 'Region ID'),
         ];
     }
 

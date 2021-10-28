@@ -131,7 +131,7 @@ class DistrictsController extends Controller
 
         throw new NotFoundHttpException(\Yii::t('app', 'The requested page does not exist.'));
     }
-    public function actionGetselect($id){
+    public function actionGetselect($id=-1){
         $model = Districts::find()->where(['region_id'=>$id])->all();
         $txt = \Yii::t('cp','-Tumanni tanlang-');
         $res = "<option value=''>{$txt}</option>";
@@ -143,7 +143,6 @@ class DistrictsController extends Controller
     }
     public function actionGetjson($id){
         $model = Districts::find()->where(['region_id'=>$id])->all();
-        $txt = \Yii::t('cp','-Tumanni tanlang-');
         $res = "\"district\":{";
         $cnt = count($model);
         $n=0;
