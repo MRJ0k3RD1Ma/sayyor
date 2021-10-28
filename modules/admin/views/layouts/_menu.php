@@ -30,6 +30,16 @@
                         <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','Tumanlar')?></a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="users"></i>
+                        <span data-key="t-tables"><?= Yii::t('cp.menu','Ma\'lumotnoma')?></span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/inside'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Ichki')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/outside'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Tashqi')?></a></li>
+                    </ul>
+                </li>
                 <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Sozlamalar')?></li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
