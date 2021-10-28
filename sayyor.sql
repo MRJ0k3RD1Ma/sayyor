@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Окт 15 2021 г., 17:26
--- Версия сервера: 10.4.21-MariaDB
--- Версия PHP: 7.4.24
+-- Host: 127.0.0.1
+-- Generation Time: Oct 28, 2021 at 03:11 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `sayyor`
+-- Database: `sayyor`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `districts`
+-- Table structure for table `districts`
 --
 
 CREATE TABLE `districts` (
@@ -35,7 +35,7 @@ CREATE TABLE `districts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `districts`
+-- Dumping data for table `districts`
 --
 
 INSERT INTO `districts` (`id`, `name`, `region_id`, `type`) VALUES
@@ -243,7 +243,7 @@ INSERT INTO `districts` (`id`, `name`, `region_id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `employees`
+-- Table structure for table `employees`
 --
 
 CREATE TABLE `employees` (
@@ -251,13 +251,20 @@ CREATE TABLE `employees` (
   `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `password` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Ходимлар жадвали. Рол, статус, ҳолатлар триггерларда тўлдирилади.';
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `name`, `email`, `phone`, `password`) VALUES
+(1, 'Administrator', 'admin@gmail.com', '+998999670395', '$2y$13$ZKa/Z1lCi5QLt/oo2kRBNeE5jKtYKv5AgJsnfkZ.qAPClLUZRAF3y');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `emp_posts`
+-- Table structure for table `emp_posts`
 --
 
 CREATE TABLE `emp_posts` (
@@ -273,7 +280,7 @@ CREATE TABLE `emp_posts` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `emp_posts_history`
+-- Table structure for table `emp_posts_history`
 --
 
 CREATE TABLE `emp_posts_history` (
@@ -288,7 +295,7 @@ CREATE TABLE `emp_posts_history` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `message`
+-- Table structure for table `message`
 --
 
 CREATE TABLE `message` (
@@ -298,18 +305,21 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `message`
+-- Dumping data for table `message`
 --
 
 INSERT INTO `message` (`id`, `language`, `translation`) VALUES
-(1, 'ru', 'Regions'),
-(2, 'ru', 'Create Regions'),
+(1, 'ru', 'Регионы'),
+(2, 'ru', 'Создать регионы'),
 (3, 'ru', 'ID'),
 (4, 'ru', 'Name'),
 (5, 'ru', 'Save'),
 (6, 'ru', 'Update Regions: {name}'),
+(7, 'oz', 'Update'),
 (7, 'ru', 'Update'),
+(8, 'oz', 'Viloyatlar'),
 (8, 'ru', 'Viloyatlar'),
+(9, 'oz', 'Tumanlar'),
 (9, 'ru', 'Tumanlar'),
 (10, 'ru', 'Language'),
 (11, 'ru', 'Translation'),
@@ -330,12 +340,74 @@ INSERT INTO `message` (`id`, `language`, `translation`) VALUES
 (26, 'ru', 'Toshkent viloyati'),
 (27, 'ru', 'Farg‘ona viloyati'),
 (28, 'ru', 'Xorazm viloyati'),
-(29, 'ru', 'Toshkent shahri');
+(29, 'ru', 'Toshkent shahri'),
+(30, 'oz', 'Dashboard'),
+(30, 'ru', 'Dashboard'),
+(31, 'oz', 'Elements'),
+(31, 'ru', 'Elements'),
+(32, 'oz', 'Sozlamalar'),
+(32, 'ru', 'Sozlamalar'),
+(33, 'oz', 'Foydalanuvchilar'),
+(33, 'ru', 'Foydalanuvchilar'),
+(34, 'oz', 'Tashkilotlar'),
+(34, 'ru', 'Tashkilotlar'),
+(35, 'oz', 'Create Organizations'),
+(35, 'ru', 'Create Organizations'),
+(36, 'oz', 'Organizations'),
+(36, 'ru', 'Organizations'),
+(37, 'oz', 'Viloyat'),
+(37, 'ru', 'Viloyat'),
+(38, 'oz', 'Turi'),
+(38, 'ru', 'Turi'),
+(39, 'oz', 'Qidiruv:'),
+(39, 'ru', 'Qidiruv:'),
+(40, 'oz', 'Tashkilot turlari'),
+(40, 'ru', 'Tashkilot turlari'),
+(41, 'oz', 'Create Organization Type'),
+(41, 'ru', 'Create Organization Type'),
+(42, 'oz', 'Organization Types'),
+(42, 'ru', 'Organization Types'),
+(43, 'ru', 'Are you sure you want to delete this item?'),
+(44, 'oz', 'Ташкилотлар сони'),
+(44, 'ru', 'Ташкилотлар сони'),
+(45, 'oz', 'Export'),
+(45, 'ru', 'Export'),
+(46, 'oz', 'Excel'),
+(46, 'ru', 'Excel'),
+(47, 'oz', 'Pdf'),
+(47, 'ru', 'Pdf'),
+(48, 'oz', 'ta'),
+(48, 'ru', 'ta'),
+(49, 'oz', 'Update Organization Type: {name}'),
+(50, 'oz', '-Tumanni tanlang-'),
+(50, 'ru', '-Tumanni tanlang-'),
+(51, 'ru', 'Viloyatni tanlang'),
+(52, 'ru', 'Tumanni tanglang'),
+(53, 'ru', 'Yuqori turuvchi tashkilot'),
+(54, 'ru', 'Yuqori turuvchi tashkilot turini tanlang'),
+(55, 'ru', 'Yuqori turuvchi tashkilotni tanlang'),
+(56, 'uz', 'Organizations'),
+(57, 'uz', 'Qidiruv:'),
+(58, 'uz', 'Create Organizations'),
+(59, 'uz', 'Viloyat'),
+(60, 'uz', 'Turi'),
+(61, 'uz', 'Dashboard'),
+(62, 'uz', 'Elements'),
+(63, 'uz', 'Viloyatlar'),
+(64, 'uz', 'Tumanlar'),
+(65, 'uz', 'Sozlamalar'),
+(66, 'uz', 'Foydalanuvchilar'),
+(67, 'uz', 'Tashkilotlar'),
+(68, 'uz', 'Tashkilot turlari'),
+(69, 'ru', 'Ma\'lumotnoma'),
+(70, 'ru', 'Ichki'),
+(71, 'ru', 'Tashqi'),
+(72, 'ru', 'Категория животных');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `migration`
+-- Table structure for table `migration`
 --
 
 CREATE TABLE `migration` (
@@ -344,7 +416,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `migration`
+-- Dumping data for table `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -354,21 +426,54 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `organizations`
+-- Table structure for table `organizations`
 --
 
 CREATE TABLE `organizations` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT -1,
   `state` int(11) DEFAULT NULL,
-  `district_id` int(11) DEFAULT NULL
+  `district_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `organizations`
+--
+
+INSERT INTO `organizations` (`id`, `name`, `parent_id`, `state`, `district_id`, `type_id`) VALUES
+(1, 'O\'zbekiston Respublikasi Veterinariya va chorvachi', -1, 1, 198, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `post_list`
+-- Table structure for table `organization_type`
+--
+
+CREATE TABLE `organization_type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `organization_type`
+--
+
+INSERT INTO `organization_type` (`id`, `name`) VALUES
+(-1, 'Yuqori turuvchi tashkiloti mavjud emas'),
+(1, 'Respublika Vetkomita'),
+(2, 'Vetkomita viloyat boshqarmasi'),
+(3, 'Vetkomita tuman bo\'limi'),
+(4, 'Qushxona'),
+(5, 'Chegara postlari'),
+(6, 'Labaratoriya (alohida)'),
+(7, 'Tadbirkorlik subyektlari');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_list`
 --
 
 CREATE TABLE `post_list` (
@@ -380,7 +485,7 @@ CREATE TABLE `post_list` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `regions`
+-- Table structure for table `regions`
 --
 
 CREATE TABLE `regions` (
@@ -389,7 +494,7 @@ CREATE TABLE `regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `regions`
+-- Dumping data for table `regions`
 --
 
 INSERT INTO `regions` (`id`, `name`) VALUES
@@ -411,7 +516,7 @@ INSERT INTO `regions` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -422,7 +527,7 @@ CREATE TABLE `roles` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `source_message`
+-- Table structure for table `source_message`
 --
 
 CREATE TABLE `source_message` (
@@ -432,7 +537,7 @@ CREATE TABLE `source_message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `source_message`
+-- Dumping data for table `source_message`
 --
 
 INSERT INTO `source_message` (`id`, `category`, `message`) VALUES
@@ -464,12 +569,55 @@ INSERT INTO `source_message` (`id`, `category`, `message`) VALUES
 (26, 'app', 'Toshkent viloyati'),
 (27, 'app', 'Farg‘ona viloyati'),
 (28, 'app', 'Xorazm viloyati'),
-(29, 'app', 'Toshkent shahri');
+(29, 'app', 'Toshkent shahri'),
+(30, 'cp.menu', 'Dashboard'),
+(31, 'cp.menu', 'Elements'),
+(32, 'cp.menu', 'Sozlamalar'),
+(33, 'cp.menu', 'Foydalanuvchilar'),
+(34, 'cp.menu', 'Tashkilotlar'),
+(35, 'cp', 'Create Organizations'),
+(36, 'cp', 'Organizations'),
+(37, 'cp', 'Viloyat'),
+(38, 'cp', 'Turi'),
+(39, 'cp', 'Qidiruv:'),
+(40, 'cp.menu', 'Tashkilot turlari'),
+(41, 'cp', 'Create Organization Type'),
+(42, 'cp', 'Organization Types'),
+(43, 'cp', 'Are you sure you want to delete this item?'),
+(44, 'cp', 'Ташкилотлар сони'),
+(45, 'cp', 'Export'),
+(46, 'cp', 'Excel'),
+(47, 'cp', 'Pdf'),
+(48, 'cp', 'ta'),
+(49, 'cp', 'Update Organization Type: {name}'),
+(50, 'cp', '-Tumanni tanlang-'),
+(51, 'cp', 'Viloyatni tanlang'),
+(52, 'cp', 'Tumanni tanglang'),
+(53, 'cp', 'Yuqori turuvchi tashkilot'),
+(54, 'cp', 'Yuqori turuvchi tashkilot turini tanlang'),
+(55, 'cp', 'Yuqori turuvchi tashkilotni tanlang'),
+(56, 'cp', 'Organizations'),
+(57, 'cp', 'Qidiruv:'),
+(58, 'cp', 'Create Organizations'),
+(59, 'cp', 'Viloyat'),
+(60, 'cp', 'Turi'),
+(61, 'cp.menu', 'Dashboard'),
+(62, 'cp.menu', 'Elements'),
+(63, 'cp.menu', 'Viloyatlar'),
+(64, 'cp.menu', 'Tumanlar'),
+(65, 'cp.menu', 'Sozlamalar'),
+(66, 'cp.menu', 'Foydalanuvchilar'),
+(67, 'cp.menu', 'Tashkilotlar'),
+(68, 'cp.menu', 'Tashkilot turlari'),
+(69, 'cp.menu', 'Ma\'lumotnoma'),
+(70, 'cp.menu', 'Ichki'),
+(71, 'cp.menu', 'Tashqi'),
+(72, 'cp', 'Категория животных');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `state_list`
+-- Table structure for table `state_list`
 --
 
 CREATE TABLE `state_list` (
@@ -477,10 +625,19 @@ CREATE TABLE `state_list` (
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Холатлар рўйхати. Масалан, актив, ноактив ва ҳ.к.';
 
+--
+-- Dumping data for table `state_list`
+--
+
+INSERT INTO `state_list` (`id`, `name`) VALUES
+(1, 'Aktiv'),
+(2, 'Disaktiv'),
+(3, 'kutish rejimida');
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `status_list`
+-- Table structure for table `status_list`
 --
 
 CREATE TABLE `status_list` (
@@ -489,24 +646,24 @@ CREATE TABLE `status_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Статуслар рўйхати. Масалан: доимий, вақтинчалик вазифасини бажарувчи, ходатайство ва ҳ.к.';
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `districts`
+-- Indexes for table `districts`
 --
 ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_districts_regions_id` (`region_id`);
 
 --
--- Индексы таблицы `employees`
+-- Indexes for table `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `emp_posts`
+-- Indexes for table `emp_posts`
 --
 ALTER TABLE `emp_posts`
   ADD PRIMARY KEY (`id`),
@@ -517,7 +674,7 @@ ALTER TABLE `emp_posts`
   ADD KEY `FK_emp_posts_state_list_id` (`state_id`);
 
 --
--- Индексы таблицы `emp_posts_history`
+-- Indexes for table `emp_posts_history`
 --
 ALTER TABLE `emp_posts_history`
   ADD KEY `FK_emp_posts_history_emp_posts_emp_id` (`emp_id`),
@@ -527,140 +684,153 @@ ALTER TABLE `emp_posts_history`
   ADD KEY `FK_emp_posts_history_status_list_id` (`status_id`);
 
 --
--- Индексы таблицы `message`
+-- Indexes for table `message`
 --
 ALTER TABLE `message`
   ADD PRIMARY KEY (`id`,`language`),
   ADD KEY `idx_message_language` (`language`);
 
 --
--- Индексы таблицы `migration`
+-- Indexes for table `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Индексы таблицы `organizations`
+-- Indexes for table `organizations`
 --
 ALTER TABLE `organizations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_organizations_districts_id` (`district_id`),
-  ADD KEY `FK_organizations_state_list_id` (`state`);
+  ADD KEY `FK_organizations_state_list_id` (`state`),
+  ADD KEY `type_id` (`type_id`);
 
 --
--- Индексы таблицы `post_list`
+-- Indexes for table `organization_type`
+--
+ALTER TABLE `organization_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `post_list`
 --
 ALTER TABLE `post_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_post_list_roles_id` (`def_role`);
 
 --
--- Индексы таблицы `regions`
+-- Indexes for table `regions`
 --
 ALTER TABLE `regions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `source_message`
+-- Indexes for table `source_message`
 --
 ALTER TABLE `source_message`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_source_message_category` (`category`);
 
 --
--- Индексы таблицы `state_list`
+-- Indexes for table `state_list`
 --
 ALTER TABLE `state_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `status_list`
+-- Indexes for table `status_list`
 --
 ALTER TABLE `status_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `districts`
+-- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
 
 --
--- AUTO_INCREMENT для таблицы `employees`
+-- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `emp_posts`
+-- AUTO_INCREMENT for table `emp_posts`
 --
 ALTER TABLE `emp_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `organizations`
+-- AUTO_INCREMENT for table `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `post_list`
+-- AUTO_INCREMENT for table `organization_type`
+--
+ALTER TABLE `organization_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `post_list`
 --
 ALTER TABLE `post_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `regions`
+-- AUTO_INCREMENT for table `regions`
 --
 ALTER TABLE `regions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT для таблицы `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `source_message`
+-- AUTO_INCREMENT for table `source_message`
 --
 ALTER TABLE `source_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
--- AUTO_INCREMENT для таблицы `state_list`
+-- AUTO_INCREMENT for table `state_list`
 --
 ALTER TABLE `state_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT для таблицы `status_list`
+-- AUTO_INCREMENT for table `status_list`
 --
 ALTER TABLE `status_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `districts`
+-- Constraints for table `districts`
 --
 ALTER TABLE `districts`
   ADD CONSTRAINT `FK_districts_regions_id` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `emp_posts`
+-- Constraints for table `emp_posts`
 --
 ALTER TABLE `emp_posts`
   ADD CONSTRAINT `FK_emp_posts` FOREIGN KEY (`status_id`) REFERENCES `status_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -670,7 +840,7 @@ ALTER TABLE `emp_posts`
   ADD CONSTRAINT `FK_emp_roles_employees_id` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `emp_posts_history`
+-- Constraints for table `emp_posts_history`
 --
 ALTER TABLE `emp_posts_history`
   ADD CONSTRAINT `FK_emp_posts_history_emp_posts_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `emp_posts` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -680,20 +850,21 @@ ALTER TABLE `emp_posts_history`
   ADD CONSTRAINT `FK_emp_posts_history_status_list_id` FOREIGN KEY (`status_id`) REFERENCES `status_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `message`
+-- Constraints for table `message`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `fk_message_source_message` FOREIGN KEY (`id`) REFERENCES `source_message` (`id`) ON DELETE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `organizations`
+-- Constraints for table `organizations`
 --
 ALTER TABLE `organizations`
   ADD CONSTRAINT `FK_organizations_districts_id` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_organizations_state_list_id` FOREIGN KEY (`state`) REFERENCES `state_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_organizations_state_list_id` FOREIGN KEY (`state`) REFERENCES `state_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `organizations_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `organization_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `roles`
+-- Constraints for table `roles`
 --
 ALTER TABLE `roles`
   ADD CONSTRAINT `FK_roles_post_list_def_role` FOREIGN KEY (`id`) REFERENCES `post_list` (`def_role`) ON DELETE NO ACTION ON UPDATE NO ACTION;
