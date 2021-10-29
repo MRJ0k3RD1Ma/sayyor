@@ -9,10 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property int $cat_id
  *
  * @property Animals[] $animals
- * @property AnimalCategory $cat
  */
 class AnimalType extends \yii\db\ActiveRecord
 {
@@ -30,10 +28,8 @@ class AnimalType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'cat_id'], 'required'],
-            [['cat_id'], 'integer'],
+            [['name'], 'required'],
             [['name'], 'string', 'max' => 50],
-            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalCategory::className(), 'targetAttribute' => ['cat_id' => 'id']],
         ];
     }
 
@@ -45,7 +41,6 @@ class AnimalType extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'cat_id' => Yii::t('app', 'Cat ID'),
         ];
     }
 
@@ -57,15 +52,5 @@ class AnimalType extends \yii\db\ActiveRecord
     public function getAnimals()
     {
         return $this->hasMany(Animals::className(), ['type_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Cat]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCat()
-    {
-        return $this->hasOne(AnimalCategory::className(), ['id' => 'cat_id']);
     }
 }

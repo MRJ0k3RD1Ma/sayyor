@@ -4,12 +4,12 @@ namespace app\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\AnimalType;
+use app\models\Animals;
 
 /**
- * AnimalTypeSearch represents the model behind the search form of `app\models\AnimalType`.
+ * AnimalsSearch represents the model behind the search form of `app\models\Animals`.
  */
-class AnimalTypeSearch extends AnimalType
+class AnimalsSearch extends Animals
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,7 @@ class AnimalTypeSearch extends AnimalType
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'cat_id'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -40,7 +40,7 @@ class AnimalTypeSearch extends AnimalType
      */
     public function search($params)
     {
-        $query = AnimalType::find();
+        $query = Animals::find();
 
         // add conditions that should always apply here
 
@@ -59,6 +59,7 @@ class AnimalTypeSearch extends AnimalType
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'cat_id' => $this->cat_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

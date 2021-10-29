@@ -9,13 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property int $type_id
- * @property int $color_id
- * @property int $gender_id
+ * @property int $cat_id
  *
- * @property AnimalColor $color
- * @property AnimalGender $gender
- * @property AnimalType $type
+ * @property AnimalCategory $cat
  */
 class Animals extends \yii\db\ActiveRecord
 {
@@ -33,12 +29,10 @@ class Animals extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'type_id', 'color_id', 'gender_id'], 'required'],
-            [['type_id', 'color_id', 'gender_id'], 'integer'],
+            [['name', 'cat_id'], 'required'],
+            [['cat_id'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['color_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalColor::className(), 'targetAttribute' => ['color_id' => 'id']],
-            [['gender_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalGender::className(), 'targetAttribute' => ['gender_id' => 'id']],
-            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalType::className(), 'targetAttribute' => ['type_id' => 'id']],
+            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalCategory::className(), 'targetAttribute' => ['cat_id' => 'id']],
         ];
     }
 
@@ -50,39 +44,17 @@ class Animals extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'type_id' => Yii::t('app', 'Type ID'),
-            'color_id' => Yii::t('app', 'Color ID'),
-            'gender_id' => Yii::t('app', 'Gender ID'),
+            'cat_id' => Yii::t('app', 'Cat ID'),
         ];
     }
 
     /**
-     * Gets query for [[Color]].
+     * Gets query for [[Cat]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getColor()
+    public function getCat()
     {
-        return $this->hasOne(AnimalColor::className(), ['id' => 'color_id']);
-    }
-
-    /**
-     * Gets query for [[Gender]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getGender()
-    {
-        return $this->hasOne(AnimalGender::className(), ['id' => 'gender_id']);
-    }
-
-    /**
-     * Gets query for [[Type]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getType()
-    {
-        return $this->hasOne(AnimalType::className(), ['id' => 'type_id']);
+        return $this->hasOne(AnimalCategory::className(), ['id' => 'cat_id']);
     }
 }
