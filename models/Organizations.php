@@ -111,4 +111,7 @@ class Organizations extends \yii\db\ActiveRecord
     {
         return $this->hasOne(OrganizationType::className(), ['id' => 'type_id']);
     }
+    public function getParent(){
+        return $this->hasOne(Organizations::className(),['id'=>'parent_id']);
+    }
 }

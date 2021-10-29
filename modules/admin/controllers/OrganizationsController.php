@@ -3,7 +3,9 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Organizations;
+use app\models\search\EmployeesSearch;
 use app\models\search\OrganizationsSearch;
+use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -54,8 +56,13 @@ class OrganizationsController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new EmployeesSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

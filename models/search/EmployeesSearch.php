@@ -11,6 +11,7 @@ use app\models\Employees;
  */
 class EmployeesSearch extends Employees
 {
+    public $q;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class EmployeesSearch extends Employees
     {
         return [
             [['id'], 'integer'],
-            [['name', 'email', 'phone', 'password'], 'safe'],
+            [['name', 'q','email', 'phone', 'password'], 'safe'],
         ];
     }
 
