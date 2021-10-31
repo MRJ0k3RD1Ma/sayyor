@@ -15,6 +15,7 @@ use Yii;
  */
 class Message extends \yii\db\ActiveRecord
 {
+    public $message, $category;
     /**
      * {@inheritdoc}
      */
@@ -47,6 +48,8 @@ class Message extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'language' => Yii::t('app', 'Language'),
             'translation' => Yii::t('app', 'Translation'),
+            'category' => Yii::t('app', 'Category'),
+            'message' => Yii::t('app', 'Message'),
         ];
     }
 

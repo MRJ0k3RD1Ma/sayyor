@@ -67,4 +67,10 @@ class DefaultController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionInside(){
+
+        return $this->render('inside');
+
+    }
 }

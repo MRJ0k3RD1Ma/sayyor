@@ -13,32 +13,43 @@
                 <li>
                     <a href="<?= Yii::$app->urlManager->createUrl(['/cp'])?>">
                         <i data-feather="home"></i>
-                        <span data-key="t-dashboard"><?= Yii::t('app','Dashboard')?></span>
+                        <span data-key="t-dashboard"><?= Yii::t('cp.menu','Dashboard')?></span>
                     </a>
                 </li>
 
-                <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('app','Elements')?></li>
+                <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Elements')?></li>
 
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="sliders"></i>
-                        <span data-key="t-tables"><?= Yii::t('app','Viloyatlar')?></span>
+                        <span data-key="t-tables"><?= Yii::t('cp.menu','Viloyatlar')?></span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/regions'])?>" data-key="t-basic-tables"><?= Yii::t('app','Viloyatlar')?></a></li>
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('app','Tumanlar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/regions'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Viloyatlar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','Tumanlar')?></a></li>
                     </ul>
                 </li>
-                <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('app','Sozlamalar')?></li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="users"></i>
-                        <span data-key="t-tables"><?= Yii::t('app','Foydalanuvchilar')?></span>
+                        <span data-key="t-tables"><?= Yii::t('cp.menu','Ma\'lumotnoma')?></span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/employees/index'])?>" data-key="t-basic-tables"><?= Yii::t('app','Foydalanuvchilar')?></a></li>
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('app','Tumanlar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/inside'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Ichki')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/outside'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Tashqi')?></a></li>
+                    </ul>
+                </li>
+                <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Sozlamalar')?></li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="users"></i>
+                        <span data-key="t-tables"><?= Yii::t('cp.menu','Foydalanuvchilar')?></span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/employees/index'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Foydalanuvchilar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/organizations/index'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Tashkilotlar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/organization-type/index'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Tashkilot turlari')?></a></li>
                     </ul>
                 </li>
 

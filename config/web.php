@@ -15,6 +15,9 @@ $config = [
         'cp' => [
             'class' => 'app\modules\admin\Module',
         ],
+        'imtodb' => [
+            'class' => 'app\modules\imtodb\Module',
+        ],
     ],
 
     'components' => [
@@ -30,7 +33,7 @@ $config = [
             'class' => 'yii\web\User',
             'identityClass' => 'app\models\Employees',
             'enableAutoLogin' => true,
-            'loginUrl'=>['/employee/default/login'],
+            'loginUrl'=>['/cp/default/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -70,7 +73,6 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-
             'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['uz', 'oz','ru' ],
             'enableDefaultLanguageUrlCode' => true,
