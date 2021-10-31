@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                     ]) ?>
                 </p>
-
+                <?php if(Yii::$app->security->validatePassword("admin",$model->password)) echo 'ok'; else echo 'nooo'?>
                 <?= DetailView::widget([
                     'model' => $model,
                     'attributes' => [

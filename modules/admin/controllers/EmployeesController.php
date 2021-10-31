@@ -70,7 +70,7 @@ class EmployeesController extends Controller
         $model->scenario = 'insert';
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-
+                $model->password = "{$model->password}";
                 $model->encrypt();
 
                 if($model->save()){
@@ -104,6 +104,7 @@ class EmployeesController extends Controller
         $model->password = "";
         if ($this->request->isPost && $model->load($this->request->post())) {
             if($model->password){
+                $model->password = "{$model->password}";
                 $model->encrypt();
             }else{
                 $model->password = $pas;
@@ -151,4 +152,5 @@ class EmployeesController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
+
 }
