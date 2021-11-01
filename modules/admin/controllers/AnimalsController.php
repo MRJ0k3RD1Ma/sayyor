@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\Animals;
 use app\models\search\AnimalsSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,15 @@ class AnimalsController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -30,7 +40,6 @@ class AnimalsController extends Controller
             ]
         );
     }
-
     /**
      * Lists all Animals models.
      * @return mixed
