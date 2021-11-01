@@ -7,6 +7,7 @@ use app\models\LoginForm;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\Response;
 
 /**
  * Default controller for the `admin` module
@@ -73,4 +74,17 @@ class DefaultController extends Controller
         return $this->render('inside');
 
     }
+
+    /**
+     * Logout action.
+     *
+     * @return Response
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+
 }

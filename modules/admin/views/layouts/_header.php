@@ -134,7 +134,7 @@
                     <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" data-method="post" href="<?= Yii::$app->urlManager->createUrl(['/admin/default/logout'])?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                    <a class="dropdown-item" data-method="post" href="<?= Yii::$app->urlManager->createUrl(['/cp/default/logout'])?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                 </div>
             </div>
 
