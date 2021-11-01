@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <button class="btn btn-primary "> <span class="fa fa-cloud-download-alt"></span> <?= Yii::t('cp','Export')?></button>
                 <div class="export-btn">
-                    <button><span class="fa fa-file-excel"></span>  <?= Yii::t('cp','Excel')?></button>
-                    <button><span class="fa fa-file-pdf"></span>  <?= Yii::t('cp','Pdf')?></button>
+                    <button value="excel" class="export"><span class="fa fa-file-excel"></span>  <?= Yii::t('cp','Excel')?></button>
+                    <button value="excel" class="export"><span class="fa fa-file-pdf"></span>  <?= Yii::t('cp','Pdf')?></button>
                 </div>
             </div>
 
@@ -67,3 +67,23 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <!-- end card body -->
 </div>
+
+<?php
+
+    $excel =  \yii\helpers\Url::current(['export'=>'excel']);
+    $pdf =  \yii\helpers\Url::current(['export'=>'pdf']);
+
+    $this->registerJs("
+        $('.export').click(function(){
+            var type = this.value;
+            if(type == 'excel'){
+                $.post('$excel').done(function(data){
+                    alert(data);
+                });
+            }
+            if(type == 'pdf'){
+            
+            }
+        })
+    ")
+?>
