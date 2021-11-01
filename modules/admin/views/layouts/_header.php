@@ -135,6 +135,10 @@
                     <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-method="post" href="<?= Yii::$app->urlManager->createUrl(['/cp/default/logout'])?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+
+                    <?php $form = \yii\widgets\ActiveForm::begin(['action'=>'/cp/default/logout'])?>
+                        <button class="btn btn-link"></button>
+                    <?php \yii\widgets\ActiveForm::end()?>
                 </div>
             </div>
 
