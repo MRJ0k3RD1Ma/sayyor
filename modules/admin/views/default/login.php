@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\ActiveForm;
-
+$this->title = "Login";
 /* @var $model \app\models\LoginForm*/
 ?>
 

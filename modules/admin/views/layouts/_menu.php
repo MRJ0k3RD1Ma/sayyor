@@ -13,7 +13,7 @@
                 <li>
                     <a href="<?= Yii::$app->urlManager->createUrl(['/cp'])?>">
                         <i data-feather="home"></i>
-                        <span data-key="t-dashboard"><?= Yii::t('cp.menu','Dashboard')?></span>
+                        <span data-key="t-dashboard"><?= Yii::t('cp.menu','Bosh sahifa')?></span>
                     </a>
                 </li>
 
@@ -28,6 +28,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/regions'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Viloyatlar')?></a></li>
                         <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','Tumanlar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','SOATO')?></a></li>
                     </ul>
                 </li>
                 <li>

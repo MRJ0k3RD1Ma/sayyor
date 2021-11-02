@@ -126,7 +126,7 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="/design/assets/images/avatar-1.jpg"
                          alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1 fw-medium"><?= Yii::$app->language ?></span>
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium"><?= Yii::$app->user->identity->name ?></span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
@@ -137,7 +137,7 @@
                     <a class="dropdown-item" data-method="post" href="<?= Yii::$app->urlManager->createUrl(['/cp/default/logout'])?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
 
                     <?php $form = \yii\widgets\ActiveForm::begin(['action'=>'/cp/default/logout'])?>
-                        <button class="btn btn-link"></button>
+                        <button class="btn btn-link" type="submit" name="logout">Logout</button>
                     <?php \yii\widgets\ActiveForm::end()?>
                 </div>
             </div>
