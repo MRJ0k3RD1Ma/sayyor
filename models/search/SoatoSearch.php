@@ -17,7 +17,7 @@ class SoatoSearch extends Soato
     public function rules()
     {
         return [
-            [['id', 'MHOBT_cod', 'res_id', 'region_id', 'district_id', 'qfi_id'], 'integer'],
+            [['MHOBT_cod', 'res_id', 'region_id', 'district_id', 'qfi_id'], 'integer'],
             [['name_lot', 'center_lot', 'name_cyr', 'center_cyr', 'name_ru', 'center_ru'], 'safe'],
         ];
     }
@@ -58,7 +58,6 @@ class SoatoSearch extends Soato
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
             'MHOBT_cod' => $this->MHOBT_cod,
             'res_id' => $this->res_id,
             'region_id' => $this->region_id,

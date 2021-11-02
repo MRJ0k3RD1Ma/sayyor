@@ -22,12 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
                         'MHOBT_cod',
 //            'res_id',
 //            'region_id',
 //            'district_id',
-                        'qfi_id',
+//            'qfi_id',
                         'name_lot',
                         'center_lot',
                         'name_cyr',
@@ -38,7 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
 //                        ['class' => 'yii\grid\ActionColumn'],
                     ],
                 ]); ?>
-
 
             </div>
         </div>

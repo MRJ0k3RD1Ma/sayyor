@@ -15,8 +15,6 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
     <?= $form->field($model, 'MHOBT_cod') ?>
 
     <?= $form->field($model, 'res_id') ?>
@@ -25,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'district_id') ?>
 
-    <?php // echo $form->field($model, 'qfi_id') ?>
+    <?= $form->field($model, 'qfi_id') ?>
 
     <?php // echo $form->field($model, 'name_lot') ?>
 

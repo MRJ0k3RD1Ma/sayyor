@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "soato".
  *
- * @property int|null $MHOBT_cod
+ * @property int $MHOBT_cod
  * @property int|null $res_id
  * @property int|null $region_id
  * @property int|null $district_id
@@ -35,9 +35,11 @@ class Soato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['MHOBT_cod'], 'required'],
             [['MHOBT_cod', 'res_id', 'region_id', 'district_id', 'qfi_id'], 'integer'],
             [['name_lot', 'name_cyr', 'name_ru'], 'string', 'max' => 100],
             [['center_lot', 'center_cyr', 'center_ru'], 'string', 'max' => 50],
+            [['MHOBT_cod'], 'unique'],
         ];
     }
 

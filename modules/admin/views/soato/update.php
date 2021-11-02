@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model app\models\Soato */
 
 $this->title = Yii::t('app', 'Update Soato: {name}', [
-    'name' => $model->id,
+    'name' => $model->MHOBT_cod,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Soatos'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->MHOBT_cod, 'url' => ['view', 'MHOBT_cod' => $model->MHOBT_cod]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="soato-update">
