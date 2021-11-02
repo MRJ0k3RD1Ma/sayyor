@@ -4,21 +4,21 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/'])?>" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="/design/assets/images/logo-sm.svg" alt="" height="24">
+                                    <img src="/design/assets/images/vet.png" alt="" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="/design/assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">Sayyor</span>
+                                    <img src="/design/assets/images/vet.png" alt="" height="24"> <span class="logo-txt">VIS-Sayyor</span>
                                 </span>
                 </a>
 
                 <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="/design/assets/images/logo-sm.svg" alt="" height="24">
+                                    <img src="/design/assets/images/vet.png" alt="" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="/design/assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">Sayyor</span>
+                                    <img src="/design/assets/images/vet.png" alt="" height="24"> <span class="logo-txt">VIS-Sayyor</span>
                                 </span>
                 </a>
             </div>
@@ -27,13 +27,7 @@
                 <i class="fa fa-fw fa-bars"></i>
             </button>
 
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-                <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
-                </div>
-            </form>
+
         </div>
 
         <div class="d-flex">
