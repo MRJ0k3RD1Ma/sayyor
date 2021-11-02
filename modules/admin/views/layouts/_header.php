@@ -136,9 +136,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-method="post" href="<?= Yii::$app->urlManager->createUrl(['/cp/default/logout'])?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
 
-                    <?php $form = \yii\widgets\ActiveForm::begin(['action'=>'/cp/default/logout'])?>
-                        <button class="btn btn-link" type="submit" name="logout">Logout</button>
-                    <?php \yii\widgets\ActiveForm::end()?>
+
                 </div>
             </div>
 
