@@ -57,6 +57,11 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        return $this->redirect(['/cp']);
+    }
+
     /**
      * Displays homepage.
      *
