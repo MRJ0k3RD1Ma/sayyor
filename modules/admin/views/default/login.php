@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\ActiveForm;
-$this->title = "Login";
+$this->title = Yii::t('app',"Tizimga kirish");
 /* @var $model \app\models\LoginForm*/
 ?>
 

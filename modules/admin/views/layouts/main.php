@@ -12,7 +12,6 @@ use yii\bootstrap4\NavBar;
 
 BackAsset::register($this);
 
-$this->title = "Bosh sahifa";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -22,6 +21,7 @@ $this->title = "Bosh sahifa";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
