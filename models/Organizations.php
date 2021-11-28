@@ -64,9 +64,9 @@ class Organizations extends \yii\db\ActiveRecord
             [['id_from_api', 'TIN', 'NA1_CODE', 'NS10_CODE', 'NS11_CODE', 'TELEFON', 'GD_TIN', 'GD_TEL_WORK', 'OKED', 'OKPO', 'OKONX', 'soato'], 'integer'],
             [['TIN', 'NA1_CODE', 'NS10_CODE', 'NS11_CODE', 'NAME_FULL', 'GD_FULL_NAME', 'GD_TIN', 'GD_TEL_WORK', 'GD_EMAIL', 'GB_FULL_NAME', 'GB_TIN', 'OKED', 'OKPO', 'OKONX', 'soato', 'DATE_END', 'CREATED', 'CHANGED', 'GD_MOBILE'], 'required'],
             [['REG_DATE', 'DATE_TIN', 'DATE_END', 'CREATED', 'CHANGED'], 'safe'],
-            [['GD_TEL_HOME', 'BUDJET'], 'boolean'],
+            [['BUDJET'], 'boolean'],
             [['NAME_FULL', 'ADDRESS', 'GD_FULL_NAME', 'GB_FULL_NAME'], 'string', 'max' => 255],
-            [['REG_NUM', 'NS13_CODE', 'TELEX', 'FAX', 'GB_TIN', 'GB_TEL_WORK', 'GB_TEL_HOME', 'GD_MOBILE'], 'string', 'max' => 30],
+            [['REG_NUM', 'NS13_CODE', 'TELEX', 'FAX', 'GB_TIN', 'GB_TEL_WORK', 'GB_TEL_HOME', 'GD_MOBILE','GD_TEL_HOME'], 'string', 'max' => 30],
             [['GD_EMAIL', 'EMAIL'], 'string', 'max' => 100],
         ];
     }
