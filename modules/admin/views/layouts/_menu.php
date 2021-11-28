@@ -20,16 +20,12 @@
                 <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Elements')?></li>
 
 
+
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>" data-key="t-data-tables">
                         <i data-feather="sliders"></i>
-                        <span data-key="t-tables"><?= Yii::t('cp.menu','Viloyatlar')?></span>
+                        <?= Yii::t('cp.menu','SOATO')?>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/regions'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Viloyatlar')?></a></li>
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/districts/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','Tumanlar')?></a></li>
-                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>" data-key="t-data-tables"><?= Yii::t('cp.menu','SOATO')?></a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
