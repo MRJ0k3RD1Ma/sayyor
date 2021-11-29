@@ -2,18 +2,17 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Districts;
-use app\models\Region;
-use app\models\search\DistrictsSearch;
-use yii\filters\AccessControl;
+use app\models\Message;
+use app\models\SourceMessage;
+use app\models\search\SourceMessageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DistrictsController implements the CRUD actions for Districts model.
+ * SourceMessageController implements the CRUD actions for SourceMessage model.
  */
-class DistrictsController extends Controller
+class SourceMessageController extends Controller
 {
     /**
      * @inheritDoc
@@ -23,15 +22,6 @@ class DistrictsController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'access' => [
-                    'class' => AccessControl::className(),
-                    'rules' => [
-                        [
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
-                    ],
-                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -43,12 +33,12 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Lists all Districts models.
+     * Lists all SourceMessage models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DistrictsSearch();
+        $searchModel = new SourceMessageSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -58,7 +48,7 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Displays a single Districts model.
+     * Displays a single SourceMessage model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -71,17 +61,17 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Creates a new Districts model.
+     * Creates a new SourceMessage model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Districts();
+        $model = new SourceMessage();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index']);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -93,7 +83,7 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Updates an existing Districts model.
+     * Updates an existing SourceMessage model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -104,7 +94,7 @@ class DistrictsController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -113,7 +103,7 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Deletes an existing Districts model.
+     * Deletes an existing SourceMessage model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -127,45 +117,29 @@ class DistrictsController extends Controller
     }
 
     /**
-     * Finds the Districts model based on its primary key value.
+     * Finds the SourceMessage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Districts the loaded model
+     * @return SourceMessage the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Districts::findOne($id)) !== null) {
+        if (($model = SourceMessage::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(\Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
-    public function actionGetselect($id=-1){
-        $model = Districts::find()->where(['region_id'=>$id])->all();
-        $txt = \Yii::t('cp','-Tumanni tanlang-');
-        $res = "<option value=''>{$txt}</option>";
-        foreach ($model as $item){
-            $res .= "<option value='{$item->id}'>{$item->name}</option>";
+
+    public function actionUpdateone($id,$lang,$val){
+        $model = Message::find()->where(['id'=>$id,'language'=>$lang])->one();
+        $model->translation = $val;
+        if($model->save()){
+            echo 1;
+        }else{
+            echo 0;
         }
-        echo $res;
-        exit;
-    }
-    public function actionGetjson($id){
-        $model = Districts::find()->where(['region_id'=>$id])->all();
-        $res = "\"district\":{";
-        $cnt = count($model);
-        $n=0;
-        foreach ($model as $item){
-            $n++;
-            if($n==$cnt){
-                $res .= "{$item->id}:\"{$item->name}\"";
-            }else{
-                $res .= "{$item->id}:\"{$item->name}\",";
-            }
-        }
-        $res .="}";
-        echo $res;
         exit;
     }
 }
