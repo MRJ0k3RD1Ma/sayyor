@@ -1,0 +1,69 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "individuals".
+ *
+ * @property string $pnfl
+ * @property string|null $name
+ * @property string|null $surname
+ * @property string|null $middlename
+ * @property int|null $soato_id
+ * @property string|null $adress
+ * @property string|null $passport
+ *
+ * @property Soato $soato
+ */
+class Individuals extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'individuals';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['pnfl'], 'required'],
+            [['soato_id'], 'integer'],
+            [['pnfl', 'name', 'surname', 'middlename', 'adress', 'passport'], 'string', 'max' => 255],
+            [['pnfl'], 'unique'],
+            [['soato_id'], 'exist', 'skipOnError' => true, 'targetClass' => Soato::className(), 'targetAttribute' => ['soato_id' => 'MHOBT_cod']],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'pnfl' => Yii::t('model.individuals', 'Pnfl'),
+            'name' => Yii::t('model.individuals', 'Name'),
+            'surname' => Yii::t('model.individuals', 'Surname'),
+            'middlename' => Yii::t('model.individuals', 'Middlename'),
+            'soato_id' => Yii::t('model.individuals', 'Soato ID'),
+            'adress' => Yii::t('model.individuals', 'Adress'),
+            'passport' => Yii::t('model.individuals', 'Passport'),
+        ];
+    }
+
+    /**
+     * Gets query for [[Soato]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSoato()
+    {
+        return $this->hasOne(Soato::className(), ['MHOBT_cod' => 'soato_id']);
+    }
+}
