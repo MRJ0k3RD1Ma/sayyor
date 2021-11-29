@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <button class=""><span class="fa fa-file-excel"></span> Excel</button>
                                 <button class=""><span class="fa fa-file-pdf"></span> PDF</button>
                             </div>
-
                         </div>
+
                         <?= Html::a(Yii::t('cp.diseases', 'Create Diseases'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
