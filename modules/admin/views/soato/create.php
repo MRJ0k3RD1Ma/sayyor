@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Soato */
 
-$this->title = Yii::t('app', 'Create Soato');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Soatos'), 'url' => ['index']];
+$this->title = Yii::t('cp', 'Create Soato');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Soatos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="soato-create">

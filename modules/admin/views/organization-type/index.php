@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
 
-            <?= Html::a(Yii::t('app', 'Create Organization Type'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Yii::t('cp', 'Create Organization Type'), ['create'], ['class' => 'btn btn-success']) ?>
 
         </div>
 

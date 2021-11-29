@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\MessageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Messages');
+$this->title = Yii::t('cp', 'Messages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="message-index">

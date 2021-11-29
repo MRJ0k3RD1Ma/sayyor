@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'category',
             'message:ntext',
             [
-                'label'=>Yii::t('app','Tarjimalar'),
+                'label'=>Yii::t('cp','Tarjimalar'),
                 'format'=>'raw',
                 'filter'=>false,
                 'value'=>function($d){

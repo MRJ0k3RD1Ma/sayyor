@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-md-3">
-                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/animal-type'])?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/animaltype'])?>">
                     <div class="card">
                         <!-- card body -->
                         <div class="card-body">
@@ -93,7 +93,6 @@
             </div>
 
 
-        </div>
         </div>
     </div>
 </div>

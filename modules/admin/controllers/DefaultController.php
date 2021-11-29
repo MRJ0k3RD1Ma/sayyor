@@ -70,9 +70,11 @@ class DefaultController extends Controller
     }
 
     public function actionInside(){
-
         return $this->render('inside');
+    }
 
+    public function actionOutside(){
+        return $this->render('outside');
     }
 
     /**
