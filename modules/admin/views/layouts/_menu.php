@@ -22,9 +22,10 @@
 
 
                 <li>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>" data-key="t-data-tables">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>">
                         <i data-feather="sliders"></i>
-                        <?= Yii::t('cp.menu','SOATO')?>
+                        <span data-key="t-table"><?= Yii::t('cp.menu','SOATO')?></span>
+
                     </a>
                 </li>
                 <li>
