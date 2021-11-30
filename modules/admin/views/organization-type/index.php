@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //                    'id',
                     'name',
-                    [
+                   /* [
                         'label'=>Yii::t('cp','Ташкилотлар сони'),
                         'value'=>function($d){
                             $url = Yii::$app->urlManager->createUrl(['/cp/organizations']);
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             return "<a href='{$url}'>{$d->count()} {$txt}</a>";
                         },
                         'format'=>'raw',
-                    ],
+                    ],*/
 
                     ['class' => 'yii\grid\ActionColumn','template'=>'{update} {delete}'],
                 ],
