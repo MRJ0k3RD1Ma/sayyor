@@ -110,6 +110,8 @@ $this->title = "Login";
         background: #cfd2e1;
         justify-content: center;
         background: url("/design/assets/images/background.jpg") no-repeat;
+        background-size: cover
+    ;
     }
     .login{
         margin-top: 100px;

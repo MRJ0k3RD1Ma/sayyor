@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\ActiveForm;
-$this->title = Yii::t('cp',"Tizimga kirish");
+$this->title = Yii::t('login',"Tizimga kirish");
 /* @var $model \app\models\LoginForm*/
 ?>
 
@@ -10,12 +10,14 @@ $this->title = Yii::t('cp',"Tizimga kirish");
             <div class="img">
                 <img src="/design/assets/images/vet.png" alt="img" style="float: right; width: 50px;" class="img-responsive">
             </div>
-            <div class="text">Хайвон касалликлари ташхиси ва озиқ-овқат хавфсизлига оид лаборатория текширувлари Ягона электрон маълумотлар базасини юритиш тизими (VIS-Sayyor)</div>
+            <div class="text">
+                <?= Yii::t('login','Hayvon kasalliklari tashhisi va oziq-ovqat xavfsizligiga oid laboratoriya tekshiruvlari Yagona elektron ma\'lumotlar bazasini yurishish tizimi (VIS-Sayyor)')?>
+            </div>
 
         </div>
         <div class="login-form">
-            <h3>Тизимга кириш</h3>
-            <p>Бошқарув тизимига хуш келибсиз!</p>
+            <h3><?= Yii::t('login','Tizimga kirish')?></h3>
+            <p><?= Yii::t('login','Boshqaruv tizimiga xush kelibsiz!')?></p>
             <?php $form = ActiveForm::begin([
                 'fieldConfig' => [
                     'template' => "{input}",
@@ -24,19 +26,19 @@ $this->title = Yii::t('cp',"Tizimga kirish");
             <div class="form">
                 <div class="input">
                     <span class="far fa-user"></span>
-                    <?= $form->field($model, 'email')->textInput(['autofocus' => true,'class'=>'']) ?>
+                    <?= $form->field($model, 'email')->textInput(['autofocus' => true,'class'=>'','placeholder'=>Yii::t('login','Email')]) ?>
 
                 </div>
                 <div class="input">
                     <span class="fas fa-lock"></span>
-                    <?= $form->field($model, 'password')->passwordInput(['class'=>'','placeholder'=>'Parol']) ?>
+                    <?= $form->field($model, 'password')->passwordInput(['class'=>'','placeholder'=>Yii::t('login','Parol')]) ?>
                 </div>
                 <div class="sign">
                     <div>
 
 
 
-                <button class="btn btn-primary">Кириш </button>
+                <button class="btn btn-primary"><?= Yii::t('login','Kirish')?> </button>
                     </div>
                 </div>
 
@@ -47,7 +49,7 @@ $this->title = Yii::t('cp',"Tizimga kirish");
             <div class="img">
                 <img src="/design/assets/images/bank.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
             </div>
-            <div class="text">Ахборот тизимини яратиш Европа Иттифоқи томонидан молиялаштирилган</div>
+            <div class="text"><?= Yii::t('login','Axborot tizimini yaratish Yevropa Ittifoqi tomonidan moliyalashtirilgan')?></div>
 
         </div>
 
@@ -70,7 +72,11 @@ $this->title = Yii::t('cp',"Tizimga kirish");
     .sign div{
         display: inline-block;
     }
+    .login-form .form{
+        width: 100%;
+    }
     .login-form .form .input{
+        width: 100%;
         position: relative;
 
     }
@@ -110,6 +116,7 @@ $this->title = Yii::t('cp',"Tizimga kirish");
         background: #cfd2e1;
         justify-content: center;
         background: url("/design/assets/images/background.jpg") no-repeat;
+        background-size: cover;
     }
     .login{
         margin-top: 100px;
