@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="col-md-4">
-                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/animals'])?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['#'])?>">
                     <div class="card">
                         <!-- card body -->
                         <div class="card-body">
