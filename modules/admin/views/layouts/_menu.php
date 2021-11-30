@@ -17,9 +17,6 @@
                     </a>
                 </li>
 
-                <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Elements')?></li>
-
-
 
                 <li>
                     <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>">
