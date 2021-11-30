@@ -14,7 +14,31 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-md-12">
         <div class="card">
+            <div class="card-header flex">
+                <div></div>
+                <div class="btns flex">
+                    <div class="search">
 
+                        <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],'method'=>'get'])?>
+                        <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
+                        <button class="btn" type="submit"><span class="fa fa-search"></span></button>
+                        <?php \yii\widgets\ActiveForm::end()?>
+
+                    </div>
+                    <div class="export">
+
+                        <button class="btn btn-primary "> <span class="fa fa-cloud-download-alt"></span> <?= Yii::t('cp','Export')?></button>
+                        <div class="export-btn">
+                            <button value="excel" class="export"><span class="fa fa-file-excel"></span>  <?= Yii::t('cp','Excel')?></button>
+                            <button value="excel" class="export"><span class="fa fa-file-pdf"></span>  <?= Yii::t('cp','Pdf')?></button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div><!-- end card header -->
             <div class="card-body">
 
                 <?= GridView::widget([
