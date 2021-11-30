@@ -49,17 +49,17 @@ class Soato extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'MHOBT_cod' => Yii::t('app', 'Mhobt Cod'),
+            'MHOBT_cod' => Yii::t('app', 'Kodi'),
             'res_id' => Yii::t('app', 'Res ID'),
-            'region_id' => Yii::t('app', 'Region ID'),
+            'region_id' => Yii::t('app', 'Viloyat'),
             'district_id' => Yii::t('app', 'District ID'),
             'qfi_id' => Yii::t('app', 'Qfi ID'),
-            'name_lot' => Yii::t('app', 'Name Lot'),
-            'center_lot' => Yii::t('app', 'Center Lot'),
-            'name_cyr' => Yii::t('app', 'Name Cyr'),
-            'center_cyr' => Yii::t('app', 'Center Cyr'),
-            'name_ru' => Yii::t('app', 'Name Ru'),
-            'center_ru' => Yii::t('app', 'Center Ru'),
+            'name_lot' => Yii::t('app', 'Nomi(Lotin)'),
+            'center_lot' => Yii::t('app', 'Markazi'),
+            'name_cyr' => Yii::t('app', 'Nomi(Kril)'),
+            'center_cyr' => Yii::t('app', 'Markazi(Kril)'),
+            'name_ru' => Yii::t('app', 'Nomi(Rus)'),
+            'center_ru' => Yii::t('app', 'Markazi(Rus)'),
         ];
     }
 }
