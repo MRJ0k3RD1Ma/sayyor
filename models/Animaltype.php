@@ -45,9 +45,9 @@ class Animaltype extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.animaltype', 'ID'),
-            'name_uz' => Yii::t('model.animaltype', 'Name Uz'),
-            'name_ru' => Yii::t('model.animaltype', 'Name Ru'),
-            'code' => Yii::t('model.animaltype', 'Code'),
+            'name_uz' => Yii::t('model.animaltype', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.animaltype', 'Nomi(Rus)'),
+            'code' => Yii::t('model.animaltype', 'Kod'),
         ];
     }
 

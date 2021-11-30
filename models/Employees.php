@@ -46,10 +46,10 @@ class Employees extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterf
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
+            'name' => Yii::t('app', 'FIO'),
             'email' => Yii::t('app', 'Email'),
-            'phone' => Yii::t('app', 'Phone'),
-            'password' => Yii::t('app', 'Password'),
+            'phone' => Yii::t('app', 'Telefon'),
+            'password' => Yii::t('app', 'Parol'),
         ];
     }
 

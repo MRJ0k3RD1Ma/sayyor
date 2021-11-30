@@ -47,10 +47,10 @@ class Diseases extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.diseases', 'ID'),
-            'name_uz' => Yii::t('model.diseases', 'Name Uz'),
-            'name_ru' => Yii::t('model.diseases', 'Name Ru'),
-            'category_id' => Yii::t('model.diseases', 'Category ID'),
-            'group_id' => Yii::t('model.diseases', 'Group ID'),
+            'name_uz' => Yii::t('model.diseases', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.diseases', 'Nomi(Rus)'),
+            'category_id' => Yii::t('model.diseases', 'Toifasi'),
+            'group_id' => Yii::t('model.diseases', 'Turi'),
         ];
     }
 

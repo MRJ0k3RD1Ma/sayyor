@@ -46,12 +46,12 @@ class LegalEntities extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'inn' => Yii::t('model.legal_entities', 'Inn'),
-            'name' => Yii::t('model.legal_entities', 'Name'),
-            'tshx' => Yii::t('model.legal_entities', 'Tshx'),
+            'inn' => Yii::t('model.legal_entities', 'STIR(INN)'),
+            'name' => Yii::t('model.legal_entities', 'Nomi'),
+            'tshx' => Yii::t('model.legal_entities', 'TSHX'),
             'soogu' => Yii::t('model.legal_entities', 'Soogu'),
             'soato' => Yii::t('model.legal_entities', 'Soato'),
-            'status_id' => Yii::t('model.legal_entities', 'Status ID'),
+            'status_id' => Yii::t('model.legal_entities', 'Status'),
         ];
     }
 

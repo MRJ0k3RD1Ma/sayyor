@@ -46,15 +46,15 @@ class DistrictView extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'MHOBT_cod' => Yii::t('model.districtview', 'Mhobt Cod'),
-            'region_id' => Yii::t('model.districtview', 'Region ID'),
-            'district_id' => Yii::t('model.districtview', 'District ID'),
-            'name_lot' => Yii::t('model.districtview', 'Name Lot'),
-            'center_lot' => Yii::t('model.districtview', 'Center Lot'),
-            'name_cyr' => Yii::t('model.districtview', 'Name Cyr'),
-            'center_cyr' => Yii::t('model.districtview', 'Center Cyr'),
-            'name_ru' => Yii::t('model.districtview', 'Name Ru'),
-            'center_ru' => Yii::t('model.districtview', 'Center Ru'),
+            'MHOBT_cod' => Yii::t('model.districtview', 'MHOBT Kod'),
+            'region_id' => Yii::t('model.districtview', 'Viloyat'),
+            'district_id' => Yii::t('model.districtview', 'Tuman'),
+            'name_lot' => Yii::t('model.districtview', 'Nomi(Lotin)'),
+            'center_lot' => Yii::t('model.districtview', 'Markaz(Lotin)'),
+            'name_cyr' => Yii::t('model.districtview', 'Nomi(Kiril)'),
+            'center_cyr' => Yii::t('model.districtview', 'Markaz(Kiril)'),
+            'name_ru' => Yii::t('model.districtview', 'Nomi(Rus)'),
+            'center_ru' => Yii::t('model.districtview', 'Markaz(Rus)'),
         ];
     }
 }

@@ -44,9 +44,9 @@ class AnimalCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.animal', 'ID'),
-            'code' => Yii::t('model.animal', 'Code'),
-            'name_uz' => Yii::t('model.animal', 'Name Uz'),
-            'name_ru' => Yii::t('model.animal', 'Name Ru'),
+            'code' => Yii::t('model.animal', 'Kod'),
+            'name_uz' => Yii::t('model.animal', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.animal', 'Nomi(Rus)'),
         ];
     }
 

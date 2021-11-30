@@ -47,13 +47,13 @@ class Individuals extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pnfl' => Yii::t('model.individuals', 'Pnfl'),
-            'name' => Yii::t('model.individuals', 'Name'),
-            'surname' => Yii::t('model.individuals', 'Surname'),
-            'middlename' => Yii::t('model.individuals', 'Middlename'),
-            'soato_id' => Yii::t('model.individuals', 'Soato ID'),
-            'adress' => Yii::t('model.individuals', 'Adress'),
-            'passport' => Yii::t('model.individuals', 'Passport'),
+            'pnfl' => Yii::t('model.individuals', 'PNFL'),
+            'name' => Yii::t('model.individuals', 'Ism'),
+            'surname' => Yii::t('model.individuals', 'Familya'),
+            'middlename' => Yii::t('model.individuals', 'Otasining ismi'),
+            'soato_id' => Yii::t('model.individuals', 'QFY'),
+            'adress' => Yii::t('model.individuals', 'Manzil'),
+            'passport' => Yii::t('model.individuals', 'Pasport'),
         ];
     }
 

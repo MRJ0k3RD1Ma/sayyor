@@ -43,8 +43,8 @@ class DiseaseCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.disease_category', 'ID'),
-            'name_uz' => Yii::t('model.disease_category', 'Name Uz'),
-            'name_ru' => Yii::t('model.disease_category', 'Name Ru'),
+            'name_uz' => Yii::t('model.disease_category', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.disease_category', 'Nomi(Rus)'),
         ];
     }
 

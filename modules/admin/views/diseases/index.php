@@ -46,9 +46,30 @@ $this->params['breadcrumbs'][] = $this->title;
 //                            'id',
                             'name_uz',
                             'name_ru',
-                            'category_id',
-                            'group_id',
-
+//                            'category_id',
+//                            'group_id',
+                            [
+                                'attribute'=>'category_id',
+                                'value'=>function($d){
+                                    $lang = Yii::$app->language;
+                                    if($lang == 'ru'){
+                                        return $d->category->name_ru;
+                                    }else{
+                                        return $d->category->name_uz;
+                                    }
+                                }
+                            ],
+                            [
+                                'attribute'=>'group_id',
+                                'value'=>function($d){
+                                    $lang = Yii::$app->language;
+                                    if($lang == 'ru'){
+                                        return $d->group->name_ru;
+                                    }else{
+                                        return $d->group->name_uz;
+                                    }
+                                }
+                            ],
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>
