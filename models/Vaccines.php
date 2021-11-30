@@ -39,7 +39,7 @@ class Vaccines extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.vaccines', 'ID'),
-            'name' => Yii::t('model.vaccines', 'Name'),
+            'name' => Yii::t('model.vaccines', 'Nomi'),
         ];
     }
 

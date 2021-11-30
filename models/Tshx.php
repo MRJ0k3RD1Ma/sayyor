@@ -40,7 +40,7 @@ class Tshx extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.tshx', 'ID'),
-            'name_uz' => Yii::t('model.tshx', 'Name Uz'),
+            'name_uz' => Yii::t('model.tshx', 'Nomi'),
             'name_ru' => Yii::t('model.tshx', 'Name Ru'),
             'code' => Yii::t('model.tshx', 'Code'),
         ];

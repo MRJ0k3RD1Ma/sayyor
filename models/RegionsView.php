@@ -43,13 +43,13 @@ class RegionsView extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'region_id' => Yii::t('model.regionsview', 'Region ID'),
-            'name_lot' => Yii::t('model.regionsview', 'Name Lot'),
-            'center_lot' => Yii::t('model.regionsview', 'Center Lot'),
-            'name_cyr' => Yii::t('model.regionsview', 'Name Cyr'),
-            'center_cyr' => Yii::t('model.regionsview', 'Center Cyr'),
-            'name_ru' => Yii::t('model.regionsview', 'Name Ru'),
-            'center_ru' => Yii::t('model.regionsview', 'Center Ru'),
+            'region_id' => Yii::t('model.regionsview', 'Viloyat'),
+            'name_lot' => Yii::t('model.regionsview', 'Nomi(Lotin)'),
+            'center_lot' => Yii::t('model.regionsview', 'Markaz'),
+            'name_cyr' => Yii::t('model.regionsview', 'Nomi(Kril)'),
+            'center_cyr' => Yii::t('model.regionsview', 'Markaz(Kril)'),
+            'name_ru' => Yii::t('model.regionsview', 'Nomi(Rus)'),
+            'center_ru' => Yii::t('model.regionsview', 'Markaz(Rus)'),
         ];
     }
 }
