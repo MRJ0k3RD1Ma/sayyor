@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Message */
 
-$this->title = Yii::t('app', 'Create Message');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['index']];
+$this->title = Yii::t('cp', 'Create Message');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="message-create">

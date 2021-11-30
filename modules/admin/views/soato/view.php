@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Soato */
 
 $this->title = $model->MHOBT_cod;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Soatos'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Soatos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'MHOBT_cod' => $model->MHOBT_cod], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'MHOBT_cod' => $model->MHOBT_cod], [
+        <?= Html::a(Yii::t('cp', 'Update'), ['update', 'MHOBT_cod' => $model->MHOBT_cod], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cp', 'Delete'), ['delete', 'MHOBT_cod' => $model->MHOBT_cod], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('cp', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>

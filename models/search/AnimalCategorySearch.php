@@ -17,8 +17,8 @@ class AnimalCategorySearch extends AnimalCategory
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['id', 'code'], 'integer'],
+            [['name_uz', 'name_ru'], 'safe'],
         ];
     }
 
@@ -59,9 +59,11 @@ class AnimalCategorySearch extends AnimalCategory
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'code' => $this->code,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
+            ->andFilterWhere(['like', 'name_ru', $this->name_ru]);
 
         return $dataProvider;
     }

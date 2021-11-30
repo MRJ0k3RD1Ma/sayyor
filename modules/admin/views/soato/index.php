@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\SoatoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Soatos');
+$this->title = Yii::t('cp', 'Soatos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

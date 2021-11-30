@@ -107,6 +107,18 @@ BackAsset::register($this);
 
 
 
+<?php
+$this->registerJs("
+    $(document).ready(function() {
+    $('#d-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'print'
+        ]
+    });
+} );
+")
+?>
 
 <?php $this->endBody() ?>
 </body>
