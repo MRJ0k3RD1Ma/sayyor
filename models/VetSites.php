@@ -49,9 +49,9 @@ class VetSites extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.vetsites', 'ID'),
-            'code' => Yii::t('model.vetsites', 'Code'),
-            'name' => Yii::t('model.vetsites', 'Name'),
-            'soato' => Yii::t('model.vetsites', 'Soato'),
+            'code' => Yii::t('model.vetsites', 'Kod'),
+            'name' => Yii::t('model.vetsites', 'Nomi'),
+            'soato' => Yii::t('model.vetsites', 'SOATO'),
             'district' => Yii::t('model.vetsites', 'Tuman'),
             'region' => Yii::t('model.vetsites', 'Viloyat'),
         ];

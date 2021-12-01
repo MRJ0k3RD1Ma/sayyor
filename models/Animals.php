@@ -58,16 +58,16 @@ class Animals extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.animals', 'ID'),
-            'name' => Yii::t('model.animals', 'Name'),
-            'cat_id' => Yii::t('model.animals', 'Cat ID'),
-            'gender' => Yii::t('model.animals', 'Gender'),
-            'birthday' => Yii::t('model.animals', 'Birthday'),
-            'inn' => Yii::t('model.animals', 'Inn'),
-            'pnfl' => Yii::t('model.animals', 'Pnfl'),
-            'adress' => Yii::t('model.animals', 'Adress'),
-            'vet_site_id' => Yii::t('model.animals', 'Vet Site ID'),
-            'bsual_tag' => Yii::t('model.animals', 'Bsual Tag'),
-            'type_id' => Yii::t('model.animals', 'Type ID'),
+            'name' => Yii::t('model.animals', 'Nomi'),
+            'cat_id' => Yii::t('model.animals', 'Hayvon toifasi'),
+            'gender' => Yii::t('model.animals', 'Jinsi'),
+            'birthday' => Yii::t('model.animals', 'Tug\'ilgan kuni'),
+            'inn' => Yii::t('model.animals', 'INN(STIR)'),
+            'pnfl' => Yii::t('model.animals', 'PNFL'),
+            'adress' => Yii::t('model.animals', 'Manzil'),
+            'vet_site_id' => Yii::t('model.animals', 'Vet uchastka'),
+            'bsual_tag' => Yii::t('model.animals', 'Visual birka'),
+            'type_id' => Yii::t('model.animals', 'Hayvon turi'),
         ];
     }
 

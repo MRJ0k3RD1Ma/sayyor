@@ -26,18 +26,23 @@ use yii\widgets\ActiveForm;
         }
     ?>
 
-    <?= $form->field($model, 'region')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\RegionsView::find()->all(),'region_id','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','Viloyatni tanlang')]) ?>
+    <?php if($model->soato){
+        $model->region  = $model->soato0->region_id;
+        $model->district = $model->soato0->district_id;
+        ?>
+        <?= $form->field($model, 'region')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\RegionsView::find()->all(),'region_id','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','Viloyatni tanlang')]) ?>
 
-    <?php if($model->soato){?>
-        <?= $form->field($model, 'district')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\DistrictView::find()->where(['region_id'=>$model->soato->region_id])->all(),'district_id','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','Tumanni tanlang')]) ?>
-        <?= $form->field($model, 'soato')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\QfiView::find()->where(['district_id'=>$model->soato->district_id])->all(),'MHOBT_cod','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','QFYni tanlang')]) ?>
+        <?= $form->field($model, 'district')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\DistrictView::find()->where(['region_id'=>$model->soato0->region_id])->all(),'district_id','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','Tumanni tanlang')]) ?>
+        <?= $form->field($model, 'soato')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\QfiView::find()->where(['district_id'=>$model->soato0->district_id])->all(),'MHOBT_cod','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','QFYni tanlang')]) ?>
     <?php }else{ ?>
+        <?= $form->field($model, 'region')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\RegionsView::find()->all(),'region_id','name_'.$ads),['prompt'=>Yii::t('cp.vetsites','Viloyatni tanlang')]) ?>
+
         <?= $form->field($model, 'district')->dropDownList([],['prompt'=>Yii::t('cp.vetsites','Tumanni tanlang')]) ?>
         <?= $form->field($model, 'soato')->dropDownList([],['prompt'=>Yii::t('cp.vetsites','QFYni tanlang')]) ?>
     <?php }?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('cp.vetsites', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('cp.vetsites', 'Saqlash'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
