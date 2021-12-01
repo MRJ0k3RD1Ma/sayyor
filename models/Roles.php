@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string|null $name
  *
- * @property PostList[] $postLists
+ * @property PostList $id0
  */
 class Roles extends \yii\db\ActiveRecord
 {
@@ -29,6 +29,7 @@ class Roles extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'string', 'max' => 50],
+            [['id'], 'exist', 'skipOnError' => true, 'targetClass' => PostList::className(), 'targetAttribute' => ['id' => 'def_role']],
         ];
     }
 
@@ -38,18 +39,18 @@ class Roles extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Nomi'),
+            'id' => Yii::t('model.roles', 'ID'),
+            'name' => Yii::t('model.roles', 'Name'),
         ];
     }
 
     /**
-     * Gets query for [[PostLists]].
+     * Gets query for [[Id0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPostLists()
+    public function getId0()
     {
-        return $this->hasMany(PostList::className(), ['def_role' => 'id']);
+        return $this->hasOne(PostList::className(), ['def_role' => 'id']);
     }
 }
