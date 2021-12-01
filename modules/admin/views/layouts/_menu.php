@@ -35,6 +35,16 @@
                         <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/outside'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Tashqi')?></a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="folder"></i>
+                        <span data-key="t-tables"><?= Yii::t('cp.menu','Kontragentlar')?></span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/legal-entities'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Yuridik shaxslar')?></a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl(['/cp/individuals'])?>" data-key="t-basic-tables"><?= Yii::t('cp.menu','Jismoniy shaxslar')?></a></li>
+                    </ul>
+                </li>
                 <li class="menu-title mt-2" data-key="t-components"><?= Yii::t('cp.menu','Sozlamalar')?></li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">

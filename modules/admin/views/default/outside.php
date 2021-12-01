@@ -20,6 +20,7 @@
                 </a>
             </div>
 
+            <?php if(false){?>
             <div class="col-md-3">
                 <a href="<?= Yii::$app->urlManager->createUrl(['/cp/legal-entities'])?>">
                     <div class="card">
@@ -56,6 +57,7 @@
                 </a>
             </div>
 
+            <?php }?>
 
 
         </div>
