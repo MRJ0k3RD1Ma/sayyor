@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\DiseaseGroupsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.disease_groups', 'Disease Groups');
+$this->title = Yii::t('cp.disease_groups', 'Kasallik guruhlari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="disease-groups-index">
@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
-                        <?= Html::a(Yii::t('cp.disease_groups', 'Create Disease Groups'), ['create'], ['class' => 'btn btn-success']) ?>
 
 
                     </div>

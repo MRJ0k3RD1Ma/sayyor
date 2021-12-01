@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\LegalEntitiesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.legal_entities', 'Legal Entities');
+$this->title = Yii::t('cp.legal_entities', 'Yuridik shaxslar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="legal-entities-index">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
-                        <?= Html::a(Yii::t('cp.legal_entities', 'Create Legal Entities'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.legal_entities', 'Yuridik shaxs yaratish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>

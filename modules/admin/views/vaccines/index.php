@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\VaccinesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.vaccines', 'Vaccines');
+$this->title = Yii::t('cp.vaccines', 'Vaksinalar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vaccines-index">
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
 
                 </div>
-                <?= Html::a(Yii::t('cp.vaccines', 'Create Vaccines'), ['create'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a(Yii::t('cp.vaccines', 'Vaksinani qo`shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
             </div>
         </div>

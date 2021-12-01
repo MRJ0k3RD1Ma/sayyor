@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\AnimalCategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.animal', 'Animal Categories');
+$this->title = Yii::t('cp.animal', 'Hayvon kategoriyalari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
 
                     </div>
-                    <?= Html::a(Yii::t('cp.animal', 'Create Animal Category'), ['create'], ['class' => 'btn btn-success']) ?>
+                    <?= Html::a(Yii::t('cp.animal', 'Hayvon kategoriyasini yaratish'), ['create'], ['class' => 'btn btn-success']) ?>
                 </div>
             </div>
             <div class="card-body">

@@ -12,7 +12,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Vet uchastkalar')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-hotel"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -30,7 +30,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Yuridik shaxslar')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-user-tie"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -48,7 +48,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Jismoniy shaxslar')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-user"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -61,3 +61,8 @@
         </div>
     </div>
 </div>
+<style>
+    i{
+        font-size: 35px;
+    }
+</style>

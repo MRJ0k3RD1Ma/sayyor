@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\VetSitesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.vetsites', 'Vet Sites');
+$this->title = Yii::t('cp.vetsites', 'Veterinariya uchastkalari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vet-sites-index">
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <button class=""><span class="fa fa-file-pdf"></span> PDF</button>
                             </div>
                         </div>
-                        <?= Html::a(Yii::t('cp.vetsites', 'Create Vet Sites'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.vetsites', 'Veterinariya uchastka yaratish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>

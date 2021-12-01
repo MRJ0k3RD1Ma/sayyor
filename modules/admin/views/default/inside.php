@@ -12,7 +12,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvonlar')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-paw"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -27,10 +27,10 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Категория животных')?></h5>
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon kategoriyalari')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-list"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -45,10 +45,10 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Виды животных')?></h5>
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon turlari')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-bars"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -66,7 +66,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Kasalliklar ruyhati')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-clipboard-list"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -84,7 +84,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Kasalliklar guruhi')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-layer-group"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -102,7 +102,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Kasalliklar toifasi')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-notes-medical"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -120,7 +120,7 @@
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Vaksinalar')?></h5>
                                 </div>
                                 <div class="col-2">
-                                    <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
+                                    <i class="fa fa-syringe"></i>
                                 </div>
                             </div>
                         </div><!-- end card body -->
@@ -132,3 +132,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    i{
+        font-size:35px;
+    }
+</style>
