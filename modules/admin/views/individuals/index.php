@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\IndividualsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.individuals', 'Individuals');
+$this->title = Yii::t('cp.individuals', 'Jismoniy shaxslar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="individuals-index">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
-                        <?= Html::a(Yii::t('cp.individuals', 'Create Individuals'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.individuals', 'Jismoniy shaxs qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>

@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Категория животных')?></h5>
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon toifalari')?></h5>
                                 </div>
                                 <div class="col-2">
                                     <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">
@@ -45,7 +45,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Виды животных')?></h5>
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon turlari')?></h5>
                                 </div>
                                 <div class="col-2">
                                     <img src="/design/assets/images/avatar-1.jpg" alt="img" style="float: right; width: 50px;" class="img-responsive">

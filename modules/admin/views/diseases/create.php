@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Diseases */
 
-$this->title = Yii::t('cp.diseases', 'Create Diseases');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.diseases', 'Diseases'), 'url' => ['index']];
+$this->title = Yii::t('cp.diseases', 'Kasallik qo\'shish');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.diseases', 'Kasalliklar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="diseases-create">

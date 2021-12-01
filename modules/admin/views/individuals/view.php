@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Individuals */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Individuals'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Jismoiy shaxslar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('cp.individuals', 'Update'), ['update', 'pnfl' => $model->pnfl], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('cp.individuals', 'Delete'), ['delete', 'pnfl' => $model->pnfl], [
+        <?= Html::a(Yii::t('cp.individuals', 'O\'zgartirish'), ['update', 'pnfl' => $model->pnfl], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cp.individuals', 'O\'chirish'), ['delete', 'pnfl' => $model->pnfl], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('cp.individuals', 'Are you sure you want to delete this item?'),

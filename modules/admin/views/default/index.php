@@ -2,5 +2,5 @@
 $this->title = Yii::t('cp',"Bosh sahifa");
 ?>
 <div class="admin-default-index">
-    hjhjhjhj
+    Bosh sahifa
 </div>

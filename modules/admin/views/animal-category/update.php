@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\AnimalCategory */
 
-$this->title = Yii::t('cp', 'Update Animal Category: {name}', [
+$this->title = Yii::t('cp', 'O\'zgartirish: {name}', [
     'name' => $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Animal Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Hayvon toifalari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('cp', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('cp', 'O\'zgartirish');
 ?>
 <div class="animal-category-update">
 

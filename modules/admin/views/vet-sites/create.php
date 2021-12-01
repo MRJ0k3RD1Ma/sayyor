@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\VetSites */
 
-$this->title = Yii::t('cp.vetsites', 'Create Vet Sites');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.vetsites', 'Vet Sites'), 'url' => ['index']];
+$this->title = Yii::t('cp.vetsites', 'Vet uchaska qo\'shish');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.vetsites', 'Vet uchastkalar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vet-sites-create">

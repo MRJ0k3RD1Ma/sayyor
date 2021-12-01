@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Individuals */
 
-$this->title = Yii::t('cp.individuals', 'Create Individuals');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Individuals'), 'url' => ['index']];
+$this->title = Yii::t('cp.individuals', 'Jismoniy shaxs qo\'shish');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Jismoniy shaxslar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="individuals-create">

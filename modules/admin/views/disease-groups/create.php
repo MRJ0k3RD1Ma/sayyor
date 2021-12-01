@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\DiseaseGroups */
 
-$this->title = Yii::t('cp.disease_groups', 'Create Disease Groups');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.disease_groups', 'Disease Groups'), 'url' => ['index']];
+$this->title = Yii::t('cp.disease_groups', 'Kasallik guruhlari');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.disease_groups', 'Kasallik guruhlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="disease-groups-create">

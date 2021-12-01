@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\AnimaltypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.animaltype', 'Animaltypes');
+$this->title = Yii::t('cp.animaltype', 'Hayvon turlari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animaltype-index">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
-                        <?= Html::a(Yii::t('cp.animaltype', 'Create Animaltype'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.animaltype', 'Hayvon turi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>

@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\OrganizationType */
 
-$this->title = Yii::t('cp', 'Create Organization Type');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Organization Types'), 'url' => ['index']];
+$this->title = Yii::t('cp', 'Tashkilot turi qo\'shish');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Tashkilot turlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="organization-type-create">

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\DiseasesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.diseases', 'Diseases');
+$this->title = Yii::t('cp.diseases', 'Kasalliklar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="diseases-index">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
 
-                        <?= Html::a(Yii::t('cp.diseases', 'Create Diseases'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.diseases', 'Kasallik qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>
