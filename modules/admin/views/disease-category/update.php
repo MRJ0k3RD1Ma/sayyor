@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\DiseaseCategory */
 
-$this->title = Yii::t('cp.disease_category', 'Update Disease Category: {name}', [
+$this->title = Yii::t('cp.disease_category', 'O\'zgartirish: {name}', [
     'name' => $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.disease_category', 'Disease Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.disease_category', 'Kasallik toifasi'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('cp.disease_category', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('cp.disease_category', 'O\'zgartirish');
 ?>
 <div class="disease-category-update">
 

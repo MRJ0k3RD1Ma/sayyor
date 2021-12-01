@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\EmployeesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp', 'Employees');
+$this->title = Yii::t('cp', 'Foydalanuvchilar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="card">
             <div class="card-body">
                 <p>
-                    <?= Html::a(Yii::t('cp', 'Create Employees'), ['create'], ['class' => 'btn btn-success']) ?>
+                    <?= Html::a(Yii::t('cp', 'Foydalanuvchi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
                 </p>
 
                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

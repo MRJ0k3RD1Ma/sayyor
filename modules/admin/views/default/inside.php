@@ -27,7 +27,8 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
-                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon kategoriyalari')?></h5>
+
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Hayvon toifalari')?></h5>
                                 </div>
                                 <div class="col-2">
                                     <i class="fa fa-list"></i>

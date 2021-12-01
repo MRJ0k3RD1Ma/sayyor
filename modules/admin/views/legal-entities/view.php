@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\LegalEntities */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.legal_entities', 'Legal Entities'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.legal_entities', 'Yuridik shaxslar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('cp.legal_entities', 'Update'), ['update', 'inn' => $model->inn], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('cp.legal_entities', 'Delete'), ['delete', 'inn' => $model->inn], [
+        <?= Html::a(Yii::t('cp.legal_entities', 'O\'zgartirish'), ['update', 'inn' => $model->inn], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cp.legal_entities', 'O\'chirish'), ['delete', 'inn' => $model->inn], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('cp.legal_entities', 'Are you sure you want to delete this item?'),

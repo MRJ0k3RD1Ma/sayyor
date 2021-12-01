@@ -32,7 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
+<<<<<<< HEAD
                         <?= Html::a(Yii::t('cp.legal_entities', 'Yuridik shaxs yaratish'), ['create'], ['class' => 'btn btn-success']) ?>
+=======
+                        <?= Html::a(Yii::t('cp.legal_entities', 'Yuridik shaxs qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
+>>>>>>> b1e79cbd8920d278801889463ec1dfa2e7b18853
 
                     </div>
                 </div>

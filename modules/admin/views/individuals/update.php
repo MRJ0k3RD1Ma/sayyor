@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Individuals */
 
-$this->title = Yii::t('cp.individuals', 'Update Individuals: {name}', [
+$this->title = Yii::t('cp.individuals', 'O\'zgartirish: {name}', [
     'name' => $model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Individuals'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.individuals', 'Jismoniy shaxslar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'pnfl' => $model->pnfl]];
-$this->params['breadcrumbs'][] = Yii::t('cp.individuals', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('cp.individuals', 'O\'zgartirish');
 ?>
 <div class="individuals-update">
 

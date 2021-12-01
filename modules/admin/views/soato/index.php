@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\SoatoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp', 'Soatos');
+$this->title = Yii::t('cp', 'SOATO');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -19,15 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="btns flex">
                     <div class="search">
 
-                        <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],'method'=>'get'])?>
-                        <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
+                        <input type="text">
                         <button class="btn" type="submit"><span class="fa fa-search"></span></button>
-                        <?php \yii\widgets\ActiveForm::end()?>
 
                     </div>
                     <div class="export">
 
-                        <button class="btn btn-primary "> <span class="fa fa-cloud-download-alt"></span> <?= Yii::t('cp','Export')?></button>
+                        <button class="btn btn-primary"> <span class="fa fa-cloud-download-alt"></span> <?= Yii::t('cp','Export')?></button>
                         <div class="export-btn">
                             <button value="excel" class="export"><span class="fa fa-file-excel"></span>  <?= Yii::t('cp','Excel')?></button>
                             <button value="excel" class="export"><span class="fa fa-file-pdf"></span>  <?= Yii::t('cp','Pdf')?></button>

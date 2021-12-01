@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Diseases */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.diseases', 'Diseases'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.diseases', 'Kasalliklar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('cp.diseases', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('cp.diseases', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('cp.diseases', 'O\'zgartirish'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cp.diseases', 'O\'chirish'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('cp.diseases', 'Are you sure you want to delete this item?'),
