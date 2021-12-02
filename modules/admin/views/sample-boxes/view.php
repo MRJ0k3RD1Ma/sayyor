@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\SampleBoxes */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sample_boxes', 'Namuna guruhlari'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sample_boxes', 'Namuna o\'ramlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

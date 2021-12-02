@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\SampleBoxes */
 
-$this->title = Yii::t('cp.sample_boxes', 'Namuna guruhi qo\'shish');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sample_boxes', 'Namuna guruhlari'), 'url' => ['index']];
+$this->title = Yii::t('cp.sample_boxes', 'Namuna o\'rami qo\'shish');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sample_boxes', 'Namuna o\'ramlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sample-boxes-create">

@@ -52,12 +52,12 @@ class Samples extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.samples', 'ID'),
-            'kod' => Yii::t('model.samples', 'Kod'),
-            'label' => Yii::t('model.samples', 'Label'),
-            'sample_type_is' => Yii::t('model.samples', 'Sample Type Is'),
-            'sample_box_id' => Yii::t('model.samples', 'Sample Box ID'),
-            'animal_id' => Yii::t('model.samples', 'Animal ID'),
-            'sert_id' => Yii::t('model.samples', 'Sert ID'),
+            'kod' => Yii::t('model.samples', 'Oldingi tahlil raqami'),
+            'label' => Yii::t('model.samples', 'Namuna belgisi'),
+            'sample_type_is' => Yii::t('model.samples', 'Namuna turi'),
+            'sample_box_id' => Yii::t('model.samples', 'Namuna o\'rami'),
+            'animal_id' => Yii::t('model.samples', 'Hayvon ma\'lumoti'),
+            'sert_id' => Yii::t('model.samples', 'Dalolatnoma raqami'),
         ];
     }
 

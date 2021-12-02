@@ -2,8 +2,11 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Animals;
+use app\models\Samples;
 use app\models\Sertificates;
 use app\models\search\SertificatesSearch;
+use app\models\Vaccination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,10 +55,10 @@ class SertificatesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($sert_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($sert_id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -77,7 +80,7 @@ class SertificatesController extends Controller
                     $model->id = 1;
                 }
                 if($model->save()){
-                    return $this->redirect(['view', 'sert_id' => $model->sert_id]);
+                    return $this->redirect(['view', 'id' => $model->id]);
                 }
             }
         } else {
@@ -96,12 +99,12 @@ class SertificatesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($sert_id)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($sert_id);
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'sert_id' => $model->sert_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -116,9 +119,9 @@ class SertificatesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($sert_id)
+    public function actionDelete($id)
     {
-        $this->findModel($sert_id)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -130,17 +133,60 @@ class SertificatesController extends Controller
      * @return Sertificates the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($sert_id)
+    protected function findModel($id)
     {
-        if (($model = Sertificates::findOne(['sert_id'=>$sert_id])) !== null) {
+        if (($model = Sertificates::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException(Yii::t('cp.sertificates', 'The requested page does not exist.'));
     }
 
-    public function actionAdd($sert_id){
-        $model = $this->findModel($sert_id);
-        
+    public function actionAdd($id){
+        $model = $this->findModel($id);
+
+        $animal = new Animals();
+
+        $sample = new Samples();
+        $animal->pnfl = $model->pnfl;
+        $animal->inn = $model->organization->TIN;
+        $sample->animal_id = -1;
+        $sample->sert_id = intval($id);
+        if(Yii::$app->request->isPost){
+
+            if($animal->load(Yii::$app->request->post())){
+                $animal->inn = "{$animal->inn}";
+                if($animal->save()){}
+                if($sample->load(Yii::$app->request->post())){
+                    $sample->animal_id = $animal->id;
+                    $sample->sert_id = intval($id);
+                    if($sample->save(false)){
+                        return $this->redirect(['view','id'=>$id]);
+                    }
+                }
+            }
+            echo "<pre>";
+//            var_dump($animal);
+            echo "________________<br><br><hr>";
+            var_dump($sample);
+            exit;
+        }
+
+        return $this->render('add',[
+            'model'=>$model,
+            'animal'=>$animal,
+            'sample'=>$sample
+        ]);
+    }
+
+    public function actionVaccination($id,$sert_id){
+
+        $model = new Vaccination();
+        $model->animal_id = $id;
+        $animal = Animals::findOne($id);
+        if($model->load(Yii::$app->request->post()) and $model->save()){
+            return $this->redirect(['view','id'=>$sert_id]);
+        }
+        return $this->render('vaccination',['model'=>$model,'animal'=>$animal]);
     }
 }

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\SampleBoxesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.sample_boxes', 'Namuna guruhlari');
+$this->title = Yii::t('cp.sample_boxes', 'Namuna o\'ramlari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sample-boxes-index">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                         </div>
-                        <?= Html::a(Yii::t('cp.sample_boxes', 'Namuna guruhi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.sample_boxes', 'Namuna o\'rami qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
                 </div>

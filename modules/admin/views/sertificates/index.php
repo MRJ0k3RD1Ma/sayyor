@@ -46,6 +46,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['class' => 'yii\grid\SerialColumn'],
 
                             'sert_id',
+                            /*[
+                                'attribute'=>'sert_id',
+                                'format'=>'raw',
+                                'value'=>function($d){
+                                    $url = Yii::$app->urlManager->createUrl(['/cp/sertificates/view','sert_id'=>$d->sert_id]);
+                                    return "<a href='{$url}'>{$d->sert_id}</a>";
+                                },
+                            ],*/
                             'sert_num',
                             'sert_date',
                             'organization_id',

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Sertificates */
 
 $this->title = $model->sert_id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sertificates', 'Sertificates'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cp.sertificates', 'Dalolatnomalar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('cp.sertificates', 'Update'), ['update', 'sert_id' => $model->sert_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('cp.sertificates', 'Delete'), ['delete', 'sert_id' => $model->sert_id], [
+        <?= Html::a(Yii::t('cp.sertificates', 'O\'zgartirish'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cp.sertificates', 'O\'chirish'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('cp.sertificates', 'Are you sure you want to delete this item?'),
@@ -71,13 +71,34 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (\app\models\Samples::find()->where(['sert_id'=>$model->sert_id])->all() as $item):?>
+                <?php $n=0; foreach (\app\models\Samples::find()->where(['sert_id'=>$model->id])->all() as $item): $n++;
+                $cnt = \app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->count('*');
+                ?>
                     <tr>
-                        <td></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $n?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->label ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->sampleTypeIs->name_uz ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->sampleBox->name_uz ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->animal_id ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->animal->type->name_uz ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= Yii::$app->params['gender'][$item->animal->gender] ?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->animal->birthday ?></td>
+                        <td colspan="4"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Vaksina qo'shish</a></td>
+                        <td rowspan="<?= $cnt + 1?>">?</td>
+                        <td rowspan="<?= $cnt + 1?>">?</td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->kod?></td>
                     </tr>
+                    <?php foreach (\app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->orderBy(['disease_date'=>SORT_DESC])->all() as $vac):?>
+                    <tr>
+                        <td><?= $vac->vaccina->name?></td>
+                        <td><?= $vac->disease_date?></td>
+                        <td><?= $vac->disease->name_uz?></td>
+                        <td><?= $vac->disease_date?></td>
+                    </tr>
+                    <?php endforeach ?>
                 <?php endforeach;?>
                 <tr>
-                    <td colspan="15"><a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/add','sert_id'=>$model->sert_id])?>" class="btn btn-primary">Yana qo'shish</a></td>
+                    <td colspan="15"><a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/add','id'=>$model->id])?>" class="btn btn-primary">Yana qo'shish</a></td>
                 </tr>
             </tbody>
         </table>
