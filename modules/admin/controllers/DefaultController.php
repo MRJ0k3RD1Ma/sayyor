@@ -7,6 +7,7 @@ use app\models\LoginForm;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\Response;
 
 /**
  * Default controller for the `admin` module
@@ -54,12 +55,12 @@ class DefaultController extends Controller
 
         $this->layout = "login";
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect(['/cp/default/index']);
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['/cp/default/index']);
         }
 
         $model->password = '';
@@ -69,8 +70,23 @@ class DefaultController extends Controller
     }
 
     public function actionInside(){
-
         return $this->render('inside');
-
     }
+
+    public function actionOutside(){
+        return $this->render('outside');
+    }
+
+    /**
+     * Logout action.
+     *
+     * @return Response
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+
 }

@@ -11,6 +11,7 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
 BackAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,6 +21,7 @@ BackAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -105,6 +107,18 @@ BackAsset::register($this);
 
 
 
+<?php
+$this->registerJs("
+    $(document).ready(function() {
+    $('#d-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'print'
+        ]
+    });
+} );
+")
+?>
 
 <?php $this->endBody() ?>
 </body>

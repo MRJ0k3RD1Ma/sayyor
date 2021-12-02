@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\OrganizationTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp', 'Organization Types');
+$this->title = Yii::t('cp', 'Tashkilot turlari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="search">
 
                 <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],'method'=>'get'])?>
-                    <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
+                    <?= $form->field($searchModel,'name',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(false)?>
                     <button class="btn" type="submit"><span class="fa fa-search"></span></button>
                 <?php \yii\widgets\ActiveForm::end()?>
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
 
-            <?= Html::a(Yii::t('app', 'Create Organization Type'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Yii::t('cp', 'Tashkilot turi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
         </div>
 
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //                    'id',
                     'name',
-                    [
+                   /* [
                         'label'=>Yii::t('cp','Ташкилотлар сони'),
                         'value'=>function($d){
                             $url = Yii::$app->urlManager->createUrl(['/cp/organizations']);
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             return "<a href='{$url}'>{$d->count()} {$txt}</a>";
                         },
                         'format'=>'raw',
-                    ],
+                    ],*/
 
                     ['class' => 'yii\grid\ActionColumn','template'=>'{update} {delete}'],
                 ],

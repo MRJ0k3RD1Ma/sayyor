@@ -7,78 +7,63 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\search\OrganizationsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp', 'Organizations');
+$this->title = Yii::t('cp', 'Tashkilotlar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="organizations-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a(Yii::t('cp', 'Tashkilot qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+//        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+//            'id_from_api',
+            'TIN',
+//            'NA1_CODE',
+//            'NS10_CODE',
+            //'NS11_CODE',
+            'NAME_FULL',
+            'ADDRESS',
+            //'REG_DATE',
+            //'DATE_TIN',
+            //'REG_NUM',
+            //'NS13_CODE',
+            'TELEFON',
+            //'TELEX',
+            //'FAX',
+            //'GD_FULL_NAME',
+            //'GD_TIN',
+            //'GD_TEL_WORK',
+            //'GD_TEL_HOME:boolean',
+            //'GD_EMAIL:email',
+            //'GB_FULL_NAME',
+            //'GB_TIN',
+            //'GB_TEL_WORK',
+            //'GB_TEL_HOME',
+//            'OKED',
+            //'OKPO',
+            //'OKONX',
+            //'soato',
+            //'EMAIL:email',
+            //'DATE_END',
+            //'CREATED',
+            //'CHANGED',
+            //'GD_MOBILE',
+            //'BUDJET:boolean',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 
 
-<div class="card">
-    <div class="card-header flex">
-        <div></div>
-        <div class="btns flex">
-
-            <div class="search">
-                <?php $form = \yii\widgets\ActiveForm::begin(['fieldConfig' => ['options' => ['tag' => false,],],'method'=>'get'])?>
-                    <?= $form->field($searchModel,'q',['template' => "{label}\n{input}"])->textInput(['class'=>''])->label(Yii::t('cp','Qidiruv:'))?>
-                    <button class="btn" type="submit"><span class="fa fa-search"></span></button>
-                <?php \yii\widgets\ActiveForm::end()?>
-            </div>
-            <div class="export">
-
-                <button class="btn btn-primary"><span class="fa fa-cloud-download-alt"></span> Export</button>
-                <div class="export-btn">
-                    <button><span class="fa fa-file-excel"></span> Excel</button>
-                    <button><span class="fa fa-file-pdf"></span> Pdf</button>
-                </div>
-            </div>
-
-            <?= Html::a(Yii::t('cp', 'Create Organizations'), ['create'], ['class' => 'btn btn-success']) ?>
-        </div>
-
-
-
-    </div><!-- end card header -->
-
-    <div class="card-body">
-        <div class="row">
-
-            <?= GridView::widget([
-                'dataProvider' => $dataProvider,
-//                'filterModel' => $searchModel,
-                'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-
-                    'name',
-                    [
-                        'label'=>Yii::t('cp','Viloyat'),
-                        'value'=>function($d){
-                            return $d->district->region_id;
-                        },
-                    ],
-                    [
-                        'attribute'=>'district_id',
-                        'value'=>function($d){
-                            return $d->district->name;
-                        },
-                    ],
-                    [
-                        'label'=>Yii::t('cp','Turi'),
-                        'value'=>function($d){
-                            return $d->type->name;
-                        },
-                    ],
-//                    'state',
-                    [
-                        'attribute'=>'state',
-                        'value'=>function($d){
-                            return $d->state0->name;
-                        },
-                    ],
-                    ['class' => 'yii\grid\ActionColumn'],
-                ],
-            ]); ?>
-
-        </div>
-    </div>
-    <!-- end card body -->
 </div>

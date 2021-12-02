@@ -12,62 +12,130 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_from_api')->textInput() ?>
 
-    <?= $form->field($model, 'state')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\StateList::find()->all(),'id','name')) ?>
+    <?= $form->field($model, 'TIN')->textInput(['length'=>9]) ?>
 
-    <?= $form->field($model,'reg')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Regions::find()->all(),'id','name'),['prompt'=>Yii::t('cp','Viloyatni tanlang')])?>
+    <?= $form->field($model, 'NA1_CODE')->textInput() ?>
 
-    <?= $form->field($model, 'district_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Districts::find()->where(['region_id'=>$model->reg])->all(),'id','name'),['prompt'=>Yii::t('cp','Tumanni tanglang')]) ?>
+    <?= $form->field($model, 'NS10_CODE')->textInput() ?>
 
-    <?= $form->field($model, 'type_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\OrganizationType::find()->all(),'id','name')) ?>
+    <?= $form->field($model, 'NS11_CODE')->textInput() ?>
 
-    <h3 class="card-title">
-        <?= Yii::t('cp','Yuqori turuvchi tashkilot')?>
-    </h3>
-    <?= $form->field($model,'yuqori_reg')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Regions::find()->all(),'id','name'),['prompt'=>Yii::t('cp','Viloyatni tanlang')])?>
+    <?= $form->field($model, 'NAME_FULL')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'yuqori_dist')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Districts::find()->where(['region_id'=>$model->yuqori_reg])->all(),'id','name'),['prompt'=>Yii::t('cp','Tumanni tanglang')]) ?>
+    <?= $form->field($model, 'ADDRESS')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'yuqori_type')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\OrganizationType::find()->all(),'id','name'),['prompt'=>Yii::t('cp','Yuqori turuvchi tashkilot turini tanlang')]) ?>
+    <?= $form->field($model, 'REG_DATE')->textInput() ?>
 
-    <?= $form->field($model, 'parent_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Organizations::find()->where(['district_id'=>$model->yuqori_dist,'type_id'=>$model->yuqori_type])->all(),'id','name')) ?>
+    <?= $form->field($model, 'DATE_TIN')->textInput() ?>
+
+    <?= $form->field($model, 'REG_NUM')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'NS13_CODE')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'TELEFON')->textInput() ?>
+
+    <?= $form->field($model, 'TELEX')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'FAX')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GD_FULL_NAME')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GD_TIN')->textInput() ?>
+
+    <?= $form->field($model, 'GD_TEL_WORK')->textInput() ?>
+
+    <?= $form->field($model, 'GD_TEL_HOME')->textInput() ?>
+
+    <?= $form->field($model, 'GD_EMAIL')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GB_FULL_NAME')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GB_TIN')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GB_TEL_WORK')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'GB_TEL_HOME')->textInput(['maxlength' => true,]) ?>
+
+    <?= $form->field($model, 'OKED')->textInput() ?>
+
+    <?= $form->field($model, 'OKPO')->textInput() ?>
+
+    <?= $form->field($model, 'OKONX')->textInput() ?>
+
+    <?= $form->field($model, 'soato')->textInput() ?>
+
+    <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'DATE_END')->textInput() ?>
+
+    <?= $form->field($model, 'CREATED')->textInput() ?>
+
+    <?= $form->field($model, 'CHANGED')->textInput() ?>
+
+    <?= $form->field($model, 'GD_MOBILE')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'BUDJET')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('cp', 'Saqlash'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
 </div>
 
+
 <?php
-    $url = Yii::$app->urlManager->createUrl(['/cp/districts/getselect']);
-    $url_org = Yii::$app->urlManager->createUrl(['/cp/organizations/getselect']);
-    $this->registerJs("
-        $('#organizations-reg').change(function(){
-            $.get('{$url}?id='+$('#organizations-reg').val()).done(function(data){
-                $('#organizations-district_id').empty();
-                $('#organizations-district_id').append(data);
+
+$url = Yii::$app->urlManager->createUrl(['/cp/organizations/getyur']);
+$this->registerJs("
+    $('#organizations-tin').keyup(function(){
+        if($('#organizations-tin').val().length==9){
+            $.get('{$url}?inn='+$('#organizations-tin').val()).done(function(data){
+                if(data==-1){
+                    alert('Bunday INN topilmadi')
+                }else{
+                    data = JSON.parse(data);
+                    $('#organizations-id_from_api').val(data.data.id);
+                    $('#organizations-na1_code').val(data.data.NA1_CODE);
+                    $('#organizations-ns10_code').val(data.data.NS10_CODE);
+                    $('#organizations-ns11_code').val(data.data.NS11_CODE);
+                    $('#organizations-name_full').val(data.data.NAME_FULL);
+                    $('#organizations-address').val(data.data.ADDRESS);
+                    $('#organizations-reg_date').val(data.data.REG_DATE);
+                    $('#organizations-date_tin').val(data.data.DATE_TIN);
+                    $('#organizations-reg_num').val(data.data.REG_NUM);
+                    $('#organizations-ns13_code').val(data.data.NS13_CODE);
+                    $('#organizations-telefon').val(data.data.TELEFON);
+                    $('#organizations-telex').val(data.data.TELEX);
+                    $('#organizations-fax').val(data.data.FAX);
+                    $('#organizations-gd_full_name').val(data.data.GD_FULL_NAME);
+                    $('#organizations-gd_tin').val(data.data.GD_TIN);
+                    $('#organizations-gd_tel_work').val(data.data.GD_TEL_WORK);
+                    $('#organizations-gd_tel_home').val(data.data.GD_TEL_HOME);
+                    $('#organizations-gd_email').val(data.data.GD_EMAIL);
+                    $('#organizations-db_full_name').val(data.data.GB_FULL_NAME);
+                    $('#organizations-gb_tin').val(data.data.GB_TIN);
+                    $('#organizations-gb_tel_work').val(data.data.GB_TEL_WORK);
+                    $('#organizations-gb_tel_home').val(data.data.GB_TEL_HOME);
+                    $('#organizations-oked').val(data.data.OKED);
+                    $('#organizations-okpo').val(data.data.OKPO);
+                    $('#organizations-okonx').val(data.data.OKONX);
+                    $('#organizations-soato').val(data.data.soato);
+                    $('#organizations-email').val(data.data.EMAIL);
+                    $('#organizations-date_end').val(data.data.DATE_END);
+                    $('#organizations-created').val(data.data.CREATED);
+                    $('#organizations-changed').val(data.data.CHANGED);
+                    $('#organizations-gb_mobile').val(data.data.GD_MOBILE);
+                    $('#organizations-budget').val(data.data.BUDJET);
+                    if(data.data.BUDJET==1){
+                        $('#organizations-budjet').prop( \"checked\", true );
+                    }
+                }
             })
-        });
-        $('#organizations-yuqori_reg').change(function(){
-            $.get('{$url}?id='+$('#organizations-yuqori_reg').val()).done(function(data){
-                $('#organizations-yuqori_dist').empty();
-                $('#organizations-yuqori_dist').append(data);
-            })
-        })
-         $('#organizations-yuqori_dist').change(function(){
-            $.get('{$url_org}?dist='+$('#organizations-yuqori_dist').val()+'&type='+$('#organizations-yuqori_type').val()).done(function(data){
-                $('#organizations-parent_id').empty();
-                $('#organizations-parent_id').append(data);
-            })
-         });
-         $('#organizations-yuqori_type').change(function(){
-            $.get('{$url_org}?dist='+$('#organizations-yuqori_dist').val()+'&type='+$('#organizations-yuqori_type').val()).done(function(data){
-                $('#organizations-parent_id').empty();
-                $('#organizations-parent_id').append(data);
-            })
-         })
-    ")
+        }
+    })
+")
 ?>

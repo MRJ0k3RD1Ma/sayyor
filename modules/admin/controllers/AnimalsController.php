@@ -4,10 +4,11 @@ namespace app\modules\admin\controllers;
 
 use app\models\Animals;
 use app\models\search\AnimalsSearch;
+use app\models\Vaccination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * AnimalsController implements the CRUD actions for Animals model.
  */
@@ -128,6 +129,17 @@ class AnimalsController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Yii::t('cp.animals', 'The requested page does not exist.'));
+    }
+
+    public function actionVaccination($id){
+
+        $model = new Vaccination();
+        $model->animal_id = $id;
+        $animal = Animals::findOne($id);
+        if($model->load(Yii::$app->request->post()) and $model->save()){
+            return $this->redirect(['view','id'=>$id]);
+        }
+        return $this->render('vaccination',['model'=>$model,'animal'=>$animal]);
     }
 }

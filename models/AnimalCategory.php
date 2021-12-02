@@ -8,9 +8,11 @@ use Yii;
  * This is the model class for table "animal_category".
  *
  * @property int $id
- * @property string $name
+ * @property int $code
+ * @property string $name_uz
+ * @property string|null $name_ru
  *
- * @property AnimalType[] $animalTypes
+ * @property Animals[] $animals
  */
 class AnimalCategory extends \yii\db\ActiveRecord
 {
@@ -28,8 +30,10 @@ class AnimalCategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name'], 'string', 'max' => 50],
+            [['id', 'code', 'name_uz'], 'required'],
+            [['id', 'code'], 'integer'],
+            [['name_uz', 'name_ru'], 'string', 'max' => 255],
+            [['id'], 'unique'],
         ];
     }
 
@@ -39,18 +43,20 @@ class AnimalCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
+            'id' => Yii::t('model.animal', 'ID'),
+            'code' => Yii::t('model.animal', 'Kod'),
+            'name_uz' => Yii::t('model.animal', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.animal', 'Nomi(Rus)'),
         ];
     }
 
     /**
-     * Gets query for [[AnimalTypes]].
+     * Gets query for [[Animals]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getAnimalTypes()
+    public function getAnimals()
     {
-        return $this->hasMany(AnimalType::className(), ['cat_id' => 'id']);
+        return $this->hasMany(Animals::className(), ['cat_id' => 'id']);
     }
 }

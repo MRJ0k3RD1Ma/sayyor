@@ -43,9 +43,9 @@ class Districts extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'region_id' => Yii::t('app', 'Region ID'),
-            'type' => Yii::t('app', 'Type'),
+            'name' => Yii::t('app', 'Nomi'),
+            'region_id' => Yii::t('app', 'Viloyat'),
+            'type' => Yii::t('app', 'Turi'),
         ];
     }
 

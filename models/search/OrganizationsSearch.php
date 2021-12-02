@@ -11,15 +11,15 @@ use app\models\Organizations;
  */
 class OrganizationsSearch extends Organizations
 {
-    public $q;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'parent_id', 'state', 'district_id', 'type_id'], 'integer'],
-            [['name','q'], 'safe'],
+            [['id', 'id_from_api', 'TIN', 'NA1_CODE', 'NS10_CODE', 'NS11_CODE', 'TELEFON', 'GD_TIN', 'GD_TEL_WORK', 'OKED', 'OKPO', 'OKONX', 'soato'], 'integer'],
+            [['NAME_FULL', 'ADDRESS', 'REG_DATE', 'DATE_TIN', 'REG_NUM', 'NS13_CODE', 'TELEX', 'FAX', 'GD_FULL_NAME', 'GD_EMAIL', 'GB_FULL_NAME', 'GB_TIN', 'GB_TEL_WORK', 'GB_TEL_HOME', 'EMAIL', 'DATE_END', 'CREATED', 'CHANGED', 'GD_MOBILE'], 'safe'],
+            [['GD_TEL_HOME', 'BUDJET'], 'boolean'],
         ];
     }
 
@@ -41,11 +41,7 @@ class OrganizationsSearch extends Organizations
      */
     public function search($params)
     {
-        $query = Organizations::find()
-            ->innerJoin('state_list','organizations.state = state_list.id')
-            ->innerJoin('districts','district_id = districts.id')
-            ->innerJoin('organization_type','type_id = organization_type.id')
-        ;
+        $query = Organizations::find();
 
         // add conditions that should always apply here
 
@@ -64,19 +60,41 @@ class OrganizationsSearch extends Organizations
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parent_id' => $this->parent_id,
-            'state' => $this->state,
-            'district_id' => $this->district_id,
-            'type_id' => $this->type_id,
+            'id_from_api' => $this->id_from_api,
+            'TIN' => $this->TIN,
+            'NA1_CODE' => $this->NA1_CODE,
+            'NS10_CODE' => $this->NS10_CODE,
+            'NS11_CODE' => $this->NS11_CODE,
+            'REG_DATE' => $this->REG_DATE,
+            'DATE_TIN' => $this->DATE_TIN,
+            'TELEFON' => $this->TELEFON,
+            'GD_TIN' => $this->GD_TIN,
+            'GD_TEL_WORK' => $this->GD_TEL_WORK,
+            'GD_TEL_HOME' => $this->GD_TEL_HOME,
+            'OKED' => $this->OKED,
+            'OKPO' => $this->OKPO,
+            'OKONX' => $this->OKONX,
+            'soato' => $this->soato,
+            'DATE_END' => $this->DATE_END,
+            'CREATED' => $this->CREATED,
+            'CHANGED' => $this->CHANGED,
+            'BUDJET' => $this->BUDJET,
         ]);
-        $query
-            ->orFilterWhere(['like','state_list.name',$this->q])
-            ->orFilterWhere(['like','organizations.name',$this->q])
-            ->orFilterWhere(['like','districts.name',$this->q])
-            ->orFilterWhere(['like','organization_type.name',$this->q])
 
-            ;
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'NAME_FULL', $this->NAME_FULL])
+            ->andFilterWhere(['like', 'ADDRESS', $this->ADDRESS])
+            ->andFilterWhere(['like', 'REG_NUM', $this->REG_NUM])
+            ->andFilterWhere(['like', 'NS13_CODE', $this->NS13_CODE])
+            ->andFilterWhere(['like', 'TELEX', $this->TELEX])
+            ->andFilterWhere(['like', 'FAX', $this->FAX])
+            ->andFilterWhere(['like', 'GD_FULL_NAME', $this->GD_FULL_NAME])
+            ->andFilterWhere(['like', 'GD_EMAIL', $this->GD_EMAIL])
+            ->andFilterWhere(['like', 'GB_FULL_NAME', $this->GB_FULL_NAME])
+            ->andFilterWhere(['like', 'GB_TIN', $this->GB_TIN])
+            ->andFilterWhere(['like', 'GB_TEL_WORK', $this->GB_TEL_WORK])
+            ->andFilterWhere(['like', 'GB_TEL_HOME', $this->GB_TEL_HOME])
+            ->andFilterWhere(['like', 'EMAIL', $this->EMAIL])
+            ->andFilterWhere(['like', 'GD_MOBILE', $this->GD_MOBILE]);
 
         return $dataProvider;
     }

@@ -3,13 +3,11 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Organizations;
-use app\models\search\EmployeesSearch;
 use app\models\search\OrganizationsSearch;
-use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * OrganizationsController implements the CRUD actions for Organizations model.
  */
@@ -37,7 +35,7 @@ class OrganizationsController extends Controller
      * Lists all Organizations models.
      * @return mixed
      */
-    public function actionIndex($q = null)
+    public function actionIndex()
     {
         $searchModel = new OrganizationsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
@@ -56,13 +54,8 @@ class OrganizationsController extends Controller
      */
     public function actionView($id)
     {
-        $searchModel = new EmployeesSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -98,7 +91,7 @@ class OrganizationsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->reg = $model->district->region_id;
+
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -135,27 +128,14 @@ class OrganizationsController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(\Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Yii::t('cp', 'The requested page does not exist.'));
     }
 
-    public function actionGetselect($dist=-1,$type=0){
-        $model = Organizations::find()->all();
-        if($type != 0){
-            $model = Organizations::find()->where(['type_id'=>$type])->all();
+    public function actionGetyur($inn){
+        if($model = Organizations::findOne(['TIN'=>$inn])){
+            return $this->redirect(['update'=>$model->id]);
+        }else{
+            return get_web_page(Yii::$app->params['hamsa']['url']['getjurinfo'].'?inn='.$inn,'hamsa');
         }
-        if($dist != -1){
-            $model = Organizations::find()->andWhere(['district_id'=>$dist])->all();
-        }
-        if($type != 0 and $dist != -1){
-            $model = Organizations::find()->andWhere(['district_id'=>$dist,'type_id'=>$type])->all();
-        }
-        $txt = \Yii::t('cp','Yuqori turuvchi tashkilotni tanlang');
-        $res = "<option value=''>-{$txt}-</option>";
-
-        foreach ($model as $item){
-            $res .= "<option value='{$item->id}'>{$item->name}</option>";
-        }
-        echo $res;
-        exit;
     }
 }

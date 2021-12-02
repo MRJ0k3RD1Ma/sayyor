@@ -17,8 +17,8 @@ class AnimalsSearch extends Animals
     public function rules()
     {
         return [
-            [['id', 'cat_id'], 'integer'],
-            [['name'], 'safe'],
+            [['id', 'cat_id', 'gender', 'vet_site_id', 'type_id'], 'integer'],
+            [['name', 'birthday', 'inn', 'pnfl', 'adress', 'bsual_tag'], 'safe'],
         ];
     }
 
@@ -60,9 +60,17 @@ class AnimalsSearch extends Animals
         $query->andFilterWhere([
             'id' => $this->id,
             'cat_id' => $this->cat_id,
+            'gender' => $this->gender,
+            'birthday' => $this->birthday,
+            'vet_site_id' => $this->vet_site_id,
+            'type_id' => $this->type_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'inn', $this->inn])
+            ->andFilterWhere(['like', 'pnfl', $this->pnfl])
+            ->andFilterWhere(['like', 'adress', $this->adress])
+            ->andFilterWhere(['like', 'bsual_tag', $this->bsual_tag]);
 
         return $dataProvider;
     }
