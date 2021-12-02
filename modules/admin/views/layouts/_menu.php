@@ -17,7 +17,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/'])?>">
+                        <i data-feather="sliders"></i>
+                        <span data-key="t-table"><?= Yii::t('cp.menu','Dalolatnomalar')?></span>
 
+                    </a>
+                </li>
                 <li>
                     <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>">
                         <i data-feather="sliders"></i>

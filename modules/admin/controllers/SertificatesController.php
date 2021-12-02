@@ -2,17 +2,16 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Animals;
-use app\models\search\AnimalsSearch;
-use app\models\Vaccination;
+use app\models\Sertificates;
+use app\models\search\SertificatesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
 /**
- * AnimalsController implements the CRUD actions for Animals model.
+ * SertificatesController implements the CRUD actions for Sertificates model.
  */
-class AnimalsController extends Controller
+class SertificatesController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,12 +32,12 @@ class AnimalsController extends Controller
     }
 
     /**
-     * Lists all Animals models.
+     * Lists all Sertificates models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AnimalsSearch();
+        $searchModel = new SertificatesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -48,30 +47,38 @@ class AnimalsController extends Controller
     }
 
     /**
-     * Displays a single Animals model.
-     * @param int $id ID
+     * Displays a single Sertificates model.
+     * @param string $sert_id Sert ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($sert_id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($sert_id),
         ]);
     }
 
     /**
-     * Creates a new Animals model.
+     * Creates a new Sertificates model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Animals();
+        $model = new Sertificates();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->id = Sertificates::find()->max('id');
+                if($model->id){
+                    $model->id = $model->id+1;
+                }else{
+                    $model->id = 1;
+                }
+                if($model->save()){
+                    return $this->redirect(['view', 'sert_id' => $model->sert_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -83,18 +90,18 @@ class AnimalsController extends Controller
     }
 
     /**
-     * Updates an existing Animals model.
+     * Updates an existing Sertificates model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id ID
+     * @param string $sert_id Sert ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($sert_id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($sert_id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'sert_id' => $model->sert_id]);
         }
 
         return $this->render('update', [
@@ -103,43 +110,32 @@ class AnimalsController extends Controller
     }
 
     /**
-     * Deletes an existing Animals model.
+     * Deletes an existing Sertificates model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
+     * @param string $sert_id Sert ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($sert_id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($sert_id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Animals model based on its primary key value.
+     * Finds the Sertificates model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id ID
-     * @return Animals the loaded model
+     * @param string $sert_id Sert ID
+     * @return Sertificates the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($sert_id)
     {
-        if (($model = Animals::findOne($id)) !== null) {
+        if (($model = Sertificates::findOne(['sert_id'=>$sert_id])) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('cp.animals', 'The requested page does not exist.'));
-    }
-
-    public function actionVaccination($id){
-
-        $model = new Vaccination();
-        $model->animal_id = $id;
-        $animal = Animals::findOne($id);
-        if($model->load(Yii::$app->request->post()) and $model->save()){
-            return $this->redirect(['view','id'=>$id]);
-        }
-        return $this->render('vaccination',['model'=>$model,'animal'=>$animal]);
+        throw new NotFoundHttpException(Yii::t('cp.sertificates', 'The requested page does not exist.'));
     }
 }
