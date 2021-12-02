@@ -2,16 +2,16 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Sertificates;
-use app\models\search\SertificatesSearch;
+use app\models\Samples;
+use app\models\search\SamplesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use Yii;
+
 /**
- * SertificatesController implements the CRUD actions for Sertificates model.
+ * SamplesController implements the CRUD actions for Samples model.
  */
-class SertificatesController extends Controller
+class SamplesController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,12 +32,12 @@ class SertificatesController extends Controller
     }
 
     /**
-     * Lists all Sertificates models.
+     * Lists all Samples models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SertificatesSearch();
+        $searchModel = new SamplesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -47,38 +47,30 @@ class SertificatesController extends Controller
     }
 
     /**
-     * Displays a single Sertificates model.
-     * @param string $sert_id Sert ID
+     * Displays a single Samples model.
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($sert_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($sert_id),
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Sertificates model.
+     * Creates a new Samples model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Sertificates();
+        $model = new Samples();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $model->id = Sertificates::find()->max('id');
-                if($model->id){
-                    $model->id = $model->id+1;
-                }else{
-                    $model->id = 1;
-                }
-                if($model->save()){
-                    return $this->redirect(['view', 'sert_id' => $model->sert_id]);
-                }
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -90,18 +82,18 @@ class SertificatesController extends Controller
     }
 
     /**
-     * Updates an existing Sertificates model.
+     * Updates an existing Samples model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $sert_id Sert ID
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($sert_id)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($sert_id);
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'sert_id' => $model->sert_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -110,37 +102,32 @@ class SertificatesController extends Controller
     }
 
     /**
-     * Deletes an existing Sertificates model.
+     * Deletes an existing Samples model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $sert_id Sert ID
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($sert_id)
+    public function actionDelete($id)
     {
-        $this->findModel($sert_id)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Sertificates model based on its primary key value.
+     * Finds the Samples model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $sert_id Sert ID
-     * @return Sertificates the loaded model
+     * @param int $id ID
+     * @return Samples the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($sert_id)
+    protected function findModel($id)
     {
-        if (($model = Sertificates::findOne(['sert_id'=>$sert_id])) !== null) {
+        if (($model = Samples::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('cp.sertificates', 'The requested page does not exist.'));
-    }
-
-    public function actionAdd($sert_id){
-        $model = $this->findModel($sert_id);
-        
+        throw new NotFoundHttpException(Yii::t('cp.samples', 'The requested page does not exist.'));
     }
 }

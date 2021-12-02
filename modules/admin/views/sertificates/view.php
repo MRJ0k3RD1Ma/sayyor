@@ -41,3 +41,45 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+
+<div class="row">
+    <div class="col-md-12 table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th rowspan="2">№</th>
+                    <th rowspan="2">Namuna belgisi</th>
+                    <th rowspan="2">Namuna turi</th>
+                    <th rowspan="2">Namuna o'rami</th>
+                    <th colspan="4">Namuna olingan hayvon haqida ma'lumot</th>
+                    <th colspan="2">Emlash</th>
+                    <th colspan="2">Davolash</th>
+                    <th rowspan="2">Qaysi kasallikga gumon</th>
+                    <th rowspan="2">Tahlil usuli</th>
+                    <th rowspan="2">Takroriy tahlil raqami</th>
+                </tr>
+                <tr>
+                    <th>Identifikatsiya raqami</th>
+                    <th>Hayvon turi</th>
+                    <th>Hayvon jinsi</th>
+                    <th>Yoshi oy</th>
+                    <th>Kasallikga qarshi</th>
+                    <th>Emlash sanasi</th>
+                    <th>Antibiotik turi</th>
+                    <th>Sanasi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach (\app\models\Samples::find()->where(['sert_id'=>$model->sert_id])->all() as $item):?>
+                    <tr>
+                        <td></td>
+                    </tr>
+                <?php endforeach;?>
+                <tr>
+                    <td colspan="15"><a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/add','sert_id'=>$model->sert_id])?>" class="btn btn-primary">Yana qo'shish</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
