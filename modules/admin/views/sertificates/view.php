@@ -84,8 +84,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td rowspan="<?= $cnt + 1?>"><?= Yii::$app->params['gender'][$item->animal->gender] ?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->animal->birthday ?></td>
                         <td colspan="4"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Vaksina qo'shish</a></td>
-                        <td rowspan="<?= $cnt + 1?>">?</td>
-                        <td rowspan="<?= $cnt + 1?>">?</td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->suspectedDisease->name_uz?></td>
+                        <td rowspan="<?= $cnt + 1?>"><?= $item->testMehod->name_uz?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->kod?></td>
                     </tr>
                     <?php foreach (\app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->orderBy(['disease_date'=>SORT_DESC])->all() as $vac):?>

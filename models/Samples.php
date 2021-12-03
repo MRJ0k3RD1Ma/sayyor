@@ -14,11 +14,15 @@ use Yii;
  * @property int|null $sample_box_id
  * @property int|null $animal_id
  * @property int|null $sert_id
+ * @property int|null $suspected_disease_id
+ * @property int|null $test_mehod_id
  *
  * @property Animals $animal
  * @property SampleBoxes $sampleBox
  * @property SampleTypes $sampleTypeIs
  * @property Sertificates $sert
+ * @property Diseases $suspectedDisease
+ * @property TestMethod $testMehod
  */
 class Samples extends \yii\db\ActiveRecord
 {
@@ -36,12 +40,14 @@ class Samples extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sample_type_is', 'sample_box_id', 'animal_id', 'sert_id'], 'integer'],
+            [['sample_type_is', 'sample_box_id', 'animal_id', 'sert_id', 'suspected_disease_id', 'test_mehod_id'], 'integer'],
             [['kod', 'label'], 'string', 'max' => 255],
             [['animal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Animals::className(), 'targetAttribute' => ['animal_id' => 'id']],
             [['sample_box_id'], 'exist', 'skipOnError' => true, 'targetClass' => SampleBoxes::className(), 'targetAttribute' => ['sample_box_id' => 'id']],
             [['sample_type_is'], 'exist', 'skipOnError' => true, 'targetClass' => SampleTypes::className(), 'targetAttribute' => ['sample_type_is' => 'id']],
             [['sert_id'], 'exist', 'skipOnError' => true, 'targetClass' => Sertificates::className(), 'targetAttribute' => ['sert_id' => 'id']],
+            [['suspected_disease_id'], 'exist', 'skipOnError' => true, 'targetClass' => Diseases::className(), 'targetAttribute' => ['suspected_disease_id' => 'id']],
+            [['test_mehod_id'], 'exist', 'skipOnError' => true, 'targetClass' => TestMethod::className(), 'targetAttribute' => ['test_mehod_id' => 'id']],
         ];
     }
 
@@ -52,12 +58,14 @@ class Samples extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.samples', 'ID'),
-            'kod' => Yii::t('model.samples', 'Oldingi tahlil raqami'),
+            'kod' => Yii::t('model.samples', 'Kod'),
             'label' => Yii::t('model.samples', 'Namuna belgisi'),
             'sample_type_is' => Yii::t('model.samples', 'Namuna turi'),
             'sample_box_id' => Yii::t('model.samples', 'Namuna o\'rami'),
-            'animal_id' => Yii::t('model.samples', 'Hayvon ma\'lumoti'),
+            'animal_id' => Yii::t('model.samples', 'Hayvon'),
             'sert_id' => Yii::t('model.samples', 'Dalolatnoma raqami'),
+            'suspected_disease_id' => Yii::t('model.samples', 'Gumonlangan kasallik'),
+            'test_mehod_id' => Yii::t('model.samples', 'Tahlil usuli'),
         ];
     }
 
@@ -99,5 +107,25 @@ class Samples extends \yii\db\ActiveRecord
     public function getSert()
     {
         return $this->hasOne(Sertificates::className(), ['id' => 'sert_id']);
+    }
+
+    /**
+     * Gets query for [[SuspectedDisease]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSuspectedDisease()
+    {
+        return $this->hasOne(Diseases::className(), ['id' => 'suspected_disease_id']);
+    }
+
+    /**
+     * Gets query for [[TestMehod]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTestMehod()
+    {
+        return $this->hasOne(TestMethod::className(), ['id' => 'test_mehod_id']);
     }
 }
