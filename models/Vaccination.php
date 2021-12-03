@@ -37,7 +37,7 @@ class Vaccination extends \yii\db\ActiveRecord
             [['disease_date'], 'safe'],
             [['animal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Animals::className(), 'targetAttribute' => ['animal_id' => 'id']],
             [['disease_id'], 'exist', 'skipOnError' => true, 'targetClass' => Diseases::className(), 'targetAttribute' => ['disease_id' => 'id']],
-            [['vaccina_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vaccines::className(), 'targetAttribute' => ['vaccina_id' => 'id']],
+//            [['vaccina_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vaccines::className(), 'targetAttribute' => ['vaccina_id' => 'id']],
         ];
     }
 

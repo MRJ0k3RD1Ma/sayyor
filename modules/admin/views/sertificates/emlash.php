@@ -6,12 +6,12 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Vaccination */
 /* @var $animal app\models\Animals */
 
-$this->title = Yii::t('cp.animals', 'Vaksina qilish: {name}', [
+$this->title = Yii::t('cp.animals', 'Vaksinalash: {name}', [
     'name' => $animal->type->name_uz,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('cp.animals', 'Hayvonlar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $animal->type->name_uz, 'url' => ['view', 'id' => $animal->id]];
-$this->params['breadcrumbs'][] = Yii::t('cp.animals', 'Vaksina qilish');
+$this->params['breadcrumbs'][] = Yii::t('cp.animals', 'Vaksinalash');
 ?>
 <div class="animals-update">
 
@@ -21,9 +21,10 @@ $this->params['breadcrumbs'][] = Yii::t('cp.animals', 'Vaksina qilish');
         <?php $form = ActiveForm::begin(); ?>
 
 
-        <?= $form->field($model, 'disease_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Diseases::find()->all(),'id','name_uz'),['prompt'=>Yii::t('cp.animals','Kasallikni talang')]) ?>
 
-        <?= $form->field($model, 'disease_date')->textInput(['type'=>'date']) ?>
+        <?= $form->field($model, 'antibiotic')->textInput() ?>
+
+        <?= $form->field($model, 'emlash_date')->textInput(['type'=>'date']) ?>
 
 
 

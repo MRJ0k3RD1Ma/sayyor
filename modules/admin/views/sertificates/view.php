@@ -72,7 +72,13 @@ $this->params['breadcrumbs'][] = $this->title;
             </thead>
             <tbody>
                 <?php $n=0; foreach (\app\models\Samples::find()->where(['sert_id'=>$model->id])->all() as $item): $n++;
-                $cnt = \app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->count('*');
+                $cnt_vac = \app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->count('*');
+                $cnt_eml = \app\models\Emlash::find()->where(['animal_id'=>$item->animal_id])->count('*');
+                if($cnt_vac > $cnt_eml){
+                    $cnt = $cnt_vac;
+                }else{
+                    $cnt = $cnt_eml;
+                }
                 ?>
                     <tr>
                         <td rowspan="<?= $cnt + 1?>"><?= $n?></td>
@@ -83,19 +89,23 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td rowspan="<?= $cnt + 1?>"><?= $item->animal->type->name_uz ?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= Yii::$app->params['gender'][$item->animal->gender] ?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->animal->birthday ?></td>
-                        <td colspan="4"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Vaksina qo'shish</a></td>
+                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Vaksina qilish</a></td>
+                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/emlash','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Emlash</a></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->suspectedDisease->name_uz?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->testMehod->name_uz?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->kod?></td>
                     </tr>
-                    <?php foreach (\app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->orderBy(['disease_date'=>SORT_DESC])->all() as $vac):?>
+                    <?php
+                    $vac = \app\models\Vaccination::find()->where(['animal_id'=>$item->animal_id])->orderBy(['disease_date'=>SORT_DESC])->all();
+                    $eml = \app\models\Emlash::find()->where(['animal_id'=>$item->animal_id])->orderBy(['emlash_date'=>SORT_DESC])->all();
+                    for ($i=0;$i<$cnt; $i++):?>
                     <tr>
-                        <td><?= $vac->vaccina->name?></td>
-                        <td><?= $vac->disease_date?></td>
-                        <td><?= $vac->disease->name_uz?></td>
-                        <td><?= $vac->disease_date?></td>
+                        <td><?= isset($vac[$i]) ? $vac[$i]->disease->name_uz : ' ' ?></td>
+                        <td><?= isset($vac[$i]) ? $vac[$i]->disease_date : ' '?></td>
+                        <td><?= isset($eml[$i]) ? $eml[$i]->antibiotic : ' ' ?></td>
+                        <td><?= isset($eml[$i]) ? $eml[$i]->emlash_date : ' '?></td>
                     </tr>
-                    <?php endforeach ?>
+                    <?php endfor; ?>
                 <?php endforeach;?>
                 <tr>
                     <td colspan="15"><a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/add','id'=>$model->id])?>" class="btn btn-primary">Yana qo'shish</a></td>

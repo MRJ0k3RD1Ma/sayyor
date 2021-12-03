@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'organization_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Organizations::find()->all(),'id','NAME_FULL')) ?>
 
-    <?= $form->field($model, 'pnfl')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Individuals::find()->all(),'pnfl','name')) ?>
+    <?= $form->field($model, 'pnfl')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Individuals::find()->all(),'pnfl','name'),['prompt'=>'PNFLni tanlang']) ?>
 
     <?= $form->field($model, 'owner_name')->textInput(['maxlength' => true]) ?>
 

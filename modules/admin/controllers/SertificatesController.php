@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Animals;
+use app\models\Emlash;
 use app\models\Samples;
 use app\models\Sertificates;
 use app\models\search\SertificatesSearch;
@@ -190,4 +191,17 @@ class SertificatesController extends Controller
         }
         return $this->render('vaccination',['model'=>$model,'animal'=>$animal]);
     }
+
+    public function actionEmlash($id,$sert_id){
+
+        $model = new Emlash();
+        $model->animal_id = $id;
+        $animal = Animals::findOne($id);
+        if($model->load(Yii::$app->request->post()) and $model->save()){
+            return $this->redirect(['view','id'=>$sert_id]);
+        }
+        return $this->render('emlash',['model'=>$model,'animal'=>$animal]);
+    }
+
+
 }
