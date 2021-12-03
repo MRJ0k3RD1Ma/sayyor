@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
+
 /**
  * OrganizationTypeController implements the CRUD actions for OrganizationType model.
  */

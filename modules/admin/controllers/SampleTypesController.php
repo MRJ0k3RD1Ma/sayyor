@@ -7,7 +7,7 @@ use app\models\search\SampleTypesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * SampleTypesController implements the CRUD actions for SampleTypes model.
  */

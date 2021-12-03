@@ -7,7 +7,7 @@ use app\models\search\LegalEntitiesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * LegalEntitiesController implements the CRUD actions for LegalEntities model.
  */

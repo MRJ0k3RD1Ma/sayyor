@@ -7,7 +7,7 @@ use app\models\search\SampleBoxesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * SampleBoxesController implements the CRUD actions for SampleBoxes model.
  */

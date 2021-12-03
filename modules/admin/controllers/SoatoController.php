@@ -7,7 +7,7 @@ use app\models\search\SoatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * SoatoController implements the CRUD actions for Soato model.
  */

@@ -7,6 +7,7 @@ use app\models\search\AnimalCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * AnimalCategoryController implements the CRUD actions for AnimalCategory model.

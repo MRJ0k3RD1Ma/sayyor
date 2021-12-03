@@ -7,7 +7,7 @@ use app\models\search\RolesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * RolesController implements the CRUD actions for Roles model.
  */

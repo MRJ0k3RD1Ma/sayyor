@@ -7,7 +7,7 @@ use app\models\search\DiseaseGroupsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * DiseaseGroupsController implements the CRUD actions for DiseaseGroups model.
  */

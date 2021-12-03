@@ -7,7 +7,7 @@ use app\models\search\IndividualsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * IndividualsController implements the CRUD actions for Individuals model.
  */

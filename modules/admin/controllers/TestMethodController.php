@@ -7,7 +7,7 @@ use app\models\search\TestMethodSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * TestMethodController implements the CRUD actions for TestMethod model.
  */

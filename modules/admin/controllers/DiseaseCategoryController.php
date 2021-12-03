@@ -7,7 +7,7 @@ use app\models\search\DiseaseCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * DiseaseCategoryController implements the CRUD actions for DiseaseCategory model.
  */
