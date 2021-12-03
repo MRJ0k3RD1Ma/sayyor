@@ -32,7 +32,7 @@ class Vaccination extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['animal_id'], 'required'],
+            [['animal_id', 'disease_id'], 'required'],
             [['animal_id', 'vaccina_id', 'disease_id'], 'integer'],
             [['disease_date'], 'safe'],
             [['animal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Animals::className(), 'targetAttribute' => ['animal_id' => 'id']],
