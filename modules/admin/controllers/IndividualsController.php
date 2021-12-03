@@ -124,7 +124,7 @@ class IndividualsController extends Controller
      */
     protected function findModel($pnfl)
     {
-        if (($model = Individuals::findOne($id)) !== null) {
+        if (($model = Individuals::findOne(['pnfl'=>$pnfl])) !== null) {
             return $model;
         }
 
