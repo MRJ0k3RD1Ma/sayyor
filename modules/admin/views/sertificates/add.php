@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = Yii::t('cp.sertificates', 'Hayvon qo\'shish');
     }
     ?>
 
-    <?= $form->field($animal, 'cat_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\AnimalCategory::find()->all(),'id','name_'.$res),['prompt'=>Yii::t('cp.animals','Hayvon toifasini tanlang')]) ?>
+    <?= $form->field($animal, 'type_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Animaltype::find()->all(),'id','name_'.$res),['prompt'=>Yii::t('cp.animals','Hayvon turini tanlang')]) ?>
 
     <?= $form->field($animal, 'gender')->dropDownList([
         1=>Yii::t('cp.animals','Erkak'),
@@ -65,7 +65,6 @@ $this->params['breadcrumbs'][] = Yii::t('cp.sertificates', 'Hayvon qo\'shish');
 
     <?= $form->field($animal, 'bsual_tag')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($animal, 'type_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Animaltype::find()->all(),'id','name_'.$res),['prompt'=>Yii::t('cp.animals','Hayvon turini tanlang')]) ?>
 
     <?= $form->field($sample, 'test_mehod_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\TestMethod::find()->all(),'id','name_uz'),['prompt'=>'Tahlil usulini tanlang']) ?>
 

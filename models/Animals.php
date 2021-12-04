@@ -40,12 +40,12 @@ class Animals extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'cat_id'], 'required'],
+            [['name','type_id'], 'required'],
             [['cat_id', 'gender', 'vet_site_id', 'type_id'], 'integer'],
             [['birthday'], 'safe'],
             [['name'], 'string', 'max' => 50],
             [['inn', 'pnfl', 'adress', 'bsual_tag'], 'string', 'max' => 255],
-            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalCategory::className(), 'targetAttribute' => ['cat_id' => 'id']],
+//            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => AnimalCategory::className(), 'targetAttribute' => ['cat_id' => 'id']],
             [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => Animaltype::className(), 'targetAttribute' => ['type_id' => 'id']],
             [['vet_site_id'], 'exist', 'skipOnError' => true, 'targetClass' => VetSites::className(), 'targetAttribute' => ['vet_site_id' => 'id']],
         ];

@@ -89,8 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td rowspan="<?= $cnt + 1?>"><?= $item->animal->type->name_uz ?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= Yii::$app->params['gender'][$item->animal->gender] ?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->animal->birthday ?></td>
-                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Vaksina qilish</a></td>
-                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/emlash','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Emlash</a></td>
+                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/vaccination','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Emlash</a></td>
+                        <td colspan="2"><a class="btn btn-primary" href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/emlash','id'=>$item->animal_id,'sert_id'=>$model->id])?>">Davolash</a></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->suspectedDisease->name_uz?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->testMehod->name_uz?></td>
                         <td rowspan="<?= $cnt + 1?>"><?= $item->kod?></td>

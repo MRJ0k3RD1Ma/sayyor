@@ -25,13 +25,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato/'])?>">
-                        <i data-feather="sliders"></i>
-                        <span data-key="t-table"><?= Yii::t('cp.menu','SOATO')?></span>
-
-                    </a>
-                </li>
-                <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="users"></i>
                         <span data-key="t-tables"><?= Yii::t('cp.menu','Ma\'lumotnoma')?></span>
