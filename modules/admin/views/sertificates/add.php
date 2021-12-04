@@ -21,9 +21,9 @@ $this->params['breadcrumbs'][] = Yii::t('cp.sertificates', 'Hayvon qo\'shish');
 
     <?= $form->field($sample, 'label')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($sample, 'sample_type_is')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\SampleTypes::find()->all(),'id','name_uz'),['prompt'=>'namuna turini tanlang']) ?>
+    <?= $form->field($sample, 'sample_type_is')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\SampleTypes::find()->all(),'id','name_uz'),['prompt'=>'Namuna turini tanlang']) ?>
 
-    <?= $form->field($sample, 'sample_box_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\SampleBoxes::find()->all(),'id','name_uz'),['prompt'=>'namuna o\'ramini tanlang']) ?>
+    <?= $form->field($sample, 'sample_box_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\SampleBoxes::find()->all(),'id','name_uz'),['prompt'=>'Namuna o\'ramini tanlang']) ?>
 
     <?= $form->field($animal, 'name')->textInput(['maxlength' => true]) ?>
     <?php
