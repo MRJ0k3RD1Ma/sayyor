@@ -21,13 +21,31 @@
             </div>
 
             <div class="col-md-3">
-                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/SOATO'])?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/soato'])?>">
                     <div class="card">
                         <!-- card body -->
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-10">
                                     <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','SOATO')?></h5>
+                                </div>
+                                <div class="col-2">
+                                    <i class="fa fa-hotel"></i>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/tshx'])?>">
+                    <div class="card">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Tashkiliy huquqiy shakl')?></h5>
                                 </div>
                                 <div class="col-2">
                                     <i class="fa fa-hotel"></i>

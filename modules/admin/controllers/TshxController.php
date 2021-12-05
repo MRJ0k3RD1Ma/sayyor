@@ -2,16 +2,16 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Individuals;
-use app\models\search\IndividualsSearch;
+use app\models\Tshx;
+use app\models\search\TshxSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use Yii;
+
 /**
- * IndividualsController implements the CRUD actions for Individuals model.
+ * TshxController implements the CRUD actions for Tshx model.
  */
-class IndividualsController extends Controller
+class TshxController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,12 +32,12 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Lists all Individuals models.
+     * Lists all Tshx models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new IndividualsSearch();
+        $searchModel = new TshxSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -47,8 +47,8 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Displays a single Individuals model.
-     * @param string $pnfl Pnfl
+     * Displays a single Tshx model.
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -60,17 +60,17 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Creates a new Individuals model.
+     * Creates a new Tshx model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Individuals();
+        $model = new Tshx();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', '$id' => $model->pnfl]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -82,9 +82,9 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Updates an existing Individuals model.
+     * Updates an existing Tshx model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $pnfl Pnfl
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -93,7 +93,7 @@ class IndividualsController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', '$id' => $model->pnfl]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -102,9 +102,9 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Deletes an existing Individuals model.
+     * Deletes an existing Tshx model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $pnfl Pnfl
+     * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -116,18 +116,18 @@ class IndividualsController extends Controller
     }
 
     /**
-     * Finds the Individuals model based on its primary key value.
+     * Finds the Tshx model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $pnfl Pnfl
-     * @return Individuals the loaded model
+     * @param int $id ID
+     * @return Tshx the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Individuals::findOne(['pnfl'=>$id])) !== null) {
+        if (($model = Tshx::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('cp.individuals', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Yii::t('cp.tshx', 'The requested page does not exist.'));
     }
 }

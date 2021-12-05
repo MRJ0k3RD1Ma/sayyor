@@ -12,12 +12,15 @@ use Yii;
  * @property string|null $tshx
  * @property string|null $soogu
  * @property int|null $soato
+ * @property int $region
+ * @property int $district
  * @property int|null $status_id
  *
  * @property Soato $soato0
  */
 class LegalEntities extends \yii\db\ActiveRecord
 {
+    public $region,$district;
     /**
      * {@inheritdoc}
      */
@@ -33,7 +36,7 @@ class LegalEntities extends \yii\db\ActiveRecord
     {
         return [
             [['inn'], 'required'],
-            [['soato', 'status_id'], 'integer'],
+            [['soato', 'status_id','region','district'], 'integer'],
             [['inn', 'name', 'tshx', 'soogu'], 'string', 'max' => 255],
             [['inn'], 'unique'],
             [['soato'], 'exist', 'skipOnError' => true, 'targetClass' => Soato::className(), 'targetAttribute' => ['soato' => 'MHOBT_cod']],
@@ -51,6 +54,8 @@ class LegalEntities extends \yii\db\ActiveRecord
             'tshx' => Yii::t('model.legal_entities', 'TSHX'),
             'soogu' => Yii::t('model.legal_entities', 'Soogu'),
             'soato' => Yii::t('model.legal_entities', 'Soato'),
+            'region' => Yii::t('model.legal_entities', 'Viloyat'),
+            'district' => Yii::t('model.legal_entities', 'Tuman'),
             'status_id' => Yii::t('model.legal_entities', 'Status'),
         ];
     }

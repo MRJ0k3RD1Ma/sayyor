@@ -52,10 +52,10 @@ class LegalEntitiesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($inn)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($inn),
+            'model' => $this->findModel($id ),
         ]);
     }
 
@@ -70,7 +70,7 @@ class LegalEntitiesController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'inn' => $model->inn]);
+                return $this->redirect(['view', 'id' => $model->inn]);
             }
         } else {
             $model->loadDefaultValues();
@@ -88,12 +88,12 @@ class LegalEntitiesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($inn)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($inn);
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'inn' => $model->inn]);
+            return $this->redirect(['view', 'id' => $model->inn]);
         }
 
         return $this->render('update', [
@@ -108,9 +108,9 @@ class LegalEntitiesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($inn)
+    public function actionDelete($id)
     {
-        $this->findModel($inn)->delete();
+        $this->findModel(['inn'=>$id])->delete();
 
         return $this->redirect(['index']);
     }
@@ -122,7 +122,7 @@ class LegalEntitiesController extends Controller
      * @return LegalEntities the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($inn)
+    protected function findModel($id)
     {
         if (($model = LegalEntities::findOne($id)) !== null) {
             return $model;

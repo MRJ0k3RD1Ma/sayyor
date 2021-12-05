@@ -12,6 +12,8 @@ use Yii;
  * @property string|null $surname
  * @property string|null $middlename
  * @property int|null $soato_id
+ * @property int|null $region
+ * @property int|null $district
  * @property string|null $adress
  * @property string|null $passport
  *
@@ -19,6 +21,7 @@ use Yii;
  */
 class Individuals extends \yii\db\ActiveRecord
 {
+    public $region,$district;
     /**
      * {@inheritdoc}
      */
@@ -34,7 +37,7 @@ class Individuals extends \yii\db\ActiveRecord
     {
         return [
             [['pnfl'], 'required'],
-            [['soato_id'], 'integer'],
+            [['soato_id','region','district'], 'integer'],
             [['pnfl', 'name', 'surname', 'middlename', 'adress', 'passport'], 'string', 'max' => 255],
             [['pnfl'], 'unique'],
             [['soato_id'], 'exist', 'skipOnError' => true, 'targetClass' => Soato::className(), 'targetAttribute' => ['soato_id' => 'MHOBT_cod']],
@@ -54,6 +57,8 @@ class Individuals extends \yii\db\ActiveRecord
             'soato_id' => Yii::t('model.individuals', 'QFY'),
             'adress' => Yii::t('model.individuals', 'Manzil'),
             'passport' => Yii::t('model.individuals', 'Pasport'),
+            'region' => Yii::t('model.individuals', 'Viloyat'),
+            'district' => Yii::t('model.individuals', 'Tuman'),
         ];
     }
 
