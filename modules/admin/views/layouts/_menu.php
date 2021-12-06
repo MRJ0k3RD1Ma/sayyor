@@ -18,7 +18,7 @@
                 </li>
 
                 <li>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/sertificates/'])?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/cp/default/sert/'])?>">
                         <i data-feather="sliders"></i>
                         <span data-key="t-table"><?= Yii::t('cp.menu','Dalolatnomalar')?></span>
 

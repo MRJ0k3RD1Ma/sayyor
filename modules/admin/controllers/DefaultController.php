@@ -77,6 +77,10 @@ class DefaultController extends Controller
         return $this->render('outside');
     }
 
+    public function actionSert(){
+        return $this->render('sert');
+    }
+
     /**
      * Logout action.
      *
