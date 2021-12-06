@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pnfl') ?>
 
-    <?= $form->field($model, 'inn') ?>
+    <?= $form->field($model, 'organization_id') ?>
 
     <?= $form->field($model, 'sampling_site') ?>
 
@@ -49,7 +49,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'verification_pupose_id') ?>
 
-    <?php // echo $form->field($model, 'sampling_rules_id') ?>
+    <?php // echo $form->field($model, 'sample_box_id') ?>
 
     <?php // echo $form->field($model, 'sample_condition_id') ?>
 
@@ -58,6 +58,12 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'send_sample_date') ?>
 
     <?php // echo $form->field($model, 'explanations') ?>
+
+    <?php // echo $form->field($model, 'based_public_information') ?>
+
+    <?php // echo $form->field($model, 'message_number') ?>
+
+    <?php // echo $form->field($model, 'laboratory_test_type_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('cp.food_sampling_certificate', 'Search'), ['class' => 'btn btn-primary']) ?>

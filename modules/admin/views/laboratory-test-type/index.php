@@ -4,14 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\search\FoodSamplingCertificateSearch */
+/* @var $searchModel app\models\search\LaboratoryTestTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp.food_sampling_certificate', 'Mahsulot ekspertizalari');
+$this->title = Yii::t('cp.laboratory_test_type', 'Laboratoriya tadqiqot turlari');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="food-sampling-certificate-index">
-
+<div class="laboratory-test-type-index">
 
     <div class="row">
         <div class="col-md-12">
@@ -33,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <button value="excel" class="export"><span class="fa fa-file-pdf"></span>  <?= Yii::t('cp','Pdf')?></button>
                             </div>
                         </div>
-                        <?= Html::a(Yii::t('cp.food_sampling_certificate', 'Mahsulot ekspertizasi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
+                        <?= Html::a(Yii::t('cp.laboratory_test_type', 'tadqiqot turi qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?>
 
                     </div>
 
@@ -45,31 +44,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
 
-//                            'id',
-                            'kod',
-                            'pnfl',
-//                            'organization_id',
-//                            'sampling_site',
-                            'sampling_adress',
-                            //'sampler_organization_code',
-                            //'sampler_person_pnfl',
-                            //'unit_id',
-                            'count',
-                            //'verification_sample',
-                            'producer',
-                            //'serial_num',
-                            //'manufacture_date',
-                            //'sell_by',
-                            //'coments',
-                            //'verification_pupose_id',
-                            //'sample_box_id',
-                            //'sample_condition_id',
-                            //'sampling_date',
-                            //'send_sample_date',
-                            'explanations',
-                            //'based_public_information',
-                            //'message_number',
-                            //'laboratory_test_type_id',
+                            'id',
+                            'name_uz',
+                            'name_ru',
+                            'code',
 
                             ['class' => 'yii\grid\ActionColumn'],
                         ],

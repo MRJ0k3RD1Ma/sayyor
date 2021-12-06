@@ -2,19 +2,16 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\DistrictView;
-use app\models\QfiView;
-use app\models\VetSites;
-use app\models\search\VetSitesSearch;
+use app\models\Units;
+use app\models\search\UnitsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use Yii;
 
 /**
- * VetSitesController implements the CRUD actions for VetSites model.
+ * UnitsController implements the CRUD actions for Units model.
  */
-class VetSitesController extends Controller
+class UnitsController extends Controller
 {
     /**
      * @inheritDoc
@@ -35,12 +32,12 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Lists all VetSites models.
+     * Lists all Units models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new VetSitesSearch();
+        $searchModel = new UnitsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -50,7 +47,7 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Displays a single VetSites model.
+     * Displays a single Units model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -63,13 +60,13 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Creates a new VetSites model.
+     * Creates a new Units model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new VetSites();
+        $model = new Units();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -85,7 +82,7 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Updates an existing VetSites model.
+     * Updates an existing Units model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -105,7 +102,7 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Deletes an existing VetSites model.
+     * Deletes an existing Units model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -119,67 +116,18 @@ class VetSitesController extends Controller
     }
 
     /**
-     * Finds the VetSites model based on its primary key value.
+     * Finds the Units model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return VetSites the loaded model
+     * @return Units the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = VetSites::findOne($id)) !== null) {
+        if (($model = Units::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('cp.vetsites', 'The requested page does not exist.'));
-    }
-
-    public function actionGetDistrict($id){
-        $model = DistrictView::find()->where(['region_id'=>$id])->all();
-        $text = Yii::t('cp.vetsites','- Tumanni tanlang -');
-        $res = "<option value=''>{$text}</option>";
-        $lang = Yii::$app->language;
-        foreach ($model as $item){
-            if($lang == 'ru'){
-                $name = $item->name_ru;
-            }elseif($lang == 'oz'){
-                $name = $item->name_cyr;
-            }else{
-                $name = $item->name_lot;
-            }
-            $res .= "<option value='{$item->district_id}'>{$name}</option>";
-        }
-        echo $res;
-        exit;
-    }
-    public function actionGetQfi($id){
-        $model = QfiView::find()->where(['district_id'=>$id])->all();
-        $text = Yii::t('cp.vetsites','- QFYni tanlang -');
-        $res = "<option value=''>{$text}</option>";
-        $lang = Yii::$app->language;
-        foreach ($model as $item){
-            if($lang == 'ru'){
-                $name = $item->name_ru;
-            }elseif($lang == 'oz'){
-                $name = $item->name_cyr;
-            }else{
-                $name = $item->name_lot;
-            }
-            $res .= "<option value='{$item->MHOBT_cod}'>{$name}</option>";
-        }
-        echo $res;
-        exit;
-    }
-
-    public function actionGetVetsites($id){
-        $model = VetSites::find()->where(['soato'=>$id])->all();
-        $text = Yii::t('cp.vetsites','- Vet uchstkani tanlang -');
-        $res = "<option value=''>{$text}</option>";
-        foreach ($model as $item){
-
-            $res .= "<option value='{$item->id}'>{$item->name}</option>";
-        }
-        echo $res;
-        exit;
+        throw new NotFoundHttpException(Yii::t('cp.units', 'The requested page does not exist.'));
     }
 }

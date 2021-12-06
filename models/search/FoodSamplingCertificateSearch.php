@@ -17,8 +17,8 @@ class FoodSamplingCertificateSearch extends FoodSamplingCertificate
     public function rules()
     {
         return [
-            [['id', 'sampling_site', 'sampler_organization_code', 'sampler_person_pnfl', 'unit_id', 'verification_sample', 'verification_pupose_id', 'sampling_rules_id', 'sample_condition_id'], 'integer'],
-            [['kod', 'pnfl', 'inn', 'sampling_adress', 'producer', 'serial_num', 'manufacture_date', 'sell_by', 'coments', 'sampling_date', 'send_sample_date', 'explanations'], 'safe'],
+            [['id', 'organization_id', 'sampling_site', 'sampler_organization_code', 'sampler_person_pnfl', 'unit_id', 'verification_sample', 'verification_pupose_id', 'sample_box_id', 'sample_condition_id', 'based_public_information', 'message_number', 'laboratory_test_type_id'], 'integer'],
+            [['kod', 'pnfl', 'sampling_adress', 'producer', 'serial_num', 'manufacture_date', 'sell_by', 'coments', 'sampling_date', 'send_sample_date', 'explanations'], 'safe'],
             [['count'], 'number'],
         ];
     }
@@ -60,6 +60,7 @@ class FoodSamplingCertificateSearch extends FoodSamplingCertificate
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'organization_id' => $this->organization_id,
             'sampling_site' => $this->sampling_site,
             'sampler_organization_code' => $this->sampler_organization_code,
             'sampler_person_pnfl' => $this->sampler_person_pnfl,
@@ -69,15 +70,17 @@ class FoodSamplingCertificateSearch extends FoodSamplingCertificate
             'manufacture_date' => $this->manufacture_date,
             'sell_by' => $this->sell_by,
             'verification_pupose_id' => $this->verification_pupose_id,
-            'sampling_rules_id' => $this->sampling_rules_id,
+            'sample_box_id' => $this->sample_box_id,
             'sample_condition_id' => $this->sample_condition_id,
             'sampling_date' => $this->sampling_date,
             'send_sample_date' => $this->send_sample_date,
+            'based_public_information' => $this->based_public_information,
+            'message_number' => $this->message_number,
+            'laboratory_test_type_id' => $this->laboratory_test_type_id,
         ]);
 
         $query->andFilterWhere(['like', 'kod', $this->kod])
             ->andFilterWhere(['like', 'pnfl', $this->pnfl])
-            ->andFilterWhere(['like', 'inn', $this->inn])
             ->andFilterWhere(['like', 'sampling_adress', $this->sampling_adress])
             ->andFilterWhere(['like', 'producer', $this->producer])
             ->andFilterWhere(['like', 'serial_num', $this->serial_num])

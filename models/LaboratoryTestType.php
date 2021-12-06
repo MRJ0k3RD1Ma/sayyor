@@ -1,0 +1,63 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "laboratory_test_type".
+ *
+ * @property int $id
+ * @property string $name_uz
+ * @property string $name_ru
+ * @property int $code
+ *
+ * @property FoodSamplingCertificate[] $foodSamplingCertificates
+ */
+class LaboratoryTestType extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'laboratory_test_type';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['id', 'name_uz', 'name_ru', 'code'], 'required'],
+            [['id', 'code'], 'integer'],
+            [['name_uz'], 'string', 'max' => 100],
+            [['name_ru'], 'string', 'max' => 255],
+            [['id'], 'unique'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('model.laboratory_test_type', 'ID'),
+            'name_uz' => Yii::t('model.laboratory_test_type', 'Name Uz'),
+            'name_ru' => Yii::t('model.laboratory_test_type', 'Name Ru'),
+            'code' => Yii::t('model.laboratory_test_type', 'Code'),
+        ];
+    }
+
+    /**
+     * Gets query for [[FoodSamplingCertificates]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFoodSamplingCertificates()
+    {
+        return $this->hasMany(FoodSamplingCertificate::className(), ['laboratory_test_type_id' => 'id']);
+    }
+}

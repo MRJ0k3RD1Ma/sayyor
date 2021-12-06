@@ -201,6 +201,78 @@
                 </a>
             </div>
 
+            <div class="col-md-4">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/units'])?>">
+                    <div class="card">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Birliklar')?></h5>
+                                </div>
+                                <div class="col-2">
+                                    <i class="fa fa-syringe"></i>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/verification-purposes'])?>">
+                    <div class="card">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Tekshirish maqsadlari')?></h5>
+                                </div>
+                                <div class="col-2">
+                                    <i class="fa fa-syringe"></i>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/sample-conditions'])?>">
+                    <div class="card">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Namuna holati')?></h5>
+                                </div>
+                                <div class="col-2">
+                                    <i class="fa fa-syringe"></i>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="<?= Yii::$app->urlManager->createUrl(['/cp/laboratory-test-type'])?>">
+                    <div class="card">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-10">
+                                    <h5 class="text-muted mb-3 lh-1 d-block text-truncate"><?= Yii::t('cp','Laboratoriya tadqiqot turlari')?></h5>
+                                </div>
+                                <div class="col-2">
+                                    <i class="fa fa-syringe"></i>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
 </div>
