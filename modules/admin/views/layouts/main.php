@@ -89,7 +89,7 @@ BackAsset::register($this);
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by <a class="text-decoration-underline" href="http://www.napaautomotive.uz">www.napaautomotive.uz</a>
+                            Design & Develop by <a class="text-decoration-underline" href="http://www.napaautomotive.uz">WWW.NAPAAUTOMATIVE.UZ</a>
                         </div>
                     </div>
                 </div>
