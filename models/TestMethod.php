@@ -46,8 +46,8 @@ class TestMethod extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.test_method', 'ID'),
-            'name_uz' => Yii::t('model.test_method', 'Nomi'),
-            'name_ru' => Yii::t('model.test_method', 'Nomi'),
+            'name_uz' => Yii::t('model.test_method', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.test_method', 'Nomi(Rus)'),
             'state' => Yii::t('model.test_method', 'Status'),
         ];
     }

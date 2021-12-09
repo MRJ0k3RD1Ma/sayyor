@@ -44,9 +44,9 @@ class SampleConditions extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.sample_conditions', 'ID'),
-            'name_uz' => Yii::t('model.sample_conditions', 'Name Uz'),
-            'name_ru' => Yii::t('model.sample_conditions', 'Name Ru'),
-            'code' => Yii::t('model.sample_conditions', 'Code'),
+            'name_uz' => Yii::t('model.sample_conditions', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.sample_conditions', 'Nomi(Rus)'),
+            'code' => Yii::t('model.sample_conditions', 'Kod'),
         ];
     }
 

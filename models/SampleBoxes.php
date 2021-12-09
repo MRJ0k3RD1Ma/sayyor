@@ -47,9 +47,9 @@ class SampleBoxes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.sample_boxes', 'ID'),
-            'name_uz' => Yii::t('model.sample_boxes', 'Name Uz'),
-            'name_ru' => Yii::t('model.sample_boxes', 'Name Ru'),
-            'state' => Yii::t('model.sample_boxes', 'State'),
+            'name_uz' => Yii::t('model.sample_boxes', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.sample_boxes', 'Nomi(Rus)'),
+            'state' => Yii::t('model.sample_boxes', 'Status'),
         ];
     }
 

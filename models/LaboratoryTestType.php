@@ -45,9 +45,9 @@ class LaboratoryTestType extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.laboratory_test_type', 'ID'),
-            'name_uz' => Yii::t('model.laboratory_test_type', 'Name Uz'),
-            'name_ru' => Yii::t('model.laboratory_test_type', 'Name Ru'),
-            'code' => Yii::t('model.laboratory_test_type', 'Code'),
+            'name_uz' => Yii::t('model.laboratory_test_type', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.laboratory_test_type', 'Nomi(Rus)'),
+            'code' => Yii::t('model.laboratory_test_type', 'Kod'),
         ];
     }
 

@@ -42,11 +42,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="card-body">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
+//                        'filterModel' => $searchModel,
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
 
-                            'id',
+//                            'id',
                             'name_uz',
                             'name_ru',
                             'code',

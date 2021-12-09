@@ -44,8 +44,8 @@ class Units extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.units', 'ID'),
-            'name_uz' => Yii::t('model.units', 'Name Uz'),
-            'name_ru' => Yii::t('model.units', 'Name Ru'),
+            'name_uz' => Yii::t('model.units', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.units', 'Nomi(Rus)'),
             'code' => Yii::t('model.units', 'Code'),
         ];
     }

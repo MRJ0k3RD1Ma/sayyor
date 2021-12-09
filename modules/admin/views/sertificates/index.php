@@ -41,11 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="card-body">
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
+//                        'filterModel' => $searchModel,
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
 
-                            'sert_id',
+//                            'sert_id',
                             /*[
                                 'attribute'=>'sert_id',
                                 'format'=>'raw',
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],*/
                             'sert_num',
                             'sert_date',
-                            'organization_id',
+//                            'organization_id',
                             'pnfl',
                             'owner_name',
                             //'vet_site_id',

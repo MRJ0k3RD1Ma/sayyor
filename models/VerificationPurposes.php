@@ -45,9 +45,9 @@ class VerificationPurposes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.verification_purposes', 'ID'),
-            'name_uz' => Yii::t('model.verification_purposes', 'Name Uz'),
-            'name_ru' => Yii::t('model.verification_purposes', 'Name Ru'),
-            'code' => Yii::t('model.verification_purposes', 'Code'),
+            'name_uz' => Yii::t('model.verification_purposes', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.verification_purposes', 'Nomi(Rus)'),
+            'code' => Yii::t('model.verification_purposes', 'Kod'),
         ];
     }
 

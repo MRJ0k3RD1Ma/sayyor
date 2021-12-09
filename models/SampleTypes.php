@@ -47,9 +47,9 @@ class SampleTypes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('model.sample_types', 'ID'),
-            'name_uz' => Yii::t('model.sample_types', 'Name Uz'),
-            'name_ru' => Yii::t('model.sample_types', 'Name Ru'),
-            'state' => Yii::t('model.sample_types', 'State'),
+            'name_uz' => Yii::t('model.sample_types', 'Nomi(O\'zbek)'),
+            'name_ru' => Yii::t('model.sample_types', 'Nomi(Rus)'),
+            'state' => Yii::t('model.sample_types', 'Status'),
         ];
     }
 
