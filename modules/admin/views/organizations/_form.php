@@ -12,15 +12,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_from_api')->textInput() ?>
+    <?= $form->field($model, 'id_from_api',['options'=>['hidden'=>true]])->textInput() ?>
 
     <?= $form->field($model, 'TIN')->textInput(['length'=>9]) ?>
 
-    <?= $form->field($model, 'NA1_CODE')->textInput() ?>
+    <?= $form->field($model, 'NA1_CODE',['options'=>['hidden'=>true]])->textInput() ?>
 
-    <?= $form->field($model, 'NS10_CODE')->textInput() ?>
+    <?= $form->field($model, 'NS10_CODE',['options'=>['hidden'=>true]])->textInput() ?>
 
-    <?= $form->field($model, 'NS11_CODE')->textInput() ?>
+    <?= $form->field($model, 'NS11_CODE',['options'=>['hidden'=>true]])->textInput() ?>
 
     <?= $form->field($model, 'NAME_FULL')->textInput(['maxlength' => true]) ?>
 
@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'REG_NUM')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'NS13_CODE')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'NS13_CODE',['options'=>['hidden'=>true]])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'TELEFON')->textInput() ?>
 
@@ -68,11 +68,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'DATE_END')->textInput() ?>
+    <?= $form->field($model, 'DATE_END',['options'=>['hidden'=>true]])->textInput() ?>
 
-    <?= $form->field($model, 'CREATED')->textInput() ?>
+    <?= $form->field($model, 'CREATED',['options'=>['hidden'=>true]])->textInput() ?>
 
-    <?= $form->field($model, 'CHANGED')->textInput() ?>
+    <?= $form->field($model, 'CHANGED',['options'=>['hidden'=>true]])->textInput() ?>
 
     <?= $form->field($model, 'GD_MOBILE')->textInput(['maxlength' => true]) ?>
 
