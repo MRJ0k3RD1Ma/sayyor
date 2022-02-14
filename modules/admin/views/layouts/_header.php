@@ -120,7 +120,7 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="/design/assets/images/avatar-1.jpg"
                          alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1 fw-medium"><?= Yii::$app->user->identity->name ?></span>
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium"><?= Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->name ?></span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
