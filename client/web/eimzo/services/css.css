@@ -1,0 +1,740 @@
+header.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    background-color: #fff
+}
+
+header.navbar .navbar-brand {
+    width: 95px;
+    height: 130px;
+    display: block;
+    background: url(../images/icons/logo.png) left center no-repeat;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 20px;
+    margin-left: 0 !important
+}
+
+header.navbar .entitlement {
+    max-width: 300px;
+    margin-left: 115px;
+    padding-top: 12px
+}
+
+header.navbar .entitlement h1 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #74d468;
+    font-family: MyriadPro, sans-serif
+}
+
+header.navbar .entitlement .phone {
+    font-family: OpenSans-Bold, sans-serif
+}
+
+header.navbar .entitlement .phone span {
+    display: block;
+    font-size: 12px;
+    font-family: OpenSans, sans-serif
+}
+
+header.navbar nav {
+    padding-left: 0;
+    padding-right: 0
+}
+
+header.navbar nav .nav {
+    padding-top: 14px
+}
+
+header.navbar nav .nav li a {
+    padding: 6px 20px 7px 12px;
+    margin-top: 8px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px
+}
+
+header.navbar nav .nav li a:hover {
+    opacity: .9
+}
+
+header.navbar nav .nav li a.connection {
+    background: #fed33c;
+    background: -webkit-linear-gradient(top, #fed33c 0, #e9be27 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fed33c), to(#e9be27));
+    background: linear-gradient(to bottom, #fed33c 0, #e9be27 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed33c', endColorstr='#e9be27', GradientType=0);
+    color: #fff;
+    margin-left: 12px;
+    margin-right: 35px
+}
+
+header.navbar nav .nav li a.connection .fa {
+    margin-right: 6px
+}
+
+header.navbar nav .nav li a.sign-in {
+    background: #82e276;
+    background: -webkit-linear-gradient(top, #82e276 0, #6fcf63 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#82e276), to(#6fcf63));
+    background: linear-gradient(to bottom, #82e276 0, #6fcf63 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#82e276', endColorstr='#6fcf63', GradientType=0);
+    color: #fff;
+    margin-left: 25px
+}
+
+header.navbar nav .nav li a.sign-in .fa {
+    margin-right: 7px
+}
+
+header.navbar nav .nav li a.change-lang {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 15px
+}
+
+header.navbar nav .nav li a.change-lang:focus, header.navbar nav .nav li a.change-lang:hover {
+    background-color: inherit
+}
+
+header.navbar nav .nav li a.change-lang .fa {
+    width: 16px;
+    height: 11px;
+    background: url(../images/icons/flags.png) no-repeat
+}
+
+header.navbar nav .nav li a.change-lang .fa.fa-uzb {
+    background-position: 0 0
+}
+
+header.navbar nav .nav li a.change-lang .fa.fa-rus {
+    background-position: -17px 0
+}
+
+header.navbar nav .nav li .navbar-form .form-group {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    border-radius: 4px
+}
+
+header.navbar nav .nav li .navbar-form .form-group input {
+    border: none;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-width: 200px;
+    height: 33px
+}
+
+header.navbar nav .nav li .navbar-form .form-group .btn {
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin-left: -7px
+}
+
+header.navbar nav .nav li .navbar-form .form-group .btn:hover {
+    background-color: transparent
+}
+
+header.navbar nav .nav li .navbar-form .form-group .btn .fa {
+    color: #444
+}
+
+header.navbar nav .list-inline {
+    padding-top: 30px
+}
+
+header.navbar nav .list-inline li {
+    margin-left: 27px;
+    padding-left: 0;
+    padding-right: 0
+}
+
+header.navbar nav .list-inline li a {
+    font-size: 14px;
+    color: #616161
+}
+
+section.about-uis {
+    height: 600px;
+    background: url(../images/backgrounds/banner.jpg) center no-repeat;
+    background-size: cover
+}
+
+section.about-uis .caption {
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    min-height: 280px;
+    margin-top: 105px;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 85px
+}
+
+section.about-uis .caption .icons, section.about-uis .caption h1 {
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    left: 0;
+    right: 0
+}
+
+section.about-uis .caption h1 {
+    width: 100%;
+    margin: 0 auto;
+    line-height: 1.2em;
+    top: -29px;
+    font-size: 48px;
+    font-family: OpenSans-xBold, sans-serif;
+    text-transform: uppercase
+}
+
+section.about-uis .caption h1:after, section.about-uis .caption h1:before {
+    content: "";
+    vertical-align: top;
+    display: inline-block;
+    width: 50%;
+    height: .65em;
+    border-bottom: 2px solid #fff;
+    margin: 0 2% 0 -55%
+}
+
+section.about-uis .caption h1:after {
+    margin: 0 -55% 0 2%
+}
+
+section.about-uis .caption p {
+    color: #fff;
+    font-size: 24px;
+    max-width: 955px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: OpenSans-Light, sans-serif
+}
+
+section.about-uis .caption p span {
+    font-size: 48px;
+    text-decoration: underline;
+    line-height: 0
+}
+
+section.about-uis .caption .icons {
+    width: 100%;
+    margin: 0 auto;
+    line-height: 1.2em;
+    bottom: -36px
+}
+
+section.about-uis .caption .icons:after, section.about-uis .caption .icons:before {
+    content: "";
+    vertical-align: top;
+    display: inline-block;
+    width: 50%;
+    height: 2.65em;
+    border-bottom: 2px solid #fff;
+    margin: 0 2% 0 -55%
+}
+
+section.about-uis .caption .icons:after {
+    margin: 0 -55% 0 2%
+}
+
+section.about-uis .caption .icons span {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 0 32px;
+    background: url(../images/icons/banner-icons.png) no-repeat
+}
+
+section.about-uis .caption .icons span:first-child {
+    background-position: 0 0
+}
+
+section.about-uis .caption .icons span:nth-child(2) {
+    background-position: -70px 0
+}
+
+section.about-uis .caption .icons span:last-child {
+    background-position: -140px 0
+}
+
+section.about-uis .btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: OpenSans, sans-serif;
+    font-size: 18px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #82e276;
+    background: -webkit-linear-gradient(top, #fdfdfd 0, #e6e6e6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#e6e6e6));
+    background: linear-gradient(to bottom, #fdfdfd 0, #e6e6e6 100%)
+}
+
+section.how-itWorks {
+    background-color: #fff
+}
+
+section.how-itWorks .panels {
+    padding-top: 40px
+}
+
+section.how-itWorks .panels .panel {
+    height: 465px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+section.how-itWorks .panels .panel p {
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: OpenSans, sans-serif
+}
+
+section.how-itWorks .panels .panel.backgrounded {
+    background: url(../images/backgrounds/panel.jpg) center no-repeat;
+    background-size: cover
+}
+
+section.how-itWorks .panels .panel.backgrounded p {
+    color: #fff
+}
+
+section.how-itWorks .panels .panel.backgrounded a {
+    position: absolute;
+    bottom: 50px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    max-width: 150px
+}
+
+section.how-itWorks .panels .panel .icon {
+    display: block;
+    height: 130px;
+    margin: 0 auto 35px;
+    background: url(../images/icons/section-icons.png) no-repeat
+}
+
+section.how-itWorks .panels .panel .icon.first {
+    width: 164px;
+    background-position: 0 0
+}
+
+section.how-itWorks .panels .panel .icon.second {
+    width: 132px;
+    background-position: -170px 20px
+}
+
+section.how-itWorks .panels .panel .icon.third {
+    width: 132px;
+    background-position: -340px 20px
+}
+
+section.how-itWorks .panels .panel .btn {
+    margin: 0 auto
+}
+
+section.help-panels {
+    min-height: 398px;
+    background: url(../images/backgrounds/banner-sm.jpg)
+}
+
+section.help-panels .panel {
+    margin-top: 25px;
+    text-align: center;
+    height: 295px;
+    background: url(../images/backgrounds/panel-sm.jpg) center no-repeat;
+    background-size: cover;
+    position: relative
+}
+
+section.help-panels .panel p {
+    font-size: 18px;
+    font-family: OpenSans-Light, sans-serif;
+    color: #fff;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+section.help-panels .panel .icon {
+    display: block;
+    width: 77px;
+    height: 77px;
+    margin: 65px auto;
+    background: url(../images/icons/panel-icons.png) no-repeat
+}
+
+section.help-panels .panel .icon.first {
+    background-position: 2px 0
+}
+
+section.help-panels .panel .icon.second {
+    background-position: -76px 0
+}
+
+section.help-panels .panel .icon.third {
+    background-position: -160px 0
+}
+
+section.help-panels .panel .icon.fourth {
+    background-position: -240px 0
+}
+
+.page-login {
+    background-color: #f5f5f5
+}
+
+.page-login .panel {
+    background-color: #fff;
+    height: 540px;
+    width: 990px;
+    position: absolute;
+    top: -webkit-calc(50% - 540px / 2);
+    top: calc(50% - 540px / 2);
+    left: -webkit-calc(50% - 990px / 2);
+    left: calc(50% - 990px / 2);
+    padding: 30px 20px 10px;
+    -webkit-box-shadow: 0 2px 3px #ddd;
+    box-shadow: 0 2px 3px #ddd;
+    -webkit-border-radius: 2px;
+    border-radius: 2px
+}
+
+.page-login .panel .left-side {
+    padding-left: 20px
+}
+
+.page-login .panel .left-side .logo {
+    display: block;
+    width: 100px;
+    margin-right: 20px;
+    height: 125px;
+    border-right: 1px solid #e0e0e0;
+    background: url(../images/icons/logo.png) 5px center no-repeat
+}
+
+.page-login .panel .left-side .entitlement h1 {
+    font-size: 18px;
+    font-family: Philosopher, sans-serif;
+    text-transform: uppercase;
+    color: #74d468;
+    margin-top: 10px
+}
+
+.page-login .panel .left-side .entitlement .phone {
+    font-size: 14px;
+    font-family: OpenSans-Bold, sans-serif;
+    padding-top: 0
+}
+
+.page-login .panel .left-side .entitlement .phone span {
+    display: block;
+    font-size: 12px;
+    color: #b7b7b7
+}
+
+.page-login .panel .left-side p {
+    font-size: 14px;
+    color: #2c2c2c;
+    padding-top: 30px
+}
+
+.page-login .panel .left-side .instructions {
+    padding-top: 30px
+}
+
+.page-login .panel .left-side .instructions li {
+    height: 54px;
+    margin-bottom: 20px;
+    padding-left: 72px
+}
+
+.page-login .panel .left-side .instructions li a {
+    font-size: 13px;
+    display: block;
+    position: relative;
+    padding-bottom: 4px
+}
+
+.page-login .panel .left-side .instructions li a:before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 54px;
+    position: absolute;
+    left: -72px;
+    top: 4px;
+    background: url(../images/icons/doc.png) center no-repeat
+}
+
+.page-login .panel .left-side .instructions li span {
+    font-size: 13px
+}
+
+.page-login .panel .right-side {
+    padding-left: 50px
+}
+
+.page-login .panel .right-side .change-lang {
+    padding-top: 12px
+}
+
+.page-login .panel .right-side .change-lang a {
+    display: inline-block;
+    width: 16px;
+    height: 11px;
+    text-indent: -9000px;
+    background: url(../images/icons/flags.png) no-repeat
+}
+
+.page-login .panel .right-side .change-lang a.rus {
+    background-position-x: -17px;
+    margin-left: 12px
+}
+
+.page-login .panel .right-side form {
+    background-color: #e8c139;
+    padding: 25px 45px 20px;
+    margin-top: 20px;
+    position: relative
+}
+
+.page-login .panel .right-side form h1 {
+    font-size: 30px;
+    font-family: OpenSans-Light, sans-serif;
+    color: #fff;
+    margin-bottom: 35px
+}
+
+.page-login .panel .right-side form .form-group {
+    margin-bottom: 24px
+}
+
+.page-login .panel .right-side form .form-group input {
+    height: 38px
+}
+
+.page-login .panel .right-side form .form-group .dropdown .dropdown-toggle {
+    width: 100%;
+    height: 38px;
+    text-align: left;
+    color: #2c2c2c
+}
+
+.page-login .panel .right-side form .form-group .dropdown .dropdown-toggle .fa {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+    font-size: 11px;
+    color: #2c2c2c
+}
+
+.page-login .panel .right-side form .form-group .dropdown .dropdown-menu {
+    width: 100%
+}
+
+.page-login .panel .right-side form .form-group .captcha {
+    width: 215px;
+    margin-right: 15px
+}
+
+.page-login .panel .right-side form .form-group .img-recaptcha {
+    width: 115px;
+    height: 38px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px
+}
+
+.page-login .panel .right-side form .form-group .sign-in {
+    background: #82e276;
+    background: -webkit-linear-gradient(top, #82e276 0, #6fcf63 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#82e276), to(#6fcf63));
+    background: linear-gradient(to bottom, #82e276 0, #6fcf63 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#82e276', endColorstr='#6fcf63', GradientType=0);
+    color: #fff;
+    border: none;
+    -webkit-box-shadow: 0 0 1px #8a8a8a;
+    box-shadow: 0 0 1px #8a8a8a
+}
+
+.page-login .panel .right-side form .form-group .sign-in .fa {
+    margin-right: 7px
+}
+
+.page-login .panel .right-side form .icon {
+    display: block;
+    width: 103px;
+    height: 82px;
+    background: url(../images/icons/sform-icon.png) center no-repeat;
+    position: absolute;
+    top: 0;
+    right: 10px
+}
+
+@font-face {
+    font-family: MyriadPro;
+    src: url(../fonts/MyriadPro-Regular.otf);
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans.ttf);
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: OpenSans-Light;
+    src: url(../fonts/OpenSans-Light.ttf);
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: OpenSans-Bold;
+    src: url(../fonts/OpenSans-Bold.ttf);
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: OpenSans-xBold;
+    src: url(../fonts/OpenSans-ExtraBold.ttf);
+    font-weight: 900;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Philosopher;
+    src: url(../fonts/Philosopher-Regular.ttf);
+    font-weight: 700;
+    font-style: normal
+}
+
+body {
+    font-family: OpenSans, sans-serif;
+    background-color: #f5f5f5
+}
+
+section {
+    padding-top: 25px;
+    padding-bottom: 25px
+}
+
+.section-heading {
+    font-size: 18px;
+    color: #6ccb5f;
+    font-family: OpenSans-xBold, sans-serif;
+    margin-bottom: 35px;
+    text-transform: uppercase
+}
+
+.sub-heading {
+    max-width: 930px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: OpenSans, sans-serif
+}
+
+footer {
+    min-height: 130px;
+    background-color: #fff
+}
+
+footer .entitlement .logo {
+    display: inline-block;
+    width: 58px;
+    height: 95px;
+    background: url(../images/icons/logo.png) center no-repeat;
+    background-size: cover;
+    margin-right: 15px
+}
+
+footer .entitlement h1 {
+    font-size: 14px;
+    font-family: MyriadPro, sans-serif;
+    color: #74d468;
+    text-transform: uppercase;
+    padding-top: 5px;
+    margin-bottom: 10px
+}
+
+footer .entitlement span {
+    display: block;
+    font-size: 13px;
+    color: #929292
+}
+
+footer .notice {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px
+}
+
+footer .socials a {
+    margin-right: 5px
+}
+
+footer .socials a .fa {
+    color: #e8c139;
+    font-size: 30px
+}
+
+footer .tech-support .yt-logo {
+    display: inline-block;
+    width: 60px;
+    height: 100px;
+    background: url(../images/icons/logo-yt.png) center top no-repeat;
+    background-size: contain;
+    margin-right: 15px
+}
+
+footer .tech-support p {
+    padding-top: 40px;
+    font-family: OpenSans-Light, sans-serif;
+    font-size: 14px;
+    color: #0d909e
+}
+
+footer .tech-support p span {
+    display: inline-block;
+    margin-top: 10px
+}
+
+.preloader {
+    background: url("../images/icons/loading.gif") no-repeat scroll 50% 40%;
+    height: 180px;
+    z-index: 9999;
+}
+
+#notification {
+    text-align: center;
+    margin-top: 12px;
+    color: red;
+}
+
+a.renew-link {
+    font-size: large;
+    font-weight: bold;
+}

@@ -1,0 +1,8 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = CEO Mr Ravshan [ Mobile Developer ]
+	email = 36916470+Ravshan1Uz@users.noreply.github.com
