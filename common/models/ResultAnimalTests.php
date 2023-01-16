@@ -15,6 +15,7 @@ use Yii;
  * @property int|null $result_id
  * @property int|null $checked
  * @property int|null $change_unit_id
+ * @property int|null $route_id
  *
  * @property ResultAnimal $result0
  * @property TamplateAnimal $template
@@ -114,5 +115,8 @@ class ResultAnimalTests extends \yii\db\ActiveRecord
     }
     public function getUnit(){
         return $this->hasOne(TemplateUnit::className(),['id'=>'change_unit_id']);
+    }
+    public function getRoute(){
+        return $this->hasOne(RouteSert::class,['id'=>'route_id']);
     }
 }

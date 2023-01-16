@@ -567,10 +567,15 @@ class RegisterController extends Controller
     }
 
 
-    public function actionIncomesamples($id, $regid)
+    public function actionIncomesamples($id, $regid,$route_id=null)
     {
         $reg = SampleRegistration::findOne($regid);
         $model = Samples::findOne($id);
+        if($director_id = \common\models\RouteSert::find()->where(['registration_id'=>$reg->id])->one()){
+            $director_id = $director_id->director_id;
+        }else{
+            $director_id = -1;
+        }
 
         $res = ResultAnimal::findOne(['sample_id'=>$model->id]);
         if($res){
@@ -588,7 +593,7 @@ class RegisterController extends Controller
                 ->all();
         }
 
-        if($r = RouteSert::findOne(['sample_id'=>$model->id])){
+        if($r = RouteSert::findOne($route_id)){
             $route = $r;
             $result = $res;
             if($route->load(Yii::$app->request->post())){
@@ -604,6 +609,7 @@ class RegisterController extends Controller
                             $test->ch_min1 = $item->min;
                             $test->ch_min2 = $item->min_1;
                             $test->ch_max1 = $item->max;
+                            $test->route_id = $route->id;
                             $test->ch_max2 = $item->max_1;
                             $test->result = '';
                             $test->result_2 = '';
@@ -619,6 +625,10 @@ class RegisterController extends Controller
         }else{
             $route = new RouteSert();
             $route->vet4 = $model->suspectedDisease->vet4 . $model->animal->type->vet4 . $model->sampleTypeIs->vet4;
+            if($director_id != -1){
+                $route->director_id = $director_id;
+            }
+
         }
         if ($reg->status_id < 2) {
             Animal::income($reg,$regid);
@@ -634,7 +644,10 @@ class RegisterController extends Controller
                     Animal::denySample($model,$cs,$route,$reg);
                     return $this->redirect(['/register/regview', 'id' => $regid]);
                 }
-
+                // manimcha ishlidi
+                if($route->isNewRecord and RouteSert::find()->where(['sample_id'=>$model->id,'leader_id'=>$route->leader_id])->one()){
+                    $route = RouteSert::find()->where(['sample_id'=>$model->id,'leader_id'=>$route->leader_id])->one();
+                }
                 $route->status_id = 1;
                 $model->status_id = 3;
                 $route->sample_id = $id;
@@ -649,6 +662,7 @@ class RegisterController extends Controller
                 $route->sample_type_id = $model->sample_type_is;
                 $model->save();
                 $cs->save();
+
                 $route->save();
 
                 $result = new ResultAnimal();
@@ -663,8 +677,8 @@ class RegisterController extends Controller
 
                 $result->sample_id = $cs->sample_id;
                 $result->state_id = 1;
-                $result->creator_id = $route->executor_id;
                 $result->save();
+
 
                 if($route->temp){
                     foreach ($route->temp as $key=>$i) {
@@ -672,6 +686,7 @@ class RegisterController extends Controller
                             $item = TamplateAnimal::findOne($key);
                             $test = new ResultAnimalTests();
                             $test->checked = 1;
+                            $test->route_id = $route->id;
                             $test->result_id = $result->id;
                             $test->template_id = $item->id;
                             $test->type_id = $model->animal->type_id;
@@ -695,9 +710,23 @@ class RegisterController extends Controller
 
         $org_id = Yii::$app->user->identity->empPosts->org_id;
 
-        $directos = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 4])->andWhere(['emp_posts.org_id' => $org_id])->all();
-        $lider = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 3])->andWhere(['emp_posts.org_id' => $org_id])->all();
+        $directos = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 4])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->all();
 
+        $lider = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 3])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->andWhere('employees.id not in (select leader_id from route_sert where sample_id='.$model->id.')')
+            ->all();
+        $lider_all = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 3])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->all();
         return $this->render('incomesamples', [
             'model' => $model,
             'reg' => $reg,
@@ -706,14 +735,21 @@ class RegisterController extends Controller
             'director' => $directos,
             'lider' => $lider,
             'template'=>$template,
+            'lider_all'=>$lider_all,
             'result'=>$res,
+            'route_id'=>$route_id,
+            'director_id'=>$director_id
         ]);
     }
 
 
-    public function actionIncomeanimalmulti($id){
+    public function actionIncomeanimalmulti($id,$leader_id = null){
         $reg = SampleRegistration::findOne($id);
-
+        if($director_id = \common\models\RouteSert::find()->where(['registration_id'=>$reg->id])->one()){
+            $director_id = $director_id->director_id;
+        }else{
+            $director_id = -1;
+        }
         if($samples = Samples::find()
             ->where('id in (select sample_id from composite_samples where registration_id = '.$id.' and (sample_status_id=1 or sample_status_id is null))')
             ->andWhere(['is_group'=>1])->all()){
@@ -735,13 +771,16 @@ class RegisterController extends Controller
                     ->all();
             }
 
-            if($r = RouteSert::find()->where(['registration_id'=>$id,'sample_id'=>$model->id,'is_group'=>1])->one()){
+            if($r = RouteSert::find()->where(['registration_id'=>$reg->id,'leader_id'=>$leader_id,'is_group'=>1])->one()){
                 $route = $r;
+
             }else{
                 $route = new RouteSert();
                 $route->vet4 = $model->suspectedDisease->vet4 . $model->animal->type->vet4 . $model->sampleTypeIs->vet4;
             }
-
+            if($director_id != -1){
+                $route->director_id = $director_id;
+            }
             if(Yii::$app->request->isPost){
 
                 if($req = Yii::$app->request->post()){
@@ -763,10 +802,14 @@ class RegisterController extends Controller
                                    $com->save(false);
                                    $r = $req['RouteSert'];
                                    $rt = new RouteSert();
-                                   if ($rtt = RouteSert::find()->where(['registration_id' => $id, 'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
+                                   if ($rtt = RouteSert::find()->where(['registration_id'=>$reg->id,'leader_id'=>$leader_id, 'is_group' => 1])->one()) {
                                        $rt = $rtt;
                                    }
-                                   $rt->director_id = $r['director_id'];
+                                   if($director_id != -1){
+                                       $rt->director_id = $director_id;
+                                   }else{
+                                       $rt->director_id = $r['director_id'];
+                                   }
                                    $rt->leader_id = $r['leader_id'];
                                    $rt->state_id = 1;
                                    $rt->sample_id = $com->sample_id;
@@ -792,7 +835,6 @@ class RegisterController extends Controller
                                    $rst->org_id = Yii::$app->user->identity->empPosts->org_id;
                                    $rst->sample_id = $com->sample_id;
                                    $rst->state_id = 1;
-                                   $rst->creator_id = $route->executor_id;
                                    $rst->save();
 
                                    if ($req['RouteSert']['temp']) {
@@ -808,6 +850,7 @@ class RegisterController extends Controller
                                                $test->ch_min2 = $tmpe->min_1;
                                                $test->ch_max1 = $tmpe->max;
                                                $test->ch_max2 = $tmpe->max_1;
+                                               $test->route_id = $rt->id;
                                                $test->result = '';
                                                $test->result_2 = '';
                                                $test->change_unit_id = $tmpe->unit_id;
@@ -857,7 +900,7 @@ class RegisterController extends Controller
                        foreach ($cs as $key => $item) {
                            if ($com = CompositeSamples::findOne(['sample_id'=>$item->sample_id])) {
                                    $rt = new RouteSert();
-                                   if ($rtt = RouteSert::find()->where(['registration_id' => $id, 'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
+                                   if ($rtt = RouteSert::find()->where(['registration_id'=>$reg->id,'leader_id'=>$leader_id, 'is_group' => 1])->one()) {
                                        $rt = $rtt;
                                    }
                                    $rt->director_id = $route->director_id;
@@ -886,7 +929,6 @@ class RegisterController extends Controller
                                    $rst->org_id = Yii::$app->user->identity->empPosts->org_id;
                                    $rst->sample_id = $com->sample_id;
                                    $rst->state_id = 1;
-                                   $rst->creator_id = $route->executor_id;
                                    $rst->save();
 
                                    if ($req['RouteSert']['temp']) {
@@ -896,15 +938,16 @@ class RegisterController extends Controller
                                                $test = new ResultAnimalTests();
                                                $test->checked = 1;
                                                $test->result_id = $rst->id;
-                                               $test->template_id = $item->id;
+                                               $test->route_id = $route->id;
+                                               $test->template_id = $i;
                                                $test->type_id = $tmpe->unit->type_id;
-                                               $test->ch_min1 = $item->min;
-                                               $test->ch_min2 = $item->min_1;
-                                               $test->ch_max1 = $item->max;
-                                               $test->ch_max2 = $item->max_1;
+                                               $test->ch_min1 = $tmpe->min;
+                                               $test->ch_min2 = $tmpe->min_1;
+                                               $test->ch_max1 = $tmpe->max;
+                                               $test->ch_max2 = $tmpe->max_1;
                                                $test->result = '';
                                                $test->result_2 = '';
-                                               $test->change_unit_id = $item->unit_id;
+                                               $test->change_unit_id = $tmpe->unit_id;
                                                $test->save();
                                                $test = null;
                                            }
@@ -923,8 +966,17 @@ class RegisterController extends Controller
             $org_id = Yii::$app->user->identity->empPosts->org_id;
 
             $directos = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 4])->andWhere(['emp_posts.org_id' => $org_id])->all();
-            $lider = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 3])->andWhere(['emp_posts.org_id' => $org_id])->all();
-
+            $lider = Employees::find()->select(['employees.*'])
+                ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+                ->where(['emp_posts.post_id' => 3])
+                ->andWhere(['emp_posts.org_id' => $org_id])
+                ->andWhere('employees.id not in (select leader_id from route_sert where registration_id='.$reg->id.' and is_group=1)')
+                ->all();
+            $lider_all = Employees::find()->select(['employees.*'])
+                ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+                ->where(['emp_posts.post_id' => 3])
+                ->andWhere(['emp_posts.org_id' => $org_id])
+                ->all();
             return $this->render('incomeanimalmulti',[
                 'model'=>$model,
                 'samples'=>$samples,
@@ -932,9 +984,12 @@ class RegisterController extends Controller
                 'template'=>$template,
                 'result'=>$result,
                 'route'=>$route,
+                'lider_all'=>$lider_all,
                 'cs'=>$cs,
                 'director' => $directos,
                 'lider' => $lider,
+                'director_id'=>$director_id,
+                'leader_id'=>$leader_id
             ]);
 
 

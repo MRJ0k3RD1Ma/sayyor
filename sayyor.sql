@@ -18868,7 +18868,7 @@ INSERT INTO `vet_sites` (`id`, `code`, `name`, `soato`) VALUES
 --
 DROP TABLE IF EXISTS `district_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`sayyor`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`region_id` AS `region_id`,`s`.`district_id` AS `district_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is null and `s`.`district_id` is not null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`region_id` AS `region_id`,`s`.`district_id` AS `district_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is null and `s`.`district_id` is not null ;
 
 -- --------------------------------------------------------
 
@@ -18877,7 +18877,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`sayyor`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `qfi_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`sayyor`@`localhost` SQL SECURITY DEFINER VIEW `qfi_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`district_id` AS `district_id`,`s`.`region_id` AS `region_id`,`s`.`qfi_id` AS `qfi_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is not null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `qfi_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`district_id` AS `district_id`,`s`.`region_id` AS `region_id`,`s`.`qfi_id` AS `qfi_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is not null ;
 
 -- --------------------------------------------------------
 
@@ -18886,7 +18886,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`sayyor`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `regions_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`sayyor`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS  select `s`.`region_id` AS `region_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`district_id` is null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS  select `s`.`region_id` AS `region_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`district_id` is null ;
 
 --
 -- Indexes for dumped tables

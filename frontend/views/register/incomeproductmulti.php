@@ -19,6 +19,8 @@ $this->params['breadcrumbs'][] = $this->title
 ?>
     <div class="sertificates-update">
 
+
+
         <?php $form = ActiveForm::begin(); ?>
 
         <?php foreach ($samples as $item){echo $item->samp_code.' '; }?> <?= Yii::t('register', 'Raqamli namunalarni qabul qilish') ?>
