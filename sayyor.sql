@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 05, 2023 at 05:10 PM
--- Server version: 10.3.32-MariaDB-0ubuntu0.20.04.1
--- PHP Version: 7.4.3
+-- Host: 127.0.0.1
+-- Generation Time: Jan 16, 2023 at 09:19 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,17 +28,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `animals` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `cat_id` int(11) DEFAULT NULL,
-  `gender` smallint(6) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
-  `inn` varchar(255) DEFAULT NULL,
-  `pnfl` varchar(255) DEFAULT NULL,
-  `adress` varchar(255) DEFAULT NULL,
-  `vet_site_id` int(11) DEFAULT NULL,
-  `bsual_tag` varchar(255) DEFAULT NULL,
-  `type_id` int(11) DEFAULT NULL
+                           `id` int(11) NOT NULL,
+                           `name` varchar(50) NOT NULL,
+                           `cat_id` int(11) DEFAULT NULL,
+                           `gender` smallint(6) DEFAULT NULL,
+                           `birthday` date DEFAULT NULL,
+                           `inn` varchar(255) DEFAULT NULL,
+                           `pnfl` varchar(255) DEFAULT NULL,
+                           `adress` varchar(255) DEFAULT NULL,
+                           `vet_site_id` int(11) DEFAULT NULL,
+                           `bsual_tag` varchar(255) DEFAULT NULL,
+                           `type_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -47,29 +46,32 @@ CREATE TABLE `animals` (
 --
 
 INSERT INTO `animals` (`id`, `name`, `cat_id`, `gender`, `birthday`, `inn`, `pnfl`, `adress`, `vet_site_id`, `bsual_tag`, `type_id`) VALUES
-(141, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
-(142, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
-(143, '1', 2, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
-(144, '1', 2, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
-(145, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
-(146, 'ЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ', 1, 1, '2022-06-14', '', '31512620270065', 'тест-манзил', 856, '', 1),
-(147, 'ЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ', 1, 1, '2022-03-07', '', '31512620270065', 'тест-манзил2', 856, '', 1),
-(148, 'wwwwwwwwwwwwwwwwwwww', 1, 1, '2022-03-15', '', '31512620270065', 'yyyyyyyyyyyyyyyyyyyy манзил', 856, '', 1),
-(149, 'ddddddd', 1, 1, '2022-03-09', '', '31512620270065', 'testttttttttttttttttt', 856, '', 1),
-(150, 'ppppppppp', 1, 1, '2022-04-18', '', '31512620270065', 'GARASHA qoshlog`i', 856, '', 1),
-(151, 'soatov', 1, 1, '2021-04-20', '0123', '31909955430035', '1260', 1260, '4567', 1),
-(152, 'soatov', 1, 1, '2020-03-19', '0124', '31909955430035', '1261', 1260, '5467', 1),
-(153, 'soatov', 1, 1, '2020-07-15', '0124', '31909955430035', '1260', 1260, '4567', 1),
-(154, 'soatov', 1, 0, '2020-04-21', '0124', '31909955430035', '1261', 1260, '4567', 1),
-(155, 'soatov', 1, 1, '2019-11-13', '0125', '31909955430035', '1260', 1260, '1', 1),
-(156, 'soatov', 1, 1, '2020-10-15', '1236', '31909955430035', '1260', 1260, '6654', 1),
-(157, 'evdsghrefhgfdghfhyj', 2, 1, '2022-11-08', '', '31909955430035', 'vnvbnbmnbmnnm,', 856, '', 11),
-(158, 'Бойбщтаев', 2, 1, '2022-11-02', '', '31909955430035', 'vnvbnbmnbmnnm,', 856, '', 11),
-(159, 'Бойбщтаев', 2, 1, '2019-02-12', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
-(160, 'Бойбщтаев', 2, 1, '2019-02-12', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
-(161, 'Бойбщтаев', 1, 1, '0001-01-01', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
-(162, 'камлов', 1, 1, '2018-08-01', '', '30106932710257', 'шахрисабз тумани', 1333, '8', 1),
-(163, 'нурматов', 1, 1, '2019-02-04', '5787256', '30106932710257', '43', 1333, '9', 1);
+                                                                                                                                         (141, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (142, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (143, '1', 2, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (144, '1', 2, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (145, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (146, 'ЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ', 1, 1, '2022-06-14', '', '31512620270065', 'тест-манзил', 856, '', 1),
+                                                                                                                                         (147, 'ЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ', 1, 1, '2022-03-07', '', '31512620270065', 'тест-манзил2', 856, '', 1),
+                                                                                                                                         (148, 'wwwwwwwwwwwwwwwwwwww', 1, 1, '2022-03-15', '', '31512620270065', 'yyyyyyyyyyyyyyyyyyyy манзил', 856, '', 1),
+                                                                                                                                         (149, 'ddddddd', 1, 1, '2022-03-09', '', '31512620270065', 'testttttttttttttttttt', 856, '', 1),
+                                                                                                                                         (150, 'ppppppppp', 1, 1, '2022-04-18', '', '31512620270065', 'GARASHA qoshlog`i', 856, '', 1),
+                                                                                                                                         (151, 'soatov', 1, 1, '2021-04-20', '0123', '31909955430035', '1260', 1260, '4567', 1),
+                                                                                                                                         (152, 'soatov', 1, 1, '2020-03-19', '0124', '31909955430035', '1261', 1260, '5467', 1),
+                                                                                                                                         (153, 'soatov', 1, 1, '2020-07-15', '0124', '31909955430035', '1260', 1260, '4567', 1),
+                                                                                                                                         (154, 'soatov', 1, 0, '2020-04-21', '0124', '31909955430035', '1261', 1260, '4567', 1),
+                                                                                                                                         (155, 'soatov', 1, 1, '2019-11-13', '0125', '31909955430035', '1260', 1260, '1', 1),
+                                                                                                                                         (156, 'soatov', 1, 1, '2020-10-15', '1236', '31909955430035', '1260', 1260, '6654', 1),
+                                                                                                                                         (157, 'evdsghrefhgfdghfhyj', 2, 1, '2022-11-08', '', '31909955430035', 'vnvbnbmnbmnnm,', 856, '', 11),
+                                                                                                                                         (158, 'Бойбщтаев', 2, 1, '2022-11-02', '', '31909955430035', 'vnvbnbmnbmnnm,', 856, '', 11),
+                                                                                                                                         (159, 'Бойбщтаев', 2, 1, '2019-02-12', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
+                                                                                                                                         (160, 'Бойбщтаев', 2, 1, '2019-02-12', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
+                                                                                                                                         (161, 'Бойбщтаев', 1, 1, '0001-01-01', '5665', '31909955430035', 'Бахористон', 1278, '156', 1),
+                                                                                                                                         (162, 'камлов', 1, 1, '2018-08-01', '', '30106932710257', 'шахрисабз тумани', 1333, '8', 1),
+                                                                                                                                         (163, 'нурматов', 1, 1, '2019-02-04', '5787256', '30106932710257', '43', 1333, '9', 1),
+                                                                                                                                         (164, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (165, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1),
+                                                                                                                                         (166, '1', 1, 1, '2018-10-04', '201333798', '30507903120132', 'tesad', 76, 'UZN100006406', 1);
 
 -- --------------------------------------------------------
 
@@ -78,11 +80,11 @@ INSERT INTO `animals` (`id`, `name`, `cat_id`, `gender`, `birthday`, `inn`, `pnf
 --
 
 CREATE TABLE `animaltype` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(100) NOT NULL,
-  `name_ru` varchar(255) NOT NULL,
-  `vet4` varchar(2) NOT NULL,
-  `code` int(11) DEFAULT NULL
+                              `id` int(11) NOT NULL,
+                              `name_uz` varchar(100) NOT NULL,
+                              `name_ru` varchar(255) NOT NULL,
+                              `vet4` varchar(2) NOT NULL,
+                              `code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -90,22 +92,22 @@ CREATE TABLE `animaltype` (
 --
 
 INSERT INTO `animaltype` (`id`, `name_uz`, `name_ru`, `vet4`, `code`) VALUES
-(1, 'Qoramol', 'Крупно рогатый скот (КРС)', '02', 1),
-(2, 'Qo`y', 'Баран (МРС)', '03', 2),
-(3, 'Echki', 'Коза (МРС)', '03', 2),
-(4, 'Tuya', 'Верблюд', '06', 3),
-(5, 'Ot', 'Лошадь', '01', 4),
-(6, 'Eshak', 'Осёл', '08', 5),
-(7, 'Cho\'chqa', 'Свинья', '04', 6),
+                                                                          (1, 'Qoramol', 'Крупно рогатый скот (КРС)', '02', 1),
+                                                                          (2, 'Qo`y', 'Баран (МРС)', '03', 2),
+                                                                          (3, 'Echki', 'Коза (МРС)', '03', 2),
+                                                                          (4, 'Tuya', 'Верблюд', '06', 3),
+                                                                          (5, 'Ot', 'Лошадь', '01', 4),
+                                                                          (6, 'Eshak', 'Осёл', '08', 5),
+                                                                          (7, 'Cho\'chqa', 'Свинья', '04', 6),
 (8, 'It', 'Собака', '13', 7),
 (9, 'Mushuk', 'Кошка', '14', 8),
 (10, 'Boshqa hayvonlar', 'Другие животние', '15', 9),
 (11, 'Qushlar', 'Птици', '05', 10),
 (12, 'Mo\'ynali hayvonlar', 'Пушные звери', '09', 11),
-(13, 'Quyonsimonlar', 'Зайцевые', '10', 12),
-(14, 'Baliqlar', 'Рыбы', '19', 13),
-(15, 'Asalari', 'Пчёлы', '16', 14),
-(16, 'Bug\'ular', 'Олен', '07', 15),
+                                                                          (13, 'Quyonsimonlar', 'Зайцевые', '10', 12),
+                                                                          (14, 'Baliqlar', 'Рыбы', '19', 13),
+                                                                          (15, 'Asalari', 'Пчёлы', '16', 14),
+                                                                          (16, 'Bug\'ular', 'Олен', '07', 15),
 (17, 'Ovalydigan yovvoyi hayvonlar', 'Промысловые и дикие ', '11', 16),
 (18, 'Kemirovchilar', 'грызуны', '12', 17),
 (19, 'Ipak qurti', 'шелкопряд', '17', 18),
@@ -144,9 +146,9 @@ INSERT INTO `animal_category` (`id`, `code`, `name_uz`, `name_ru`) VALUES
 --
 
 CREATE TABLE `animal_status` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(255) DEFAULT NULL,
-  `name_ru` varchar(255) DEFAULT NULL
+                                 `id` int(11) NOT NULL,
+                                 `name_uz` varchar(255) DEFAULT NULL,
+                                 `name_ru` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -156,11 +158,11 @@ CREATE TABLE `animal_status` (
 --
 
 CREATE TABLE `composite_samples` (
-  `sample_id` int(11) NOT NULL,
-  `status_id` int(11) DEFAULT NULL,
-  `registration_id` int(11) NOT NULL,
-  `ads` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sample_status_id` int(11) DEFAULT NULL
+                                     `sample_id` int(11) NOT NULL,
+                                     `status_id` int(11) DEFAULT NULL,
+                                     `registration_id` int(11) NOT NULL,
+                                     `ads` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                     `sample_status_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -168,27 +170,9 @@ CREATE TABLE `composite_samples` (
 --
 
 INSERT INTO `composite_samples` (`sample_id`, `status_id`, `registration_id`, `ads`, `sample_status_id`) VALUES
-(128, 5, 72, '', 1),
-(129, 5, 72, '', 1),
-(130, 5, 72, '', 1),
-(131, 5, 72, '', 1),
-(132, 1, 73, '', 1),
-(133, 1, 73, '', 1),
-(134, 5, 74, '', 1),
-(135, 5, 74, '', 1),
-(136, 5, 74, '', 1),
-(137, 1, 75, '', 1),
-(138, 1, 75, '', 1),
-(139, 1, 76, '', 1),
-(140, 1, 76, NULL, NULL),
-(141, 5, 77, '', 1),
-(142, 5, 77, '', 1),
-(143, 1, 78, NULL, NULL),
-(144, 1, 78, NULL, NULL),
-(145, 5, 79, '', 1),
-(147, 5, 79, '', 1),
-(148, 5, 80, '', 1),
-(149, 5, 80, '', 1);
+                                                                                                             (150, 1, 82, '', 1),
+                                                                                                             (151, 1, 82, '', 1),
+                                                                                                             (152, 1, 82, 'Namunani Namuna egasi olib ketdi', 1);
 
 -- --------------------------------------------------------
 
@@ -197,10 +181,10 @@ INSERT INTO `composite_samples` (`sample_id`, `status_id`, `registration_id`, `a
 --
 
 CREATE TABLE `countres` (
-  `id` int(11) NOT NULL,
-  `code` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name_uz` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+                            `id` int(11) NOT NULL,
+                            `code` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+                            `name_uz` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                            `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -208,206 +192,206 @@ CREATE TABLE `countres` (
 --
 
 INSERT INTO `countres` (`id`, `code`, `name_uz`, `name_ru`) VALUES
-(1, 'AB', 'Abxaziya', 'Абхазия'),
-(2, 'AD', 'Andorra', 'Андорра'),
-(3, 'AE', 'Birlashgan Arab Amirliklari', 'Объединенные арабские эмираты'),
-(4, 'AF', 'Afg‘oniston', 'Афганистан'),
-(5, 'AG', 'Antigua va Barbuda', 'Антигуа и Барбуда'),
-(6, 'AI', 'Angliya', 'Англия'),
-(7, 'AL', 'Albaniya', 'Албания'),
-(8, 'AM', 'Armaniston', 'Армения'),
-(9, 'AO', 'Angola', 'Ангола'),
-(10, 'AQ', 'Antarktida', 'Антарктида'),
-(11, 'AR', 'Argentina', 'Аргентина'),
-(12, 'AT', 'Avstriya', 'Австрия'),
-(13, 'AU', 'Avstraliya', 'Австралия'),
-(14, 'AW', 'Aruba', 'Аруба'),
-(15, 'AZ', 'Ozarbayjon', 'Азербайджан'),
-(16, 'BA', 'Bosniya va Gersegovina', 'Босния и Герцеговина'),
-(17, 'BB', 'Barbados', 'Барбадос'),
-(18, 'BD', 'Bangladesh', 'Бангладеш'),
-(19, 'BE', 'Belgiya', 'Бельгия'),
-(20, 'BF', 'Burkina-Faso', 'Буркина-Фасо'),
-(21, 'BG', 'Bolgariya', 'Болгария'),
-(22, 'BH', 'Bahrayn', 'Бахрейн'),
-(23, 'BI', 'Burundi', 'Бурунди'),
-(24, 'BJ', 'Benin', 'Бенин'),
-(25, 'BL', 'San-Bartelemi', 'Сан-Бартелеми'),
-(26, 'BN', 'Bruney', 'Бруней'),
-(27, 'BO', 'Boliviya', 'Боливия'),
-(28, 'BR', 'Braziliya', 'Бразилия'),
-(29, 'BT', 'Butan', 'Бутан'),
-(30, 'BW', 'Botsvana', 'Ботсвана'),
-(31, 'BY', 'Belorussiya', 'Белоруссия'),
-(32, 'BZ', 'Beliz', 'Белиз'),
-(33, 'CA', 'Kanada', 'Канада'),
-(34, 'CF', 'Markaziy-Afrika respublikasi', 'Центрально-Африканская Республика'),
-(35, 'CG', 'Kongo', 'Конго'),
-(36, 'CH', 'Shveysariya', 'Швейцария'),
-(37, 'CI', 'Kot-divuar', 'Кот-дивуар'),
-(38, 'CL', 'Chili', 'Чили'),
-(39, 'CM', 'Kamerun', 'Камерун'),
-(40, 'CN', 'Xitoy', 'Китай'),
-(41, 'CO', 'Kolumbiya', 'Колумбия'),
-(42, 'code', 'name_uz', 'name_ru'),
-(43, 'CR', 'Kostarika', 'Коста-Рика'),
-(44, 'CU', 'Kuba', 'Куба'),
-(45, 'CW', 'Kyurasao', 'Кюрасао'),
-(46, 'CY', 'Kipr', 'Кипр'),
-(47, 'CZ', 'Chexiya', 'Чехия'),
-(48, 'DE', 'Germaniya', 'Германия'),
-(49, 'DK', 'Daniya', 'Дания'),
-(50, 'DM', 'Dominika', 'Доминика'),
-(51, 'DZ', 'Aljir', 'Алжир'),
-(52, 'EC', 'Ekvador', 'Эквадор'),
-(53, 'EE', 'Estoniya', 'Эстония'),
-(54, 'EG', 'Misr', 'Египет'),
-(55, 'EH', 'G‘arbiy Saxara', 'Западная Сахара'),
-(56, 'ER', 'Eritreya', 'Эритрея'),
-(57, 'ES', 'Ispaniya', 'Испания'),
-(58, 'ET', 'Efiopiya', 'Эфиопия'),
-(59, 'FI', 'Finlandiya', 'Финляндия'),
-(60, 'FR', 'Fransiya', 'Франция'),
-(61, 'GA', 'Gabon', 'Габон'),
-(62, 'GB', 'Buyuk Britaniya', 'Великобритания'),
-(63, 'GD', 'Grenada', 'Гренада'),
-(64, 'GE', 'Gruziya', 'Грузия'),
-(65, 'GH', 'Gana', 'Гана'),
-(66, 'GI', 'Gibraltar', 'Гибралтар'),
-(67, 'GL', 'Grenlandiya', 'Гренландия'),
-(68, 'GM', 'Gambiya', 'Гамбия'),
-(69, 'GN', 'Gvineya', 'Гвинея'),
-(70, 'GP', 'Gvadelupa', 'Гваделупа'),
-(71, 'GQ', 'Ekvatorial gvineyasi', 'Гвинея экваториальная'),
-(72, 'GR', 'Gresiya', 'Греция'),
-(73, 'GT', 'Gvatemala', 'Гватемала'),
-(74, 'GU', 'Guam', 'Гуам'),
-(75, 'GW', 'Gvineya-Bisay', 'Гвинея-Бисай'),
-(76, 'GY', 'Gayana', 'Гаяна'),
-(77, 'HK', 'Gonkong', 'Гонконг'),
-(78, 'HN', 'Gonduras', 'Гондурас'),
-(79, 'HR', 'Xorvatiya', 'Хорватия'),
-(80, 'HT', 'Gaiti', 'Гаити'),
-(81, 'HU', 'Vengriya', 'Венгрия'),
-(82, 'ID', 'Indoneziya', 'Индонезия'),
-(83, 'IE', 'Irlandiya', 'Ирландия'),
-(84, 'IL', 'Isroil', 'Израиль'),
-(85, 'IN', 'Hindiston', 'Индия'),
-(86, 'IQ', 'Iroq', 'Ирак'),
-(87, 'IR', 'Eron', 'Иран'),
-(88, 'IS', 'Islandiya', 'Исландия'),
-(89, 'IT', 'Italiya', 'Италия'),
-(90, 'JE', 'Jersi', 'Жерси'),
-(91, 'JM', 'Yamayka', 'Ямайка'),
-(92, 'JO', 'Iordaniya', 'Иордания'),
-(93, 'JP', 'Yaponiya', 'Япония'),
-(94, 'KE', 'Keniya', 'Кения'),
-(95, 'KG', 'Qirg‘iziston', 'Киргизия'),
-(96, 'KH', 'Kambodja', 'Камбоджа'),
-(97, 'KI', 'Kiribati', 'Кирибати'),
-(98, 'KP', 'Koreya xalq-demokratik respublikasi', 'Народно-демократическая республика Корея'),
-(99, 'KR', 'Janubiy Koreya', 'Южная Корея'),
-(100, 'KW', 'Quvayt', 'Кувейт'),
-(101, 'KZ', 'Qozog‘iston', 'Казахстан'),
-(102, 'LA', 'Laos', 'Лаос'),
-(103, 'LB', 'Livan', 'Ливан'),
-(104, 'LC', 'Sent-Lyus', 'Сент-Люс'),
-(105, 'LI', 'Lixtenshteyn', 'Лихтенштейн'),
-(106, 'LK', 'Shrilanka', 'Шри-Ланка'),
-(107, 'LR', 'Liberiya', 'Либерия'),
-(108, 'LS', 'Lesoto', 'Лесото'),
-(109, 'LT', 'Litva', 'Литва'),
-(110, 'LU', 'Luksemburg', 'Люксембург'),
-(111, 'LV', 'Latviya', 'Латвия'),
-(112, 'MA', 'Marokash', 'Марракеш'),
-(113, 'MC', 'Monako', 'Монако'),
-(114, 'MD', 'Moldova', 'Молдова'),
-(115, 'ME', 'Chernogoriya', 'Черногория'),
-(116, 'MF', 'Sen-Marten', 'Сен-Мартен'),
-(117, 'MG', 'Madagaskar', 'Мадагаскар'),
-(118, 'MK', 'Makedoniya', 'Македония'),
-(119, 'ML', 'Mali', 'Мали'),
-(120, 'MM', 'Myanma', 'Мьянма'),
-(121, 'MN', 'Mongoliya', 'Монголия'),
-(122, 'MO', 'Makao', 'Макао'),
-(123, 'MQ', 'Martinika', 'Мартиника'),
-(124, 'MR', 'Mavritaniya', 'Мавритания'),
-(125, 'MS', 'Monserrat', 'Монсеррат'),
-(126, 'MT', 'Malta', 'Мальта'),
-(127, 'MU', 'Mavrikiya', 'Маврикия'),
-(128, 'MW', 'Malavi', 'Малави'),
-(129, 'MX', 'Meksika', 'Мексика'),
-(130, 'MY', 'Malayziya', 'Малайзия'),
-(131, 'MZ', 'Mozambik', 'Мозамбик'),
-(132, 'NA', 'Namibiya', 'Намибия'),
-(133, 'NC', 'Yangi Kaledoniya', 'Новая Каледония'),
-(134, 'NE', 'Niger', 'Нигер'),
-(135, 'NG', 'Nigeriya', 'Нигерия'),
-(136, 'NI', 'Nikaragua', 'Никарагуа'),
-(137, 'NL', 'Niderlandiya', 'Нидерланды'),
-(138, 'NO', 'Norvegiya', 'Норвегия'),
-(139, 'NP', 'Nepal', 'Непал'),
-(140, 'NR', 'Nauru', 'Науру'),
-(141, 'NZ', 'Yangi Zellandiya', 'Новая Зеландия'),
-(142, 'OM', 'Oman', 'Оман'),
-(143, 'OS', 'Janubiy Osetiya', 'Южная Осетия'),
-(144, 'PA', 'Panama', 'Панама'),
-(145, 'PE', 'Peru', 'Перу'),
-(146, 'PH', 'Filippin', 'Филиппин'),
-(147, 'PK', 'Pokiston', 'Пакистан'),
-(148, 'PL', 'Polsha', 'Польша'),
-(149, 'PN', 'Pitkern', 'Питкерн'),
-(150, 'PR', 'Puerto-Riko', 'Пуэрто-Рико'),
-(151, 'PT', 'Portugaliya', 'Португалия'),
-(152, 'PW', 'Palau', 'Палау'),
-(153, 'PY', 'Paragvay', 'Парагвай'),
-(154, 'QA', 'Qatar', 'Катар'),
-(155, 'RO', 'Ruminiya', 'Румыния'),
-(156, 'RS', 'Serbia', 'Сербия'),
-(157, 'RU', 'Rossiya', 'Россия'),
-(158, 'RW', 'Ruanda', 'Руанда'),
-(159, 'SA', 'Saudiya Arabistoni', 'Саудовская Аравия'),
-(160, 'SD', 'Sudan', 'Судан'),
-(161, 'SE', 'Shvesiya', 'Швеция'),
-(162, 'SG', 'Singapur', 'Сингапур'),
-(163, 'SI', 'Sloveniya', 'Словения'),
-(164, 'SK', 'Slovakiya', 'Словакия'),
-(165, 'SL', 'Sierra-lion', 'Сьерра-Леоне'),
-(166, 'SM', 'San-Marino', 'Сан-Марино'),
-(167, 'SN', 'Senegal', 'Сенегал'),
-(168, 'SO', 'Somali', 'Сомали'),
-(169, 'SR', 'Surinam', 'Суринам'),
-(170, 'ST', 'San-Tome va Prinsipi', 'Сан-Томе и Принсипи'),
-(171, 'SV', 'El-Salvador', 'Эл-Сальвадор'),
-(172, 'SY', 'Suriya', 'Сирия'),
-(173, 'SZ', 'Svazilend', 'Свазиленд'),
-(174, 'TD', 'Chad', 'Чад'),
-(175, 'TG', 'Togo', 'Того'),
-(176, 'TH', 'Tayland', 'Таиланд'),
-(177, 'TJ', 'Tojikiston', 'Таджикистан'),
-(178, 'TK', 'Tokelau', 'Токелау'),
-(179, 'TL', 'Timor-Leste', 'Тимор-Лесте'),
-(180, 'TM', 'Turkmaniston', 'Туркменистан'),
-(181, 'TN', 'Tunis', 'Тунис'),
-(182, 'TO', 'Tonga', 'Тонга'),
-(183, 'TR', 'Turkiya', 'Турция'),
-(184, 'TT', 'Trinidad va Tobago', 'Тринидад и Тобаго'),
-(185, 'TV', 'Tuvalu', 'Тувалу'),
-(186, 'TW', 'Tayvan', 'Тайвань'),
-(187, 'TZ', 'Tanzaniya', 'Танзания'),
-(188, 'UA', 'Ukraina', 'Украина'),
-(189, 'UG', 'Uganda', 'Уганда'),
-(190, 'US', 'Amerika Qo‘shma Shtatlari', 'Соединенные Штаты Америка'),
-(191, 'UY', 'Urugvay', 'Уругвай'),
-(192, 'UZ', 'O‘zbekiston', 'Узбекистан'),
-(193, 'VN', 'Vetnam', 'Вьетнам'),
-(194, 'VU', 'Vanuatu', 'Вануату'),
-(195, 'WS', 'Samoa', 'Самоа'),
-(196, 'YE', 'Yaman', 'Йемен'),
-(197, 'YT', 'Mayotta', 'Маётта'),
-(198, 'ZA', 'Janubiy Afrika', 'Южная Африка'),
-(199, 'ZM', 'Zambiya', 'Замбия'),
-(200, 'ZW', 'Zimbabve', 'Зимбабве');
+                                                                (1, 'AB', 'Abxaziya', 'Абхазия'),
+                                                                (2, 'AD', 'Andorra', 'Андорра'),
+                                                                (3, 'AE', 'Birlashgan Arab Amirliklari', 'Объединенные арабские эмираты'),
+                                                                (4, 'AF', 'Afg‘oniston', 'Афганистан'),
+                                                                (5, 'AG', 'Antigua va Barbuda', 'Антигуа и Барбуда'),
+                                                                (6, 'AI', 'Angliya', 'Англия'),
+                                                                (7, 'AL', 'Albaniya', 'Албания'),
+                                                                (8, 'AM', 'Armaniston', 'Армения'),
+                                                                (9, 'AO', 'Angola', 'Ангола'),
+                                                                (10, 'AQ', 'Antarktida', 'Антарктида'),
+                                                                (11, 'AR', 'Argentina', 'Аргентина'),
+                                                                (12, 'AT', 'Avstriya', 'Австрия'),
+                                                                (13, 'AU', 'Avstraliya', 'Австралия'),
+                                                                (14, 'AW', 'Aruba', 'Аруба'),
+                                                                (15, 'AZ', 'Ozarbayjon', 'Азербайджан'),
+                                                                (16, 'BA', 'Bosniya va Gersegovina', 'Босния и Герцеговина'),
+                                                                (17, 'BB', 'Barbados', 'Барбадос'),
+                                                                (18, 'BD', 'Bangladesh', 'Бангладеш'),
+                                                                (19, 'BE', 'Belgiya', 'Бельгия'),
+                                                                (20, 'BF', 'Burkina-Faso', 'Буркина-Фасо'),
+                                                                (21, 'BG', 'Bolgariya', 'Болгария'),
+                                                                (22, 'BH', 'Bahrayn', 'Бахрейн'),
+                                                                (23, 'BI', 'Burundi', 'Бурунди'),
+                                                                (24, 'BJ', 'Benin', 'Бенин'),
+                                                                (25, 'BL', 'San-Bartelemi', 'Сан-Бартелеми'),
+                                                                (26, 'BN', 'Bruney', 'Бруней'),
+                                                                (27, 'BO', 'Boliviya', 'Боливия'),
+                                                                (28, 'BR', 'Braziliya', 'Бразилия'),
+                                                                (29, 'BT', 'Butan', 'Бутан'),
+                                                                (30, 'BW', 'Botsvana', 'Ботсвана'),
+                                                                (31, 'BY', 'Belorussiya', 'Белоруссия'),
+                                                                (32, 'BZ', 'Beliz', 'Белиз'),
+                                                                (33, 'CA', 'Kanada', 'Канада'),
+                                                                (34, 'CF', 'Markaziy-Afrika respublikasi', 'Центрально-Африканская Республика'),
+                                                                (35, 'CG', 'Kongo', 'Конго'),
+                                                                (36, 'CH', 'Shveysariya', 'Швейцария'),
+                                                                (37, 'CI', 'Kot-divuar', 'Кот-дивуар'),
+                                                                (38, 'CL', 'Chili', 'Чили'),
+                                                                (39, 'CM', 'Kamerun', 'Камерун'),
+                                                                (40, 'CN', 'Xitoy', 'Китай'),
+                                                                (41, 'CO', 'Kolumbiya', 'Колумбия'),
+                                                                (42, 'code', 'name_uz', 'name_ru'),
+                                                                (43, 'CR', 'Kostarika', 'Коста-Рика'),
+                                                                (44, 'CU', 'Kuba', 'Куба'),
+                                                                (45, 'CW', 'Kyurasao', 'Кюрасао'),
+                                                                (46, 'CY', 'Kipr', 'Кипр'),
+                                                                (47, 'CZ', 'Chexiya', 'Чехия'),
+                                                                (48, 'DE', 'Germaniya', 'Германия'),
+                                                                (49, 'DK', 'Daniya', 'Дания'),
+                                                                (50, 'DM', 'Dominika', 'Доминика'),
+                                                                (51, 'DZ', 'Aljir', 'Алжир'),
+                                                                (52, 'EC', 'Ekvador', 'Эквадор'),
+                                                                (53, 'EE', 'Estoniya', 'Эстония'),
+                                                                (54, 'EG', 'Misr', 'Египет'),
+                                                                (55, 'EH', 'G‘arbiy Saxara', 'Западная Сахара'),
+                                                                (56, 'ER', 'Eritreya', 'Эритрея'),
+                                                                (57, 'ES', 'Ispaniya', 'Испания'),
+                                                                (58, 'ET', 'Efiopiya', 'Эфиопия'),
+                                                                (59, 'FI', 'Finlandiya', 'Финляндия'),
+                                                                (60, 'FR', 'Fransiya', 'Франция'),
+                                                                (61, 'GA', 'Gabon', 'Габон'),
+                                                                (62, 'GB', 'Buyuk Britaniya', 'Великобритания'),
+                                                                (63, 'GD', 'Grenada', 'Гренада'),
+                                                                (64, 'GE', 'Gruziya', 'Грузия'),
+                                                                (65, 'GH', 'Gana', 'Гана'),
+                                                                (66, 'GI', 'Gibraltar', 'Гибралтар'),
+                                                                (67, 'GL', 'Grenlandiya', 'Гренландия'),
+                                                                (68, 'GM', 'Gambiya', 'Гамбия'),
+                                                                (69, 'GN', 'Gvineya', 'Гвинея'),
+                                                                (70, 'GP', 'Gvadelupa', 'Гваделупа'),
+                                                                (71, 'GQ', 'Ekvatorial gvineyasi', 'Гвинея экваториальная'),
+                                                                (72, 'GR', 'Gresiya', 'Греция'),
+                                                                (73, 'GT', 'Gvatemala', 'Гватемала'),
+                                                                (74, 'GU', 'Guam', 'Гуам'),
+                                                                (75, 'GW', 'Gvineya-Bisay', 'Гвинея-Бисай'),
+                                                                (76, 'GY', 'Gayana', 'Гаяна'),
+                                                                (77, 'HK', 'Gonkong', 'Гонконг'),
+                                                                (78, 'HN', 'Gonduras', 'Гондурас'),
+                                                                (79, 'HR', 'Xorvatiya', 'Хорватия'),
+                                                                (80, 'HT', 'Gaiti', 'Гаити'),
+                                                                (81, 'HU', 'Vengriya', 'Венгрия'),
+                                                                (82, 'ID', 'Indoneziya', 'Индонезия'),
+                                                                (83, 'IE', 'Irlandiya', 'Ирландия'),
+                                                                (84, 'IL', 'Isroil', 'Израиль'),
+                                                                (85, 'IN', 'Hindiston', 'Индия'),
+                                                                (86, 'IQ', 'Iroq', 'Ирак'),
+                                                                (87, 'IR', 'Eron', 'Иран'),
+                                                                (88, 'IS', 'Islandiya', 'Исландия'),
+                                                                (89, 'IT', 'Italiya', 'Италия'),
+                                                                (90, 'JE', 'Jersi', 'Жерси'),
+                                                                (91, 'JM', 'Yamayka', 'Ямайка'),
+                                                                (92, 'JO', 'Iordaniya', 'Иордания'),
+                                                                (93, 'JP', 'Yaponiya', 'Япония'),
+                                                                (94, 'KE', 'Keniya', 'Кения'),
+                                                                (95, 'KG', 'Qirg‘iziston', 'Киргизия'),
+                                                                (96, 'KH', 'Kambodja', 'Камбоджа'),
+                                                                (97, 'KI', 'Kiribati', 'Кирибати'),
+                                                                (98, 'KP', 'Koreya xalq-demokratik respublikasi', 'Народно-демократическая республика Корея'),
+                                                                (99, 'KR', 'Janubiy Koreya', 'Южная Корея'),
+                                                                (100, 'KW', 'Quvayt', 'Кувейт'),
+                                                                (101, 'KZ', 'Qozog‘iston', 'Казахстан'),
+                                                                (102, 'LA', 'Laos', 'Лаос'),
+                                                                (103, 'LB', 'Livan', 'Ливан'),
+                                                                (104, 'LC', 'Sent-Lyus', 'Сент-Люс'),
+                                                                (105, 'LI', 'Lixtenshteyn', 'Лихтенштейн'),
+                                                                (106, 'LK', 'Shrilanka', 'Шри-Ланка'),
+                                                                (107, 'LR', 'Liberiya', 'Либерия'),
+                                                                (108, 'LS', 'Lesoto', 'Лесото'),
+                                                                (109, 'LT', 'Litva', 'Литва'),
+                                                                (110, 'LU', 'Luksemburg', 'Люксембург'),
+                                                                (111, 'LV', 'Latviya', 'Латвия'),
+                                                                (112, 'MA', 'Marokash', 'Марракеш'),
+                                                                (113, 'MC', 'Monako', 'Монако'),
+                                                                (114, 'MD', 'Moldova', 'Молдова'),
+                                                                (115, 'ME', 'Chernogoriya', 'Черногория'),
+                                                                (116, 'MF', 'Sen-Marten', 'Сен-Мартен'),
+                                                                (117, 'MG', 'Madagaskar', 'Мадагаскар'),
+                                                                (118, 'MK', 'Makedoniya', 'Македония'),
+                                                                (119, 'ML', 'Mali', 'Мали'),
+                                                                (120, 'MM', 'Myanma', 'Мьянма'),
+                                                                (121, 'MN', 'Mongoliya', 'Монголия'),
+                                                                (122, 'MO', 'Makao', 'Макао'),
+                                                                (123, 'MQ', 'Martinika', 'Мартиника'),
+                                                                (124, 'MR', 'Mavritaniya', 'Мавритания'),
+                                                                (125, 'MS', 'Monserrat', 'Монсеррат'),
+                                                                (126, 'MT', 'Malta', 'Мальта'),
+                                                                (127, 'MU', 'Mavrikiya', 'Маврикия'),
+                                                                (128, 'MW', 'Malavi', 'Малави'),
+                                                                (129, 'MX', 'Meksika', 'Мексика'),
+                                                                (130, 'MY', 'Malayziya', 'Малайзия'),
+                                                                (131, 'MZ', 'Mozambik', 'Мозамбик'),
+                                                                (132, 'NA', 'Namibiya', 'Намибия'),
+                                                                (133, 'NC', 'Yangi Kaledoniya', 'Новая Каледония'),
+                                                                (134, 'NE', 'Niger', 'Нигер'),
+                                                                (135, 'NG', 'Nigeriya', 'Нигерия'),
+                                                                (136, 'NI', 'Nikaragua', 'Никарагуа'),
+                                                                (137, 'NL', 'Niderlandiya', 'Нидерланды'),
+                                                                (138, 'NO', 'Norvegiya', 'Норвегия'),
+                                                                (139, 'NP', 'Nepal', 'Непал'),
+                                                                (140, 'NR', 'Nauru', 'Науру'),
+                                                                (141, 'NZ', 'Yangi Zellandiya', 'Новая Зеландия'),
+                                                                (142, 'OM', 'Oman', 'Оман'),
+                                                                (143, 'OS', 'Janubiy Osetiya', 'Южная Осетия'),
+                                                                (144, 'PA', 'Panama', 'Панама'),
+                                                                (145, 'PE', 'Peru', 'Перу'),
+                                                                (146, 'PH', 'Filippin', 'Филиппин'),
+                                                                (147, 'PK', 'Pokiston', 'Пакистан'),
+                                                                (148, 'PL', 'Polsha', 'Польша'),
+                                                                (149, 'PN', 'Pitkern', 'Питкерн'),
+                                                                (150, 'PR', 'Puerto-Riko', 'Пуэрто-Рико'),
+                                                                (151, 'PT', 'Portugaliya', 'Португалия'),
+                                                                (152, 'PW', 'Palau', 'Палау'),
+                                                                (153, 'PY', 'Paragvay', 'Парагвай'),
+                                                                (154, 'QA', 'Qatar', 'Катар'),
+                                                                (155, 'RO', 'Ruminiya', 'Румыния'),
+                                                                (156, 'RS', 'Serbia', 'Сербия'),
+                                                                (157, 'RU', 'Rossiya', 'Россия'),
+                                                                (158, 'RW', 'Ruanda', 'Руанда'),
+                                                                (159, 'SA', 'Saudiya Arabistoni', 'Саудовская Аравия'),
+                                                                (160, 'SD', 'Sudan', 'Судан'),
+                                                                (161, 'SE', 'Shvesiya', 'Швеция'),
+                                                                (162, 'SG', 'Singapur', 'Сингапур'),
+                                                                (163, 'SI', 'Sloveniya', 'Словения'),
+                                                                (164, 'SK', 'Slovakiya', 'Словакия'),
+                                                                (165, 'SL', 'Sierra-lion', 'Сьерра-Леоне'),
+                                                                (166, 'SM', 'San-Marino', 'Сан-Марино'),
+                                                                (167, 'SN', 'Senegal', 'Сенегал'),
+                                                                (168, 'SO', 'Somali', 'Сомали'),
+                                                                (169, 'SR', 'Surinam', 'Суринам'),
+                                                                (170, 'ST', 'San-Tome va Prinsipi', 'Сан-Томе и Принсипи'),
+                                                                (171, 'SV', 'El-Salvador', 'Эл-Сальвадор'),
+                                                                (172, 'SY', 'Suriya', 'Сирия'),
+                                                                (173, 'SZ', 'Svazilend', 'Свазиленд'),
+                                                                (174, 'TD', 'Chad', 'Чад'),
+                                                                (175, 'TG', 'Togo', 'Того'),
+                                                                (176, 'TH', 'Tayland', 'Таиланд'),
+                                                                (177, 'TJ', 'Tojikiston', 'Таджикистан'),
+                                                                (178, 'TK', 'Tokelau', 'Токелау'),
+                                                                (179, 'TL', 'Timor-Leste', 'Тимор-Лесте'),
+                                                                (180, 'TM', 'Turkmaniston', 'Туркменистан'),
+                                                                (181, 'TN', 'Tunis', 'Тунис'),
+                                                                (182, 'TO', 'Tonga', 'Тонга'),
+                                                                (183, 'TR', 'Turkiya', 'Турция'),
+                                                                (184, 'TT', 'Trinidad va Tobago', 'Тринидад и Тобаго'),
+                                                                (185, 'TV', 'Tuvalu', 'Тувалу'),
+                                                                (186, 'TW', 'Tayvan', 'Тайвань'),
+                                                                (187, 'TZ', 'Tanzaniya', 'Танзания'),
+                                                                (188, 'UA', 'Ukraina', 'Украина'),
+                                                                (189, 'UG', 'Uganda', 'Уганда'),
+                                                                (190, 'US', 'Amerika Qo‘shma Shtatlari', 'Соединенные Штаты Америка'),
+                                                                (191, 'UY', 'Urugvay', 'Уругвай'),
+                                                                (192, 'UZ', 'O‘zbekiston', 'Узбекистан'),
+                                                                (193, 'VN', 'Vetnam', 'Вьетнам'),
+                                                                (194, 'VU', 'Vanuatu', 'Вануату'),
+                                                                (195, 'WS', 'Samoa', 'Самоа'),
+                                                                (196, 'YE', 'Yaman', 'Йемен'),
+                                                                (197, 'YT', 'Mayotta', 'Маётта'),
+                                                                (198, 'ZA', 'Janubiy Afrika', 'Южная Африка'),
+                                                                (199, 'ZM', 'Zambiya', 'Замбия'),
+                                                                (200, 'ZW', 'Zimbabve', 'Зимбабве');
 
 -- --------------------------------------------------------
 
@@ -416,39 +400,20 @@ INSERT INTO `countres` (`id`, `code`, `name_uz`, `name_ru`) VALUES
 --
 
 CREATE TABLE `destruction_sample_animal` (
-  `id` int(11) NOT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `code_id` int(11) DEFAULT NULL,
-  `sample_id` int(11) DEFAULT NULL,
-  `destruction_date` date DEFAULT NULL,
-  `ads` varchar(255) DEFAULT NULL,
-  `creator_id` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `consent_id` int(11) DEFAULT NULL,
-  `approved_date` datetime DEFAULT NULL,
-  `state_id` int(11) DEFAULT NULL,
-  `org_id` int(11) DEFAULT NULL
+                                             `id` int(11) NOT NULL,
+                                             `code` varchar(255) DEFAULT NULL,
+                                             `code_id` int(11) DEFAULT NULL,
+                                             `sample_id` int(11) DEFAULT NULL,
+                                             `destruction_date` date DEFAULT NULL,
+                                             `ads` varchar(255) DEFAULT NULL,
+                                             `creator_id` int(11) DEFAULT NULL,
+                                             `created` datetime DEFAULT current_timestamp(),
+                                             `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                                             `consent_id` int(11) DEFAULT NULL,
+                                             `approved_date` datetime DEFAULT NULL,
+                                             `state_id` int(11) DEFAULT NULL,
+                                             `org_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `destruction_sample_animal`
---
-
-INSERT INTO `destruction_sample_animal` (`id`, `code`, `code_id`, `sample_id`, `destruction_date`, `ads`, `creator_id`, `created`, `updated`, `consent_id`, `approved_date`, `state_id`, `org_id`) VALUES
-(34, '001-1', 1, 128, '2022-12-05', '', 5, '2022-11-22 22:40:21', '2022-12-05 15:51:39', 3, NULL, 2, 1),
-(35, '001-2', 2, 129, '2022-12-05', '', 5, '2022-11-22 22:40:21', '2022-12-05 15:51:55', 3, NULL, 2, 1),
-(36, '001-3', 3, 131, '2022-12-05', '', 5, '2022-11-22 22:40:21', '2022-12-05 15:51:50', 3, NULL, 2, 1),
-(37, '001-4', 4, 130, '2022-12-05', '', 5, '2022-11-22 22:40:22', '2022-12-05 15:51:34', 3, NULL, 2, 1),
-(38, '001-5', 5, 134, '2022-12-05', '', 5, '2022-11-23 15:58:53', '2022-12-05 15:50:33', 3, NULL, 2, 1),
-(39, '001-6', 6, 135, '2022-12-05', '', 5, '2022-11-23 15:58:53', '2022-12-05 15:51:24', 3, NULL, 2, 1),
-(40, '001-7', 7, 136, '2022-12-05', '', 5, '2022-11-23 15:58:53', '2022-12-05 15:51:30', 3, NULL, 2, 1),
-(41, '001-8', 8, 141, '2022-12-05', '', 41, '2022-11-27 00:59:01', '2022-12-05 15:50:10', 3, NULL, 2, 1),
-(42, '001-9', 9, 142, '2022-12-05', '', 41, '2022-11-27 00:59:01', '2022-12-05 15:50:19', 3, NULL, 2, 1),
-(43, '001-10', 10, 145, '2022-12-05', '', 33, '2022-12-02 16:13:33', '2022-12-05 15:49:52', 56, NULL, 2, 1),
-(44, '001-11', 11, 147, '2022-12-05', '', 33, '2022-12-02 16:13:33', '2022-12-05 15:50:02', 56, NULL, 2, 1),
-(45, '001-12', 12, 148, '2022-12-05', '', 5, '2022-12-05 15:46:16', '2022-12-05 15:52:59', 3, '2022-12-05 10:52:59', 1, 1),
-(46, '001-13', 13, 149, '2022-12-05', '', 5, '2022-12-05 15:46:16', '2022-12-05 15:48:04', 3, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -457,34 +422,20 @@ INSERT INTO `destruction_sample_animal` (`id`, `code`, `code_id`, `sample_id`, `
 --
 
 CREATE TABLE `destruction_sample_food` (
-  `id` int(11) NOT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `code_id` int(11) DEFAULT NULL,
-  `sample_id` int(11) DEFAULT NULL,
-  `destruction_date` date DEFAULT NULL,
-  `ads` varchar(255) DEFAULT NULL,
-  `creator_id` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp(),
-  `consent_id` int(11) DEFAULT NULL,
-  `approved_date` datetime DEFAULT NULL,
-  `state_id` int(11) DEFAULT NULL,
-  `org_id` int(11) DEFAULT NULL
+                                           `id` int(11) NOT NULL,
+                                           `code` varchar(255) DEFAULT NULL,
+                                           `code_id` int(11) DEFAULT NULL,
+                                           `sample_id` int(11) DEFAULT NULL,
+                                           `destruction_date` date DEFAULT NULL,
+                                           `ads` varchar(255) DEFAULT NULL,
+                                           `creator_id` int(11) DEFAULT NULL,
+                                           `created` datetime DEFAULT current_timestamp(),
+                                           `updated` datetime DEFAULT current_timestamp(),
+                                           `consent_id` int(11) DEFAULT NULL,
+                                           `approved_date` datetime DEFAULT NULL,
+                                           `state_id` int(11) DEFAULT NULL,
+                                           `org_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `destruction_sample_food`
---
-
-INSERT INTO `destruction_sample_food` (`id`, `code`, `code_id`, `sample_id`, `destruction_date`, `ads`, `creator_id`, `created`, `updated`, `consent_id`, `approved_date`, `state_id`, `org_id`) VALUES
-(10, '001-1', 1, 58, NULL, NULL, 5, '2022-11-22 23:55:34', '2022-11-22 23:55:34', 3, NULL, 3, 1),
-(11, '001-2', 2, 59, NULL, NULL, 5, '2022-11-22 23:55:34', '2022-11-22 23:55:34', 3, NULL, 3, 1),
-(12, '001-3', 3, 61, NULL, NULL, 5, '2022-11-22 23:55:34', '2022-11-22 23:55:34', 3, NULL, 3, 1),
-(13, '001-4', 4, 60, NULL, NULL, 5, '2022-11-22 23:55:35', '2022-11-22 23:55:35', 3, NULL, 3, 1),
-(14, '001-5', 5, 71, NULL, NULL, 48, '2022-11-28 01:23:04', '2022-11-28 01:23:04', 3, NULL, 3, 1),
-(15, '001-6', 6, 72, '2022-12-08', 'Вввв', 5, '2022-11-28 18:00:07', '2022-11-28 18:00:07', 3, NULL, 2, 1),
-(16, '001-7', 7, 73, NULL, NULL, 5, '2022-11-28 18:00:07', '2022-11-28 18:00:07', 3, NULL, 3, 1),
-(17, '001-8', 8, 74, '2022-12-08', '00000', 47, '2022-12-03 20:22:37', '2022-12-03 20:22:37', 3, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -493,12 +444,12 @@ INSERT INTO `destruction_sample_food` (`id`, `code`, `code_id`, `sample_id`, `de
 --
 
 CREATE TABLE `diseases` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  `vet4` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL
+                            `id` int(11) NOT NULL,
+                            `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                            `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                            `category_id` int(11) DEFAULT NULL,
+                            `group_id` int(11) DEFAULT NULL,
+                            `vet4` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -506,132 +457,132 @@ CREATE TABLE `diseases` (
 --
 
 INSERT INTO `diseases` (`id`, `name_uz`, `name_ru`, `category_id`, `group_id`, `vet4`) VALUES
-(1, 'Қутириш', 'Бешенство', 1, 1, '305'),
-(2, 'Ауески касаллиги', 'Болезнь Ауески', 1, 1, '308'),
-(3, 'Бруцеллез', 'Бруцеллез', 1, 2, '104'),
-(4, 'Везикуляр стоматит', 'Везикулярный стоматит', 1, 1, '317'),
-(5, 'Гидроперикардит', 'Гидроперикардит', 1, 2, '651'),
-(6, 'Қрим-Конго геморагик иситмаси', 'Конго-крымская геморрагическая лихорадка', 1, 1, '342'),
-(7, 'Лептоспироз', 'Лептоспироз', 1, 2, '117'),
-(8, 'Лейшманиоз', 'Лейшманиоз', 1, 3, '507'),
-(9, 'Листериоз', 'Листериоз', 1, 2, '118'),
-(10, 'Рифт водийси иситмаси', 'Лихорадка долины Рифт', 1, 1, '652'),
-(11, ' Миаз (Cochliomyia hominivorax)', ' Миаз (Cochliomyia hominivorax)', 1, 4, '608'),
-(12, 'Паратуберкулез', 'Паратуберкулез', 1, 2, '124'),
-(13, 'Куйдирги', 'Сибирская язва', 1, 2, '131'),
-(14, 'Трихинеллез', 'Трихинеллез', 1, 5, '433'),
-(15, 'Туляремия', 'Туляремия', 1, 2, '137'),
-(16, 'Йирик шохли мол ўлати', 'Чума крупного рогатого скота', 1, 1, '653'),
-(17, 'Эпизоотик геморрагик касаллик (буғилар ва бошқа кавш қайтарувчилар)', 'Эпизоотическая геморрагическая болезнь (олени и др жвачные)', 1, 1, '654'),
-(18, 'Эхинококкоз', 'Эхинококкоз', 1, 5, '464'),
-(19, 'Япон энцефалити', 'Японский энцефалит', 1, 1, '655'),
-(20, 'Оқсил', 'Ящур', 1, 1, '370'),
-(21, 'Қўтир', 'Чесотка', 1, 4, '610'),
-(22, 'Шмалленберг', 'Шмалленберг', 1, 1, '656'),
-(23, 'Йирик шохли хайвон анаплазмози', 'Анаплазмоз крупного рогатого скота', 1, 3, '501'),
-(24, 'Йирик шохли хайвон бабезиози', 'Бабезиоз крупного рогатого скота', 1, 3, '502'),
-(25, 'Йирик шохли хайвон вирусли диареяси', 'Вирусная диарея крупного рогатого скота', 1, 1, '319'),
-(26, 'Пастереллез', 'Пастереллез', 1, 2, '125'),
-(27, 'Йирик шохли хайвон кампилобактериози', 'Кампилобактериоз крупного рогатого скота', 1, 2, '113'),
-(28, 'Губкошаклли энцефалопатия (BSE)', 'Губкообразная энцефалопатия (BSE)', 1, 1, '329'),
-(29, 'Ёмонсифатли  катарал иситма', 'Злокачественная катаральная лихорадка', 1, 1, '657'),
-(30, 'Қорамолларнинг юқумли ринотрахеити', 'Инфекционный ринотрахеит крупного рогатого скота, инфекционный пустулезный вульвовагинит', 1, 1, '335'),
-(31, 'Қорамоларнинг контагиоз плевропневмонияси', 'Контагиозная плевропневмония крупного рогатого скота', 1, 2, '142'),
-(32, 'Лейкоз', 'Лейкоз (энзоотический лейкоз крупного рогатого скота)', 1, 1, '348'),
-(33, 'Нодуляр дерматит', 'Нодулярный дерматит (заразный узелковый дерматит)', 1, 1, '206'),
-(34, 'Тейлериоз', 'Тейлериоз', 1, 3, '513'),
-(35, 'Трихомоноз', 'Трихомоноз', 1, 3, '515'),
-(36, 'Сил', 'Туберкулез крупного рогатого скота', 1, 2, '124'),
-(37, 'Эмфизематоз карбункул (эмкар)', 'Эмфизематозный карбункул (эмкар)', 1, 2, '138'),
-(38, 'Отларнинг  африка ўлати (реовирус)', 'Африканская чума лошадей (реовирус)', 1, 1, '658'),
-(39, 'Отларнинг венесуэл энцефаломиелити (энцефалит)', 'Венесуэльский энцефаломиелит (энцефалит) лошадей', 1, 1, '659'),
-(40, 'Отларнинг вирусли артериити', 'Вирусный артериит лошадей', 1, 1, '660'),
-(42, 'Отларнинг инфекцион анемияси', 'Инфекционная анемия лошадей', 1, 1, '332'),
-(43, 'Отларнинг юқумли (контагиоз) метрити', 'Инфекционный (контагиозный) метрит лошадей', 1, 2, '115'),
-(44, 'Контагиозли плевропневмония', 'Контагиозная плевропневмония', 1, 2, '142'),
-(45, 'Отларнинг пироплазмози', 'Пироплазмоз лошадей', 1, 3, '509'),
-(46, 'Отларнинг ринопневмонияси', 'Ринопневмония лошадей', 1, 1, '358'),
-(47, 'Манқа', 'Сап', 1, 2, '130'),
-(48, 'Отларнинг трипаносомози', 'Трипаносомоз лошадей', 1, 3, '512'),
-(49, 'Аденоматоз', 'Аденоматоз', 1, 1, '302'),
-(50, 'Қўйларнинг юқумли  энтеротоксемияи', 'Анаэробная энтеротоксемия овец', 1, 2, '111'),
-(51, 'Эчкиларнин артрит/энцефалити', 'Артрит/энцефалит коз', 1, 1, '109'),
-(52, 'Найроби касаллиги', 'Болезнь Найроби', 1, 1, '661'),
-(53, 'Брадзот', 'Брадзот', 1, 2, '103'),
-(55, 'Қўй юқумли агалактияси', 'Инфекционная агалактия овец', 1, 2, '662'),
-(56, 'Эчкиларнинг юқумли (контагиоз) плевропневмонияси', 'Инфекционная (контагиозная) плевропневмония коз', 1, 2, '141'),
-(57, 'Қўйларнинг инфекцион эпидидимити', 'Инфекционный эпидидимит баранов (Brucella ovis)', 1, 2, '139'),
-(59, 'Контагиоз пустулар дерматит (юқумли эктима)', 'Контагиозный пустулезный дерматит (контагиозная эктима)', 1, 1, '343'),
-(60, 'Меди-Висна', 'Меди-Висна', 1, 1, '323'),
-(61, 'Чечак', 'Оспа', 1, 1, '351'),
-(62, 'Қўй чегара касаллиги (Бордер касаллиги)', 'Пограничная болезнь овец (Бордер болезнь)', 1, 1, '663'),
-(63, 'Сальмонеллез', 'Сальмонеллез', 1, 2, '129'),
-(64, 'Қўй ва эчкиларнинг скреписи', 'Скрепи овец и коз', 1, 1, '664'),
-(65, 'Майда шохли хайвонлар ўлати', 'Чума мелких жвачных животных', 1, 1, '665'),
-(66, 'Қўй энзоотик (хламидиоз) аборти', 'Энзоотический (хламидиозный) аборт овец', 1, 2, '666'),
-(67, 'Чўчқаларнинг африка ўлати', 'Африканская чума свиней', 1, 1, '364'),
-(68, 'Нипах касаллиги  (Нип энцефалити)', 'Болезнь Нипах (энцефалит Нипа)', 1, 1, '667'),
-(69, 'Чўчқа везикуляр касаллиги', 'Везикулярная болезнь свиней', 1, 1, '315'),
-(70, 'Чўчқаларнинг Везикуляр экзантемаси', 'Везикулярная экзантема свиней', 1, 1, '316'),
-(71, 'Чўчқаларнинг Вирусли трансмиссив гастроэнтерити', 'Вирусный трансмиссивный гастроэнтерит', 1, 1, '321'),
-(72, 'Грипп', 'Грипп', 1, 1, '328'),
-(73, 'Чўчқаларнинг ўлати', 'Классическая чума свиней', 1, 1, '365'),
-(74, 'Чўчқаларнинг репродуктив респиратор синдроми', 'Репродуктивный респираторный синдром свиней', 1, 1, '668'),
-(75, 'сарамас', 'Рожа', 1, 2, '128'),
-(76, 'Хламидиоз', 'Хламидиоз', 1, 1, '366'),
-(77, 'Чўчқаларнинг цистицеркози', 'Цистицеркоз свиней', 1, 5, '669'),
-(78, 'Тешен касаллиги', 'Энзоотический (инфекционный) энцефаломиелит свиней (болезнь Тешена)', 1, 1, '670'),
-(79, 'Некробактериоз', 'Некробактериоз северных оленей', 1, 2, '121'),
-(80, 'Нодуляр дерматити', 'Нодулярный дерматит (заразный узелковый дерматит)', 1, 1, '671'),
-(82, 'Туя ўлати', 'Чума верблюдов', 1, 2, '999'),
-(84, 'Норкаларнинг вирусли энтерити', 'Вирусный энтерит норок', 1, 1, '322'),
-(85, 'Псевдомоноз', 'Псевдомоноз', 1, 2, '126'),
-(86, 'Йиртқич хайвонлар ўлати', 'Чума плотоядных', 1, 1, '673'),
-(87, 'Қуёнларнинг геморрагик касаллиги', 'Геморрагическая болезнь кроликов', 1, 1, '318'),
-(88, 'Миксоматоз', 'Миксоматоз', 1, 1, '349'),
-(89, 'Марек касаллиги', 'Болезнь Марека', 1, 1, '674'),
-(90, 'Ньюкасл касаллиги', 'Болезнь Ньюкасла', 1, 1, '675'),
-(91, 'Вирусли гепатит', 'Вирусный гепатит', 1, 1, '320'),
-(92, 'Вирусли энтрит', 'Вирусный энтерит', 1, 1, '322'),
-(94, 'Инфекционный бронхит кур', 'Инфекционный бронхит кур', 9, 1, '333'),
-(95, 'Инфекцион бурсал касаллиги (Гамборо касаллиги)', 'Инфекционная бурсальная болезнь (болезнь Гамборо)', 9, 1, '309'),
-(96, 'Қушлар инфекцион ларинготрахеити', 'Инфекционный ларинготрахеит птиц', 9, 1, '334'),
-(97, 'Куркалар инфекцион ринотрахеити (метапневмовирусли инфекция)', 'Инфекционный ринотрахеит индеек (метапневмовирусная инфекция)', 1, 1, '676'),
-(98, 'Қушлар микоплазмозлари (М Gallisepticum, Msynoviae)', 'Микоплазмозы птиц (М Gallisepticum, Msynoviae)', 1, 2, '677'),
-(101, 'Қушлар сил касаллиги ', 'Туберкулез птиц', 1, 2, '678'),
-(102, 'Токсоплазмоз', 'Токсоплазмоз', 1, 3, '514'),
-(103, 'Хламидиоз (қушалр орнитози)', 'Хламидиоз (орнитоз птиц)', 1, 1, '679'),
-(104, 'Қушлар вабоси (пастереллез)', 'Холера птиц (пастереллез)', 1, 2, '680'),
-(105, 'Ласосларнинг альфа-вирусли инфекцияси', 'Альфа-вирусная инфекция лососевых', 1, 1, '681'),
-(106, 'Аэромоноз', 'Аэромоноз', 1, 2, '190'),
-(107, 'Бранхиомикоз', 'Бранхиомикоз', 1, 2, '261'),
-(108, 'Сазан бахорги виремияси (SVC)', 'Весенняя виремия карпа (SVC)', 1, 1, '682'),
-(109, 'Вирусли геморрагик септицемияси (VHS)', 'Вирусная геморрагическая септицемия (VHS)', 1, 1, '683'),
-(110, 'Карпларнинг сузгич пуфагининг яллиғланиши', 'Воспаление плавательного пузыря карпов', 1, 2, '684'),
-(111, 'Сазан герпесвирусли касаллиги (KHVD)', 'Герпесвирусная болезнь карпа (кои) (KHVD)', 1, 1, '685'),
-(112, 'Гиродактилез', 'Гиродактилез', 1, 5, '472'),
-(113, 'Ласосларнинг юқумли анемияси (ISA)', 'Инфекционная анемия лосося (ISA)', 1, 1, '686'),
-(114, 'Форелларнинг юқумли анемияси ва фурункулези', 'Инфекционная анемия и фурункулез форелей', 1, 2, '687'),
-(115, 'Юқумли гематопоэтик некроз (IHN)', 'Инфекционный гематопоэтический некроз (IHN)', 1, 1, '688'),
-(116, 'Қизил денгиз карасининг иридовирусли касаллиги (RSIVD)', 'Иридовирусная болезнь красного морского карася (RSIVD)', 1, 1, '689'),
-(117, 'Описторхоз', 'Описторхоз', 10, 5, '485'),
-(118, 'Эпизоотик гематопоэтик некроз (EHNV)', 'Эпизоотический гематопоэтический некроз (EHNV)', 1, 1, '690'),
-(119, 'Эпизоотик ярали  синдроми (EUS)', 'Эпизоотический язвенный синдром (EUS)', 1, 2, '691'),
-(120, 'Асалариларнинг акарапидози', 'Акарапидоз медоносных пчел', 1, 4, '630'),
-(121, 'Асалариларнинг америкача чириш касаллиги', 'Американский гнилец пчел', 1, 2, '180'),
-(122, 'Аскофероз', 'Аскофероз', 1, 2, '692'),
-(123, 'Варроатоз', 'Варроатоз', 1, 4, '631'),
-(124, 'Асалариларнинг Европача чириш касаллиги', 'Европейский гнилец пчел', 1, 2, '693'),
-(125, 'Кичик уя қўнғизи', 'Малый ульевой жук', 1, 4, '694'),
-(126, 'Нозематоз', 'Нозематоз', 1, 3, '527'),
-(127, 'Колибактериоз Ecoli', 'Колибактериоз Ecoli', 1, 2, '114'),
-(128, 'Хавфли шиш', 'Злокачественный отек', 1, 2, '695'),
-(129, 'Криптоспоридиоз', 'Криптоспоридиоз', 1, 3, '696'),
-(131, 'Токсоплазмоз', 'Токсоплазмоз', 1, 3, '514'),
-(132, 'Цистициркоз', 'Цистициркоз', 1, 5, '463'),
-(133, 'Вакцинация сифатини текшириш', 'Контроль качества вакцинации', 1, 6, '400'),
-(134, 'Вакцина биологик фаоллигини аниқлаш', 'Определение биологической активности вакцин', 1, 6, '401'),
-(135, 'Кана турини аниқлаш', 'Типирование,определение вида клещи', 1, 6, '871');
+                                                                                           (1, 'Қутириш', 'Бешенство', 1, 1, '305'),
+                                                                                           (2, 'Ауески касаллиги', 'Болезнь Ауески', 1, 1, '308'),
+                                                                                           (3, 'Бруцеллез', 'Бруцеллез', 1, 2, '104'),
+                                                                                           (4, 'Везикуляр стоматит', 'Везикулярный стоматит', 1, 1, '317'),
+                                                                                           (5, 'Гидроперикардит', 'Гидроперикардит', 1, 2, '651'),
+                                                                                           (6, 'Қрим-Конго геморагик иситмаси', 'Конго-крымская геморрагическая лихорадка', 1, 1, '342'),
+                                                                                           (7, 'Лептоспироз', 'Лептоспироз', 1, 2, '117'),
+                                                                                           (8, 'Лейшманиоз', 'Лейшманиоз', 1, 3, '507'),
+                                                                                           (9, 'Листериоз', 'Листериоз', 1, 2, '118'),
+                                                                                           (10, 'Рифт водийси иситмаси', 'Лихорадка долины Рифт', 1, 1, '652'),
+                                                                                           (11, ' Миаз (Cochliomyia hominivorax)', ' Миаз (Cochliomyia hominivorax)', 1, 4, '608'),
+                                                                                           (12, 'Паратуберкулез', 'Паратуберкулез', 1, 2, '124'),
+                                                                                           (13, 'Куйдирги', 'Сибирская язва', 1, 2, '131'),
+                                                                                           (14, 'Трихинеллез', 'Трихинеллез', 1, 5, '433'),
+                                                                                           (15, 'Туляремия', 'Туляремия', 1, 2, '137'),
+                                                                                           (16, 'Йирик шохли мол ўлати', 'Чума крупного рогатого скота', 1, 1, '653'),
+                                                                                           (17, 'Эпизоотик геморрагик касаллик (буғилар ва бошқа кавш қайтарувчилар)', 'Эпизоотическая геморрагическая болезнь (олени и др жвачные)', 1, 1, '654'),
+                                                                                           (18, 'Эхинококкоз', 'Эхинококкоз', 1, 5, '464'),
+                                                                                           (19, 'Япон энцефалити', 'Японский энцефалит', 1, 1, '655'),
+                                                                                           (20, 'Оқсил', 'Ящур', 1, 1, '370'),
+                                                                                           (21, 'Қўтир', 'Чесотка', 1, 4, '610'),
+                                                                                           (22, 'Шмалленберг', 'Шмалленберг', 1, 1, '656'),
+                                                                                           (23, 'Йирик шохли хайвон анаплазмози', 'Анаплазмоз крупного рогатого скота', 1, 3, '501'),
+                                                                                           (24, 'Йирик шохли хайвон бабезиози', 'Бабезиоз крупного рогатого скота', 1, 3, '502'),
+                                                                                           (25, 'Йирик шохли хайвон вирусли диареяси', 'Вирусная диарея крупного рогатого скота', 1, 1, '319'),
+                                                                                           (26, 'Пастереллез', 'Пастереллез', 1, 2, '125'),
+                                                                                           (27, 'Йирик шохли хайвон кампилобактериози', 'Кампилобактериоз крупного рогатого скота', 1, 2, '113'),
+                                                                                           (28, 'Губкошаклли энцефалопатия (BSE)', 'Губкообразная энцефалопатия (BSE)', 1, 1, '329'),
+                                                                                           (29, 'Ёмонсифатли  катарал иситма', 'Злокачественная катаральная лихорадка', 1, 1, '657'),
+                                                                                           (30, 'Қорамолларнинг юқумли ринотрахеити', 'Инфекционный ринотрахеит крупного рогатого скота, инфекционный пустулезный вульвовагинит', 1, 1, '335'),
+                                                                                           (31, 'Қорамоларнинг контагиоз плевропневмонияси', 'Контагиозная плевропневмония крупного рогатого скота', 1, 2, '142'),
+                                                                                           (32, 'Лейкоз', 'Лейкоз (энзоотический лейкоз крупного рогатого скота)', 1, 1, '348'),
+                                                                                           (33, 'Нодуляр дерматит', 'Нодулярный дерматит (заразный узелковый дерматит)', 1, 1, '206'),
+                                                                                           (34, 'Тейлериоз', 'Тейлериоз', 1, 3, '513'),
+                                                                                           (35, 'Трихомоноз', 'Трихомоноз', 1, 3, '515'),
+                                                                                           (36, 'Сил', 'Туберкулез крупного рогатого скота', 1, 2, '124'),
+                                                                                           (37, 'Эмфизематоз карбункул (эмкар)', 'Эмфизематозный карбункул (эмкар)', 1, 2, '138'),
+                                                                                           (38, 'Отларнинг  африка ўлати (реовирус)', 'Африканская чума лошадей (реовирус)', 1, 1, '658'),
+                                                                                           (39, 'Отларнинг венесуэл энцефаломиелити (энцефалит)', 'Венесуэльский энцефаломиелит (энцефалит) лошадей', 1, 1, '659'),
+                                                                                           (40, 'Отларнинг вирусли артериити', 'Вирусный артериит лошадей', 1, 1, '660'),
+                                                                                           (42, 'Отларнинг инфекцион анемияси', 'Инфекционная анемия лошадей', 1, 1, '332'),
+                                                                                           (43, 'Отларнинг юқумли (контагиоз) метрити', 'Инфекционный (контагиозный) метрит лошадей', 1, 2, '115'),
+                                                                                           (44, 'Контагиозли плевропневмония', 'Контагиозная плевропневмония', 1, 2, '142'),
+                                                                                           (45, 'Отларнинг пироплазмози', 'Пироплазмоз лошадей', 1, 3, '509'),
+                                                                                           (46, 'Отларнинг ринопневмонияси', 'Ринопневмония лошадей', 1, 1, '358'),
+                                                                                           (47, 'Манқа', 'Сап', 1, 2, '130'),
+                                                                                           (48, 'Отларнинг трипаносомози', 'Трипаносомоз лошадей', 1, 3, '512'),
+                                                                                           (49, 'Аденоматоз', 'Аденоматоз', 1, 1, '302'),
+                                                                                           (50, 'Қўйларнинг юқумли  энтеротоксемияи', 'Анаэробная энтеротоксемия овец', 1, 2, '111'),
+                                                                                           (51, 'Эчкиларнин артрит/энцефалити', 'Артрит/энцефалит коз', 1, 1, '109'),
+                                                                                           (52, 'Найроби касаллиги', 'Болезнь Найроби', 1, 1, '661'),
+                                                                                           (53, 'Брадзот', 'Брадзот', 1, 2, '103'),
+                                                                                           (55, 'Қўй юқумли агалактияси', 'Инфекционная агалактия овец', 1, 2, '662'),
+                                                                                           (56, 'Эчкиларнинг юқумли (контагиоз) плевропневмонияси', 'Инфекционная (контагиозная) плевропневмония коз', 1, 2, '141'),
+                                                                                           (57, 'Қўйларнинг инфекцион эпидидимити', 'Инфекционный эпидидимит баранов (Brucella ovis)', 1, 2, '139'),
+                                                                                           (59, 'Контагиоз пустулар дерматит (юқумли эктима)', 'Контагиозный пустулезный дерматит (контагиозная эктима)', 1, 1, '343'),
+                                                                                           (60, 'Меди-Висна', 'Меди-Висна', 1, 1, '323'),
+                                                                                           (61, 'Чечак', 'Оспа', 1, 1, '351'),
+                                                                                           (62, 'Қўй чегара касаллиги (Бордер касаллиги)', 'Пограничная болезнь овец (Бордер болезнь)', 1, 1, '663'),
+                                                                                           (63, 'Сальмонеллез', 'Сальмонеллез', 1, 2, '129'),
+                                                                                           (64, 'Қўй ва эчкиларнинг скреписи', 'Скрепи овец и коз', 1, 1, '664'),
+                                                                                           (65, 'Майда шохли хайвонлар ўлати', 'Чума мелких жвачных животных', 1, 1, '665'),
+                                                                                           (66, 'Қўй энзоотик (хламидиоз) аборти', 'Энзоотический (хламидиозный) аборт овец', 1, 2, '666'),
+                                                                                           (67, 'Чўчқаларнинг африка ўлати', 'Африканская чума свиней', 1, 1, '364'),
+                                                                                           (68, 'Нипах касаллиги  (Нип энцефалити)', 'Болезнь Нипах (энцефалит Нипа)', 1, 1, '667'),
+                                                                                           (69, 'Чўчқа везикуляр касаллиги', 'Везикулярная болезнь свиней', 1, 1, '315'),
+                                                                                           (70, 'Чўчқаларнинг Везикуляр экзантемаси', 'Везикулярная экзантема свиней', 1, 1, '316'),
+                                                                                           (71, 'Чўчқаларнинг Вирусли трансмиссив гастроэнтерити', 'Вирусный трансмиссивный гастроэнтерит', 1, 1, '321'),
+                                                                                           (72, 'Грипп', 'Грипп', 1, 1, '328'),
+                                                                                           (73, 'Чўчқаларнинг ўлати', 'Классическая чума свиней', 1, 1, '365'),
+                                                                                           (74, 'Чўчқаларнинг репродуктив респиратор синдроми', 'Репродуктивный респираторный синдром свиней', 1, 1, '668'),
+                                                                                           (75, 'сарамас', 'Рожа', 1, 2, '128'),
+                                                                                           (76, 'Хламидиоз', 'Хламидиоз', 1, 1, '366'),
+                                                                                           (77, 'Чўчқаларнинг цистицеркози', 'Цистицеркоз свиней', 1, 5, '669'),
+                                                                                           (78, 'Тешен касаллиги', 'Энзоотический (инфекционный) энцефаломиелит свиней (болезнь Тешена)', 1, 1, '670'),
+                                                                                           (79, 'Некробактериоз', 'Некробактериоз северных оленей', 1, 2, '121'),
+                                                                                           (80, 'Нодуляр дерматити', 'Нодулярный дерматит (заразный узелковый дерматит)', 1, 1, '671'),
+                                                                                           (82, 'Туя ўлати', 'Чума верблюдов', 1, 2, '999'),
+                                                                                           (84, 'Норкаларнинг вирусли энтерити', 'Вирусный энтерит норок', 1, 1, '322'),
+                                                                                           (85, 'Псевдомоноз', 'Псевдомоноз', 1, 2, '126'),
+                                                                                           (86, 'Йиртқич хайвонлар ўлати', 'Чума плотоядных', 1, 1, '673'),
+                                                                                           (87, 'Қуёнларнинг геморрагик касаллиги', 'Геморрагическая болезнь кроликов', 1, 1, '318'),
+                                                                                           (88, 'Миксоматоз', 'Миксоматоз', 1, 1, '349'),
+                                                                                           (89, 'Марек касаллиги', 'Болезнь Марека', 1, 1, '674'),
+                                                                                           (90, 'Ньюкасл касаллиги', 'Болезнь Ньюкасла', 1, 1, '675'),
+                                                                                           (91, 'Вирусли гепатит', 'Вирусный гепатит', 1, 1, '320'),
+                                                                                           (92, 'Вирусли энтрит', 'Вирусный энтерит', 1, 1, '322'),
+                                                                                           (94, 'Инфекционный бронхит кур', 'Инфекционный бронхит кур', 9, 1, '333'),
+                                                                                           (95, 'Инфекцион бурсал касаллиги (Гамборо касаллиги)', 'Инфекционная бурсальная болезнь (болезнь Гамборо)', 9, 1, '309'),
+                                                                                           (96, 'Қушлар инфекцион ларинготрахеити', 'Инфекционный ларинготрахеит птиц', 9, 1, '334'),
+                                                                                           (97, 'Куркалар инфекцион ринотрахеити (метапневмовирусли инфекция)', 'Инфекционный ринотрахеит индеек (метапневмовирусная инфекция)', 1, 1, '676'),
+                                                                                           (98, 'Қушлар микоплазмозлари (М Gallisepticum, Msynoviae)', 'Микоплазмозы птиц (М Gallisepticum, Msynoviae)', 1, 2, '677'),
+                                                                                           (101, 'Қушлар сил касаллиги ', 'Туберкулез птиц', 1, 2, '678'),
+                                                                                           (102, 'Токсоплазмоз', 'Токсоплазмоз', 1, 3, '514'),
+                                                                                           (103, 'Хламидиоз (қушалр орнитози)', 'Хламидиоз (орнитоз птиц)', 1, 1, '679'),
+                                                                                           (104, 'Қушлар вабоси (пастереллез)', 'Холера птиц (пастереллез)', 1, 2, '680'),
+                                                                                           (105, 'Ласосларнинг альфа-вирусли инфекцияси', 'Альфа-вирусная инфекция лососевых', 1, 1, '681'),
+                                                                                           (106, 'Аэромоноз', 'Аэромоноз', 1, 2, '190'),
+                                                                                           (107, 'Бранхиомикоз', 'Бранхиомикоз', 1, 2, '261'),
+                                                                                           (108, 'Сазан бахорги виремияси (SVC)', 'Весенняя виремия карпа (SVC)', 1, 1, '682'),
+                                                                                           (109, 'Вирусли геморрагик септицемияси (VHS)', 'Вирусная геморрагическая септицемия (VHS)', 1, 1, '683'),
+                                                                                           (110, 'Карпларнинг сузгич пуфагининг яллиғланиши', 'Воспаление плавательного пузыря карпов', 1, 2, '684'),
+                                                                                           (111, 'Сазан герпесвирусли касаллиги (KHVD)', 'Герпесвирусная болезнь карпа (кои) (KHVD)', 1, 1, '685'),
+                                                                                           (112, 'Гиродактилез', 'Гиродактилез', 1, 5, '472'),
+                                                                                           (113, 'Ласосларнинг юқумли анемияси (ISA)', 'Инфекционная анемия лосося (ISA)', 1, 1, '686'),
+                                                                                           (114, 'Форелларнинг юқумли анемияси ва фурункулези', 'Инфекционная анемия и фурункулез форелей', 1, 2, '687'),
+                                                                                           (115, 'Юқумли гематопоэтик некроз (IHN)', 'Инфекционный гематопоэтический некроз (IHN)', 1, 1, '688'),
+                                                                                           (116, 'Қизил денгиз карасининг иридовирусли касаллиги (RSIVD)', 'Иридовирусная болезнь красного морского карася (RSIVD)', 1, 1, '689'),
+                                                                                           (117, 'Описторхоз', 'Описторхоз', 10, 5, '485'),
+                                                                                           (118, 'Эпизоотик гематопоэтик некроз (EHNV)', 'Эпизоотический гематопоэтический некроз (EHNV)', 1, 1, '690'),
+                                                                                           (119, 'Эпизоотик ярали  синдроми (EUS)', 'Эпизоотический язвенный синдром (EUS)', 1, 2, '691'),
+                                                                                           (120, 'Асалариларнинг акарапидози', 'Акарапидоз медоносных пчел', 1, 4, '630'),
+                                                                                           (121, 'Асалариларнинг америкача чириш касаллиги', 'Американский гнилец пчел', 1, 2, '180'),
+                                                                                           (122, 'Аскофероз', 'Аскофероз', 1, 2, '692'),
+                                                                                           (123, 'Варроатоз', 'Варроатоз', 1, 4, '631'),
+                                                                                           (124, 'Асалариларнинг Европача чириш касаллиги', 'Европейский гнилец пчел', 1, 2, '693'),
+                                                                                           (125, 'Кичик уя қўнғизи', 'Малый ульевой жук', 1, 4, '694'),
+                                                                                           (126, 'Нозематоз', 'Нозематоз', 1, 3, '527'),
+                                                                                           (127, 'Колибактериоз Ecoli', 'Колибактериоз Ecoli', 1, 2, '114'),
+                                                                                           (128, 'Хавфли шиш', 'Злокачественный отек', 1, 2, '695'),
+                                                                                           (129, 'Криптоспоридиоз', 'Криптоспоридиоз', 1, 3, '696'),
+                                                                                           (131, 'Токсоплазмоз', 'Токсоплазмоз', 1, 3, '514'),
+                                                                                           (132, 'Цистициркоз', 'Цистициркоз', 1, 5, '463'),
+                                                                                           (133, 'Вакцинация сифатини текшириш', 'Контроль качества вакцинации', 1, 6, '400'),
+                                                                                           (134, 'Вакцина биологик фаоллигини аниқлаш', 'Определение биологической активности вакцин', 1, 6, '401'),
+                                                                                           (135, 'Кана турини аниқлаш', 'Типирование,определение вида клещи', 1, 6, '871');
 
 -- --------------------------------------------------------
 
@@ -640,9 +591,9 @@ INSERT INTO `diseases` (`id`, `name_uz`, `name_ru`, `category_id`, `group_id`, `
 --
 
 CREATE TABLE `disease_category` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+                                    `id` int(11) NOT NULL,
+                                    `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                    `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -650,18 +601,18 @@ CREATE TABLE `disease_category` (
 --
 
 INSERT INTO `disease_category` (`id`, `name_uz`, `name_ru`) VALUES
-(1, 'I Барча хайвонларда учпайдиган кассалликлар', 'I Болезни, общие для разных видов животных'),
-(2, 'II Йирик шохли хайвон касалликлари', 'II Болезни крупного рогатого скота'),
-(3, 'III Йилқи касалликлари', 'III Болезни лошадей'),
-(4, 'IV Қўй ва эчки касалликлари', 'IV Болезни овец и коз'),
-(5, 'V Чўчқалар касалликлари', 'V Болезни свиней'),
-(6, 'VI Туя ва шимол буғиси касаллиги', 'VI Болезни верблюдов и северных оленей'),
-(7, 'VII Мўйнали хайвонлар касалликлари', 'VII Болезни пушных зверей'),
-(8, 'VIII Қўёнсимонлар касалликлари', 'VIII Болезни зайцевых'),
-(9, 'IX Қушлар касаллиги', 'IX Болезни птиц'),
-(10, 'X Балиқлар касаллиги', 'X Болезни рыб'),
-(11, 'XI Асаллари касалликлари', 'XI Болезни пчел'),
-(12, 'XII Бошқа хайвонлар касалликлари', 'XII Другие болезни животных');
+                                                                (1, 'I Барча хайвонларда учпайдиган кассалликлар', 'I Болезни, общие для разных видов животных'),
+                                                                (2, 'II Йирик шохли хайвон касалликлари', 'II Болезни крупного рогатого скота'),
+                                                                (3, 'III Йилқи касалликлари', 'III Болезни лошадей'),
+                                                                (4, 'IV Қўй ва эчки касалликлари', 'IV Болезни овец и коз'),
+                                                                (5, 'V Чўчқалар касалликлари', 'V Болезни свиней'),
+                                                                (6, 'VI Туя ва шимол буғиси касаллиги', 'VI Болезни верблюдов и северных оленей'),
+                                                                (7, 'VII Мўйнали хайвонлар касалликлари', 'VII Болезни пушных зверей'),
+                                                                (8, 'VIII Қўёнсимонлар касалликлари', 'VIII Болезни зайцевых'),
+                                                                (9, 'IX Қушлар касаллиги', 'IX Болезни птиц'),
+                                                                (10, 'X Балиқлар касаллиги', 'X Болезни рыб'),
+                                                                (11, 'XI Асаллари касалликлари', 'XI Болезни пчел'),
+                                                                (12, 'XII Бошқа хайвонлар касалликлари', 'XII Другие болезни животных');
 
 -- --------------------------------------------------------
 
@@ -670,9 +621,9 @@ INSERT INTO `disease_category` (`id`, `name_uz`, `name_ru`) VALUES
 --
 
 CREATE TABLE `disease_groups` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+                                  `id` int(11) NOT NULL,
+                                  `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -680,12 +631,12 @@ CREATE TABLE `disease_groups` (
 --
 
 INSERT INTO `disease_groups` (`id`, `name_uz`, `name_ru`) VALUES
-(1, 'вирусли', 'вирусли'),
-(2, 'бактерия', 'бактерия'),
-(3, 'протозой', 'протозой'),
-(4, 'эрахно-энтомология', 'эрахно-энтомология'),
-(5, 'гельминтология', 'гельминтология'),
-(6, 'Вакцинация назорати\r\n', 'Вакцинация назорати\r\n');
+                                                              (1, 'вирусли', 'вирусли'),
+                                                              (2, 'бактерия', 'бактерия'),
+                                                              (3, 'протозой', 'протозой'),
+                                                              (4, 'эрахно-энтомология', 'эрахно-энтомология'),
+                                                              (5, 'гельминтология', 'гельминтология'),
+                                                              (6, 'Вакцинация назорати\r\n', 'Вакцинация назорати\r\n');
 
 -- --------------------------------------------------------
 
@@ -694,15 +645,15 @@ INSERT INTO `disease_groups` (`id`, `name_uz`, `name_ru`) VALUES
 -- (See below for the actual view)
 --
 CREATE TABLE `district_view` (
-`MHOBT_cod` int(11)
-,`region_id` int(11)
-,`district_id` int(11)
-,`name_lot` varchar(100)
-,`center_lot` varchar(50)
-,`name_cyr` varchar(100)
-,`center_cyr` varchar(50)
-,`name_ru` varchar(100)
-,`center_ru` varchar(50)
+                                 `MHOBT_cod` int(11)
+    ,`region_id` int(11)
+    ,`district_id` int(11)
+    ,`name_lot` varchar(100)
+    ,`center_lot` varchar(50)
+    ,`name_cyr` varchar(100)
+    ,`center_cyr` varchar(50)
+    ,`name_ru` varchar(100)
+    ,`center_ru` varchar(50)
 );
 
 -- --------------------------------------------------------
@@ -712,18 +663,10 @@ CREATE TABLE `district_view` (
 --
 
 CREATE TABLE `emlash` (
-  `animal_id` int(11) DEFAULT NULL,
-  `antibiotic` varchar(255) NOT NULL,
-  `emlash_date` date NOT NULL
+                          `animal_id` int(11) DEFAULT NULL,
+                          `antibiotic` varchar(255) NOT NULL,
+                          `emlash_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `emlash`
---
-
-INSERT INTO `emlash` (`animal_id`, `antibiotic`, `emlash_date`) VALUES
-(141, 'septraksion', '2022-10-10'),
-(141, 'septraksion', '2022-10-10');
 
 -- --------------------------------------------------------
 
@@ -732,11 +675,11 @@ INSERT INTO `emlash` (`animal_id`, `antibiotic`, `emlash_date`) VALUES
 --
 
 CREATE TABLE `employees` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+                             `id` int(11) NOT NULL,
+                             `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `password` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Ходимлар жадвали. Рол, статус, ҳолатлар триггерларда тўлдирилади.';
 
 --
@@ -744,61 +687,61 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `email`, `phone`, `password`) VALUES
-(1, 'Registrator', 'umidbek@gmail.com', '+998999670395', '$2y$13$eCysDdPvFAeOBC2Fgm.Ide9oDMArgfLbYRokPe5lJQ14xOCKhPCEO'),
-(2, 'Admin', 'admin1@gmail.com', '+998911347773', '$2y$13$ByT248Vbsh4B.d/JqBEVOePCV2bNzC3Cgs1SqpoC3MWz34jW534Da'),
-(3, 'Direktor Б.С.Тангяриков', 'direktor@gmail.com', '-', '$2y$13$ipIgY9MCqKMI4shgdgJG4egzSu9WJbyPBpIGT5RpyDNvSEloOtCPm'),
-(4, 'Labaratoriya mudiri', 'mudir@gmail.com', '-', '$2y$13$wquoqsemFODwjdBg9AiiD.nhc4igu8pctO190BKifMqJ7Dmu0vMqq'),
-(5, 'vrach ', 'lab@gmail.com', '-', '$2y$13$RkjVpdujlF/ZGCspf4xvWeKlRdByGje4EPmplHyW/ZWPIBzlBmsee'),
-(6, 'Komitet', 'komitet@gmail.com', '-', '$2y$13$FpXGb.lrxCKTzKdWVidPFeRqukp8Z67hiJxUGoqOxW5vlB8oN99Ka'),
-(7, 'Aliyev', 'ali@gmail.com', '99999999', '$2y$13$zZtqPkCYYwfxUFpyVIWcrO3WlAoS2nrxIvK8hX6yUrH7gEamg7eYe'),
-(8, 'Valiyev', 'vali@gmail.com', '99999999', '$2y$13$yH2BkyaLY8O5znTEiOEEK.FFViBP9Sedvaf2Z0sQVtQtxly4egT8S'),
-(9, 'Saliyev', 'sali@gmail.com', '99999999', '$2y$13$Z3fS1k2vhVsSRmxaqbxtVu2fsZPbxl6M.AIaWgPRIAaVAu0fQ/eVG'),
-(10, 'Eshmatov', 'shmat@gmail.com', '99999999', '$2y$13$0g2POkegN/HUdiCEwf.LZOhnN5x8AkEKEAx.f5iqWdKEMz0EqvoXS'),
-(11, 'Toshmatov', 'tash@gmail.com', '99999999', '$2y$13$X58O.ay8pn49VKeDD7ckte0zmC3RJLMqFZ3t0REYMqipzj8z65bny'),
-(12, 'Туман врачи', 'tum@gmail.com', '9999999', '$2y$13$pswdCABaWOnWU4b7Obrnv.g/zb.Pf4xvnr8XynWGpzzQAXlk66gHC'),
-(13, 'Малиев', 'mali@gmail.com', '99999999', '$2y$13$0zh1hMkWk.LAyK4zaaLVoOTAn24M5jGyESBBmY/NuUEHqIwv.0NuW'),
-(14, 'Qumita', 'qum@gmail.com', '99999999', '$2y$13$t9MbDtUWgvlgNrjWedqg3ewiZfe2nhxqz8IkjPzdZTylgZVJybh3K'),
-(15, 'Nematov Alisher', 'alisher@gmail.com', '5656565656', '$2y$13$VX0mKTnJJCXQmFMTvYXp8O9.FMvwoLjwbvgIMbNi6a6Hw3r3p6oB2'),
-(16, 'sardor ', 'sardor@gmail.com', '454545', '$2y$13$cm78tx7WCsJkeOgd7Kre9O8GXY972pI0YWRgQHj.JTmY20JZh5D02'),
-(17, 'Forish-reg', 'forish_reg@gmail.com', '13212', '$2y$13$r14/Ic7xODKOJQmuSYv9eedfVw62lZ/p8R4.R.3tJfhQQ2q5I0tsu'),
-(18, 'Forish-mudir', 'forish_mud@gmail.com', '99999999', '$2y$13$H7K5ean6qxz.LEHE1Mk0AO.Zy.uwU1a5ELBX1NEtqOVPOe.EtEBH6'),
-(19, 'Forish-rahbar', 'forish_rah@gmail.com', '99999999', '$2y$13$RQs6Gd.h3CGw7AAdxHhFHeU6qHRo1t2X/frrjK4Z7WsFioAlh9yXK'),
-(20, 'Forish-xodim', 'forish_vrach@gmail.com', '99999999', '$2y$13$uLS4iP6Si6ADr3atAtmvUu2n8HsmXzoYU4E8jbLW640D2.wtiSuXS'),
-(21, 'Forish-lab-vrach', 'forish_vrach@gmail.com', '99999999', '$2y$13$HwT4VCo.JKpvrQZUj5NI5evLzYmHGaZQThOraobYpyGlgeH1eLQMa'),
-(22, 'forish-lobarant', 'forish_lab@gmail.com', '99999999', '$2y$13$VfDad5r67PGReEBLDRhm/uHdOKUETel5HLmy1kefoN5VvVY9BER36'),
-(23, 'Forish-лаборант', 'forish_l@gmail.com', '99999999', '$2y$13$Z9l1d.XFOmcH9yojiHfm/uouSDYXGkppJaGlGYJoyPCc2vAUWWbWa'),
-(24, 'Sardor Boybutaev', 'Sardorboybuyayev2222@gmail.com', '+998911002145', '$2y$13$rgyV.E6Vzdj/E0fiYR03geD.mcUvjf4JJFUyyQ1dEAc1gDz5qvBum'),
-(25, 'Far_reg', 'far_reg@gmail.com', '4545455', '$2y$13$AZEJbjwN7bpMZxyqHeJ2v.fa33jAOJ./Arl2ekPzuYS7p3vHG7JG6'),
-(26, 'far mudir', 'far_mudir@gmail.com ', '456641131', '$2y$13$eg2X549YIq7oAOyslnVlBe/26TeJUIXwMpV9w3/EC6ZCr.ztUiNpm'),
-(28, 'far_vrach', 'far_vrach@gmail.com', '4564534', '$2y$13$SWATU.hrkLtJLejj2T0F2uQnxyUKYvn.guudG0Itas0CKl69cohjG'),
-(29, 'Direktor ГАЗИЕВ АСКАРАЛИ ТУРСУНОВИЧ ', 'far_direktor@gmail.com', '4564536', '$2y$13$lw8bGivTI5tIzPsuDSAibOBW3JxhU.zQvGv0xPd7rlYJ68US.K5QC'),
-(30, 'Far_mudir', 'far_mudir@gmail.com', '45454578', '$2y$13$9vV3YNQ1ae76vebrTjKMj.pWwi6xmqkjgis1lpJr6bZzNpge3t0fK'),
-(31, 'Шукуров Қобилжон Абилович', 'mudirbak@gmail.com', '+998991234567', '$2y$13$bKfmnK.9EsLq6RJj/D.NlOeIEqA5VQM5S.PYggAZyT/cl7MCNPICa'),
-(32, 'Ахмедова Мунира Файзулла қизи', 'bakvrach1@gmail.com', '+998991234567', '$2y$13$zoqWkJ.FvnfeaMbbCA/.Oe70ZxiZYaE6A8n0TIkoBbo1IYnJNvDeu'),
-(33, 'Исломов Аббос Носир ўғли', 'bakvrach2@gmail.com', '+998991234567', '$2y$13$w1w4JiGkgYlxse1rHyzkBuQ.TuZuDxFZSbt5D3u8kqwDCUIL0dplO'),
-(34, 'Тошпулатов Азамат Даврон ўғли', 'mudirtoksikolog@gmail.com', '+998973906365', '$2y$13$X8llBQBlWQ4dopVn6v9nk.mWtl5r.4CSbzjKIqv1i2G3PkHiPF3e.'),
-(35, 'Суннатов Жамол Муфтилла уғли', 'tokvrach@gmail.com', '+998943565744', '$2y$13$fFkusGARJ7IskXRQJol0KOCGT39wNQszVM8IB9XAUnye0VMXW2vce'),
-(36, 'Хушвахтов Кахраман Бабакандович', 'mudirvirus@gmail.com', '+998993990169', '$2y$13$UpsvuO/R3rEoTLoYTqnKxOKJT8ZWMOsI4DYFlfemvtXLim/Vn5kAm'),
-(37, 'Худайқулов Жахонгир Жўраевич', 'virusvrach@gmail.com', '+998991234567', '$2y$13$CXUA6g8iGik5pwaR0AcwAOa/AOU.a1qVLtvoYZD5HHFCyl5sjsXpa'),
-(38, 'Саидов Эшбой Муротович', 'mudirradiolog@gmail.com', '+998991234567', '$2y$13$ggTMUY6gnY8QaG7jw2ynKuHM.i5Mzi/x1GYx/HOxsxpxzMUVmuvq6'),
-(39, 'Қорабоева Шахноза Позилжоновна', 'radiologvrach1@gmail.com', '+998991234567', '$2y$13$L4sONwImfFANXdkPa99DCucpzHpTrmKcsW4apcJsEfY3ayRyhVPza'),
-(40, 'Фармонов Сирожиддин Низомович', 'mudirserolog@gmail.com', '+998974550878', '$2y$13$6/0Nr6Hm3Go2R1OViR/IQO8j8EzYT32X8pL543PwZQtuBGJVoIDqK'),
-(41, 'Абдухамидов Маъруф Аззамович', 'serologvrach1@gmail.com', '+998941906336', '$2y$13$0RVuU8Cv2FmnOmzcHkmfD.WRtoiz82gl.zMFhUiDaqyUPunCxmKOO'),
-(42, 'Абдурахманов Ғуломжон Абдуғафурович', 'serologvrach2@gmail.com', '+998981009277', '$2y$13$1vBRds97f3XCOPxEpixDP.N5SvCoAM2TIH/elwZkZUAQ25lYq/syG'),
-(43, 'Юсубахмедов Абдурауф Абдурахим ўғли ', 'ifamudir@gmail.com', '+998994031730', '$2y$13$vrpt0QifucwrF9wt1sd3OuHhlTkjOSj58xHJrfhR6z8hAvadyomU.'),
-(44, 'Фозилов ХХХ', 'ifavrach1@gmail.com', '1', '$2y$13$C8wXBU6syxHfX5Wjfr/nkOBTE3VtPwoZkzmOkv/K2EslQcL/TlfP2'),
-(45, 'Фозилов ЧЧЧ', 'ifavrach2@gmail.com', '+998996260775', '$2y$13$MUvhujg5DzZ7cnKlmuNpmOCQRjl0ltqB.JSDo8FPQr0Ap11xmnkce'),
-(46, 'Турсунова  Гулчеҳра Эркиновна', 'mudirvsel@gmail.com', '+998946017874', '$2y$13$4stMZE8lycVSa/4AmjAJ7.AWGX.r96FoO2aXrP0iD0ICFFuKgLC/y'),
-(47, 'Маъмуров Савронбек Пўлат ўғли', 'vselvrach1@gmail.com', '+998991234567', '$2y$13$IKzoxYkSVAiLGxnGtnio4OT9Lrrs7SzP24D2STTWHpDI6S9nbjIC.'),
-(48, 'Эргашев Акбаржон Анвар ўғли', 'vselvrach2@gmail.com', '+998916223520', '$2y$13$ffr/qVZxAWn9VggLiiaONes7DFaStSyJ8EjJtoE4YHgi8nFPUviZO'),
-(49, 'Менгқобилов Хайдар Оқбайевич', 'parrandamudir@gmail.com', '+998999224936', '$2y$13$tCXtrLdHGalAplHnRntEU.CEPMia0ALoRNq.G5wnid8a5fe2z81Li'),
-(50, 'Турсунова Дилором Алиевна', 'parrandavrach@gmail.com', '+998946386095', '$2y$13$DUMOg4S7Km.w6pFvxpq7yuGLTMIcdo9LlnlU6F1VKaDLnf5eGkF8q'),
-(51, 'Хайдаров Жалолиддин Илаш ўғли', 'virusvrach2@gmail.com', '+123456789', '$2y$13$9qwzbeOqSHXKIX50R10rIOlwl2nCnSHO35.EIdm0J.D45yuN4loXK'),
-(52, 'Авазова Ханзада Курбановна ', 'radiologvrach2@gmail.com', '+123456789', '$2y$13$HXTduCz.KtKDvSsAllxyzevp654JCGYB5iFmR4G.AaEV/aVSWiuPy'),
-(53, 'Абдухакимов Рустам Набижон ўғли', 'mudiroziqa@gmail.com', '+998946017874', '$2y$13$XuB3Em2Dg7iKlRH/d0S0ZuyucassJOm0qNDhAt/Qx0aXk9.slYJhG'),
-(54, 'Абдуллаева Фарангиз Хайрулла қизи', 'vrachoziqa1@gmail.com', '+123456789', '$2y$13$ENmEgr.NCYYxNallzQTzI.fSAFa7FQDxzNP.r30i44HNYqyNDoeAq'),
-(55, 'Анарбаева Холида Зайниддиновна', 'vrachoziqa2@gmail.com', '+123456789', '$2y$13$Z/fgZmFBn0de3/engKsCKehnQCaP2dnIbidKUcL/lOSOs5oEu9XY.'),
-(56, 'Каримова Нодира Бурхановна', 'direktor2@gmail.com', '+998946600262', '$2y$13$sTB/cCDWQ5a5JncPHc9RSeVmKr56RMzxX4r5SjiQejkTZmr02B0Sa');
+                                                                         (1, 'Registrator', 'umidbek@gmail.com', '+998999670395', '$2y$13$eCysDdPvFAeOBC2Fgm.Ide9oDMArgfLbYRokPe5lJQ14xOCKhPCEO'),
+                                                                         (2, 'Admin', 'admin1@gmail.com', '+998911347773', '$2y$13$ByT248Vbsh4B.d/JqBEVOePCV2bNzC3Cgs1SqpoC3MWz34jW534Da'),
+                                                                         (3, 'Direktor Б.С.Тангяриков', 'direktor@gmail.com', '-', '$2y$13$ipIgY9MCqKMI4shgdgJG4egzSu9WJbyPBpIGT5RpyDNvSEloOtCPm'),
+                                                                         (4, 'Labaratoriya mudiri', 'mudir@gmail.com', '-', '$2y$13$wquoqsemFODwjdBg9AiiD.nhc4igu8pctO190BKifMqJ7Dmu0vMqq'),
+                                                                         (5, 'vrach ', 'lab@gmail.com', '-', '$2y$13$RkjVpdujlF/ZGCspf4xvWeKlRdByGje4EPmplHyW/ZWPIBzlBmsee'),
+                                                                         (6, 'Komitet', 'komitet@gmail.com', '-', '$2y$13$FpXGb.lrxCKTzKdWVidPFeRqukp8Z67hiJxUGoqOxW5vlB8oN99Ka'),
+                                                                         (7, 'Aliyev', 'ali@gmail.com', '99999999', '$2y$13$zZtqPkCYYwfxUFpyVIWcrO3WlAoS2nrxIvK8hX6yUrH7gEamg7eYe'),
+                                                                         (8, 'Valiyev', 'vali@gmail.com', '99999999', '$2y$13$yH2BkyaLY8O5znTEiOEEK.FFViBP9Sedvaf2Z0sQVtQtxly4egT8S'),
+                                                                         (9, 'Saliyev', 'sali@gmail.com', '99999999', '$2y$13$Z3fS1k2vhVsSRmxaqbxtVu2fsZPbxl6M.AIaWgPRIAaVAu0fQ/eVG'),
+                                                                         (10, 'Eshmatov', 'shmat@gmail.com', '99999999', '$2y$13$0g2POkegN/HUdiCEwf.LZOhnN5x8AkEKEAx.f5iqWdKEMz0EqvoXS'),
+                                                                         (11, 'Toshmatov', 'tash@gmail.com', '99999999', '$2y$13$X58O.ay8pn49VKeDD7ckte0zmC3RJLMqFZ3t0REYMqipzj8z65bny'),
+                                                                         (12, 'Туман врачи', 'tum@gmail.com', '9999999', '$2y$13$pswdCABaWOnWU4b7Obrnv.g/zb.Pf4xvnr8XynWGpzzQAXlk66gHC'),
+                                                                         (13, 'Малиев', 'mali@gmail.com', '99999999', '$2y$13$0zh1hMkWk.LAyK4zaaLVoOTAn24M5jGyESBBmY/NuUEHqIwv.0NuW'),
+                                                                         (14, 'Qumita', 'qum@gmail.com', '99999999', '$2y$13$t9MbDtUWgvlgNrjWedqg3ewiZfe2nhxqz8IkjPzdZTylgZVJybh3K'),
+                                                                         (15, 'Nematov Alisher', 'alisher@gmail.com', '5656565656', '$2y$13$VX0mKTnJJCXQmFMTvYXp8O9.FMvwoLjwbvgIMbNi6a6Hw3r3p6oB2'),
+                                                                         (16, 'sardor ', 'sardor@gmail.com', '454545', '$2y$13$cm78tx7WCsJkeOgd7Kre9O8GXY972pI0YWRgQHj.JTmY20JZh5D02'),
+                                                                         (17, 'Forish-reg', 'forish_reg@gmail.com', '13212', '$2y$13$r14/Ic7xODKOJQmuSYv9eedfVw62lZ/p8R4.R.3tJfhQQ2q5I0tsu'),
+                                                                         (18, 'Forish-mudir', 'forish_mud@gmail.com', '99999999', '$2y$13$H7K5ean6qxz.LEHE1Mk0AO.Zy.uwU1a5ELBX1NEtqOVPOe.EtEBH6'),
+                                                                         (19, 'Forish-rahbar', 'forish_rah@gmail.com', '99999999', '$2y$13$RQs6Gd.h3CGw7AAdxHhFHeU6qHRo1t2X/frrjK4Z7WsFioAlh9yXK'),
+                                                                         (20, 'Forish-xodim', 'forish_vrach@gmail.com', '99999999', '$2y$13$uLS4iP6Si6ADr3atAtmvUu2n8HsmXzoYU4E8jbLW640D2.wtiSuXS'),
+                                                                         (21, 'Forish-lab-vrach', 'forish_vrach@gmail.com', '99999999', '$2y$13$HwT4VCo.JKpvrQZUj5NI5evLzYmHGaZQThOraobYpyGlgeH1eLQMa'),
+                                                                         (22, 'forish-lobarant', 'forish_lab@gmail.com', '99999999', '$2y$13$VfDad5r67PGReEBLDRhm/uHdOKUETel5HLmy1kefoN5VvVY9BER36'),
+                                                                         (23, 'Forish-лаборант', 'forish_l@gmail.com', '99999999', '$2y$13$Z9l1d.XFOmcH9yojiHfm/uouSDYXGkppJaGlGYJoyPCc2vAUWWbWa'),
+                                                                         (24, 'Sardor Boybutaev', 'Sardorboybuyayev2222@gmail.com', '+998911002145', '$2y$13$rgyV.E6Vzdj/E0fiYR03geD.mcUvjf4JJFUyyQ1dEAc1gDz5qvBum'),
+                                                                         (25, 'Far_reg', 'far_reg@gmail.com', '4545455', '$2y$13$AZEJbjwN7bpMZxyqHeJ2v.fa33jAOJ./Arl2ekPzuYS7p3vHG7JG6'),
+                                                                         (26, 'far mudir', 'far_mudir@gmail.com ', '456641131', '$2y$13$eg2X549YIq7oAOyslnVlBe/26TeJUIXwMpV9w3/EC6ZCr.ztUiNpm'),
+                                                                         (28, 'far_vrach', 'far_vrach@gmail.com', '4564534', '$2y$13$SWATU.hrkLtJLejj2T0F2uQnxyUKYvn.guudG0Itas0CKl69cohjG'),
+                                                                         (29, 'Direktor ГАЗИЕВ АСКАРАЛИ ТУРСУНОВИЧ ', 'far_direktor@gmail.com', '4564536', '$2y$13$lw8bGivTI5tIzPsuDSAibOBW3JxhU.zQvGv0xPd7rlYJ68US.K5QC'),
+                                                                         (30, 'Far_mudir', 'far_mudir@gmail.com', '45454578', '$2y$13$9vV3YNQ1ae76vebrTjKMj.pWwi6xmqkjgis1lpJr6bZzNpge3t0fK'),
+                                                                         (31, 'Шукуров Қобилжон Абилович', 'mudirbak@gmail.com', '+998991234567', '$2y$13$bKfmnK.9EsLq6RJj/D.NlOeIEqA5VQM5S.PYggAZyT/cl7MCNPICa'),
+                                                                         (32, 'Ахмедова Мунира Файзулла қизи', 'bakvrach1@gmail.com', '+998991234567', '$2y$13$zoqWkJ.FvnfeaMbbCA/.Oe70ZxiZYaE6A8n0TIkoBbo1IYnJNvDeu'),
+                                                                         (33, 'Исломов Аббос Носир ўғли', 'bakvrach2@gmail.com', '+998991234567', '$2y$13$w1w4JiGkgYlxse1rHyzkBuQ.TuZuDxFZSbt5D3u8kqwDCUIL0dplO'),
+                                                                         (34, 'Тошпулатов Азамат Даврон ўғли', 'mudirtoksikolog@gmail.com', '+998973906365', '$2y$13$X8llBQBlWQ4dopVn6v9nk.mWtl5r.4CSbzjKIqv1i2G3PkHiPF3e.'),
+                                                                         (35, 'Суннатов Жамол Муфтилла уғли', 'tokvrach@gmail.com', '+998943565744', '$2y$13$fFkusGARJ7IskXRQJol0KOCGT39wNQszVM8IB9XAUnye0VMXW2vce'),
+                                                                         (36, 'Хушвахтов Кахраман Бабакандович', 'mudirvirus@gmail.com', '+998993990169', '$2y$13$UpsvuO/R3rEoTLoYTqnKxOKJT8ZWMOsI4DYFlfemvtXLim/Vn5kAm'),
+                                                                         (37, 'Худайқулов Жахонгир Жўраевич', 'virusvrach@gmail.com', '+998991234567', '$2y$13$CXUA6g8iGik5pwaR0AcwAOa/AOU.a1qVLtvoYZD5HHFCyl5sjsXpa'),
+                                                                         (38, 'Саидов Эшбой Муротович', 'mudirradiolog@gmail.com', '+998991234567', '$2y$13$ggTMUY6gnY8QaG7jw2ynKuHM.i5Mzi/x1GYx/HOxsxpxzMUVmuvq6'),
+                                                                         (39, 'Қорабоева Шахноза Позилжоновна', 'radiologvrach1@gmail.com', '+998991234567', '$2y$13$L4sONwImfFANXdkPa99DCucpzHpTrmKcsW4apcJsEfY3ayRyhVPza'),
+                                                                         (40, 'Фармонов Сирожиддин Низомович', 'mudirserolog@gmail.com', '+998974550878', '$2y$13$6/0Nr6Hm3Go2R1OViR/IQO8j8EzYT32X8pL543PwZQtuBGJVoIDqK'),
+                                                                         (41, 'Абдухамидов Маъруф Аззамович', 'serologvrach1@gmail.com', '+998941906336', '$2y$13$0RVuU8Cv2FmnOmzcHkmfD.WRtoiz82gl.zMFhUiDaqyUPunCxmKOO'),
+                                                                         (42, 'Абдурахманов Ғуломжон Абдуғафурович', 'serologvrach2@gmail.com', '+998981009277', '$2y$13$1vBRds97f3XCOPxEpixDP.N5SvCoAM2TIH/elwZkZUAQ25lYq/syG'),
+                                                                         (43, 'Юсубахмедов Абдурауф Абдурахим ўғли ', 'ifamudir@gmail.com', '+998994031730', '$2y$13$vrpt0QifucwrF9wt1sd3OuHhlTkjOSj58xHJrfhR6z8hAvadyomU.'),
+                                                                         (44, 'Фозилов ХХХ', 'ifavrach1@gmail.com', '1', '$2y$13$C8wXBU6syxHfX5Wjfr/nkOBTE3VtPwoZkzmOkv/K2EslQcL/TlfP2'),
+                                                                         (45, 'Фозилов ЧЧЧ', 'ifavrach2@gmail.com', '+998996260775', '$2y$13$MUvhujg5DzZ7cnKlmuNpmOCQRjl0ltqB.JSDo8FPQr0Ap11xmnkce'),
+                                                                         (46, 'Турсунова  Гулчеҳра Эркиновна', 'mudirvsel@gmail.com', '+998946017874', '$2y$13$4stMZE8lycVSa/4AmjAJ7.AWGX.r96FoO2aXrP0iD0ICFFuKgLC/y'),
+                                                                         (47, 'Маъмуров Савронбек Пўлат ўғли', 'vselvrach1@gmail.com', '+998991234567', '$2y$13$IKzoxYkSVAiLGxnGtnio4OT9Lrrs7SzP24D2STTWHpDI6S9nbjIC.'),
+                                                                         (48, 'Эргашев Акбаржон Анвар ўғли', 'vselvrach2@gmail.com', '+998916223520', '$2y$13$ffr/qVZxAWn9VggLiiaONes7DFaStSyJ8EjJtoE4YHgi8nFPUviZO'),
+                                                                         (49, 'Менгқобилов Хайдар Оқбайевич', 'parrandamudir@gmail.com', '+998999224936', '$2y$13$tCXtrLdHGalAplHnRntEU.CEPMia0ALoRNq.G5wnid8a5fe2z81Li'),
+                                                                         (50, 'Турсунова Дилором Алиевна', 'parrandavrach@gmail.com', '+998946386095', '$2y$13$DUMOg4S7Km.w6pFvxpq7yuGLTMIcdo9LlnlU6F1VKaDLnf5eGkF8q'),
+                                                                         (51, 'Хайдаров Жалолиддин Илаш ўғли', 'virusvrach2@gmail.com', '+123456789', '$2y$13$9qwzbeOqSHXKIX50R10rIOlwl2nCnSHO35.EIdm0J.D45yuN4loXK'),
+                                                                         (52, 'Авазова Ханзада Курбановна ', 'radiologvrach2@gmail.com', '+123456789', '$2y$13$HXTduCz.KtKDvSsAllxyzevp654JCGYB5iFmR4G.AaEV/aVSWiuPy'),
+                                                                         (53, 'Абдухакимов Рустам Набижон ўғли', 'mudiroziqa@gmail.com', '+998946017874', '$2y$13$XuB3Em2Dg7iKlRH/d0S0ZuyucassJOm0qNDhAt/Qx0aXk9.slYJhG'),
+                                                                         (54, 'Абдуллаева Фарангиз Хайрулла қизи', 'vrachoziqa1@gmail.com', '+123456789', '$2y$13$ENmEgr.NCYYxNallzQTzI.fSAFa7FQDxzNP.r30i44HNYqyNDoeAq'),
+                                                                         (55, 'Анарбаева Холида Зайниддиновна', 'vrachoziqa2@gmail.com', '+123456789', '$2y$13$Z/fgZmFBn0de3/engKsCKehnQCaP2dnIbidKUcL/lOSOs5oEu9XY.'),
+                                                                         (56, 'Каримова Нодира Бурхановна', 'direktor2@gmail.com', '+998946600262', '$2y$13$sTB/cCDWQ5a5JncPHc9RSeVmKr56RMzxX4r5SjiQejkTZmr02B0Sa');
 
 -- --------------------------------------------------------
 
@@ -807,9 +750,9 @@ INSERT INTO `employees` (`id`, `name`, `email`, `phone`, `password`) VALUES
 --
 
 CREATE TABLE `employee_passwords_history` (
-  `emp_id` int(11) NOT NULL,
-  `Pass` varchar(500) DEFAULT NULL,
-  `change_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+                                              `emp_id` int(11) NOT NULL,
+                                              `Pass` varchar(500) DEFAULT NULL,
+                                              `change_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -819,14 +762,14 @@ CREATE TABLE `employee_passwords_history` (
 --
 
 CREATE TABLE `emp_posts` (
-  `id` int(11) NOT NULL,
-  `emp_id` int(11) DEFAULT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL COMMENT 'Лавозими ёки статуси ўзгарган вақти. ',
-  `state_id` int(11) DEFAULT NULL COMMENT 'Ходимнинг холати. Актив, ноактив',
-  `status_id` int(11) DEFAULT NULL COMMENT 'Лавозим статуси :  асосий лавозим, вақтинчалик вазифасини бажарувчи, ва ҳ.к.',
-  `org_id` int(11) DEFAULT NULL COMMENT 'Ташкилот (Бўлим)',
-  `gov_id` int(11) DEFAULT NULL
+                             `id` int(11) NOT NULL,
+                             `emp_id` int(11) DEFAULT NULL,
+                             `post_id` int(11) DEFAULT NULL,
+                             `date` datetime DEFAULT NULL COMMENT 'Лавозими ёки статуси ўзгарган вақти. ',
+                             `state_id` int(11) DEFAULT NULL COMMENT 'Ходимнинг холати. Актив, ноактив',
+                             `status_id` int(11) DEFAULT NULL COMMENT 'Лавозим статуси :  асосий лавозим, вақтинчалик вазифасини бажарувчи, ва ҳ.к.',
+                             `org_id` int(11) DEFAULT NULL COMMENT 'Ташкилот (Бўлим)',
+                             `gov_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Ходимларнинг лавозимлари.';
 
 --
@@ -834,61 +777,61 @@ CREATE TABLE `emp_posts` (
 --
 
 INSERT INTO `emp_posts` (`id`, `emp_id`, `post_id`, `date`, `state_id`, `status_id`, `org_id`, `gov_id`) VALUES
-(3, 1, 1, '2022-02-01 00:00:00', 1, 1, 1, 11),
-(5, 2, 5, '2022-03-08 00:00:00', 1, 1, 2, 1),
-(6, 3, 4, '2022-03-25 22:57:39', 1, 1, 1, 1),
-(7, 4, 3, '2022-03-25 00:00:00', 1, 1, 1, 2),
-(8, 5, 2, '2022-03-25 00:00:00', 1, 1, 1, 2),
-(10, 6, 4, '2022-04-23 19:56:27', 1, 1, 2, 1),
-(11, 7, 3, '2022-05-30 00:00:00', 1, 1, 1, 2),
-(12, 8, 3, '2022-05-30 00:00:00', 1, 1, 1, 6),
-(13, 9, 3, '2022-05-30 00:00:00', 1, 1, 1, 10),
-(14, 10, 2, '2022-05-30 00:00:00', 1, 1, 1, 6),
-(15, 11, 2, '2022-05-30 00:00:00', 1, 1, 1, 6),
-(16, 12, 3, '2022-06-03 00:00:00', 1, 1, 3, 1),
-(17, 13, 4, '2022-06-06 00:00:00', 1, 1, 4, 1),
-(18, 14, 4, '2022-06-21 00:00:00', 1, 1, 5, 1),
-(19, 15, 2, '2022-06-22 00:00:00', 1, 1, 1, 9),
-(20, 16, 8, '2022-06-23 00:00:00', 1, 1, 1, 1),
-(21, 17, 1, '2022-07-01 00:00:00', 1, 1, 5, 11),
-(22, 18, 3, '2022-07-01 00:00:00', 1, 1, 5, 2),
-(23, 19, NULL, '2022-07-01 00:00:00', 1, 1, 5, 1),
-(24, 20, 4, '2022-07-01 00:00:00', 1, 1, 5, 1),
-(25, 21, 2, '2022-07-01 00:00:00', 1, 1, 5, 2),
-(26, 22, 2, '2022-07-05 00:00:00', 1, 1, 5, 6),
-(27, 23, 2, '2022-07-05 00:00:00', 1, 1, 5, 6),
-(28, 24, 2, '2022-07-06 00:00:00', 1, 1, 1, 7),
-(29, 25, 1, '2022-07-06 00:00:00', 1, 1, 6, 11),
-(30, 26, 3, '2022-07-06 00:00:00', 1, 1, 6, 7),
-(32, 28, 2, '2022-07-06 00:00:00', 1, 1, 6, 7),
-(33, 29, 4, '2022-07-06 00:00:00', 1, 1, 6, 1),
-(34, 30, 3, '2022-07-06 00:00:00', 1, 1, 6, 7),
-(35, 31, 3, '2022-07-16 00:00:00', 1, 1, 1, 2),
-(36, 32, 2, '2022-07-16 00:00:00', 1, 1, 1, 2),
-(37, 33, 2, '2022-07-16 00:00:00', 1, 1, 1, 2),
-(38, 34, 3, '2022-07-16 00:00:00', 1, 1, 1, 3),
-(39, 35, 2, '2022-07-16 00:00:00', 1, 1, 1, 3),
-(40, 36, 3, '2022-07-16 00:00:00', 1, 1, 1, 4),
-(41, 37, 2, '2022-07-16 00:00:00', 1, 1, 1, 4),
-(42, 38, 3, '2022-07-16 00:00:00', 1, 1, 1, 5),
-(43, 39, 2, '2022-07-16 00:00:00', 1, 1, 1, 5),
-(44, 40, 3, '2022-07-16 00:00:00', 1, 1, 1, 6),
-(45, 41, 2, '2022-07-16 00:00:00', 1, 1, 1, 6),
-(46, 42, 2, '2022-07-16 00:00:00', 1, 1, 1, 6),
-(47, 43, 3, '2022-07-16 00:00:00', 1, 1, 1, 9),
-(48, 44, 2, '2022-07-16 00:00:00', 1, 1, 1, 9),
-(49, 45, 2, '2022-07-16 00:00:00', 1, 1, 1, 9),
-(50, 46, 3, '2022-07-16 00:00:00', 1, 1, 1, 10),
-(51, 47, 2, '2022-07-16 00:00:00', 1, 1, 1, 10),
-(52, 48, 2, '2022-07-16 00:00:00', 1, 1, 1, 10),
-(53, 49, 3, '2022-07-16 00:00:00', 1, 1, 1, 8),
-(54, 50, 2, '2022-07-16 00:00:00', 1, 1, 1, 8),
-(55, 51, 8, '2022-12-01 00:00:00', 1, 1, 1, 4),
-(56, 52, 2, '2022-12-01 00:00:00', 1, 1, 1, 5),
-(57, 53, 3, '2022-12-01 00:00:00', 1, 1, 1, 12),
-(58, 54, 2, '2022-12-01 00:00:00', 1, 1, 1, 12),
-(59, 55, 2, '2022-12-01 00:00:00', 1, 1, 1, 12),
-(60, 56, 4, '2022-12-01 00:00:00', 1, 1, 1, 1);
+                                                                                                             (3, 1, 1, '2022-02-01 00:00:00', 1, 1, 1, 11),
+                                                                                                             (5, 2, 5, '2022-03-08 00:00:00', 1, 1, 2, 1),
+                                                                                                             (6, 3, 4, '2022-03-25 22:57:39', 1, 1, 1, 1),
+                                                                                                             (7, 4, 3, '2022-03-25 00:00:00', 1, 1, 1, 2),
+                                                                                                             (8, 5, 2, '2022-03-25 00:00:00', 1, 1, 1, 2),
+                                                                                                             (10, 6, 4, '2022-04-23 19:56:27', 1, 1, 2, 1),
+                                                                                                             (11, 7, 3, '2022-05-30 00:00:00', 1, 1, 1, 2),
+                                                                                                             (12, 8, 3, '2022-05-30 00:00:00', 1, 1, 1, 6),
+                                                                                                             (13, 9, 3, '2022-05-30 00:00:00', 1, 1, 1, 10),
+                                                                                                             (14, 10, 2, '2022-05-30 00:00:00', 1, 1, 1, 6),
+                                                                                                             (15, 11, 2, '2022-05-30 00:00:00', 1, 1, 1, 6),
+                                                                                                             (16, 12, 3, '2022-06-03 00:00:00', 1, 1, 3, 1),
+                                                                                                             (17, 13, 4, '2022-06-06 00:00:00', 1, 1, 4, 1),
+                                                                                                             (18, 14, 4, '2022-06-21 00:00:00', 1, 1, 5, 1),
+                                                                                                             (19, 15, 2, '2022-06-22 00:00:00', 1, 1, 1, 9),
+                                                                                                             (20, 16, 8, '2022-06-23 00:00:00', 1, 1, 1, 1),
+                                                                                                             (21, 17, 1, '2022-07-01 00:00:00', 1, 1, 5, 11),
+                                                                                                             (22, 18, 3, '2022-07-01 00:00:00', 1, 1, 5, 2),
+                                                                                                             (23, 19, NULL, '2022-07-01 00:00:00', 1, 1, 5, 1),
+                                                                                                             (24, 20, 4, '2022-07-01 00:00:00', 1, 1, 5, 1),
+                                                                                                             (25, 21, 2, '2022-07-01 00:00:00', 1, 1, 5, 2),
+                                                                                                             (26, 22, 2, '2022-07-05 00:00:00', 1, 1, 5, 6),
+                                                                                                             (27, 23, 2, '2022-07-05 00:00:00', 1, 1, 5, 6),
+                                                                                                             (28, 24, 2, '2022-07-06 00:00:00', 1, 1, 1, 7),
+                                                                                                             (29, 25, 1, '2022-07-06 00:00:00', 1, 1, 6, 11),
+                                                                                                             (30, 26, 3, '2022-07-06 00:00:00', 1, 1, 6, 7),
+                                                                                                             (32, 28, 2, '2022-07-06 00:00:00', 1, 1, 6, 7),
+                                                                                                             (33, 29, 4, '2022-07-06 00:00:00', 1, 1, 6, 1),
+                                                                                                             (34, 30, 3, '2022-07-06 00:00:00', 1, 1, 6, 7),
+                                                                                                             (35, 31, 3, '2022-07-16 00:00:00', 1, 1, 1, 2),
+                                                                                                             (36, 32, 2, '2022-07-16 00:00:00', 1, 1, 1, 2),
+                                                                                                             (37, 33, 2, '2022-07-16 00:00:00', 1, 1, 1, 2),
+                                                                                                             (38, 34, 3, '2022-07-16 00:00:00', 1, 1, 1, 3),
+                                                                                                             (39, 35, 2, '2022-07-16 00:00:00', 1, 1, 1, 3),
+                                                                                                             (40, 36, 3, '2022-07-16 00:00:00', 1, 1, 1, 4),
+                                                                                                             (41, 37, 2, '2022-07-16 00:00:00', 1, 1, 1, 4),
+                                                                                                             (42, 38, 3, '2022-07-16 00:00:00', 1, 1, 1, 5),
+                                                                                                             (43, 39, 2, '2022-07-16 00:00:00', 1, 1, 1, 5),
+                                                                                                             (44, 40, 3, '2022-07-16 00:00:00', 1, 1, 1, 6),
+                                                                                                             (45, 41, 2, '2022-07-16 00:00:00', 1, 1, 1, 6),
+                                                                                                             (46, 42, 2, '2022-07-16 00:00:00', 1, 1, 1, 6),
+                                                                                                             (47, 43, 3, '2022-07-16 00:00:00', 1, 1, 1, 9),
+                                                                                                             (48, 44, 2, '2022-07-16 00:00:00', 1, 1, 1, 9),
+                                                                                                             (49, 45, 2, '2022-07-16 00:00:00', 1, 1, 1, 9),
+                                                                                                             (50, 46, 3, '2022-07-16 00:00:00', 1, 1, 1, 10),
+                                                                                                             (51, 47, 2, '2022-07-16 00:00:00', 1, 1, 1, 10),
+                                                                                                             (52, 48, 2, '2022-07-16 00:00:00', 1, 1, 1, 10),
+                                                                                                             (53, 49, 3, '2022-07-16 00:00:00', 1, 1, 1, 8),
+                                                                                                             (54, 50, 2, '2022-07-16 00:00:00', 1, 1, 1, 8),
+                                                                                                             (55, 51, 8, '2022-12-01 00:00:00', 1, 1, 1, 4),
+                                                                                                             (56, 52, 2, '2022-12-01 00:00:00', 1, 1, 1, 5),
+                                                                                                             (57, 53, 3, '2022-12-01 00:00:00', 1, 1, 1, 12),
+                                                                                                             (58, 54, 2, '2022-12-01 00:00:00', 1, 1, 1, 12),
+                                                                                                             (59, 55, 2, '2022-12-01 00:00:00', 1, 1, 1, 12),
+                                                                                                             (60, 56, 4, '2022-12-01 00:00:00', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -897,12 +840,12 @@ INSERT INTO `emp_posts` (`id`, `emp_id`, `post_id`, `date`, `state_id`, `status_
 --
 
 CREATE TABLE `emp_posts_history` (
-  `emp_id` int(11) DEFAULT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL COMMENT 'Лавозими ёки статуси ўзгарган вақти. ',
-  `state_id` int(11) DEFAULT NULL COMMENT 'Ходимнинг холати. Актив, ноактив',
-  `status_id` int(11) DEFAULT NULL COMMENT 'Лавозим статуси :  асосий лавозим, вақтинчалик вазифасини бажарувчи, ва ҳ.к.',
-  `org_id` int(11) DEFAULT NULL
+                                     `emp_id` int(11) DEFAULT NULL,
+                                     `post_id` int(11) DEFAULT NULL,
+                                     `date` datetime DEFAULT NULL COMMENT 'Лавозими ёки статуси ўзгарган вақти. ',
+                                     `state_id` int(11) DEFAULT NULL COMMENT 'Ходимнинг холати. Актив, ноактив',
+                                     `status_id` int(11) DEFAULT NULL COMMENT 'Лавозим статуси :  асосий лавозим, вақтинчалик вазифасини бажарувчи, ва ҳ.к.',
+                                     `org_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Ходимларнинг фаолияти. Бу жадвалда emp_posts жадвалидаги ўзгаришлар сақланади. Қўлда тўлдирилмайди. (Триггер)';
 
 -- --------------------------------------------------------
@@ -912,12 +855,12 @@ CREATE TABLE `emp_posts_history` (
 --
 
 CREATE TABLE `food` (
-  `id` int(11) NOT NULL,
-  `name_ru` varchar(255) NOT NULL DEFAULT '',
-  `name_uz` varchar(255) NOT NULL DEFAULT '',
-  `category_id` int(11) NOT NULL,
-  `animal_type_id` varchar(255) DEFAULT NULL,
-  `for_all` int(11) DEFAULT 0
+                        `id` int(11) NOT NULL,
+                        `name_ru` varchar(255) NOT NULL DEFAULT '',
+                        `name_uz` varchar(255) NOT NULL DEFAULT '',
+                        `category_id` int(11) NOT NULL,
+                        `animal_type_id` varchar(255) DEFAULT NULL,
+                        `for_all` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -925,26 +868,26 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name_ru`, `name_uz`, `category_id`, `animal_type_id`, `for_all`) VALUES
-(1, 'Мясо, в том числе полуфабрикаты, парные, охлажденные, подмороженные, замороженные (все виды убойных, промысловых и диких животных)', 'Go\'sht, shu jumladan yarim tayyor mahsulotlar, yangi, sovutilgan, muzlagan, muzlatilgan (barcha turdagi so\'yish, ov va yovvoyi hayvonlar)', 1, 'XX', 0),
-(2, 'Субпродукты убойных животных охлажденные, замороженные (печень, почки, язык, мозги, сердце), шкурка свиная, кровь пищевая и продукты ее переработки', 'So\'yilgan hayvonlarning sovutilgan, muzlatilgan submahsulotlari (jigar, buyraklar, til, miya, yurak), cho\'chqa terisi, oziq-ovqat qoni va uni qayta ishlash mahsulotlari', 1, 'XX', NULL),
-(3, 'Колбасные изделия, продукты из мяса всех видов убойных животных,(в т.ч. казы) кулинарные изделия из мяса', 'Kolbasa mahsulotlari, so\'yishning barcha turlaridan go\'sht mahsulotlari (shu jumladan qozi) go\'shtdan tayyorlangan oshpazlik mahsulotlari', 1, 'XX', NULL),
+                                                                                                (1, 'Мясо, в том числе полуфабрикаты, парные, охлажденные, подмороженные, замороженные (все виды убойных, промысловых и диких животных)', 'Go\'sht, shu jumladan yarim tayyor mahsulotlar, yangi, sovutilgan, muzlagan, muzlatilgan (barcha turdagi so\'yish, ov va yovvoyi hayvonlar)', 1, 'XX', 0),
+                                                                                                 (2, 'Субпродукты убойных животных охлажденные, замороженные (печень, почки, язык, мозги, сердце), шкурка свиная, кровь пищевая и продукты ее переработки', 'So\'yilgan hayvonlarning sovutilgan, muzlatilgan submahsulotlari (jigar, buyraklar, til, miya, yurak), cho\'chqa terisi, oziq-ovqat qoni va uni qayta ishlash mahsulotlari', 1, 'XX', NULL),
+                                                                                                 (3, 'Колбасные изделия, продукты из мяса всех видов убойных животных,(в т.ч. казы) кулинарные изделия из мяса', 'Kolbasa mahsulotlari, so\'yishning barcha turlaridan go\'sht mahsulotlari (shu jumladan qozi) go\'shtdan tayyorlangan oshpazlik mahsulotlari', 1, 'XX', NULL),
 (4, 'Продукты мясные с использованием субпродуктов (паштеты, ливерные колбасы, зельцы, студни, хасип и др.) и крови. Изделия вареные с использованием субпродуктов, крови, охлажденные и замороженные (хлебы, колбасы, студни, ливерные колбасы, заливные блюда)', 'Go\'sht mahsulotlari (pate, jigar kolbasa, guruch, jele, hasip va boshqalar) va qon. Sut mahsulotlari, qon bilan qaynatilgan, sovutilgan va muzlatilgan mahsulotlar (non, kolbasa, jele, jigar kolbasa, jelli idishlar)', 1, 'XX', NULL),
-(5, 'Консервы из мяса, мясорастительные', 'Go\'sht, go\'sht va sabzavot konservalari', 1, 'XX', NULL),
-(6, 'Консервы из субпродуктов, в том числе паштетные (все виды убойных и промысловых животных)', 'Submahsulotlardan tayyorlangan konservalar, shu jumladan pate (barcha turdagi so\'yish va ov hayvonlari)', 1, 'XX', NULL),
+                                                                                                 (5, 'Консервы из мяса, мясорастительные', 'Go\'sht, go\'sht va sabzavot konservalari', 1, 'XX', NULL),
+                                                                                                 (6, 'Консервы из субпродуктов, в том числе паштетные (все виды убойных и промысловых животных)', 'Submahsulotlardan tayyorlangan konservalar, shu jumladan pate (barcha turdagi so\'yish va ov hayvonlari)', 1, 'XX', NULL),
 (7, 'Мясо сублимационной и тепловой сушки', 'Sublimatsiyalangan va issiqlik bilan quritilgan go\'sht', 1, 'XX', NULL),
-(8, 'Мясо птицы, в том числе полуфабрикаты, охлажденные, замороженные (все виды птицы для убоя, пернатой дичи)', 'Parranda go\'shti, shu jumladan yarim tayyor mahsulotlar, sovutilgan, muzlatilgan (so\'yish uchun parrandalarning barcha turlari, ov qushlari)', 1, '05', NULL),
-(9, 'Субпродукты, полуфабрикаты из субпродуктов птицы', 'Parranda go\'shtidan tayyorlangan submahsulotlari, yarim tayyor mahsulotlar', 1, '05', NULL),
+                                                                                                (8, 'Мясо птицы, в том числе полуфабрикаты, охлажденные, замороженные (все виды птицы для убоя, пернатой дичи)', 'Parranda go\'shti, shu jumladan yarim tayyor mahsulotlar, sovutilgan, muzlatilgan (so\'yish uchun parrandalarning barcha turlari, ov qushlari)', 1, '05', NULL),
+                                                                                                 (9, 'Субпродукты, полуфабрикаты из субпродуктов птицы', 'Parranda go\'shtidan tayyorlangan submahsulotlari, yarim tayyor mahsulotlar', 1, '05', NULL),
 (10, 'Колбасные изделия, копчености, кулинарные изделия с использованием мяса птицы', 'Parranda go\'shtidan foydalangan holda kolbasa, dudlangan go\'sht, pazandalik mahsulotlari', 1, '05', NULL),
 (11, 'Мясопродукты с использованием субпродуктов птицы, шкурки (паштеты, ливерные колбасы и др.)', 'Parranda go\'shti, terisidan foydalaniladigan go\'sht mahsulotlari (pat, jigar kolbasa va boshqalar).', 1, '05', NULL),
 (12, 'Консервы птичьи (из мяса птицы и мясорастительные*, в т.ч. паштетные и фаршевые)', 'Konservalangan parranda go\'shti (parranda go\'shti va go\'sht va sabzavotlardan *, shu jumladan pate va qiyma go\'shtdan)', 1, '05', NULL),
 (13, 'Продукты из мяса птицы сублимационной и тепловой сушки', 'Sublimatsiyalangan va issiqlik bilan quritilgan parranda go\'shti mahsulotlari', 1, '05', NULL),
-(14, 'Дополнительные показатели мяса и мясопродуктов (для всех)', 'Go\'sht va go\'sht mahsulotlarining qo\'shimcha ko\'rsatkichlari (barcha uchun)', 1, 'XX', 1),
-(15, 'Питьевое молоко и питьевые сливки, пахта, сыворотка молочная, молочный напиток, жидкие кисломолочные продукты (айран, ацидофилин, варенец, кефир, кумыс и кумысный продукт, йогурт, простокваша, ряженка), сметана, молочные составные продукты на их основе, п', 'Ichimlik suti va qaymoq, ayran, sut zardobi, sutli ichimlik, suyuq fermentlangan sut mahsulotlari (ayran, atsidofil, varenets, kefir, kumiss va kumiss mahsuloti, qatiq, tvorog, achitilgan pishirilgan sut), smetana, ular asosidagi sut mahsulotlari , mahsul', 2, NULL, NULL),
-(16, 'Творог, творожная масса, зерненный творог, сырок, творожные продукты, творожный сыр, молочные составные продукты на их основе, альбумин молочный и продукты на его основе, продукты пастообразные молочные белковые, в том числе термически обработанные после ', 'Tvorog, tvorog massasi, donli tvorog, tvorog, tvorog mahsulotlari, tvorog, ular asosidagi sut aralashmalari, sut albumini va uning asosidagi mahsulotlar, xamirli sut oqsili mahsulotlari, shu jumladan fermentatsiyadan keyin issiqlik bilan ishlov berilgan', 2, NULL, NULL),
-(17, 'Молоко, сливки, пахта, сыворотка, молочные составные продукты на их основе концентрированные и сгущенные с сахаром, молоко сгущенное стерилизованное, молочные консервы и молочные составные консервы', 'Sut, qaymoq, ayran, zardob, ular asosida konsentrlangan va shakar bilan quyultirilgan aralash sut mahsulotlari, sterillangan quyultirilgan sut, konservalangan sut va konservalangan sut aralashmasi', 2, NULL, NULL),
-(18, 'Продукты молочные, молочные составные сухие, сублимированные (молоко, сливки, кисломолочные продукты, напитки, смеси для мороженого, сыворотка, пахта, обезжиренное молоко)', 'Sut mahsulotlari, quruq, sublimatsiyalangan sut aralashmasi (sut, qaymoq, achitilgan sut mahsulotlari, ichimliklar, muzqaymoq aralashmalari, zardob, sariyog \', yog\'siz sut)', 2, NULL, NULL),
-(19, 'Концентраты молочных белков, лактулоза, сахар молочный, казеин, казеинаты, гидролизаты молочных белков', 'Sut oqsili konsentratlari, laktuloza, sut shakari, kazein, kazeinatlar, sut oqsili gidrolizatlari', 2, NULL, NULL),
-(20, 'Сыры, сырные продукты: сверхтвердые, твердые, полутвердые, мягкие, сывороточно-альбуминные, плавленые, сухие; сырные пасты, соусы', 'Pishloqlar, pishloq mahsulotlari: o\'ta qattiq, qattiq, yarim qattiq, yumshoq, zardob-albumin, qayta ishlangan, quruq; pishloqli yormalar, soslar', 2, NULL, NULL),
+                                                                                                (14, 'Дополнительные показатели мяса и мясопродуктов (для всех)', 'Go\'sht va go\'sht mahsulotlarining qo\'shimcha ko\'rsatkichlari (barcha uchun)', 1, 'XX', 1),
+                                                                                                (15, 'Питьевое молоко и питьевые сливки, пахта, сыворотка молочная, молочный напиток, жидкие кисломолочные продукты (айран, ацидофилин, варенец, кефир, кумыс и кумысный продукт, йогурт, простокваша, ряженка), сметана, молочные составные продукты на их основе, п', 'Ichimlik suti va qaymoq, ayran, sut zardobi, sutli ichimlik, suyuq fermentlangan sut mahsulotlari (ayran, atsidofil, varenets, kefir, kumiss va kumiss mahsuloti, qatiq, tvorog, achitilgan pishirilgan sut), smetana, ular asosidagi sut mahsulotlari , mahsul', 2, NULL, NULL),
+                                                                                                (16, 'Творог, творожная масса, зерненный творог, сырок, творожные продукты, творожный сыр, молочные составные продукты на их основе, альбумин молочный и продукты на его основе, продукты пастообразные молочные белковые, в том числе термически обработанные после ', 'Tvorog, tvorog massasi, donli tvorog, tvorog, tvorog mahsulotlari, tvorog, ular asosidagi sut aralashmalari, sut albumini va uning asosidagi mahsulotlar, xamirli sut oqsili mahsulotlari, shu jumladan fermentatsiyadan keyin issiqlik bilan ishlov berilgan', 2, NULL, NULL),
+                                                                                                (17, 'Молоко, сливки, пахта, сыворотка, молочные составные продукты на их основе концентрированные и сгущенные с сахаром, молоко сгущенное стерилизованное, молочные консервы и молочные составные консервы', 'Sut, qaymoq, ayran, zardob, ular asosida konsentrlangan va shakar bilan quyultirilgan aralash sut mahsulotlari, sterillangan quyultirilgan sut, konservalangan sut va konservalangan sut aralashmasi', 2, NULL, NULL),
+                                                                                                (18, 'Продукты молочные, молочные составные сухие, сублимированные (молоко, сливки, кисломолочные продукты, напитки, смеси для мороженого, сыворотка, пахта, обезжиренное молоко)', 'Sut mahsulotlari, quruq, sublimatsiyalangan sut aralashmasi (sut, qaymoq, achitilgan sut mahsulotlari, ichimliklar, muzqaymoq aralashmalari, zardob, sariyog \', yog\'siz sut)', 2, NULL, NULL),
+                                                                                                (19, 'Концентраты молочных белков, лактулоза, сахар молочный, казеин, казеинаты, гидролизаты молочных белков', 'Sut oqsili konsentratlari, laktuloza, sut shakari, kazein, kazeinatlar, sut oqsili gidrolizatlari', 2, NULL, NULL),
+                                                                                                (20, 'Сыры, сырные продукты: сверхтвердые, твердые, полутвердые, мягкие, сывороточно-альбуминные, плавленые, сухие; сырные пасты, соусы', 'Pishloqlar, pishloq mahsulotlari: o\'ta qattiq, qattiq, yarim qattiq, yumshoq, zardob-albumin, qayta ishlangan, quruq; pishloqli yormalar, soslar', 2, NULL, NULL),
 (21, 'Масло, паста масляная из коровьего молока, молочный жир', 'Sariyog \', sigir sutidan yog\' pastasi, sut yog\'i', 2, NULL, NULL),
 (22, 'Сливочно-растительный спред, сливочно-растительная топленая смесь', 'Kremsi-sabzavotli yoyilgan, qaymoqli-sabzavotli pishirilgan aralashmasi', 2, NULL, NULL),
 (23, 'Мороженое всех видов из молока и на молочной основе', 'Sut va sutga asoslangan barcha turdagi muzqaymoqlar', 2, NULL, NULL),
@@ -1035,41 +978,12 @@ INSERT INTO `food_category` (`id`, `name_uz`, `name_ru`) VALUES
 --
 
 CREATE TABLE `food_compose` (
-  `id` int(11) NOT NULL,
-  `sample_id` int(11) NOT NULL,
-  `registration_id` int(11) NOT NULL,
-  `status_id` int(11) DEFAULT 0,
-  `ads` varchar(255) DEFAULT NULL
+                                `id` int(11) NOT NULL,
+                                `sample_id` int(11) NOT NULL,
+                                `registration_id` int(11) NOT NULL,
+                                `status_id` int(11) DEFAULT 0,
+                                `ads` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Fudlarni boglanishi arizaga';
-
---
--- Dumping data for table `food_compose`
---
-
-INSERT INTO `food_compose` (`id`, `sample_id`, `registration_id`, `status_id`, `ads`) VALUES
-(27, 58, 33, 5, ''),
-(28, 59, 33, 5, ''),
-(29, 60, 33, 5, ''),
-(30, 61, 33, 5, ''),
-(31, 62, 34, 1, NULL),
-(32, 63, 34, 1, NULL),
-(33, 64, 35, 1, NULL),
-(34, 65, 35, 1, NULL),
-(35, 66, 36, 1, NULL),
-(36, 67, 36, 1, NULL),
-(37, 68, 36, 1, NULL),
-(38, 69, 37, 1, NULL),
-(39, 70, 37, 1, NULL),
-(40, 71, 38, 5, ''),
-(41, 72, 39, 5, ''),
-(42, 73, 39, 5, ''),
-(43, 74, 40, 5, ''),
-(44, 75, 40, 1, NULL),
-(45, 76, 41, 1, ''),
-(46, 76, 42, 1, NULL),
-(47, 77, 43, 1, NULL),
-(48, 77, 44, 1, NULL),
-(49, 78, 45, 1, '');
 
 -- --------------------------------------------------------
 
@@ -1078,9 +992,9 @@ INSERT INTO `food_compose` (`id`, `sample_id`, `registration_id`, `status_id`, `
 --
 
 CREATE TABLE `food_group` (
-  `id` int(11) NOT NULL,
-  `name_ru` varchar(255) NOT NULL DEFAULT '',
-  `name_uz` varchar(255) NOT NULL DEFAULT ''
+                              `id` int(11) NOT NULL,
+                              `name_ru` varchar(255) NOT NULL DEFAULT '',
+                              `name_uz` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1088,22 +1002,22 @@ CREATE TABLE `food_group` (
 --
 
 INSERT INTO `food_group` (`id`, `name_ru`, `name_uz`) VALUES
-(1, 'Токсичные элементы', 'Toksik elementlar'),
-(2, 'Микотоксины ', 'Mikotoksinlar'),
-(3, 'Пестициды', 'Pestitsidlar'),
-(4, 'Радионуклиды', 'Radionuklidlar'),
-(5, 'Антибиотики', 'Antibiotiklar'),
-(6, 'Паразитологические показатели', 'Parazit ko\'rsatkichlar'),
+                                                          (1, 'Токсичные элементы', 'Toksik elementlar'),
+                                                          (2, 'Микотоксины ', 'Mikotoksinlar'),
+                                                          (3, 'Пестициды', 'Pestitsidlar'),
+                                                          (4, 'Радионуклиды', 'Radionuklidlar'),
+                                                          (5, 'Антибиотики', 'Antibiotiklar'),
+                                                          (6, 'Паразитологические показатели', 'Parazit ko\'rsatkichlar'),
 (7, 'Нитриты', 'Nitratlar'),
 (8, 'Нитрозамины', 'Nitrozaminlar'),
 (9, 'Микробиологические показатели', 'Mikrobiologik ko\'rsatkichlar'),
-(10, 'Физико-химические показатели', 'Fizik-kimyoviy ko`rsatkichlar'),
-(11, 'Уровни остатков антимикробных средств', 'Antimirkrob vositalar qoldiqlari darajalari'),
-(12, 'Уровни остатков антипротозойных средств', 'Antiprotozoy vositalar qoldiqlari darajalari'),
-(13, 'Уровни остатков инсектицидов', 'Insektisidlar qoldiqlari darajalari'),
-(14, 'Ветеринарные лекарственные препараты (мёд)', 'Veterinar dori preparatlari (asal)'),
-(15, 'Органолептические показатели ', 'Organoleptik ko`rsatkichlar'),
-(16, 'Показатель окислительной порчи', 'Oksidlanishning buzilishi ko`rsatkichi');
+                                                          (10, 'Физико-химические показатели', 'Fizik-kimyoviy ko`rsatkichlar'),
+                                                          (11, 'Уровни остатков антимикробных средств', 'Antimirkrob vositalar qoldiqlari darajalari'),
+                                                          (12, 'Уровни остатков антипротозойных средств', 'Antiprotozoy vositalar qoldiqlari darajalari'),
+                                                          (13, 'Уровни остатков инсектицидов', 'Insektisidlar qoldiqlari darajalari'),
+                                                          (14, 'Ветеринарные лекарственные препараты (мёд)', 'Veterinar dori preparatlari (asal)'),
+                                                          (15, 'Органолептические показатели ', 'Organoleptik ko`rsatkichlar'),
+                                                          (16, 'Показатель окислительной порчи', 'Oksidlanishning buzilishi ko`rsatkichi');
 
 -- --------------------------------------------------------
 
@@ -1112,19 +1026,10 @@ INSERT INTO `food_group` (`id`, `name_ru`, `name_uz`) VALUES
 --
 
 CREATE TABLE `food_recomendation` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `sample_id` int(11) DEFAULT NULL
+                                      `id` int(11) NOT NULL,
+                                      `name` varchar(255) NOT NULL DEFAULT '',
+                                      `sample_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `food_recomendation`
---
-
-INSERT INTO `food_recomendation` (`id`, `name`, `sample_id`) VALUES
-(3, 'qwe', 60),
-(4, 'qwe', 60),
-(5, '010101', 71);
 
 -- --------------------------------------------------------
 
@@ -1133,25 +1038,25 @@ INSERT INTO `food_recomendation` (`id`, `name`, `sample_id`) VALUES
 --
 
 CREATE TABLE `food_registration` (
-  `id` int(11) NOT NULL,
-  `inn` varchar(255) DEFAULT NULL,
-  `pnfl` varchar(255) DEFAULT NULL,
-  `organization_id` int(11) DEFAULT NULL,
-  `is_research` int(11) DEFAULT NULL,
-  `code_id` int(11) DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `research_category_id` int(11) DEFAULT NULL,
-  `results_conformity_id` int(11) DEFAULT NULL,
-  `emp_id` int(11) DEFAULT NULL,
-  `reg_date` varchar(255) DEFAULT NULL,
-  `sender_name` varchar(255) DEFAULT NULL,
-  `sender_phone` varchar(255) DEFAULT NULL,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ads` varchar(255) DEFAULT NULL,
-  `status_id` int(11) DEFAULT 0,
-  `res` varchar(255) DEFAULT NULL,
-  `res_id` int(11) DEFAULT NULL
+                                     `id` int(11) NOT NULL,
+                                     `inn` varchar(255) DEFAULT NULL,
+                                     `pnfl` varchar(255) DEFAULT NULL,
+                                     `organization_id` int(11) DEFAULT NULL,
+                                     `is_research` int(11) DEFAULT NULL,
+                                     `code_id` int(11) DEFAULT NULL,
+                                     `code` varchar(255) DEFAULT NULL,
+                                     `research_category_id` int(11) DEFAULT NULL,
+                                     `results_conformity_id` int(11) DEFAULT NULL,
+                                     `emp_id` int(11) DEFAULT NULL,
+                                     `reg_date` varchar(255) DEFAULT NULL,
+                                     `sender_name` varchar(255) DEFAULT NULL,
+                                     `sender_phone` varchar(255) DEFAULT NULL,
+                                     `created` datetime DEFAULT current_timestamp(),
+                                     `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                                     `ads` varchar(255) DEFAULT NULL,
+                                     `status_id` int(11) DEFAULT 0,
+                                     `res` varchar(255) DEFAULT NULL,
+                                     `res_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1159,19 +1064,19 @@ CREATE TABLE `food_registration` (
 --
 
 INSERT INTO `food_registration` (`id`, `inn`, `pnfl`, `organization_id`, `is_research`, `code_id`, `code`, `research_category_id`, `results_conformity_id`, `emp_id`, `reg_date`, `sender_name`, `sender_phone`, `created`, `updated`, `ads`, `status_id`, `res`, `res_id`) VALUES
-(33, NULL, '30507903120132', 1, 1, 1, '22-2-001-1', 1, 1, 1, NULL, 'Umidbek Jumaniyazov', '(99)-967-0395', '2022-10-29 15:38:49', '2022-11-22 11:44:49', NULL, 3, 'M/001-1', 1),
-(34, NULL, '31909955430035', 1, 1, 2, '22-2-001-2', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 09:20:59', '2022-11-25 09:22:05', NULL, 2, NULL, NULL),
-(35, NULL, '31909955430035', 1, 1, 3, '22-2-001-3', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 11:21:46', '2022-11-25 12:24:53', NULL, 2, NULL, NULL),
-(36, NULL, '31909955430035', 1, 1, 4, '22-2-001-4', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 12:20:49', '2022-11-25 12:25:27', NULL, 2, NULL, NULL),
-(37, NULL, '31909955430035', 1, 1, 5, '22-2-001-5', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-27 23:02:13', '2022-11-27 23:03:42', NULL, 2, NULL, NULL),
-(38, NULL, '31909955430035', 1, 1, 6, '22-2-001-6', 1, 1, 1, NULL, 'Saidov', '(12)-345-6789', '2022-11-28 00:37:05', '2022-11-28 01:20:52', NULL, 4, NULL, NULL),
-(39, NULL, '31512620270065', 1, 1, 7, '22-2-001-7', 1, 2, NULL, NULL, 'Абдрахмон', '(99)-999-9999', '2022-11-28 11:41:15', '2022-11-28 18:00:07', NULL, 3, 'M/001-2', 2),
-(40, NULL, '31909955430035', 1, 1, 8, '22-2-001-8', 1, 1, NULL, NULL, 'dgdfgdgdfgdf', '(99)-999-9999', '2022-11-30 16:37:04', '2022-12-02 23:43:05', NULL, 4, 'M/001-3', 3),
-(41, NULL, '42804841110025', 1, 1, 9, '22-2-001-9', 2, NULL, 1, NULL, 'Tursunova Gulchexra', '(90)-806-5823', '2022-12-02 17:24:27', '2022-12-02 23:29:01', NULL, 3, 'M/001-4', 4),
-(42, NULL, '42804841110025', 1, 1, 10, '22-2-001-10', 2, NULL, NULL, NULL, 'Tursunova Gulchexra', '(90)-806-5823', '2022-12-02 17:24:29', '2022-12-02 17:24:29', NULL, 1, NULL, NULL),
-(43, NULL, '42804841110025', 1, 1, 11, '22-2-001-11', 2, NULL, NULL, NULL, 'Safarov Nurmuhammad', '(99)-676-1111', '2022-12-02 23:13:03', '2022-12-02 23:13:03', NULL, 1, NULL, NULL),
-(44, NULL, '42804841110025', 1, 1, 12, '22-2-001-12', 2, NULL, NULL, NULL, 'Safarov Nurmuhammad', '(99)-676-1111', '2022-12-02 23:14:38', '2022-12-02 23:14:38', NULL, 1, NULL, NULL),
-(45, NULL, '42804841110025', 1, 0, 13, '22-2-001-13', 2, NULL, 1, NULL, 'Tursunova Gulchexra', '(90)-000-0000', '2022-12-03 16:57:25', '2022-12-03 20:02:32', NULL, 3, 'M/001-5', 5);
+                                                                                                                                                                                                                                                                                (33, NULL, '30507903120132', 1, 1, 1, '22-2-001-1', 1, 1, 1, NULL, 'Umidbek Jumaniyazov', '(99)-967-0395', '2022-10-29 15:38:49', '2022-11-22 11:44:49', NULL, 3, 'M/001-1', 1),
+                                                                                                                                                                                                                                                                                (34, NULL, '31909955430035', 1, 1, 2, '22-2-001-2', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 09:20:59', '2022-11-25 09:22:05', NULL, 2, NULL, NULL),
+                                                                                                                                                                                                                                                                                (35, NULL, '31909955430035', 1, 1, 3, '22-2-001-3', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 11:21:46', '2022-11-25 12:24:53', NULL, 2, NULL, NULL),
+                                                                                                                                                                                                                                                                                (36, NULL, '31909955430035', 1, 1, 4, '22-2-001-4', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-25 12:20:49', '2022-11-25 12:25:27', NULL, 2, NULL, NULL),
+                                                                                                                                                                                                                                                                                (37, NULL, '31909955430035', 1, 1, 5, '22-2-001-5', 1, NULL, 1, NULL, 'Toshpulatov Azamat', '(12)-345-6789', '2022-11-27 23:02:13', '2022-11-27 23:03:42', NULL, 2, NULL, NULL),
+                                                                                                                                                                                                                                                                                (38, NULL, '31909955430035', 1, 1, 6, '22-2-001-6', 1, 1, 1, NULL, 'Saidov', '(12)-345-6789', '2022-11-28 00:37:05', '2022-11-28 01:20:52', NULL, 4, NULL, NULL),
+                                                                                                                                                                                                                                                                                (39, NULL, '31512620270065', 1, 1, 7, '22-2-001-7', 1, 2, NULL, NULL, 'Абдрахмон', '(99)-999-9999', '2022-11-28 11:41:15', '2022-11-28 18:00:07', NULL, 3, 'M/001-2', 2),
+                                                                                                                                                                                                                                                                                (40, NULL, '31909955430035', 1, 1, 8, '22-2-001-8', 1, 1, NULL, NULL, 'dgdfgdgdfgdf', '(99)-999-9999', '2022-11-30 16:37:04', '2022-12-02 23:43:05', NULL, 4, 'M/001-3', 3),
+                                                                                                                                                                                                                                                                                (41, NULL, '42804841110025', 1, 1, 9, '22-2-001-9', 2, NULL, 1, NULL, 'Tursunova Gulchexra', '(90)-806-5823', '2022-12-02 17:24:27', '2022-12-02 23:29:01', NULL, 3, 'M/001-4', 4),
+                                                                                                                                                                                                                                                                                (42, NULL, '42804841110025', 1, 1, 10, '22-2-001-10', 2, NULL, NULL, NULL, 'Tursunova Gulchexra', '(90)-806-5823', '2022-12-02 17:24:29', '2022-12-02 17:24:29', NULL, 1, NULL, NULL),
+                                                                                                                                                                                                                                                                                (43, NULL, '42804841110025', 1, 1, 11, '22-2-001-11', 2, NULL, NULL, NULL, 'Safarov Nurmuhammad', '(99)-676-1111', '2022-12-02 23:13:03', '2022-12-02 23:13:03', NULL, 1, NULL, NULL),
+                                                                                                                                                                                                                                                                                (44, NULL, '42804841110025', 1, 1, 12, '22-2-001-12', 2, NULL, NULL, NULL, 'Safarov Nurmuhammad', '(99)-676-1111', '2022-12-02 23:14:38', '2022-12-02 23:14:38', NULL, 1, NULL, NULL),
+                                                                                                                                                                                                                                                                                (45, NULL, '42804841110025', 1, 0, 13, '22-2-001-13', 2, NULL, 1, NULL, 'Tursunova Gulchexra', '(90)-000-0000', '2022-12-03 16:57:25', '2022-12-03 20:02:32', NULL, 3, 'M/001-5', 5);
 
 -- --------------------------------------------------------
 
@@ -1180,38 +1085,22 @@ INSERT INTO `food_registration` (`id`, `inn`, `pnfl`, `organization_id`, `is_res
 --
 
 CREATE TABLE `food_route` (
-  `id` int(11) NOT NULL,
-  `director_id` int(11) DEFAULT NULL,
-  `leader_id` int(11) DEFAULT NULL,
-  `executor_id` int(11) DEFAULT NULL,
-  `deadline` date DEFAULT NULL,
-  `ads` varchar(255) DEFAULT NULL,
-  `state_id` int(11) DEFAULT 1,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `sample_id` int(11) DEFAULT NULL,
-  `registration_id` int(11) DEFAULT NULL,
-  `status_id` int(11) DEFAULT 1,
-  `vet4` varchar(8) DEFAULT NULL,
-  `sample_type_id` int(11) DEFAULT NULL,
-  `is_group` int(11) NOT NULL DEFAULT 0
+                              `id` int(11) NOT NULL,
+                              `director_id` int(11) DEFAULT NULL,
+                              `leader_id` int(11) DEFAULT NULL,
+                              `executor_id` int(11) DEFAULT NULL,
+                              `deadline` date DEFAULT NULL,
+                              `ads` varchar(255) DEFAULT NULL,
+                              `state_id` int(11) DEFAULT 1,
+                              `created` datetime DEFAULT current_timestamp(),
+                              `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                              `sample_id` int(11) DEFAULT NULL,
+                              `registration_id` int(11) DEFAULT NULL,
+                              `status_id` int(11) DEFAULT 1,
+                              `vet4` varchar(8) DEFAULT NULL,
+                              `sample_type_id` int(11) DEFAULT NULL,
+                              `is_group` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Mahsulot ekspertizasi uchun arizalarni yuborilishi';
-
---
--- Dumping data for table `food_route`
---
-
-INSERT INTO `food_route` (`id`, `director_id`, `leader_id`, `executor_id`, `deadline`, `ads`, `state_id`, `created`, `updated`, `sample_id`, `registration_id`, `status_id`, `vet4`, `sample_type_id`, `is_group`) VALUES
-(26, 3, 4, 5, '2022-11-16', '456', 1, '2022-10-31 00:34:35', '2022-11-22 23:55:35', 60, 33, 3, NULL, NULL, 0),
-(27, 3, 4, 5, '2022-11-16', '456', 1, '2022-10-31 00:34:55', '2022-11-22 23:55:34', 58, 33, 3, NULL, NULL, 1),
-(28, 3, 4, 5, '2022-11-16', '456', 1, '2022-10-31 00:34:56', '2022-11-22 23:55:34', 59, 33, 3, NULL, NULL, 1),
-(29, 3, 4, 5, '2022-11-16', '456', 1, '2022-10-31 00:34:56', '2022-11-22 23:55:34', 61, 33, 3, NULL, NULL, 1),
-(30, 3, 46, 48, '2022-11-29', '', 1, '2022-11-28 00:40:04', '2022-11-28 01:23:04', 71, 38, 3, NULL, NULL, 0),
-(31, 3, 7, 5, '2022-11-28', 'озик овкат-2 та бирлашган', 1, '2022-11-28 11:43:36', '2022-11-28 18:00:07', 72, 39, 3, NULL, NULL, 1),
-(32, 3, 7, 5, '2022-11-28', 'озик овкат-2 та бирлашган', 1, '2022-11-28 11:43:36', '2022-11-28 18:00:07', 73, 39, 3, NULL, NULL, 1),
-(33, 3, 46, 47, '2022-11-30', 'fsfsdf', 1, '2022-11-30 16:47:11', '2022-12-03 20:22:37', 74, 40, 3, NULL, NULL, 1),
-(34, 3, 46, 48, '2022-12-06', 'Darffv', 1, '2022-12-02 23:29:01', '2022-12-02 23:34:03', 76, 41, 2, NULL, NULL, 1),
-(35, 3, 46, 47, '2022-12-05', '1111', 1, '2022-12-03 20:02:32', '2022-12-03 20:04:33', 78, 45, 2, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1220,59 +1109,32 @@ INSERT INTO `food_route` (`id`, `director_id`, `leader_id`, `executor_id`, `dead
 --
 
 CREATE TABLE `food_samples` (
-  `id` int(11) NOT NULL,
-  `samp_code` varchar(255) DEFAULT NULL COMMENT 'Namunaning raqami toliq',
-  `samp_id` int(11) DEFAULT NULL COMMENT 'namunaning raqami faqat son',
-  `sert_id` int(11) DEFAULT NULL COMMENT 'namunaning food_sample_sertification idsi',
-  `unit_id` int(11) DEFAULT NULL COMMENT 'birligi',
-  `count` int(11) DEFAULT NULL COMMENT 'soni',
-  `sample_box_id` int(11) DEFAULT NULL,
-  `sample_condition_id` int(11) DEFAULT NULL,
-  `total_amount` varchar(255) DEFAULT NULL,
-  `verification_sample` tinyint(1) DEFAULT NULL,
-  `producer` varchar(255) DEFAULT NULL,
-  `serial_num` varchar(255) DEFAULT NULL,
-  `manufacture_date` date DEFAULT NULL,
-  `sell_by` date DEFAULT NULL COMMENT 'yaroqlilik muddati',
-  `coments` varchar(255) DEFAULT NULL,
-  `laboratory_test_type_id` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status_id` int(11) DEFAULT 0,
-  `state_id` int(11) DEFAULT 1,
-  `_country` int(11) DEFAULT NULL,
-  `emp_id` int(11) DEFAULT NULL,
-  `is_group` int(11) DEFAULT 0,
-  `food_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
+                                `id` int(11) NOT NULL,
+                                `samp_code` varchar(255) DEFAULT NULL COMMENT 'Namunaning raqami toliq',
+                                `samp_id` int(11) DEFAULT NULL COMMENT 'namunaning raqami faqat son',
+                                `sert_id` int(11) DEFAULT NULL COMMENT 'namunaning food_sample_sertification idsi',
+                                `unit_id` int(11) DEFAULT NULL COMMENT 'birligi',
+                                `count` int(11) DEFAULT NULL COMMENT 'soni',
+                                `sample_box_id` int(11) DEFAULT NULL,
+                                `sample_condition_id` int(11) DEFAULT NULL,
+                                `total_amount` varchar(255) DEFAULT NULL,
+                                `verification_sample` tinyint(1) DEFAULT NULL,
+                                `producer` varchar(255) DEFAULT NULL,
+                                `serial_num` varchar(255) DEFAULT NULL,
+                                `manufacture_date` date DEFAULT NULL,
+                                `sell_by` date DEFAULT NULL COMMENT 'yaroqlilik muddati',
+                                `coments` varchar(255) DEFAULT NULL,
+                                `laboratory_test_type_id` int(11) DEFAULT NULL,
+                                `created` datetime DEFAULT current_timestamp(),
+                                `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                                `status_id` int(11) DEFAULT 0,
+                                `state_id` int(11) DEFAULT 1,
+                                `_country` int(11) DEFAULT NULL,
+                                `emp_id` int(11) DEFAULT NULL,
+                                `is_group` int(11) DEFAULT 0,
+                                `food_id` int(11) DEFAULT NULL,
+                                `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='oziq ovqat ekspertizasi uchun namunalar';
-
---
--- Dumping data for table `food_samples`
---
-
-INSERT INTO `food_samples` (`id`, `samp_code`, `samp_id`, `sert_id`, `unit_id`, `count`, `sample_box_id`, `sample_condition_id`, `total_amount`, `verification_sample`, `producer`, `serial_num`, `manufacture_date`, `sell_by`, `coments`, `laboratory_test_type_id`, `created`, `updated`, `status_id`, `state_id`, `_country`, `emp_id`, `is_group`, `food_id`, `category_id`) VALUES
-(58, '33223-22-1/1', 1, 38, 1, 1, 1, 1, '1000', 0, 'Million dastur OK', '234234', '2022-01-01', '2022-12-31', 'test', 1, '2022-10-29 15:37:15', '2022-11-22 23:53:21', 5, 1, 192, NULL, 1, 1, 1),
-(59, '33223-22-1/2', 2, 38, 1, 1, 1, 1, '1231', 0, 'Million dastur OK', '234234', '2022-01-01', '2022-12-31', 'rest', 1, '2022-10-29 15:37:45', '2022-11-22 23:53:21', 5, 1, 192, NULL, 1, 1, 1),
-(60, '33223-22-1/3', 3, 38, 1, 23, 1, 1, '123123', 0, 'UMDSoft MCHJ', '12312', '2022-01-01', '2023-01-01', '123', 1, '2022-10-29 15:38:08', '2022-11-22 23:53:22', 5, 1, 192, 1, 0, 15, 2),
-(61, '33223-22-1/4', 4, 38, 1, 234, 1, 1, 'wer', 0, '234', '234', '2022-01-01', '2023-01-01', '234', 1, '2022-10-29 15:38:38', '2022-11-22 23:53:21', 5, 1, 192, NULL, 1, 14, 1),
-(62, '8204-22-1/1', 1, 39, 2, 1000, 1, 3, '1 t', 0, 'xususiy korxona', '122211', '2022-11-09', '2022-12-04', 'Tim', 1, '2022-11-25 09:05:49', '2022-11-25 09:39:32', 2, 1, 192, NULL, 0, 10, 1),
-(63, '8204-22-1/2', 2, 39, 2, 1000, 1, 1, '1 t', 1, 'xususiy korxona', '1222111', '2020-12-22', '2023-01-12', 'andalus', 1, '2022-11-25 09:08:07', '2022-11-25 12:22:37', 2, 1, 192, NULL, 1, 3, 1),
-(64, '8204-22-2/1', 1, 41, 2, 1000, 1, 3, '1 t', 0, 'xususiy korxona', '12221111', '2022-09-12', '2023-09-12', '№1', 1, '2022-11-25 11:20:25', '2022-11-27 01:33:33', 2, 1, 192, NULL, 1, 1, 1),
-(65, '8204-22-2/2', 2, 41, 2, 1000, 1, 3, '1 t', 0, 'xususiy korxona', '12221112', '2022-09-13', '2023-09-13', '№2', 1, '2022-11-25 11:21:24', '2022-11-27 01:33:33', 2, 1, 192, NULL, 1, 1, 1),
-(66, '8204-22-3/1', 1, 42, 2, 1000, 1, 3, '1 t', 0, 'xususiy korxona', '12221111', '2022-02-09', '2023-02-09', '№1', 1, '2022-11-25 11:49:10', '2022-11-25 12:26:39', 2, 1, 192, NULL, 0, 52, 6),
-(67, '8204-22-3/2', 2, 42, 2, 1000, 6, 3, '1 t', 0, 'xususiy korxona', '12221111', '2022-09-12', '2023-09-12', '№2', 1, '2022-11-25 12:18:52', '2022-11-28 10:13:29', 2, 1, 192, NULL, 0, 54, 6),
-(68, '8204-22-3/3', 3, 42, 2, 1000, 6, 3, '1 t', 0, 'xususiy korxona', '12221111', '2022-09-12', '2023-09-12', '№3 РОСТ', 1, '2022-11-25 12:20:27', '2022-11-28 10:13:29', 2, 1, 192, NULL, 0, 54, 6),
-(69, '8204-22-4/1', 1, 43, 2, 200, 1, 3, '200 kg', 0, 'xususiy korxona', '12221111', '2022-09-20', '2023-09-20', 'Yantoq asali', 1, '2022-11-27 23:00:21', '2022-11-27 23:03:51', 2, 1, 192, NULL, 1, 75, 9),
-(70, '8204-22-4/2', 2, 43, 2, 200, 1, 3, '200 kg', 0, 'xususiy korxona', '122211', '2022-08-20', '2023-08-20', 'Oqquray asali', 1, '2022-11-27 23:01:50', '2022-11-27 23:03:51', 2, 1, 192, NULL, 1, 75, 9),
-(71, '8204-22-5/1', 1, 44, 4, 1, 1, 3, '10l', 0, 'Oilaviy tadbirkor', '010101', '2022-01-02', '2023-01-02', 'milk', 1, '2022-11-28 00:36:24', '2022-11-28 01:23:04', 5, 1, 192, 1, 0, 15, 2),
-(72, '8235-22-1/1', 1, 46, 2, 300, 6, 1, '30 kg', 0, 'ЕЕЕЕЕЕЕ', 'seriya-2', '2022-11-28', '2022-11-28', 'ГУШТ (КОРАМОЛ)', 1, '2022-11-28 11:39:22', '2022-11-28 18:00:07', 5, 1, 192, NULL, 1, 1, 1),
-(73, '8235-22-1/2', 2, 46, 1, 3, 1, 1, '100', 1, 'ЕЕЕЕЕЕЕ', 'ролрлорр', '2022-11-28', '2022-11-28', 'КОЛБАСА-МОЛ ГУШТИ', 1, '2022-11-28 11:40:49', '2022-11-28 18:00:07', 5, 1, 192, NULL, 1, 5, 1),
-(74, '8235-22-2/1', 1, 47, 2, 500, 6, 3, '300000kg', 0, 'TTTTTTTTTTTT', 'HHHHHHHHH', '2022-11-02', '2022-11-30', 'TUXTASIN ota', 1, '2022-11-30 16:35:08', '2022-12-03 20:22:37', 5, 1, 192, NULL, 1, 1, 1),
-(75, '8235-22-2/2', 2, 47, 2, 1000, 1, 3, '2000', 1, 'dx', 'dasd', '2022-11-30', '2022-11-30', 'YYYYYYYYYYYYYYYY', 1, '2022-11-30 16:36:10', '2022-11-30 16:37:04', 1, 1, 192, NULL, 0, 19, 2),
-(76, '26264-22-1/1', 1, 48, 2, 2, 6, 3, '2', 0, 'Мармакс', '1232341', '2022-12-01', '2022-12-08', 'Ййййййй', 1, '2022-12-02 17:17:59', '2022-12-02 23:29:01', 3, 1, 192, NULL, 1, 3, 1),
-(77, '26262-22-1/1', 1, 50, 4, 1, 1, 1, '1', 0, 'Хонзода', '12345', '2022-11-28', '2022-12-28', 'Йук', 1, '2022-12-02 23:08:33', '2022-12-02 23:13:03', 1, 1, 192, NULL, 0, 75, 9),
-(78, '26262-22-2/1', 1, 51, 2, 200, 6, 1, '1', 0, 'Олмалик', '0000', '2022-11-10', '2023-03-10', 'Йук', 1, '2022-12-03 16:56:49', '2022-12-03 20:02:32', 3, 1, 192, NULL, 1, 37, 3);
 
 -- --------------------------------------------------------
 
@@ -1281,51 +1143,31 @@ INSERT INTO `food_samples` (`id`, `samp_code`, `samp_id`, `sert_id`, `unit_id`, 
 --
 
 CREATE TABLE `food_sampling_certificate` (
-  `id` int(11) NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `food_id` int(11) DEFAULT NULL,
-  `inn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pnfl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sampling_soato` int(11) DEFAULT NULL,
-  `sampling_site` int(11) DEFAULT NULL,
-  `sampling_adress` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sampler_person_pnfl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sampler_person_inn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `verification_pupose_id` int(11) DEFAULT NULL,
-  `sampling_date` date DEFAULT NULL,
-  `send_sample_date` date DEFAULT NULL,
-  `based_public_information` tinyint(1) DEFAULT NULL,
-  `message_number` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `explanations` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_id` int(11) DEFAULT 0,
-  `state_id` int(11) DEFAULT 1,
-  `sert_date` date NOT NULL DEFAULT current_timestamp(),
-  `sert_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sampler_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sampler_position` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+                                             `id` int(11) NOT NULL,
+                                             `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `food_id` int(11) DEFAULT NULL,
+                                             `inn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `pnfl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `sampling_soato` int(11) DEFAULT NULL,
+                                             `sampling_site` int(11) DEFAULT NULL,
+                                             `sampling_adress` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `sampler_person_pnfl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `sampler_person_inn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `verification_pupose_id` int(11) DEFAULT NULL,
+                                             `sampling_date` date DEFAULT NULL,
+                                             `send_sample_date` date DEFAULT NULL,
+                                             `based_public_information` tinyint(1) DEFAULT NULL,
+                                             `message_number` int(11) DEFAULT NULL,
+                                             `created` datetime DEFAULT current_timestamp(),
+                                             `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+                                             `explanations` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                             `status_id` int(11) DEFAULT 0,
+                                             `state_id` int(11) DEFAULT 1,
+                                             `sert_date` date NOT NULL DEFAULT current_timestamp(),
+                                             `sert_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                             `sampler_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                             `sampler_position` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `food_sampling_certificate`
---
-
-INSERT INTO `food_sampling_certificate` (`id`, `code`, `food_id`, `inn`, `pnfl`, `sampling_soato`, `sampling_site`, `sampling_adress`, `sampler_person_pnfl`, `sampler_person_inn`, `verification_pupose_id`, `sampling_date`, `send_sample_date`, `based_public_information`, `message_number`, `created`, `updated`, `explanations`, `status_id`, `state_id`, `sert_date`, `sert_number`, `sampler_name`, `sampler_position`) VALUES
-(38, '33223-22-1', 1, NULL, '30507903120132', 1733223, 76, '123', NULL, '306922184', 1, '2022-10-29', '2022-10-29', 0, NULL, '2022-10-29 15:36:36', '2022-11-22 23:53:21', NULL, 5, 1, '2022-10-29', '1', 'Allabergenov Dilmurod', 'Dasturchi'),
-(39, '8204-22-1', 1, NULL, '31909955430035', 178204, 1260, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-25', '2022-11-25', 0, NULL, '2022-11-25 09:01:33', '2022-11-25 09:22:05', NULL, 2, 1, '2022-11-25', '123', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(40, '10234-22-1', 1, NULL, '31909955430035', 1710234, 610, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-25', NULL, 0, NULL, '2022-11-25 09:43:56', '2022-11-25 09:43:56', NULL, 0, 1, '2022-11-25', '123', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(41, '8204-22-2', 2, NULL, '31909955430035', 178204, 1260, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-25', '2022-11-25', 0, NULL, '2022-11-25 11:18:35', '2022-11-25 12:24:53', NULL, 2, 1, '2022-11-25', '123', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(42, '8204-22-3', 3, NULL, '31909955430035', 178204, 1260, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-25', '2022-11-25', 0, NULL, '2022-11-25 11:45:55', '2022-11-25 12:25:27', NULL, 2, 1, '2022-11-25', '124', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(43, '8204-22-4', 4, NULL, '31909955430035', 178204, 1260, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-27', '2022-11-27', 0, NULL, '2022-11-27 22:58:05', '2022-11-27 23:03:42', NULL, 2, 1, '2022-11-27', '215', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(44, '8204-22-5', 5, NULL, '31909955430035', 178204, 1260, '123456789', '31909955430035', NULL, 1, '2022-11-27', '2022-11-27', 0, NULL, '2022-11-28 00:34:17', '2022-11-28 01:23:04', NULL, 5, 1, '2022-11-27', '7', 'saidov Adilov', 'vrach mahsulot egasi'),
-(45, '8204-22-6', 6, NULL, '31909955430035', 178204, 1260, 'dehqon bozori ', '31909955430035', NULL, 1, '2022-11-28', NULL, 0, NULL, '2022-11-28 10:18:35', '2022-11-28 10:18:35', NULL, 0, 1, '2022-11-28', '123', 'Soatov Po\'latov', 'mahsulot egasi, bozor vrachi'),
-(46, '8235-22-1', 1, NULL, '31512620270065', 178235, 856, 'гараша', '31512650270065', NULL, 1, '2022-11-28', '2022-11-28', 0, NULL, '2022-11-28 11:37:37', '2022-11-28 18:00:07', NULL, 5, 1, '2022-11-28', 'test1', 'Jabborov A, Eshmatov T', 'vrach, tadbirkor'),
-(47, '8235-22-2', 2, NULL, '31909955430035', 178235, 856, 'hjkhjkhkhjkhjkhkj', '31909955430035', NULL, 1, '2022-11-30', '2022-11-30', 0, NULL, '2022-11-30 16:32:16', '2022-12-03 20:22:37', NULL, 5, 1, '2022-11-30', 'eeeeee', 'RRRRRRRRRR', 'vrach'),
-(48, '26264-22-1', 1, NULL, '42804841110025', 1726264, 1137, 'Дустлик ', '52505046530010', NULL, 1, '2022-12-02', '2022-12-02', 0, NULL, '2022-12-02 17:06:58', '2022-12-02 23:29:01', NULL, 3, 1, '2022-12-02', '315', 'Tursunova Gulchexra Erkinovna', 'Vet vrach'),
-(49, '26283-22-1', 1, NULL, '42804841110025', 1726283, 1133, 'Янги хаёт', '52505046530010', NULL, 1, '2022-12-02', NULL, 0, NULL, '2022-12-02 19:43:02', '2022-12-02 19:43:02', NULL, 0, 1, '2022-12-02', '456', 'Давлатов Акрам', 'Vet vrach'),
-(50, '26262-22-1', 1, NULL, '42804841110025', 1726262, 1136, '11111', '52505046530010', NULL, 1, '2022-12-01', '2022-12-02', 0, NULL, '2022-12-02 23:05:11', '2022-12-02 23:13:03', NULL, 1, 1, '2022-12-02', '111', 'Эшонов Элмурод Ортикович', 'Врач'),
-(51, '26262-22-2', 2, NULL, '42804841110025', 1726262, 1136, 'Дустлик 11', '52505046530010', NULL, 1, '2022-12-01', '2022-12-03', 0, NULL, '2022-12-03 16:54:29', '2022-12-03 20:02:32', NULL, 3, 1, '2022-12-03', '222', 'Тошбоев Элмурод Отамуродов', 'Врач');
 
 -- --------------------------------------------------------
 
@@ -1334,10 +1176,10 @@ INSERT INTO `food_sampling_certificate` (`id`, `code`, `food_id`, `inn`, `pnfl`,
 --
 
 CREATE TABLE `goverments` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `code` int(11) DEFAULT NULL
+                              `id` int(11) NOT NULL,
+                              `name_uz` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                              `name_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                              `code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1345,18 +1187,18 @@ CREATE TABLE `goverments` (
 --
 
 INSERT INTO `goverments` (`id`, `name_uz`, `name_ru`, `code`) VALUES
-(1, 'Rahbariyat', 'Rahbariyat', NULL),
-(2, 'Bakteriologiya, parazitalogiya va mikologiya laboratoriyasi', 'Bakteriologiya, parazitalogiya va mikologiya laboratoriyasi', NULL),
-(3, 'Toksikologiya laboratoriyasi', 'Toksikologiya laboratoriyasi', NULL),
-(4, 'Virusologiya laboratoriyasi', 'Virusologiya laboratoriyasi', NULL),
-(5, 'Radiologiya laboratoriyasi', 'Radiologiya laboratoriyasi', NULL),
-(6, 'Serologiya va bioximiya laboratoriyasi', 'Serologiya va bioximiya laboratoriyasi', NULL),
-(7, 'Ozuqaviy muxitlarni tayyorlash boʼlimi', 'Ozuqaviy muxitlarni tayyorlash boʼlimi', NULL),
-(8, 'Аsalari, baliq va quyon kasalliklari laboratoriyasi', 'Аsalari, baliq va quyon kasalliklari laboratoriyasi', NULL),
-(9, 'Immuno-ferment taxlil va polimeraz-zanjir reaktsiya laboratoriyasi', 'Immuno-ferment taxlil va polimeraz-zanjir reaktsiya laboratoriyasi', NULL),
-(10, 'Oziq-ovqat maxsulotlari xavfsizligi, mikrobiologiya va veteriniriya-sanitariya ekspertiza laboratoriyasi', 'Oziq-ovqat maxsulotlari xavfsizligi, mikrobiologiya va veteriniriya-sanitariya ekspertiza laboratoriyasi', NULL),
-(11, 'Tekshirish uchun naʼmunalarni qabul qilish shoʼbasi', 'Tekshirish uchun naʼmunalarni qabul qilish shoʼbasi', NULL),
-(12, 'Чорва моллари, паррандалар ва балиқлар озуқаси таркибини тахлил қилиш лабораторияси ', 'Лаборатория анализа состава кормов для скота, птицы и рыбы', NULL);
+                                                                  (1, 'Rahbariyat', 'Rahbariyat', NULL),
+                                                                  (2, 'Bakteriologiya, parazitalogiya va mikologiya laboratoriyasi', 'Bakteriologiya, parazitalogiya va mikologiya laboratoriyasi', NULL),
+                                                                  (3, 'Toksikologiya laboratoriyasi', 'Toksikologiya laboratoriyasi', NULL),
+                                                                  (4, 'Virusologiya laboratoriyasi', 'Virusologiya laboratoriyasi', NULL),
+                                                                  (5, 'Radiologiya laboratoriyasi', 'Radiologiya laboratoriyasi', NULL),
+                                                                  (6, 'Serologiya va bioximiya laboratoriyasi', 'Serologiya va bioximiya laboratoriyasi', NULL),
+                                                                  (7, 'Ozuqaviy muxitlarni tayyorlash boʼlimi', 'Ozuqaviy muxitlarni tayyorlash boʼlimi', NULL),
+                                                                  (8, 'Аsalari, baliq va quyon kasalliklari laboratoriyasi', 'Аsalari, baliq va quyon kasalliklari laboratoriyasi', NULL),
+                                                                  (9, 'Immuno-ferment taxlil va polimeraz-zanjir reaktsiya laboratoriyasi', 'Immuno-ferment taxlil va polimeraz-zanjir reaktsiya laboratoriyasi', NULL),
+                                                                  (10, 'Oziq-ovqat maxsulotlari xavfsizligi, mikrobiologiya va veteriniriya-sanitariya ekspertiza laboratoriyasi', 'Oziq-ovqat maxsulotlari xavfsizligi, mikrobiologiya va veteriniriya-sanitariya ekspertiza laboratoriyasi', NULL),
+                                                                  (11, 'Tekshirish uchun naʼmunalarni qabul qilish shoʼbasi', 'Tekshirish uchun naʼmunalarni qabul qilish shoʼbasi', NULL),
+                                                                  (12, 'Чорва моллари, паррандалар ва балиқлар озуқаси таркибини тахлил қилиш лабораторияси ', 'Лаборатория анализа состава кормов для скота, птицы и рыбы', NULL);
 
 -- --------------------------------------------------------
 
@@ -1365,13 +1207,13 @@ INSERT INTO `goverments` (`id`, `name_uz`, `name_ru`, `code`) VALUES
 --
 
 CREATE TABLE `individuals` (
-  `pnfl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `middlename` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `soato_id` int(11) DEFAULT NULL,
-  `adress` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `passport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+                               `pnfl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                               `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                               `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                               `middlename` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                               `soato_id` int(11) DEFAULT NULL,
+                               `adress` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                               `passport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1379,22 +1221,22 @@ CREATE TABLE `individuals` (
 --
 
 INSERT INTO `individuals` (`pnfl`, `name`, `surname`, `middlename`, `soato_id`, `adress`, `passport`) VALUES
-('30106932710257', 'SHERZOD', 'RASULOV', 'NORMAXMAT O‘G‘LI', 1710250563, '43 uy', 'AA9424968'),
-('30111693680026', 'KAXRAMAN', 'XUSHVAXTOV', 'BABAKANDOVICH', NULL, 'шаландин 52', 'AD0738427'),
-('30305006380017', 'SARDOR', 'BOYBUTAYEV', 'UMIRQUL O‘G‘LI', 1724228805, 'Bek ', 'AB6190322'),
-('30507903120132', 'ADHAM', 'AVAZBOYEV', 'SHAVKATOVICH', 1733223551, 'manzil', 'AB0329858'),
-('30707746560016', 'DIYAR', 'NURMATOV', 'TURSUNOVICH', 1718209833, 'МАНЗИЛ(поля) Тошкент-', 'AD1026110'),
-('31003953120018', 'DILMUROD', 'ALLABERGENOV', 'YULDASH O‘G‘LI', 1733223551, 'test', 'AC1519650'),
-('31312946360017', 'RUSTAMJON', 'ABDUXAKIMOV', 'NABIJON O‘G‘LI', NULL, '', 'AA0148445'),
-('31512620270065', 'ABDURAXMAN', 'XUNDIBAYEV', 'MALIKOVICH', 1733223551, 'ccccccc', 'AD0848707'),
-('31512650270065', 'AAAAAAAAAAAAAAAAAA', 'BBBBBBBBBBBBBB', 'OOOOOOOOOOOOO', 1727206501, 'оодолододод', 'ad0848707'),
-('31909955430035', 'AZAMAT', 'TOSHPULATOV', 'DAVRON O‘G‘LI', NULL, 'ko\'kdala 1 uy', 'AA2680206'),
+                                                                                                          ('30106932710257', 'SHERZOD', 'RASULOV', 'NORMAXMAT O‘G‘LI', 1710250563, '43 uy', 'AA9424968'),
+                                                                                                          ('30111693680026', 'KAXRAMAN', 'XUSHVAXTOV', 'BABAKANDOVICH', NULL, 'шаландин 52', 'AD0738427'),
+                                                                                                          ('30305006380017', 'SARDOR', 'BOYBUTAYEV', 'UMIRQUL O‘G‘LI', 1724228805, 'Bek ', 'AB6190322'),
+                                                                                                          ('30507903120132', 'ADHAM', 'AVAZBOYEV', 'SHAVKATOVICH', 1733223551, 'manzil', 'AB0329858'),
+                                                                                                          ('30707746560016', 'DIYAR', 'NURMATOV', 'TURSUNOVICH', 1718209833, 'МАНЗИЛ(поля) Тошкент-', 'AD1026110'),
+                                                                                                          ('31003953120018', 'DILMUROD', 'ALLABERGENOV', 'YULDASH O‘G‘LI', 1733223551, 'test', 'AC1519650'),
+                                                                                                          ('31312946360017', 'RUSTAMJON', 'ABDUXAKIMOV', 'NABIJON O‘G‘LI', NULL, '', 'AA0148445'),
+                                                                                                          ('31512620270065', 'ABDURAXMAN', 'XUNDIBAYEV', 'MALIKOVICH', 1733223551, 'ccccccc', 'AD0848707'),
+                                                                                                          ('31512650270065', 'AAAAAAAAAAAAAAAAAA', 'BBBBBBBBBBBBBB', 'OOOOOOOOOOOOO', 1727206501, 'оодолододод', 'ad0848707'),
+                                                                                                          ('31909955430035', 'AZAMAT', 'TOSHPULATOV', 'DAVRON O‘G‘LI', NULL, 'ko\'kdala 1 uy', 'AA2680206'),
 ('32208943940037', 'ALISHER', 'NEMATOV', 'ILXOMOVICH', 1718224866, ' Baxrin MFY Baxrin Qishlog\'i 184-uy', 'AA2143341'),
-('32408910560084', 'ABDURAUF', 'YUSUBAXMEDOV', 'ABDURAXIM O‘G‘LI', NULL, 'Qibray tumani ', 'AA2447637'),
-('33108810660015', 'ABRAR', 'AKBAROV', 'AKMALOVICH', NULL, '', 'AA1036802'),
-('42804841110025', 'GULCHEXRA', 'TURSUNOVA', 'ERKINOVNA', NULL, '2/30', 'AB6697903'),
-('50305006380017', 'SARDOR', 'BOYBUTAYEV', 'UMIRQUL O‘G‘LI', 1724228805, 'Bek ', 'AB6190322'),
-('52505046530010', 'NURMUXAMMAD', 'SAFAROV', 'SHERZODOVICH', NULL, '8 kv', 'AC2910335');
+                                                                                                          ('32408910560084', 'ABDURAUF', 'YUSUBAXMEDOV', 'ABDURAXIM O‘G‘LI', NULL, 'Qibray tumani ', 'AA2447637'),
+                                                                                                          ('33108810660015', 'ABRAR', 'AKBAROV', 'AKMALOVICH', NULL, '', 'AA1036802'),
+                                                                                                          ('42804841110025', 'GULCHEXRA', 'TURSUNOVA', 'ERKINOVNA', NULL, '2/30', 'AB6697903'),
+                                                                                                          ('50305006380017', 'SARDOR', 'BOYBUTAYEV', 'UMIRQUL O‘G‘LI', 1724228805, 'Bek ', 'AB6190322'),
+                                                                                                          ('52505046530010', 'NURMUXAMMAD', 'SAFAROV', 'SHERZODOVICH', NULL, '8 kv', 'AC2910335');
 
 -- --------------------------------------------------------
 
@@ -1403,10 +1245,10 @@ INSERT INTO `individuals` (`pnfl`, `name`, `surname`, `middlename`, `soato_id`, 
 --
 
 CREATE TABLE `laboratory_test_type` (
-  `id` int(11) NOT NULL,
-  `name_uz` varchar(100) NOT NULL,
-  `name_ru` varchar(255) NOT NULL,
-  `code` int(11) NOT NULL
+                                        `id` int(11) NOT NULL,
+                                        `name_uz` varchar(100) NOT NULL,
+                                        `name_ru` varchar(255) NOT NULL,
+                                        `code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1414,7 +1256,7 @@ CREATE TABLE `laboratory_test_type` (
 --
 
 INSERT INTO `laboratory_test_type` (`id`, `name_uz`, `name_ru`, `code`) VALUES
-(1, 'тадкикот-01', 'исл-01', 1);
+    (1, 'тадкикот-01', 'исл-01', 1);
 
 -- --------------------------------------------------------
 
@@ -1423,12 +1265,12 @@ INSERT INTO `laboratory_test_type` (`id`, `name_uz`, `name_ru`, `code`) VALUES
 --
 
 CREATE TABLE `legal_entities` (
-  `inn` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tshx_id` int(11) NOT NULL,
-  `soogu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `soato_id` int(11) DEFAULT NULL,
-  `status_id` int(11) DEFAULT NULL
+                                  `inn` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                                  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                  `tshx_id` int(11) NOT NULL,
+                                  `soogu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                  `soato_id` int(11) DEFAULT NULL,
+                                  `status_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1436,13 +1278,13 @@ CREATE TABLE `legal_entities` (
 --
 
 INSERT INTO `legal_entities` (`inn`, `name`, `tshx_id`, `soogu`, `soato_id`, `status_id`) VALUES
-('123456789', 'tashkilot nomi', 1, 'Manzil', 1733223551, 1),
-('201352893', 'KOMPYUTER-OSIYOILMIY-TEXNIKA PARKI MCHJ', 1, NULL, NULL, 1),
-('305634884', 'GEOMAX PLUS МЧЖ', 1, NULL, 1733220830, 1),
-('306922184', 'MILLION DASTUR OK', 1, NULL, 1733223551, 1),
-('307203793', 'UMDSOFT MCHJ', 1, NULL, 1733223551, 1),
-('546546546', 'эжэжжэ', 1, 'garasha', 1708235890, NULL),
-('908462104', 'Test korxona', 1, 'Test manzil', 1733204551, NULL);
+                                                                                              ('123456789', 'tashkilot nomi', 1, 'Manzil', 1733223551, 1),
+                                                                                              ('201352893', 'KOMPYUTER-OSIYOILMIY-TEXNIKA PARKI MCHJ', 1, NULL, NULL, 1),
+                                                                                              ('305634884', 'GEOMAX PLUS МЧЖ', 1, NULL, 1733220830, 1),
+                                                                                              ('306922184', 'MILLION DASTUR OK', 1, NULL, 1733223551, 1),
+                                                                                              ('307203793', 'UMDSOFT MCHJ', 1, NULL, 1733223551, 1),
+                                                                                              ('546546546', 'эжэжжэ', 1, 'garasha', 1708235890, NULL),
+                                                                                              ('908462104', 'Test korxona', 1, 'Test manzil', 1733204551, NULL);
 
 -- --------------------------------------------------------
 
@@ -1451,9 +1293,9 @@ INSERT INTO `legal_entities` (`inn`, `name`, `tshx_id`, `soogu`, `soato_id`, `st
 --
 
 CREATE TABLE `message` (
-  `id` int(11) NOT NULL,
-  `language` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `translation` text COLLATE utf8_unicode_ci DEFAULT NULL
+                           `id` int(11) NOT NULL,
+                           `language` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+                           `translation` text COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1461,7 +1303,7 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `language`, `translation`) VALUES
-(1, 'oz', 'Namunalar ro\'yhati'),
+                                                            (1, 'oz', 'Namunalar ro\'yhati'),
 (1, 'ru', 'Список образцов'),
 (1, 'uz', 'Namunalar ro`yhati'),
 (2, 'oz', 'ИД'),
@@ -1982,18 +1824,18 @@ INSERT INTO `message` (`id`, `language`, `translation`) VALUES
 (247, 'uz', 'Kasalliklar ro`yhati'),
 (248, 'uz', 'ID'),
 (249, 'oz', 'Nomi(O\'zbek)'),
-(249, 'ru', 'Nomi(O\'zbek)'),
+                                                             (249, 'ru', 'Nomi(O\'zbek)'),
 (249, 'uz', 'Nomi(O\'zbek)'),
-(250, 'oz', 'Nomi(Rus)'),
-(250, 'ru', 'Nomi(Rus)'),
-(250, 'uz', 'Nomi(Rus)'),
-(251, 'oz', 'Toifasi'),
-(251, 'ru', 'Toifasi'),
-(251, 'uz', 'Toifasi'),
-(252, 'uz', 'Turi'),
-(253, 'uz', 'Kasalliklar ro`yhati'),
-(254, 'uz', 'ID'),
-(255, 'uz', 'Nomi(O\'zbek)'),
+                                                             (250, 'oz', 'Nomi(Rus)'),
+                                                             (250, 'ru', 'Nomi(Rus)'),
+                                                             (250, 'uz', 'Nomi(Rus)'),
+                                                             (251, 'oz', 'Toifasi'),
+                                                             (251, 'ru', 'Toifasi'),
+                                                             (251, 'uz', 'Toifasi'),
+                                                             (252, 'uz', 'Turi'),
+                                                             (253, 'uz', 'Kasalliklar ro`yhati'),
+                                                             (254, 'uz', 'ID'),
+                                                             (255, 'uz', 'Nomi(O\'zbek)'),
 (256, 'uz', 'Nomi(Rus)'),
 (257, 'uz', 'Toifasi'),
 (258, 'uz', 'Turi'),
@@ -2001,11 +1843,11 @@ INSERT INTO `message` (`id`, `language`, `translation`) VALUES
 (260, 'uz', 'ID'),
 (261, 'uz', 'Nomi'),
 (262, 'uz', 'Namuna o\'ramlari'),
-(263, 'oz', 'Namuna o\'rami qo\'shish'),
-(263, 'ru', 'Namuna o\'rami qo\'shish'),
-(263, 'uz', 'Namuna o\'rami qo\'shish'),
-(264, 'uz', 'ID'),
-(265, 'uz', 'Nomi(O\'zbek)'),
+                                                            (263, 'oz', 'Namuna o\'rami qo\'shish'),
+                                                            (263, 'ru', 'Namuna o\'rami qo\'shish'),
+                                                            (263, 'uz', 'Namuna o\'rami qo\'shish'),
+                                                            (264, 'uz', 'ID'),
+                                                            (265, 'uz', 'Nomi(O\'zbek)'),
 (266, 'uz', 'Nomi(Rus)'),
 (267, 'uz', 'Status'),
 (268, 'uz', 'Namuna o\'ramlari'),
@@ -3408,7 +3250,13 @@ INSERT INTO `message` (`id`, `language`, `translation`) VALUES
 (1523, 'uz', 'Sertifikatlar ro\'yhati'),
 (1524, 'uz', 'Sertifikat'),
 (1525, 'uz', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami'),
-(1526, 'uz', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami');
+(1526, 'uz', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami'),
+(1527, 'uz', 'Raqamli namunaga topshiriq berish'),
+(1528, 'uz', 'Raqamli namunaga berilgan topshiriq ma`lumotlarini o`zgartirish'),
+(1529, 'uz', 'Raqamli namunaga berilgan topshiriq ma`lumotlarini o`zgartirish'),
+(1530, 'uz', 'Namunaga shablonlar muvoffaqiyatli yuborildi'),
+(1531, 'uz', 'Raqamli namunalar bo`yicha topshiriqlar ro`yhati'),
+(1532, 'uz', 'Raqamli namunalarni topshiriq ma`lumotlarini o`zgartirish');
 
 -- --------------------------------------------------------
 
@@ -3877,20 +3725,44 @@ CREATE TABLE `result_animal` (
   `id` int(11) NOT NULL,
   `code` varchar(255) DEFAULT NULL,
   `code_id` int(11) DEFAULT NULL,
-  `temprature` int(11) DEFAULT NULL,
-  `humidity` int(11) DEFAULT NULL,
-  `reagent_name` varchar(255) DEFAULT NULL,
-  `reagent_series` varchar(255) DEFAULT NULL,
-  `conditions` text DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `ads` varchar(255) DEFAULT NULL,
-  `creator_id` int(11) DEFAULT NULL,
   `consent_id` int(11) DEFAULT NULL,
   `created` datetime DEFAULT current_timestamp(),
   `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `state_id` int(11) DEFAULT NULL,
   `sample_id` int(11) DEFAULT NULL,
   `org_id` int(11) DEFAULT NULL,
+  `is_change` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Natijalar';
+
+--
+-- Dumping data for table `result_animal`
+--
+
+INSERT INTO `result_animal` (`id`, `code`, `code_id`, `consent_id`, `created`, `updated`, `state_id`, `sample_id`, `org_id`, `is_change`) VALUES
+(91, '001-13', 13, NULL, '2023-01-16 23:20:04', '2023-01-17 00:26:48', 1, 152, 1, 0),
+(92, NULL, NULL, NULL, '2023-01-17 00:53:43', '2023-01-17 00:53:43', 1, 150, 1, 0),
+(93, NULL, NULL, NULL, '2023-01-17 00:53:43', '2023-01-17 00:53:43', 1, 151, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `result_animal_conditions`
+--
+
+CREATE TABLE `result_animal_conditions` (
+  `sample_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `result_id` int(11) NOT NULL,
+  `end_date` date DEFAULT NULL,
+  `temprature` int(11) DEFAULT NULL,
+  `humidity` int(11) DEFAULT NULL,
+  `reagent_name` varchar(255) DEFAULT NULL,
+  `reagent_series` varchar(255) DEFAULT NULL,
+  `conditions` text DEFAULT NULL,
+  `ads` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT current_timestamp(),
+  `updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `state_id` int(11) DEFAULT NULL,
   `patonomiya` int(11) NOT NULL DEFAULT 0,
   `organoleptika` int(11) NOT NULL DEFAULT 0,
   `mikroskopiya_nurli` int(11) NOT NULL DEFAULT 0,
@@ -3922,31 +3794,7 @@ CREATE TABLE `result_animal` (
   `why_change` text DEFAULT NULL,
   `is_another` int(11) NOT NULL DEFAULT 0,
   `another_disease_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Natijalar';
-
---
--- Dumping data for table `result_animal`
---
-
-INSERT INTO `result_animal` (`id`, `code`, `code_id`, `temprature`, `humidity`, `reagent_name`, `reagent_series`, `conditions`, `end_date`, `ads`, `creator_id`, `consent_id`, `created`, `updated`, `state_id`, `sample_id`, `org_id`, `patonomiya`, `organoleptika`, `mikroskopiya_nurli`, `mikroskopiya_lyuminesent`, `bakterilogik`, `virusologik_TE_KE`, `virusologik_XM_KK`, `biologik`, `RA_KR`, `RSK`, `RDSK`, `RBP`, `RMA`, `RP_RDP`, `RH`, `RNGA`, `RGKA`, `RGA`, `IFA`, `IXLA`, `boshqa_serologiya`, `PSR`, `gistologiya`, `gemotologiya`, `koprologiya`, `kimyoviy`, `biokimyoviy`, `is_change`, `why_change`, `is_another`, `another_disease_id`) VALUES
-(72, '001-2', 2, 22, 30, 'sdfsd', 'dfsf', 'dsf', '2022-11-22', '1', 5, 3, '2022-10-29 15:39:54', '2022-11-22 21:23:15', 1, 130, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 'bilmasam', 0, NULL),
-(74, NULL, NULL, 22, 30, 'sdfsd', 'dfsf', 'dsf', '2022-11-22', '0', 5, 3, '2022-10-31 00:19:26', '2022-11-22 22:37:17', 1, 128, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, '123', 0, NULL),
-(75, NULL, NULL, 22, 30, 'sdfsd', 'dfsf', 'dsf', '2022-11-22', '1', 5, 3, '2022-10-31 00:32:28', '2022-11-22 22:37:17', 1, 129, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(76, NULL, NULL, 22, 30, 'sdfsd', 'dfsf', 'dsf', '2022-11-22', '0', 5, 3, '2022-10-31 00:32:28', '2022-11-22 22:37:17', 1, 131, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(77, NULL, NULL, 30, 30, 'реактив-111', 'серия-111', 'юо', '2022-11-23', NULL, NULL, NULL, '2022-11-23 13:22:57', '2022-11-23 13:28:46', 1, 132, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL),
-(78, NULL, NULL, 30, 30, 'реактив-111', 'серия-111', 'юо', '2022-11-23', '1', NULL, NULL, '2022-11-23 13:22:57', '2022-11-23 13:46:47', 1, 133, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 'тугри ккелмади', 0, NULL),
-(79, NULL, NULL, 20, 20, 'реактив номи', 'РРРРеактив серия', 'ррлрл', '2022-11-23', '0', 5, 3, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 1, 134, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 'тугри ккелмади', 0, NULL),
-(80, NULL, NULL, 20, 20, 'реактив номи', 'РРРРеактив серия', 'ррлрл', '2022-11-23', '1', 5, 3, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 1, 135, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(81, NULL, NULL, 20, 20, 'реактив номи', 'РРРРеактив серия', 'ррлрл', '2022-11-23', '0', 5, 3, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 1, 136, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 'тугри келмади', 0, NULL),
-(82, NULL, NULL, 20, 10, 'нукнеу', 'нкенку', 'уеркваенркурнку', '2022-11-30', NULL, NULL, NULL, '2022-11-23 22:28:10', '2022-11-30 18:18:22', 1, 137, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL),
-(83, NULL, NULL, 20, 10, 'нукнеу', 'нкенку', 'уеркваенркурнку', '2022-11-30', NULL, NULL, NULL, '2022-11-23 22:28:10', '2022-11-30 18:18:22', 1, 138, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL),
-(84, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-24 13:49:31', '2022-11-24 13:49:31', 1, 139, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL),
-(85, NULL, NULL, 25, 62, '0', '0', '0', '2022-11-26', '1', 41, 3, '2022-11-25 09:13:30', '2022-11-27 00:59:01', 1, 141, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(86, NULL, NULL, 25, 62, '0', '0', '0', '2022-11-26', '0', 41, 3, '2022-11-25 09:13:30', '2022-11-27 00:59:01', 1, 142, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(87, NULL, NULL, 22, 62, '0124', '0101', 'jjguhu', '2022-12-02', '1', 33, 56, '2022-12-02 15:50:12', '2022-12-02 16:13:33', 1, 145, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(88, NULL, NULL, 22, 62, '0124', '0101', 'jjguhu', '2022-12-02', '0', 33, 56, '2022-12-02 15:50:12', '2022-12-02 16:13:33', 1, 147, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(89, NULL, NULL, 22, 62, 'лшщщ', 'хххх', 'хххх', '2022-12-05', '0', 5, 3, '2022-12-05 15:25:23', '2022-12-05 15:46:16', 1, 148, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL),
-(90, NULL, NULL, 22, 62, 'лшщщ', 'хххх', 'хххх', '2022-12-05', '1', 5, 3, '2022-12-05 15:25:23', '2022-12-05 15:46:16', 1, 149, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -3955,12 +3803,11 @@ INSERT INTO `result_animal` (`id`, `code`, `code_id`, `temprature`, `humidity`, 
 --
 
 CREATE TABLE `result_animal_tests` (
-  `id` int(11) NOT NULL,
   `result` varchar(255) NOT NULL,
   `result_2` varchar(255) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
-  `template_id` int(11) DEFAULT NULL,
-  `result_id` int(11) DEFAULT NULL,
+  `template_id` int(11) NOT NULL,
+  `result_id` int(11) NOT NULL,
   `checked` int(11) DEFAULT 0,
   `ch_min1` varchar(255) DEFAULT NULL,
   `ch_max1` varchar(255) DEFAULT NULL,
@@ -3968,70 +3815,28 @@ CREATE TABLE `result_animal_tests` (
   `ch_max2` varchar(255) DEFAULT NULL,
   `is_change` int(11) NOT NULL DEFAULT 0,
   `change_unit_id` int(11) DEFAULT NULL,
-  `result_type_id` int(11) DEFAULT NULL
+  `result_type_id` int(11) DEFAULT NULL,
+  `route_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `result_animal_tests`
 --
 
-INSERT INTO `result_animal_tests` (`id`, `result`, `result_2`, `type_id`, `template_id`, `result_id`, `checked`, `ch_min1`, `ch_max1`, `ch_min2`, `ch_max2`, `is_change`, `change_unit_id`, `result_type_id`) VALUES
-(1, '11', '22', 1, 30, 72, 1, '123', '123', '1233', '1234', 1, 4, 1),
-(2, '0', '', 1, 40, 72, 1, '0', '0', '', '0', 0, 1, 2),
-(9, '23', '', 5, 28, 74, 1, '1', '0', '', '', 1, 3, 1),
-(10, '0', '', 5, 29, 74, 1, '0', '0', '0', '0', 0, 1, 1),
-(11, '0', '', 5, 30, 74, 1, '0', '0', '0', '0', 0, 1, 1),
-(12, '0', '', 5, 31, 74, 1, '0', '0', '0', '0', 0, 1, 1),
-(13, '0', '', 5, 33, 74, 1, '0', '0', '0', '0', 0, 1, 1),
-(14, 'sad', '', 3, 46, 74, 1, 'Manfiy', 'Musbat', '0', '0', 0, 15, 2),
-(15, '0', '', 5, 36, 74, 1, '0', '0', '0', '0', 0, 1, 1),
-(16, '0', '', 5, 37, 74, 1, '0', '0', '0', '0', 0, 1, 2),
-(17, '0', '', 5, 40, 74, 1, '0', '0', '', '0', 0, 1, 1),
-(18, '32', '', 3, 41, 74, 1, 'manfiy', 'musbat', '', '', 0, 15, 1),
-(19, '23', '', 3, 42, 74, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(20, '0', '', 5, 36, 75, 1, '0', '0', '', '', 0, 1, 2),
-(21, '1', '', 5, 37, 75, 1, '0', '0', '', '', 0, 1, 2),
-(22, '1', '', 5, 40, 75, 1, '0', '0', '', '', 0, 1, 2),
-(23, '345', '', 3, 41, 75, 1, 'manfiy', 'musbat', '', '', 0, 15, 2),
-(24, 'asd', '', 3, 42, 75, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(25, '0', '', 5, 36, 76, 1, '0', '0', '', '', 0, 1, 1),
-(26, '1', '', 5, 37, 76, 1, '0', '0', '', '', 0, 1, 1),
-(27, '0', '', 5, 40, 76, 1, '0', '0', '', '', 0, 1, 1),
-(28, '234', '', 3, 41, 76, 1, 'manfiy', 'musbat', '', '', 0, 15, 1),
-(29, '234', '', 3, 42, 76, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(30, '', '', 3, 56, 77, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(31, '', '', 3, 57, 77, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(32, '0', '', 3, 56, 78, 1, '0', '0', '', '', 1, 1, 1),
-(33, 'аникланди тест', '', 3, 57, 78, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(34, 'мавжуд', '', 3, 54, 79, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(35, '0', '', 3, 62, 79, 1, '0', '0', '', '', 1, 1, NULL),
-(36, 'мавжуд', '', 3, 54, 80, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(37, 'йук', '', 3, 62, 80, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(38, '1', '', 3, 54, 81, 1, '0', '0', '', '', 1, 1, NULL),
-(39, '20', '', 3, 62, 81, 1, 'Manfiy', 'Musbat', '', '', 1, 8, 1),
-(40, '', '', 3, 54, 82, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(41, '', '', 3, 56, 82, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(42, '', '', 3, 54, 83, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(43, '', '', 3, 56, 83, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(44, '', '', 3, 116, 84, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(45, '', '', 3, 117, 84, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(46, '', '', 3, 121, 84, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL),
-(47, 'musbat', '', 3, 57, 85, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(48, 'musbat', '', 3, 59, 85, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(49, 'musbat', '', 3, 61, 85, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(50, 'manfiy', '', 3, 57, 86, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(51, 'manfiy', '', 3, 59, 86, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(52, 'manfiy', '', 3, 61, 86, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(53, 'Musbat', '', 3, 116, 87, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(54, 'musbat', '', 3, 117, 87, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(55, 'manfiy', '', 3, 121, 87, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(56, 'musbat', '', 3, 116, 88, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(57, 'musbat', '', 3, 117, 88, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(58, 'musbat', '', 3, 121, 88, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(59, 'манфий', '', 3, 59, 89, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(60, 'манфий', '', 3, 61, 89, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 1),
-(61, 'мусбат', '', 3, 59, 90, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2),
-(62, 'мусбат', '', 3, 61, 90, 1, 'Manfiy', 'Musbat', '', '', 0, 15, 2);
+INSERT INTO `result_animal_tests` (`result`, `result_2`, `type_id`, `template_id`, `result_id`, `checked`, `ch_min1`, `ch_max1`, `ch_min2`, `ch_max2`, `is_change`, `change_unit_id`, `result_type_id`, `route_id`, `id`) VALUES
+('', '', 1, 48, 91, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL, 82, 0),
+('', '', 1, 47, 91, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL, 84, 0),
+('', '', 1, 49, 91, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL, 86, 0),
+('', '', 1, 50, 91, 1, 'Manfiy', 'Musbat', '', '', 0, 15, NULL, 86, 0),
+('', '', 5, 28, 92, 1, '1', '0', '', '', 0, 1, NULL, 87, 0),
+('', '', 5, 29, 92, 1, NULL, NULL, '', '', 0, 1, NULL, 87, 0),
+('', '', 5, 30, 92, 1, NULL, NULL, '', '', 0, 1, NULL, 87, 0),
+('', '', 5, 31, 92, 1, '0', '0', '', '', 0, 1, NULL, 87, 0),
+('', '', 5, 33, 92, 1, '0', '0', '', '', 0, 1, NULL, 87, 0),
+('', '', 5, 36, 92, 1, '0', '0', '', '', 0, 1, NULL, 89, 0),
+('', '', 5, 37, 92, 1, '0', '0', '', '', 0, 1, NULL, 89, 0),
+('', '', 5, 40, 92, 1, '0', '0', '', '', 0, 1, NULL, 89, 0);
 
 -- --------------------------------------------------------
 
@@ -4066,22 +3871,6 @@ CREATE TABLE `result_food` (
   `why_change` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='test natijalarini ';
 
---
--- Dumping data for table `result_food`
---
-
-INSERT INTO `result_food` (`id`, `code`, `code_id`, `ads`, `sample_id`, `creator_id`, `consept_id`, `created`, `updated`, `state_id`, `org_id`, `organoleptik`, `mikroskopik`, `mikrobiologik`, `kimyoviy`, `radiologik`, `temprature`, `humidity`, `reagent_name`, `reagent_series`, `conditions`, `end_date`, `is_change`, `why_change`) VALUES
-(41, '001-1', 1, '0', 60, 5, 3, '2022-11-15 04:03:10', '2022-11-22 23:53:22', 1, 1, 0, 1, 0, 0, 0, '22', '15', 'asd', 'sd', '65465', '2022-11-22', 1, ''),
-(42, NULL, NULL, '0', 58, 5, 3, '2022-10-31 00:34:56', '2022-11-22 23:53:21', 1, 1, 1, 0, 0, 0, 0, '22', '15', 'asd', 'sd', '65465', '2022-11-22', 1, 'asd'),
-(43, NULL, NULL, '0', 59, 5, 3, '2022-10-31 00:34:56', '2022-11-22 23:53:21', 1, 1, 0, 0, 0, 1, 0, '22', '15', 'asd', 'sd', '65465', '2022-11-22', 1, 't56'),
-(44, NULL, NULL, '0', 61, 5, 3, '2022-10-31 00:34:56', '2022-11-22 23:53:21', 1, 1, 1, 0, 0, 0, 0, '22', '15', 'asd', 'sd', '65465', '2022-11-22', 1, 'dfg'),
-(45, '001-2', 2, '0', 71, 48, 3, '2022-11-28 00:40:04', '2022-11-28 01:23:04', 1, 1, 1, 0, 0, 1, 0, '25', '62', '021251', '012145', '01125', '2022-11-27', 0, ''),
-(46, NULL, NULL, '0', 72, 5, 3, '2022-11-28 11:43:36', '2022-11-28 18:00:07', 1, 1, 1, 0, 0, 1, 0, '20', '30', 'реактив-111', 'серия-111', 'БОШКА ШАРОИТЛАР 1', '2022-11-28', 0, ''),
-(47, NULL, NULL, '0', 73, 5, 3, '2022-11-28 11:43:36', '2022-11-28 18:00:07', 1, 1, 1, 0, 0, 1, 0, '20', '30', 'реактив-111', 'серия-111', 'БОШКА ШАРОИТЛАР 1', '2022-11-28', 0, ''),
-(48, NULL, NULL, '0', 74, 47, 3, '2022-11-30 16:47:11', '2022-12-03 20:22:37', 1, 1, 0, 0, 0, 1, 0, '25', '62', '0124', '0101', 'jjguhu', '2022-12-03', 0, ''),
-(49, NULL, NULL, NULL, 76, NULL, NULL, '2022-12-02 23:29:01', '2022-12-02 23:39:15', 1, 1, 0, 0, 0, 0, 0, '22', '61', 'Antibiotik', '12345', 'Bor', '2022-12-05', 0, NULL),
-(50, NULL, NULL, NULL, 78, NULL, NULL, '2022-12-03 20:02:32', '2022-12-03 20:16:52', 1, 1, 0, 0, 0, 0, 0, '23', '64', '11111', '12345', 'Bor', '2022-12-05', 0, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -4104,56 +3893,6 @@ CREATE TABLE `result_food_tests` (
   `ch_max2` varchar(255) DEFAULT NULL,
   `result_type_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `result_food_tests`
---
-
-INSERT INTO `result_food_tests` (`id`, `result`, `result_2`, `type_id`, `template_id`, `result_id`, `checked`, `change_unit_id`, `is_change`, `ch_min1`, `ch_min2`, `ch_max1`, `ch_max2`, `result_type_id`) VALUES
-(9, '0', '', 1, 290, 41, 1, 1, 1, '0', '', '1', '', NULL),
-(10, '', '', 1, 291, 41, 1, 9, 0, '0', NULL, '0.05', NULL, NULL),
-(11, '', '', 1, 292, 41, 1, 9, 0, '0', NULL, '0.03', NULL, NULL),
-(12, '', '', 1, 293, 41, 1, 9, 0, '0', NULL, '0.005', NULL, NULL),
-(13, '', '', 1, 416, 41, 1, 17, 0, NULL, NULL, NULL, NULL, NULL),
-(14, '0', '', 1, 2, 42, 1, 5, 1, '0', '', '0', '', 1),
-(15, '0.04', '', 1, 3, 42, 1, 9, 0, '0', NULL, '0.05', NULL, 1),
-(16, '1', '', 1, 4, 42, 1, 1, 1, '0', '', '0', '', 1),
-(17, '23', '', 1, 5, 42, 1, 9, 0, '0', NULL, '70', NULL, 1),
-(18, '4', '', 1, 6, 42, 1, 9, 0, '0', NULL, '5', NULL, 1),
-(19, '23', '', 1, 11, 42, 1, 9, 0, '0', NULL, '0.01', NULL, 1),
-(20, '213', '', 1, 245, 42, 1, 9, 0, '0', NULL, '0', NULL, 1),
-(21, '1', '', 1, 2, 43, 1, 1, 1, '0', '', '1', '', 1),
-(22, '0', '', 1, 3, 43, 1, 1, 1, '0', '', '0', '', 1),
-(23, '0', '', 1, 4, 43, 1, 1, 1, '1', '', '2', '', 1),
-(24, '0', '', 1, 5, 43, 1, 9, 0, '0', NULL, '70', NULL, 1),
-(25, '1', '', 1, 6, 43, 1, 9, 0, '0', NULL, '5', NULL, 2),
-(26, '01', '', 1, 11, 43, 1, 9, 0, '0', NULL, '0.01', NULL, 1),
-(27, '0', '', 1, 245, 43, 1, 9, 0, NULL, NULL, NULL, NULL, 1),
-(28, '1', '', 1, 2, 44, 1, 1, 1, '0', '', '1', '', 1),
-(29, '1', '', 1, 3, 44, 1, 1, 1, '1', '', '1', '', 1),
-(30, 'dfg', '', 1, 4, 44, 1, 9, 0, '0', NULL, '0.03', NULL, 1),
-(31, 'dfg', '', 1, 5, 44, 1, 9, 0, '0', NULL, '70', NULL, 1),
-(32, 'dfg', '', 1, 6, 44, 1, 9, 0, '0', NULL, '5', NULL, 2),
-(33, 'dfg', '', 1, 11, 44, 1, 9, 0, '0', NULL, '0.01', NULL, 1),
-(34, 'dfg', '', 1, 245, 44, 1, 9, 0, NULL, NULL, NULL, NULL, 1),
-(35, '0.01', '', 1, 291, 45, 1, 9, 0, '0', NULL, '0.05', NULL, 1),
-(36, '0.01', '', 1, 292, 45, 1, 9, 0, '0', NULL, '0.03', NULL, 1),
-(37, '0.001', '', 1, 293, 45, 1, 9, 0, '0', NULL, '0.005', NULL, 1),
-(38, '0.001', '', 1, 294, 45, 1, 9, 0, '0', NULL, '0.05', NULL, 1),
-(39, '0.006', '', 1, 295, 45, 1, 9, 0, '0', NULL, '0.05', NULL, 1),
-(40, '10', '', 1, 13, 46, 1, 9, 0, '0', NULL, '0', NULL, 1),
-(41, '0', '', 5, 212, 46, 1, 1, 0, '1', NULL, NULL, NULL, 1),
-(42, '50', '', 1, 214, 46, 1, 12, 0, NULL, NULL, NULL, NULL, 1),
-(43, '100', '', 1, 13, 47, 1, 9, 0, '0', NULL, '0', NULL, NULL),
-(44, '0', '', 5, 212, 47, 1, 1, 0, '1', NULL, NULL, NULL, NULL),
-(45, '500', '', 1, 214, 47, 1, 12, 0, NULL, NULL, NULL, NULL, NULL),
-(46, '0.01', '', 1, 2, 48, 1, 9, 0, '0', NULL, '0.1', NULL, 1),
-(47, '0.0.1', '', 1, 4, 48, 1, 9, 0, '0', NULL, '0.03', NULL, 1),
-(48, '0.001', '', 1, 5, 48, 1, 9, 0, '0', NULL, '70', NULL, 1),
-(49, '', '', 1, 44, 49, 1, 9, 0, '0', NULL, '0', NULL, NULL),
-(50, '', '', 1, 46, 49, 1, 9, 0, '0', NULL, '0', NULL, NULL),
-(51, '', '', 1, 217, 49, 1, 12, 0, NULL, NULL, NULL, NULL, NULL),
-(52, '', '', 3, 547, 50, 1, 7, 0, '11', NULL, '13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -4229,24 +3968,11 @@ CREATE TABLE `route_sert` (
 --
 
 INSERT INTO `route_sert` (`id`, `director_id`, `leader_id`, `executor_id`, `deadline`, `ads`, `state_id`, `created`, `updated`, `sample_id`, `registration_id`, `status_id`, `sample_type_id`, `vet4`, `is_group`) VALUES
-(64, 3, 4, 5, '2022-11-12', 'thr', 1, '2022-10-31 00:32:27', '2022-11-22 22:40:21', 128, 72, 3, 1, NULL, 1),
-(65, 3, 4, 5, '2022-11-12', 'thr', 1, '2022-10-31 00:32:28', '2022-11-22 22:40:21', 129, 72, 3, 1, NULL, 1),
-(66, 3, 4, 5, '2022-11-12', 'thr', 1, '2022-10-31 00:32:28', '2022-11-22 22:40:21', 131, 72, 3, 1, NULL, 1),
-(67, 3, 4, 5, '2022-11-12', 'thr', 1, '2022-10-31 00:33:30', '2022-11-22 22:40:22', 130, 72, 3, 2, '30502002', 0),
-(68, 3, 7, 5, '2022-11-24', 'бирлашган 2 та', 1, '2022-11-23 13:22:56', '2022-11-23 13:25:31', 132, 73, 2, 1, NULL, 1),
-(69, 3, 7, 5, '2022-11-24', 'бирлашган 2 та', 1, '2022-11-23 13:22:57', '2022-11-23 13:49:52', 133, 73, 6, 1, NULL, 1),
-(70, 3, 7, 5, '2022-11-23', 'бирлашган 3 та', 1, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 134, 74, 3, 1, NULL, 1),
-(71, 3, 7, 5, '2022-11-23', 'бирлашган 3 та', 1, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 135, 74, 3, 1, NULL, 1),
-(72, 3, 7, 5, '2022-11-23', 'бирлашган 3 та', 1, '2022-11-23 14:06:53', '2022-11-23 15:58:53', 136, 74, 3, 1, NULL, 1),
-(73, 3, 4, 5, '2022-11-24', '', 1, '2022-11-23 22:28:10', '2022-11-23 22:31:47', 137, 75, 2, 1, NULL, 1),
-(74, 3, 4, 5, '2022-11-24', '', 1, '2022-11-23 22:28:10', '2022-11-23 22:31:47', 138, 75, 2, 1, NULL, 1),
-(75, 3, 43, 15, '2022-12-20', 'Iddvet', 1, '2022-11-24 13:49:31', '2022-12-16 11:27:36', 139, 76, 2, 1, NULL, 1),
-(76, 3, 40, 41, '2022-11-28', '', 1, '2022-11-25 09:13:30', '2022-11-27 00:59:01', 141, 77, 3, 19, NULL, 1),
-(77, 3, 40, 41, '2022-11-28', '', 1, '2022-11-25 09:13:30', '2022-11-27 00:59:01', 142, 77, 3, 19, NULL, 1),
-(78, 56, 31, 33, '2022-12-05', 'fsfgdsfgd', 1, '2022-12-02 15:50:12', '2022-12-02 16:13:33', 145, 79, 3, 1, NULL, 1),
-(79, 56, 31, 33, '2022-12-05', 'fsfgdsfgd', 1, '2022-12-02 15:50:12', '2022-12-02 16:13:33', 147, 79, 3, 30, NULL, 1),
-(80, 3, 4, 5, '2022-12-12', '', 1, '2022-12-05 15:25:23', '2022-12-05 15:46:16', 148, 80, 3, 19, NULL, 1),
-(81, 3, 4, 5, '2022-12-12', '', 1, '2022-12-05 15:25:23', '2022-12-05 15:46:16', 149, 80, 3, 19, NULL, 1);
+(82, 3, 9, NULL, NULL, NULL, 1, '2023-01-16 23:04:31', '2023-01-16 23:04:31', 152, 82, 1, 1, '30802001', 0),
+(84, 3, 4, NULL, NULL, NULL, 1, '2023-01-16 23:20:04', '2023-01-16 23:20:04', 152, 82, 1, 1, '30802001', 0),
+(86, 3, 7, NULL, NULL, NULL, 1, '2023-01-17 00:26:48', '2023-01-17 00:26:48', 152, 82, 1, 1, '30802001', 0),
+(87, 3, 4, NULL, NULL, NULL, 1, '2023-01-17 00:53:43', '2023-01-17 01:08:00', 151, 82, 1, 1, NULL, 1),
+(89, 3, 8, NULL, NULL, NULL, 1, '2023-01-17 01:12:24', '2023-01-17 01:12:24', 150, 82, 1, 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -4305,27 +4031,9 @@ CREATE TABLE `samples` (
 --
 
 INSERT INTO `samples` (`id`, `kod`, `samp_id`, `label`, `sample_type_is`, `sample_box_id`, `animal_id`, `sert_id`, `suspected_disease_id`, `test_mehod_id`, `state_id`, `status_id`, `emp_id`, `repeat_code`, `is_group`, `cnt`, `registon_id`) VALUES
-(128, '33223-22-1/1', 1, 'qora', 1, 1, 142, 145, 1, 1, 1, 5, -1, '', 1, 1, 0),
-(129, '33223-22-1/2', 2, 'qizil paket', 1, 1, 143, 145, 1, 1, 1, 5, -1, '', 1, 1, 0),
-(130, '33223-22-1/3', 3, 'ko\'k paket', 2, 1, 144, 145, 1, 1, 1, 5, 1, '', 0, 1, 0),
-(131, '33223-22-1/4', 4, 'yashil paket', 1, 1, 145, 145, 1, 1, 1, 5, -1, '', 1, 1, 0),
-(132, '8235-22-2/1', 1, 'намуна 1', 1, 1, 146, 146, 3, 1, 1, 3, -1, '', 1, 1, 0),
-(133, '8235-22-2/2', 2, 'намуна 2 ', 1, 1, 147, 146, 3, 1, 1, 3, -1, '', 1, 1, 0),
-(134, '8235-22-3/1', 1, 'намуна 3', 1, 1, 148, 147, 3, 1, 1, 5, -1, '', 1, 1, 0),
-(135, '8235-22-3/2', 2, 'намуна4', 1, 1, 149, 147, 3, 1, 1, 5, -1, '', 1, 1, 0),
-(136, '8235-22-3/3', 3, 'намана6', 1, 1, 150, 147, 3, 1, 1, 5, -1, '', 1, 1, 0),
-(137, '8204-22-4/1', 1, '123', 1, 1, 151, 148, 3, 4, 1, 3, -1, '', 1, 1, 0),
-(138, '8204-22-4/2', 2, '1234', 1, 1, 152, 148, 3, 2, 1, 3, -1, '', 1, 1, 0),
-(139, '8204-22-5/1', 1, '1235', 1, 1, 153, 149, 13, 2, 1, 3, -1, '', 1, 1, 0),
-(140, '8204-22-5/2', 2, '12367', 30, 1, 154, 149, 13, 2, 1, 2, -1, '', 0, 1, 0),
-(141, '8204-22-6/1', 1, '12365', 19, 1, 155, 150, 3, 2, 1, 5, -1, '', 1, 1, 0),
-(142, '8204-22-6/2', 2, '1236', 19, 1, 156, 150, 3, 1, 1, 5, -1, '', 1, 1, 0),
-(143, '8235-22-8/1', 1, 'fsfs', 1, 1, 157, 152, 90, 1, 1, 2, -1, '', 1, 1, 0),
-(144, '8235-22-8/2', 2, 'qizil', 1, 1, 158, 152, 63, 2, 1, 2, -1, '', 0, 1, 0),
-(145, '10220-22-10/1', 1, '11131331', 1, 1, 159, 154, 13, 2, 1, 5, -1, '', 1, 1, 0),
-(147, '10220-22-10/2', 2, '1515', 30, 1, 161, 154, 13, 2, 1, 5, -1, '', 1, 1, 0),
-(148, '10245-22-11/1', 1, '2', 19, 1, 162, 155, 3, 1, 1, 5, -1, '', 1, 1, 0),
-(149, '10245-22-11/2', 2, '3', 19, 1, 163, 155, 3, 1, 1, 5, -1, '', 1, 1, 0);
+(150, '33223-23-1/1', 1, 'asdas', 1, 1, 164, 156, 1, 1, 1, 3, -1, '', 1, 1, 0),
+(151, '33223-23-1/2', 2, '234', 1, 1, 165, 156, 1, 1, 1, 3, -1, '', 1, 1, 0),
+(152, '33223-23-1/3', 3, 'sdfsdfsdf', 1, 1, 166, 156, 2, 1, 1, 3, 1, '', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -4381,18 +4089,6 @@ CREATE TABLE `sample_recomendation` (
   `sample_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `sample_recomendation`
---
-
-INSERT INTO `sample_recomendation` (`id`, `name`, `sample_id`) VALUES
-(1, 'asd', 128),
-(2, '1 тавсия', 133),
-(3, '2 Туман бщлимига хабар бериш лозим.', 133),
-(4, 'eryyeyte6ty6', 145),
-(5, 'яхши натижа курсатилди', 148),
-(6, 'хайвон суйилсин   вет врач назорат остида', 149);
-
 -- --------------------------------------------------------
 
 --
@@ -4429,15 +4125,7 @@ CREATE TABLE `sample_registration` (
 --
 
 INSERT INTO `sample_registration` (`id`, `pnfl`, `inn`, `is_research`, `code_id`, `code`, `research_category_id`, `results_conformity_id`, `organization_id`, `emp_id`, `reg_date`, `reg_id`, `sender_name`, `sender_phone`, `created`, `updated`, `ads`, `status_id`, `res`, `res_id`, `registon_id`, `is_registon`) VALUES
-(72, '30507903120132', NULL, 0, 1, '22-1-001-1', 1, 1, 1, 1, NULL, NULL, 'Allabergenov Dilmurod', '(99)-967-0395', '2022-10-29 15:34:42', '2022-11-22 22:29:41', NULL, 5, 'M/001-9', 9, 0, 0),
-(73, '31512620270065', NULL, 1, 2, '22-1-001-2', 1, NULL, 1, 1, NULL, NULL, 'Каримов КК', '(99)-999-9999', '2022-11-23 13:19:48', '2022-11-23 13:22:57', NULL, 3, 'M/001-10', 10, 0, 0),
-(74, '31512620270065', NULL, 1, 3, '22-1-001-3', 1, 1, 1, 1, NULL, NULL, 'Алиев Али', '(55)-555-5555', '2022-11-23 14:04:05', '2022-11-23 15:58:53', NULL, 5, 'M/001-11', 11, 0, 0),
-(75, '31909955430035', NULL, 1, 4, '22-1-001-4', 1, NULL, 1, 1, NULL, NULL, 'Toshpulatov ', '(12)-345-6798', '2022-11-23 22:23:44', '2022-11-23 22:28:10', NULL, 3, 'M/001-12', 12, 0, 0),
-(76, '31909955430035', NULL, 1, 5, '22-1-001-5', 1, NULL, 1, 1, NULL, NULL, 'Toshpulatov ', '(12)-345-6789', '2022-11-24 13:44:36', '2022-11-24 13:49:31', NULL, 3, 'M/001-13', 13, 0, 0),
-(77, '31909955430035', NULL, 1, 6, '22-1-001-6', 1, 1, 1, 1, NULL, NULL, 'Toshpulatov ', '(12)-345-6789', '2022-11-25 08:57:27', '2022-11-27 00:59:01', NULL, 5, 'M/001-14', 14, 0, 0),
-(78, '31909955430035', NULL, 1, 7, '22-1-001-7', 1, NULL, 1, 1, NULL, NULL, 'орплогрлоглд', '(44)-444-4444', '2022-11-30 17:32:21', '2022-11-30 17:34:54', NULL, 2, NULL, 0, 0, 0),
-(79, '31909955430035', NULL, 1, 8, '22-1-001-8', 1, 1, 1, NULL, NULL, NULL, 'Бойбутаев', '(12)-345-6789', '2022-12-02 15:41:09', '2022-12-02 16:13:33', NULL, 5, 'M/001-15', 15, 0, 0),
-(80, '30106932710257', NULL, 1, 9, '22-1-001-9', 1, 1, 1, 1, NULL, NULL, 'Расулов Шерзод Нормахмат угли', '(97)-756-4400', '2022-12-05 15:13:25', '2022-12-05 15:46:16', NULL, 5, 'M/001-16', 16, 0, 0);
+(82, '30507903120132', NULL, 0, 1, '23-1-001-1', 1, NULL, 1, 1, NULL, NULL, 'Allabergenov Dilmurod', '(99)-967-0395', '2023-01-16 23:03:41', '2023-01-17 01:12:24', NULL, 3, 'M/001-2', 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -4565,17 +4253,7 @@ CREATE TABLE `sertificates` (
 --
 
 INSERT INTO `sertificates` (`id`, `sert_id`, `sert_full`, `sert_num`, `sert_date`, `inn`, `pnfl`, `vet_site_id`, `status_id`, `state_id`, `created`, `owner_inn`, `owner_pnfl`, `sampler_name`, `sampler_position`, `registon_id`, `is_registon`) VALUES
-(145, 1, '33223-22-1', '1', '2022-10-29', NULL, '30507903120132', 76, 5, NULL, '2022-10-29 15:30:12', '306922184', NULL, 'test', 'test', 0, 0),
-(146, 2, '8235-22-2', 'абд-0001', '2022-11-23', NULL, '31512620270065', 856, 3, NULL, '2022-11-23 13:15:14', NULL, '31512650270065', 'Abdurakhman  ееееееееееееееееееее', 'vrach', 0, 0),
-(147, 3, '8235-22-3', 'абд-0002', '2022-11-23', NULL, '31512620270065', 856, 5, NULL, '2022-11-23 13:58:49', NULL, '31512650270065', 'Abdurakhman 02', 'prog', 0, 0),
-(148, 4, '8204-22-4', '1', '2022-11-23', NULL, '31909955430035', 1260, 3, NULL, '2022-11-23 22:14:54', NULL, '31909955430035', 'Soatov Po\'latov', 'Vet vrach hayvon egasi', 0, 0),
-(149, 5, '8204-22-5', '2', '2022-11-24', NULL, '31909955430035', 1260, 3, NULL, '2022-11-24 13:38:47', NULL, '31909955430035', 'Soatov Po\'latov', 'Vet vrach hayvon egasi', 0, 0),
-(150, 6, '8204-22-6', '3', '2022-11-25', NULL, '31909955430035', 1260, 5, NULL, '2022-11-25 08:50:55', NULL, '31909955430035', 'Soatov Po\'latov', 'Vet vrach hayvon egasi', 0, 0),
-(151, 7, '8204-22-7', '4', '2022-11-27', NULL, '31909955430035', 1260, 0, NULL, '2022-11-27 23:22:12', NULL, '31909955430035', 'Soatov Po\'latov', 'Vet vrach hayvon egasi', 0, 0),
-(152, 8, '8235-22-8', 'gj', '2022-11-30', NULL, '31909955430035', 856, 2, NULL, '2022-11-30 17:25:18', NULL, '50305006380017', 'ewgeger', 'egfergt', 0, 0),
-(153, 9, '8204-22-9', '1', '2022-11-30', NULL, '31909955430035', 1260, 0, NULL, '2022-11-30 17:47:13', NULL, '31909955430035', 'Soatov Po\'latov', 'Vet vrach hayvon egasi', 0, 0),
-(154, 10, '10220-22-10', '11', '2022-12-02', NULL, '31909955430035', 1278, 5, NULL, '2022-12-02 15:29:59', NULL, '31909955430035', 'Обидоа', 'egfergt', 0, 0),
-(155, 11, '10245-22-11', '3', '2022-12-05', NULL, '30106932710257', 1330, 5, NULL, '2022-12-05 15:04:17', NULL, '30106932710257', 'Cоатов Нурматов ', 'ветеринар хайвон эгаси', 0, 0);
+(156, 1, '33223-23-1', 'asd', '2023-01-16', NULL, '30507903120132', 76, 3, NULL, '2023-01-16 22:20:20', '306922184', NULL, 'Allabergenov Dilmurod', 'dasturchi', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -9499,7 +9177,13 @@ INSERT INTO `source_message` (`id`, `category`, `message`) VALUES
 (1523, 'food', 'Sertifikatlar ro\'yhati'),
 (1524, 'food', 'Sertifikat'),
 (1525, 'cp', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami'),
-(1526, 'cp', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami');
+(1526, 'cp', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namuna raqami'),
+(1527, 'register', 'Raqamli namunaga topshiriq berish'),
+(1528, 'register', 'Raqamli namunaga berilgan topshiriq ma`lumotlarini o`zgartirish'),
+(1529, 'register', 'Raqamli namunaga berilgan topshiriq ma`lumotlarini o`zgartirish'),
+(1530, 'test', 'Namunaga shablonlar muvoffaqiyatli yuborildi'),
+(1531, 'register', 'Raqamli namunalar bo`yicha topshiriqlar ro`yhati'),
+(1532, 'register', 'Raqamli namunalarni topshiriq ma`lumotlarini o`zgartirish');
 
 -- --------------------------------------------------------
 
@@ -17244,14 +16928,6 @@ CREATE TABLE `vaccination` (
   `disease_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `vaccination`
---
-
-INSERT INTO `vaccination` (`animal_id`, `vaccina_id`, `disease_id`, `disease_date`) VALUES
-(141, NULL, 1, '2000-01-01'),
-(148, NULL, 3, '2022-05-17');
-
 -- --------------------------------------------------------
 
 --
@@ -18868,7 +18544,7 @@ INSERT INTO `vet_sites` (`id`, `code`, `name`, `soato`) VALUES
 --
 DROP TABLE IF EXISTS `district_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`region_id` AS `region_id`,`s`.`district_id` AS `district_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is null and `s`.`district_id` is not null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS SELECT `s`.`MHOBT_cod` AS `MHOBT_cod`, `s`.`region_id` AS `region_id`, `s`.`district_id` AS `district_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`qfi_id` is null AND `s`.`district_id` is not null;
 
 -- --------------------------------------------------------
 
@@ -18877,7 +18553,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `qfi_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `qfi_view`  AS  select `s`.`MHOBT_cod` AS `MHOBT_cod`,`s`.`district_id` AS `district_id`,`s`.`region_id` AS `region_id`,`s`.`qfi_id` AS `qfi_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`qfi_id` is not null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `qfi_view`  AS SELECT `s`.`MHOBT_cod` AS `MHOBT_cod`, `s`.`district_id` AS `district_id`, `s`.`region_id` AS `region_id`, `s`.`qfi_id` AS `qfi_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`qfi_id` is not null ;
 
 -- --------------------------------------------------------
 
@@ -18886,7 +18562,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `regions_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS  select `s`.`region_id` AS `region_id`,`s`.`name_lot` AS `name_lot`,`s`.`center_lot` AS `center_lot`,`s`.`name_cyr` AS `name_cyr`,`s`.`center_cyr` AS `center_cyr`,`s`.`name_ru` AS `name_ru`,`s`.`center_ru` AS `center_ru` from `soato` `s` where `s`.`district_id` is null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS SELECT `s`.`region_id` AS `region_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`district_id` is null ;
 
 --
 -- Indexes for dumped tables
@@ -19258,18 +18934,26 @@ ALTER TABLE `result_animal`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `sample_id` (`sample_id`),
   ADD KEY `FK_result_animal_sample_id` (`sample_id`),
-  ADD KEY `FK_result_animal_state_id` (`state_id`),
-  ADD KEY `FK_result_animal_another_disease_id` (`another_disease_id`);
+  ADD KEY `FK_result_animal_state_id` (`state_id`);
+
+--
+-- Indexes for table `result_animal_conditions`
+--
+ALTER TABLE `result_animal_conditions`
+  ADD PRIMARY KEY (`result_id`,`creator_id`,`sample_id`),
+  ADD KEY `FK_result_animal_conditions_sample_id` (`sample_id`),
+  ADD KEY `FK_result_animal_conditions_creator_id` (`creator_id`),
+  ADD KEY `FK_result_animal_conditions_is_another` (`is_another`);
 
 --
 -- Indexes for table `result_animal_tests`
 --
 ALTER TABLE `result_animal_tests`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_result_animal_tests_template_id` (`template_id`),
+  ADD PRIMARY KEY (`route_id`,`result_id`,`template_id`),
   ADD KEY `FK_result_animal_tests_type_id` (`type_id`),
-  ADD KEY `FK_result_animal_tests_result_id` (`result_id`),
-  ADD KEY `FK_result_animal_tests_change_unit_id` (`change_unit_id`);
+  ADD KEY `FK_result_animal_tests_change_unit_id` (`change_unit_id`),
+  ADD KEY `FK_result_animal_tests_template_id` (`template_id`),
+  ADD KEY `FK_result_animal_tests_result_id` (`result_id`);
 
 --
 -- Indexes for table `result_food`
@@ -19308,13 +18992,13 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `route_sert`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `sample_id` (`sample_id`),
   ADD KEY `FK_route_sert_status_id` (`state_id`),
   ADD KEY `FK_route_sert_reciever_id` (`leader_id`),
   ADD KEY `FK_route_sert_sender_id` (`director_id`),
   ADD KEY `FK_route_sert_sample_id2` (`sample_id`),
   ADD KEY `FK_route_sert_registration_id` (`registration_id`),
-  ADD KEY `FK_route_sert_status_id2` (`status_id`);
+  ADD KEY `FK_route_sert_status_id2` (`status_id`),
+  ADD KEY `sample_id` (`sample_id`);
 
 --
 -- Indexes for table `route_status`
@@ -19543,7 +19227,7 @@ ALTER TABLE `vet_sites`
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `animal_status`
@@ -19561,13 +19245,13 @@ ALTER TABLE `countres`
 -- AUTO_INCREMENT for table `destruction_sample_animal`
 --
 ALTER TABLE `destruction_sample_animal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `destruction_sample_food`
 --
 ALTER TABLE `destruction_sample_food`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `diseases`
@@ -19603,7 +19287,7 @@ ALTER TABLE `food_category`
 -- AUTO_INCREMENT for table `food_compose`
 --
 ALTER TABLE `food_compose`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `food_group`
@@ -19615,7 +19299,7 @@ ALTER TABLE `food_group`
 -- AUTO_INCREMENT for table `food_recomendation`
 --
 ALTER TABLE `food_recomendation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `food_registration`
@@ -19747,13 +19431,7 @@ ALTER TABLE `results_conformity`
 -- AUTO_INCREMENT for table `result_animal`
 --
 ALTER TABLE `result_animal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT for table `result_animal_tests`
---
-ALTER TABLE `result_animal_tests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `result_food`
@@ -19765,7 +19443,7 @@ ALTER TABLE `result_food`
 -- AUTO_INCREMENT for table `result_food_tests`
 --
 ALTER TABLE `result_food_tests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `result_type`
@@ -19783,7 +19461,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `route_sert`
 --
 ALTER TABLE `route_sert`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `route_status`
@@ -19795,7 +19473,7 @@ ALTER TABLE `route_status`
 -- AUTO_INCREMENT for table `samples`
 --
 ALTER TABLE `samples`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `sample_conditions`
@@ -19807,13 +19485,13 @@ ALTER TABLE `sample_conditions`
 -- AUTO_INCREMENT for table `sample_recomendation`
 --
 ALTER TABLE `sample_recomendation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sample_registration`
 --
 ALTER TABLE `sample_registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `sample_status`
@@ -19825,7 +19503,7 @@ ALTER TABLE `sample_status`
 -- AUTO_INCREMENT for table `sertificates`
 --
 ALTER TABLE `sertificates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `sert_normatives`
@@ -19843,7 +19521,7 @@ ALTER TABLE `sert_status`
 -- AUTO_INCREMENT for table `source_message`
 --
 ALTER TABLE `source_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1527;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1533;
 
 --
 -- AUTO_INCREMENT for table `state_list`
@@ -20107,9 +19785,17 @@ ALTER TABLE `results_conformity`
 -- Constraints for table `result_animal`
 --
 ALTER TABLE `result_animal`
-  ADD CONSTRAINT `FK_result_animal_another_disease_id` FOREIGN KEY (`another_disease_id`) REFERENCES `diseases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_sample_id` FOREIGN KEY (`sample_id`) REFERENCES `samples` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_state_id` FOREIGN KEY (`state_id`) REFERENCES `state_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `result_animal_conditions`
+--
+ALTER TABLE `result_animal_conditions`
+  ADD CONSTRAINT `FK_result_animal_conditions_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_result_animal_conditions_is_another` FOREIGN KEY (`is_another`) REFERENCES `diseases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_result_animal_conditions_result_id` FOREIGN KEY (`result_id`) REFERENCES `result_animal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_result_animal_conditions_sample_id` FOREIGN KEY (`sample_id`) REFERENCES `samples` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `result_animal_tests`
@@ -20117,6 +19803,7 @@ ALTER TABLE `result_animal`
 ALTER TABLE `result_animal_tests`
   ADD CONSTRAINT `FK_result_animal_tests_change_unit_id` FOREIGN KEY (`change_unit_id`) REFERENCES `template_unit` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_tests_result_id` FOREIGN KEY (`result_id`) REFERENCES `result_animal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_result_animal_tests_route_id` FOREIGN KEY (`route_id`) REFERENCES `route_sert` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_tests_template_id` FOREIGN KEY (`template_id`) REFERENCES `tamplate_animal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_tests_type_id` FOREIGN KEY (`type_id`) REFERENCES `template_unit_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
