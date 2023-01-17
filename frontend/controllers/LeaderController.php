@@ -14,6 +14,7 @@ use common\models\FoodRoute;
 use common\models\FoodSamples;
 use common\models\Regulations;
 use common\models\ResultAnimal;
+use common\models\ResultAnimalConditions;
 use common\models\ResultAnimalTests;
 use common\models\ResultFood;
 use common\models\ResultFoodTests;
@@ -268,7 +269,15 @@ class LeaderController extends Controller
 
         $result = ResultAnimal::findOne(['sample_id' => $sample->id]);
         $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id])->andWhere(['checked' => 1])->all();
-
+        $conditions = null;
+        if(!($conditions = ResultAnimalConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
+            $conditions = new ResultAnimalConditions();
+            $conditions->sample_id = $sample->id;
+            $conditions->route_id = $model->id;
+            $conditions->result_id = $result->id;
+            $conditions->is_another = 0;
+            $conditions->save();
+        }
         $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
             ->innerJoin('tamplate_animal', 'tamplate_animal.id=template_animal_regulations.template_id')
             ->where('tamplate_animal.id in (select result_animal_tests.template_id from result_animal_tests where result_id=' . $result->id . ')')
@@ -280,7 +289,8 @@ class LeaderController extends Controller
             'result' => $result,
             'emp' => $emp,
             'test' => $test,
-            'docs' => $docs
+            'docs' => $docs,
+            'conditions'=>$conditions
         ]);
     }
 

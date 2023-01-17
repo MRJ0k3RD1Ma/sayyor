@@ -216,7 +216,7 @@ YiiAsset::register($this);
             <div class="col-md-6">
                 <h3>Tekshiruv sharoiti</h3>
                 <?= DetailView::widget([
-                    'model' => $result,
+                    'model' => $conditions,
                     'attributes' => [
                         'temprature',
                         'humidity',
@@ -408,38 +408,38 @@ YiiAsset::register($this);
                         <td><?php $sample = $result->sample; echo $sample->suspectedDisease->vet4 . $sample->animal->type->vet4.'-'.$sample->suspectedDisease->{'name_'.$lg}.', '.$sample->animal->type->{'name_'.$lg}; ?></td>
                         <td><?= $model->vet4.', '.\common\models\SampleTypes::findOne(['vet4'=>substr($model->vet4,5,3)])->{'name_'.$lg} ?></td>
                         <td><?= $sample->cnt?></td>
-                        <td><?= $result->patonomiya?></td>
-                        <td><?= $result->organoleptika?></td>
-                        <td><?= $result->mikroskopiya_nurli?></td>
-                        <td><?= $result->mikroskopiya_lyuminesent?></td>
-                        <td><?= $result->bakterilogik?></td>
-                        <td><?= $result->virusologik_TE_KE?></td>
-                        <td><?= $result->virusologik_XM_KK?></td>
-                        <td><?= $result->biologik?></td>
-                        <td><?= $result->RA_KR?></td>
-                        <td><?= $result->RSK?></td>
-                        <td><?= $result->RDSK?></td>
-                        <td><?= $result->RBP?></td>
-                        <td><?= $result->RMA?></td>
-                        <td><?= $result->RP_RDP?></td>
-                        <td><?= $result->RH?></td>
-                        <td><?= $result->RNGA?></td>
-                        <td><?= $result->RGKA?></td>
-                        <td><?= $result->RGA?></td>
-                        <td><?= $result->IFA?></td>
-                        <td><?= $result->IXLA?></td>
-                        <td><?= $result->boshqa_serologiya?></td>
-                        <td><?= $result->PSR?></td>
-                        <td><?= $result->gistologiya?></td>
-                        <td><?= $result->gemotologiya?></td>
-                        <td><?= $result->koprologiya?></td>
-                        <td><?= $result->kimyoviy?></td>
-                        <td><?= $result->biokimyoviy?></td>
+                        <td><?= $conditions->patonomiya?></td>
+                        <td><?= $conditions->organoleptika?></td>
+                        <td><?= $conditions->mikroskopiya_nurli?></td>
+                        <td><?= $conditions->mikroskopiya_lyuminesent?></td>
+                        <td><?= $conditions->bakterilogik?></td>
+                        <td><?= $conditions->virusologik_TE_KE?></td>
+                        <td><?= $conditions->virusologik_XM_KK?></td>
+                        <td><?= $conditions->biologik?></td>
+                        <td><?= $conditions->RA_KR?></td>
+                        <td><?= $conditions->RSK?></td>
+                        <td><?= $conditions->RDSK?></td>
+                        <td><?= $conditions->RBP?></td>
+                        <td><?= $conditions->RMA?></td>
+                        <td><?= $conditions->RP_RDP?></td>
+                        <td><?= $conditions->RH?></td>
+                        <td><?= $conditions->RNGA?></td>
+                        <td><?= $conditions->RGKA?></td>
+                        <td><?= $conditions->RGA?></td>
+                        <td><?= $conditions->IFA?></td>
+                        <td><?= $conditions->IXLA?></td>
+                        <td><?= $conditions->boshqa_serologiya?></td>
+                        <td><?= $conditions->PSR?></td>
+                        <td><?= $conditions->gistologiya?></td>
+                        <td><?= $conditions->gemotologiya?></td>
+                        <td><?= $conditions->koprologiya?></td>
+                        <td><?= $conditions->kimyoviy?></td>
+                        <td><?= $conditions->biokimyoviy?></td>
                         <?php
                         $cnt = 0;
                         $sum = 0;
                         $n=0;
-                        foreach ($result->getAttributes() as $key=>$item){
+                        foreach ($conditions->getAttributes() as $key=>$item){
                             $n++;
                             if($n>17){
                                 if($item != 0){
@@ -449,7 +449,7 @@ YiiAsset::register($this);
                             }
                         }
                         ?>
-                        <td><?= $result->ads?></td>
+                        <td><?= $conditions->ads?></td>
                         <td><?= $cnt?></td>
 
 
