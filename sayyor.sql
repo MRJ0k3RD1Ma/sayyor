@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2023 at 09:19 PM
+-- Generation Time: Jan 17, 2023 at 01:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -3751,7 +3751,7 @@ INSERT INTO `result_animal` (`id`, `code`, `code_id`, `consent_id`, `created`, `
 
 CREATE TABLE `result_animal_conditions` (
   `sample_id` int(11) NOT NULL,
-  `creator_id` int(11) NOT NULL,
+  `route_id` int(11) NOT NULL,
   `result_id` int(11) NOT NULL,
   `end_date` date DEFAULT NULL,
   `temprature` int(11) DEFAULT NULL,
@@ -3969,9 +3969,9 @@ CREATE TABLE `route_sert` (
 
 INSERT INTO `route_sert` (`id`, `director_id`, `leader_id`, `executor_id`, `deadline`, `ads`, `state_id`, `created`, `updated`, `sample_id`, `registration_id`, `status_id`, `sample_type_id`, `vet4`, `is_group`) VALUES
 (82, 3, 9, NULL, NULL, NULL, 1, '2023-01-16 23:04:31', '2023-01-16 23:04:31', 152, 82, 1, 1, '30802001', 0),
-(84, 3, 4, NULL, NULL, NULL, 1, '2023-01-16 23:20:04', '2023-01-16 23:20:04', 152, 82, 1, 1, '30802001', 0),
+(84, 3, 4, 5, '2023-01-22', '', 1, '2023-01-16 23:20:04', '2023-01-17 17:37:55', 152, 82, 2, 1, '30802001', 0),
 (86, 3, 7, NULL, NULL, NULL, 1, '2023-01-17 00:26:48', '2023-01-17 00:26:48', 152, 82, 1, 1, '30802001', 0),
-(87, 3, 4, NULL, NULL, NULL, 1, '2023-01-17 00:53:43', '2023-01-17 01:08:00', 151, 82, 1, 1, NULL, 1),
+(87, 3, 4, 5, '2023-01-22', '', 1, '2023-01-17 00:53:43', '2023-01-17 17:37:55', 151, 82, 2, 1, NULL, 1),
 (89, 3, 8, NULL, NULL, NULL, 1, '2023-01-17 01:12:24', '2023-01-17 01:12:24', 150, 82, 1, 1, NULL, 1);
 
 -- --------------------------------------------------------
@@ -18544,7 +18544,7 @@ INSERT INTO `vet_sites` (`id`, `code`, `name`, `soato`) VALUES
 --
 DROP TABLE IF EXISTS `district_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS SELECT `s`.`MHOBT_cod` AS `MHOBT_cod`, `s`.`region_id` AS `region_id`, `s`.`district_id` AS `district_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`qfi_id` is null AND `s`.`district_id` is not null;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `district_view`  AS SELECT `s`.`MHOBT_cod` AS `MHOBT_cod`, `s`.`region_id` AS `region_id`, `s`.`district_id` AS `district_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`qfi_id` is null AND `s`.`district_id` is not null ;
 
 -- --------------------------------------------------------
 
@@ -18562,7 +18562,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `regions_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS SELECT `s`.`region_id` AS `region_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`district_id` is null ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `regions_view`  AS SELECT `s`.`region_id` AS `region_id`, `s`.`name_lot` AS `name_lot`, `s`.`center_lot` AS `center_lot`, `s`.`name_cyr` AS `name_cyr`, `s`.`center_cyr` AS `center_cyr`, `s`.`name_ru` AS `name_ru`, `s`.`center_ru` AS `center_ru` FROM `soato` AS `s` WHERE `s`.`district_id` is null;
 
 --
 -- Indexes for dumped tables
@@ -18940,10 +18940,10 @@ ALTER TABLE `result_animal`
 -- Indexes for table `result_animal_conditions`
 --
 ALTER TABLE `result_animal_conditions`
-  ADD PRIMARY KEY (`result_id`,`creator_id`,`sample_id`),
+  ADD PRIMARY KEY (`result_id`,`route_id`,`sample_id`),
   ADD KEY `FK_result_animal_conditions_sample_id` (`sample_id`),
-  ADD KEY `FK_result_animal_conditions_creator_id` (`creator_id`),
-  ADD KEY `FK_result_animal_conditions_is_another` (`is_another`);
+  ADD KEY `FK_result_animal_conditions_is_another` (`is_another`),
+  ADD KEY `FK_result_animal_conditions_route_id` (`route_id`);
 
 --
 -- Indexes for table `result_animal_tests`
@@ -19792,9 +19792,9 @@ ALTER TABLE `result_animal`
 -- Constraints for table `result_animal_conditions`
 --
 ALTER TABLE `result_animal_conditions`
-  ADD CONSTRAINT `FK_result_animal_conditions_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_conditions_is_another` FOREIGN KEY (`is_another`) REFERENCES `diseases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_conditions_result_id` FOREIGN KEY (`result_id`) REFERENCES `result_animal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_result_animal_conditions_route_id` FOREIGN KEY (`route_id`) REFERENCES `route_sert` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_result_animal_conditions_sample_id` FOREIGN KEY (`sample_id`) REFERENCES `samples` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
