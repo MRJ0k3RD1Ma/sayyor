@@ -204,23 +204,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="row">
                     <div class="col-md-6">
-                        <?= $form->field($result, 'temprature')->textInput(['type' => 'number']) ?>
+                        <?= $form->field($conditions, 'temprature')->textInput(['type' => 'number']) ?>
 
-                        <?= $form->field($result, 'humidity')->textInput(['type' => 'number']) ?>
+                        <?= $form->field($conditions, 'humidity')->textInput(['type' => 'number']) ?>
 
-                        <?= $form->field($result, 'reagent_series')->textInput() ?>
+                        <?= $form->field($conditions, 'reagent_series')->textInput() ?>
 
-                        <?= $form->field($result, 'reagent_name')->textInput() ?>
+                        <?= $form->field($conditions, 'reagent_name')->textInput() ?>
 
                     </div>
                     <div class="col-md-6">
-                        <?= $form->field($result, 'conditions')->textInput() ?>
+                        <?= $form->field($conditions, 'conditions')->textInput() ?>
 
-                        <?= $form->field($result, 'end_date')->textInput(['type' => 'date']) ?>
+                        <?= $form->field($conditions, 'end_date')->textInput(['type' => 'date']) ?>
 
-                        <?= $form->field($result, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;']) ?>
+                        <?= $form->field($conditions, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;']) ?>
 
-                        <?= $form->field($result, 'why_change')->textInput(['disabled'=> $result->is_change==0 ? true : false]) ?>
+                        <?= $form->field($conditions, 'why_change')->textInput(['disabled'=> $conditions->is_change==0 ? true : false]) ?>
 
                 </div>
             </div>
@@ -247,7 +247,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="hidden" hidden> <?= $form->field($item, '[' . $item->id . ']checked')->checkbox(['value' => 1, 'data-id' => $item->id, 'class' => 'checkboxok'], false)->label(false) ?></div>
                             <tr id="tr-<?= $item->id ?>"
                                 style="<?= $item->checked == 1 ? 'background: #fff;' : 'background: #e9e9ef;' ?>">
-                                <td><?= $item->id ?></td>
+                                <td><?= $item->template_id ?></td>
                                 <td><?= $item->template->{'name_' . $lg} ?></td>
                                 <td><?= $item->unit->{'name_' . $lg} ?></td>
 
@@ -266,7 +266,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= Yii::$app->params['unit_belgi'][intval($item->ch_min1)].' - '.Yii::$app->params['unit_belgi'][intval($item->ch_max1)]?>
                                 <?php }?>
 
-                                    <?= $form->field($item, '['.$item->id.']is_change')->checkbox(['class'=>'minmaxedit','value'=>1,'disabled'=>$result->is_change==0?true:false,'data-key'=>$item->id]) ?>
+                                    <?= $form->field($item, '['.$item->id.']is_change')->checkbox(['class'=>'minmaxedit','value'=>1,'disabled'=>$conditions->is_change==0?true:false,'data-key'=>$item->id]) ?>
                                     <div class="changeminmax" data-key="<?= $item->id ?>" style="margin-top:10px; display: none">
 
                                         <?= $form->field($item,'['.$item->id.']change_unit_id')->dropDownList(
@@ -384,96 +384,96 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-                    <?= $form->field($result,'ads')->dropDownList(['0'=>Yii::t('lab','Tasdiqlanmadi'),1=>Yii::t('lab','Tasdiqlandi')],['prompt'=>Yii::t('lab','Umumiy tekshiruv natijasi')])?>
+                    <?= $form->field($conditions,'ads')->dropDownList(['0'=>Yii::t('lab','Tasdiqlanmadi'),1=>Yii::t('lab','Tasdiqlandi')],['prompt'=>Yii::t('lab','Umumiy tekshiruv natijasi')])?>
             </div>
 
                 <h4>O'tkazilgan tekshiruv natijalari:</h4>
                     <div class="row">
                         <div class="col-md-2">
-                            <?= $form->field($result,'patonomiya')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'patonomiya')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'organoleptika')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'organoleptika')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'mikroskopiya_nurli')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'mikroskopiya_nurli')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'mikroskopiya_lyuminesent')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'mikroskopiya_lyuminesent')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'bakterilogik')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'bakterilogik')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'virusologik_TE_KE')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'virusologik_TE_KE')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'virusologik_XM_KK')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'virusologik_XM_KK')->checkbox(['value'=>1])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'biologik')->checkbox(['value'=>1])?>
+                            <?= $form->field($conditions,'biologik')->checkbox(['value'=>1])?>
                         </div>
 
 
                    <h4> Serologik tekshiruvlar:</h4>
                         <div class="row">
                             <div class="col-md-2">
-                                <?= $form->field($result,'RA_KR')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RA_KR')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RSK')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RSK')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RDSK')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RDSK')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RBP')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RBP')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RMA')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RMA')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RP_RDP')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RP_RDP')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RH')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RH')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RNGA')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RNGA')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'RGA')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'RGA')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'IFA')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'IFA')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'IXLA')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'IXLA')->checkbox(['value'=>1])?>
                             </div>
                             <div class="col-md-2">
-                                <?= $form->field($result,'boshqa_serologiya')->checkbox(['value'=>1])?>
+                                <?= $form->field($conditions,'boshqa_serologiya')->checkbox(['value'=>1])?>
                             </div>
                         </div>
 
 
                    <div class="row">
                        <div class="col-md-2">
-                           <?= $form->field($result,'PSR')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'PSR')->checkbox(['value'=>1])?>
                        </div>
                        <div class="col-md-2">
-                           <?= $form->field($result,'gistologiya')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'gistologiya')->checkbox(['value'=>1])?>
                        </div>
                        <div class="col-md-2">
-                           <?= $form->field($result,'gemotologiya')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'gemotologiya')->checkbox(['value'=>1])?>
                        </div>
                        <div class="col-md-2">
-                           <?= $form->field($result,'koprologiya')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'koprologiya')->checkbox(['value'=>1])?>
                        </div>
                        <div class="col-md-2">
-                           <?= $form->field($result,'kimyoviy')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'kimyoviy')->checkbox(['value'=>1])?>
                        </div>
                        <div class="col-md-2">
-                           <?= $form->field($result,'biokimyoviy')->checkbox(['value'=>1])?>
+                           <?= $form->field($conditions,'biokimyoviy')->checkbox(['value'=>1])?>
                        </div>
 
                    </div>
@@ -517,23 +517,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="row">
                     <div class="col-md-6">
-                        <?= $form->field($result, 'temprature')->textInput(['type' => 'number', 'disabled' => true]) ?>
+                        <?= $form->field($conditions, 'temprature')->textInput(['type' => 'number', 'disabled' => true]) ?>
 
-                        <?= $form->field($result, 'humidity')->textInput(['type' => 'number', 'disabled' => true]) ?>
+                        <?= $form->field($conditions, 'humidity')->textInput(['type' => 'number', 'disabled' => true]) ?>
 
-                        <?= $form->field($result, 'reagent_series')->textInput(['disabled' => true]) ?>
+                        <?= $form->field($conditions, 'reagent_series')->textInput(['disabled' => true]) ?>
 
-                        <?= $form->field($result, 'reagent_name')->textInput(['disabled' => true]) ?>
+                        <?= $form->field($conditions, 'reagent_name')->textInput(['disabled' => true]) ?>
 
                     </div>
                     <div class="col-md-6">
-                        <?= $form->field($result, 'conditions')->textInput(['disabled' => true]) ?>
+                        <?= $form->field($conditions, 'conditions')->textInput(['disabled' => true]) ?>
 
-                        <?= $form->field($result, 'end_date')->textInput(['type' => 'date', 'disabled' => true]) ?>
+                        <?= $form->field($conditions, 'end_date')->textInput(['type' => 'date', 'disabled' => true]) ?>
 
-                        <?= $form->field($result, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;','disabled'=>true]) ?>
+                        <?= $form->field($conditions, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;','disabled'=>true]) ?>
 
-                        <?= $form->field($result, 'why_change')->textInput(['disabled'=> true]) ?>
+                        <?= $form->field($conditions, 'why_change')->textInput(['disabled'=> true]) ?>
 
                     </div>
                 </div>
@@ -609,96 +609,96 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <?= $form->field($result,'ads')->dropDownList(['0'=>Yii::t('lab','Tasdiqlanmadi'),1=>Yii::t('lab','Tasdiqlandi')],['prompt'=>Yii::t('lab','Umumiy tekshiruv natijasi'),'disabled'=>true])?>
+            <?= $form->field($conditions,'ads')->dropDownList(['0'=>Yii::t('lab','Tasdiqlanmadi'),1=>Yii::t('lab','Tasdiqlandi')],['prompt'=>Yii::t('lab','Umumiy tekshiruv natijasi'),'disabled'=>true])?>
 
         </div>
                 <h4>O`tkazilgan tekshruv 4VET uchun:</h4>
                 <div class="row">
                     <div class="col-md-2">
-                        <?= $form->field($result,'patonomiya')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'patonomiya')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'organoleptika')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'organoleptika')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'mikroskopiya_nurli')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'mikroskopiya_nurli')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'mikroskopiya_lyuminesent')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'mikroskopiya_lyuminesent')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'bakterilogik')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'bakterilogik')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'virusologik_TE_KE')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'virusologik_TE_KE')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'virusologik_XM_KK')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'virusologik_XM_KK')->checkbox(['disabled'=>true])?>
                     </div>
                     <div class="col-md-2">
-                        <?= $form->field($result,'biologik')->checkbox(['disabled'=>true])?>
+                        <?= $form->field($conditions,'biologik')->checkbox(['disabled'=>true])?>
                     </div>
 
 
                     <h4> Serologik tekshiruvlar:</h4>
                     <div class="row">
                         <div class="col-md-2">
-                            <?= $form->field($result,'RA_KR')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RA_KR')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RSK')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RSK')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RDSK')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RDSK')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RBP')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RBP')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RMA')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RMA')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RP_RDP')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RP_RDP')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RH')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RH')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RNGA')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RNGA')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'RGA')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'RGA')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'IFA')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'IFA')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'IXLA')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'IXLA')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'boshqa_serologiya')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'boshqa_serologiya')->checkbox(['disabled'=>true])?>
                         </div>
                     </div>
 
 
                     <div class="row">
                         <div class="col-md-2">
-                            <?= $form->field($result,'PSR')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'PSR')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'gistologiya')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'gistologiya')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'gemotologiya')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'gemotologiya')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'koprologiya')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'koprologiya')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'kimyoviy')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'kimyoviy')->checkbox(['disabled'=>true])?>
                         </div>
                         <div class="col-md-2">
-                            <?= $form->field($result,'biokimyoviy')->checkbox(['disabled'=>true])?>
+                            <?= $form->field($conditions,'biokimyoviy')->checkbox(['disabled'=>true])?>
                         </div>
 
                     </div>
@@ -743,16 +743,16 @@ $this->registerJs("
             $('#tr-'+id).css('background','#e9e9ef');
             $('#resultanimaltests-'+id+'-result').prop('disabled',true);
             $('#resultanimaltests-'+id+'-result_2').prop('disabled',true);
-            if($('#resultanimal-is_change').is(':checked')){
+            if($('#resultanimalconditions-is_change').is(':checked')){
                 $('#resultanimaltests-'+id+'-is_change').prop('disabled',true);
             }
         }
     })
       
-    $('#resultanimal-is_change').change(function(){
+    $('#resultanimalconditions-is_change').change(function(){
         
-        if($('#resultanimal-is_change').is(':checked')){
-            $('#resultanimal-why_change').prop('disabled',false);
+        if($('#resultanimalconditions-is_change').is(':checked')){
+            $('#resultanimalconditions-why_change').prop('disabled',false);
             $('.checkboxok').each(function(){
                  var id = this.getAttribute('data-id');
                  if(this.checked){
@@ -760,7 +760,7 @@ $this->registerJs("
                  }
             });
         }else{
-            $('#resultanimal-why_change').prop('disabled',true);
+            $('#resultanimalconditions-why_change').prop('disabled',true);
             $('.unitresult.false').css('display','none');
             $('.unitresult.true').css('display','block');
             $('.checkboxok').each(function(){

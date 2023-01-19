@@ -14,6 +14,7 @@ use common\models\FoodRegistration;
 use common\models\FoodRoute;
 use common\models\Regulations;
 use common\models\ResultAnimal;
+use common\models\ResultAnimalConditions;
 use common\models\ResultAnimalTests;
 use common\models\ResultFood;
 use common\models\ResultFoodTests;
@@ -128,14 +129,31 @@ class LabController extends Controller
 
         $route = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>0])->all();
         $route_gr = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>1])->all();
-        $test = new TestForm();
-        $res = ResultAnimal::findOne(['sample_id'=>RouteSert::findOne(['registration_id'=>$id])->sample_id]);
-        $test->temprature = $res->temprature;
+
+        $res = ResultAnimal::findOne(['sample_id'=>RouteSert::findOne(['registration_id'=>$id,'executor_id'=>Yii::$app->user->id])->sample_id]);
+        $rid = 1;
+        if(!($rid = $route[0]->id)){
+            $rid=$route_gr[0]->id;
+        }
+        $test = null;
+        if(!($test = ResultAnimalConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>RouteSert::findOne(['registration_id'=>$id,'executor_id'=>Yii::$app->user->id])->sample_id]))){
+            $test = new ResultAnimalConditions();
+            $test->route_id = $model->id;
+            $test->result_id = $res->id;
+            $test->is_another = 0;
+            $test->save();
+        }
 
         if($test->load(Yii::$app->request->post())){
 
             foreach ($route as $item){
-                $result = ResultAnimal::findOne(['sample_id'=>$item->sample_id]);
+                $result = [];
+                if(!($result = ResultAnimalConditions::findOne(['sample_id'=>$item->sample_id]))){
+                    $result = new ResultAnimalConditions();
+                }
+                $result->route_id = $item->id;
+                $result->result_id = ResultAnimal::findOne(['sample_id'=>$item->sample_id])->id;
+                $result->sample_id = $item->sample_id;
                 $result->temprature = $test->temprature;
                 $result->humidity = $test->humidity;
                 $result->reagent_name = $test->reagent_name;
@@ -145,7 +163,13 @@ class LabController extends Controller
                 $result->save(false);
             }
             foreach ($route_gr as $item){
-                $result = ResultAnimal::findOne(['sample_id'=>$item->sample_id]);
+                $result = [];
+                if(!($result = ResultAnimalConditions::findOne(['sample_id'=>$item->sample_id]))){
+                    $result = new ResultAnimalConditions();
+                }
+                $result->route_id = $item->id;
+                $result->result_id = ResultAnimal::findOne(['sample_id'=>$item->sample_id])->id;
+                $result->sample_id = $item->sample_id;
                 $result->temprature = $test->temprature;
                 $result->humidity = $test->humidity;
                 $result->reagent_name = $test->reagent_name;
@@ -219,24 +243,34 @@ class LabController extends Controller
         $result = ResultAnimal::findOne(['sample_id' => $sample->id]);
 
         $recom = new SampleRecomendation();
-        $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id])->all();
+        $test = ResultAnimalTests::find()->indexBy('id')->where(['route_id'=>$id,'result_id'=>$result->id])->all();
+        $conditions = null;
+        if(!($conditions = ResultAnimalConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
+            $conditions = new ResultAnimalConditions();
+            $conditions->sample_id = $sample->id;
+            $conditions->route_id = $model->id;
+            $conditions->result_id = $result->id;
+            $conditions->is_another = 0;
+            $conditions->save();
+        }
 
         if($recom->load(Yii::$app->request->post())){
             $recom->sample_id = $sample->id;
             $recom->save();
             return $this->refresh();
         }
-        if($result->load(Yii::$app->request->post())){
-            if($result->is_change == 0){
-                $result->why_change = "";
+        if($conditions->load(Yii::$app->request->post())){
+            if($conditions->is_change == 0){
+                $conditions->why_change = "";
             }
-            $result->save();
+            $conditions->save();
         }
         if (Model::loadMultiple($test, Yii::$app->request->post())) {
 
             foreach ($test as $item) {
 
-                if($result->is_change == 0){
+
+                if($conditions->is_change == 0){
                     $item->is_change = 0;
                 }
                 $type = $item->unit->type_id;
@@ -294,7 +328,8 @@ class LabController extends Controller
             'result' => $result,
             'test' => $test,
             'docs' => $docs,
-            'recom'=>$recom
+            'recom'=>$recom,
+            'conditions'=>$conditions
         ]);
     }
 
@@ -302,13 +337,20 @@ class LabController extends Controller
     {
 
         $model = RouteSert::findOne($id);
-        $res = ResultAnimal::findOne(['sample_id'=>$model->sample_id]);
+
+        $result = ResultAnimal::findOne(['sample_id'=>$model->sample_id]);
+        $res = ResultAnimalConditions::findOne([
+            'route_id'=>$model->id,
+            'sample_id'=>$model->sample_id,
+            'result_id'=>$result->id
+        ]);
+
         $n=0;
         $true = false;
 
         foreach ($res->getAttributes() as $key=>$item){
             $n++;
-            if($n>17){
+            if($n>13){
                 if($item!=0){
                     $true = true;
                 }

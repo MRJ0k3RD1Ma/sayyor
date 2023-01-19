@@ -268,7 +268,7 @@ class LeaderController extends Controller
         }
 
         $result = ResultAnimal::findOne(['sample_id' => $sample->id]);
-        $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id])->andWhere(['checked' => 1])->all();
+        $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id,'route_id'=>$model->id])->andWhere(['checked' => 1])->all();
         $conditions = null;
         if(!($conditions = ResultAnimalConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
             $conditions = new ResultAnimalConditions();

@@ -280,7 +280,7 @@ YiiAsset::register($this);
                                     <td><?= $item->ch_min1 . '-' . $item->ch_max1 ?>
                                         <br> <?= $item->ch_min2 . '-' . $item->ch_max2 ?></td>
                                 <?php }elseif($type == 5){ ?>
-                                    <td><?= Yii::$app->params['unit_belgi'][inval($item->ch_min1)].' - '.Yii::$app->params['unit_belgi'][intval($item->ch_max1)]?></td>
+                                    <td><?= Yii::$app->params['unit_belgi'][intval($item->ch_min1)].' - '.Yii::$app->params['unit_belgi'][intval($item->ch_max1)]?></td>
                                 <?php }?>
                                 <td>
                                     <?php if ($type == 1) { ?>
