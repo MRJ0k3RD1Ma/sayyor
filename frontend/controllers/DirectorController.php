@@ -20,6 +20,7 @@ use common\models\FoodSamplingCertificate;
 use common\models\Organizations;
 use common\models\Regulations;
 use common\models\ResultAnimal;
+use common\models\ResultAnimalConditions;
 use common\models\ResultAnimalTests;
 use common\models\ResultFood;
 use common\models\ResultFoodTests;
@@ -119,8 +120,6 @@ class DirectorController extends Controller
         $reg = SampleRegistration::findOne(['id' => $cs->registration_id]);
 
         $result->consent_id = $model->director_id;
-        $result->creator_id = $model->executor_id;
-        $result->end_date = date('Y-m-d');
         $result->save();
         $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
             ->innerJoin('tamplate_animal', 'tamplate_animal.id=template_animal_regulations.template_id')
@@ -213,8 +212,8 @@ class DirectorController extends Controller
     public function actionViewreganimal($id){
 
         $model = SampleRegistration::findOne($id);
-        $route = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['director_id'=>Yii::$app->user->id])->andWhere(['is_group'=>0])->all();
-        $route_gr = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['director_id'=>Yii::$app->user->id])->andWhere(['is_group'=>1])->all();
+        $route = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['director_id'=>Yii::$app->user->id])->andWhere(['is_group'=>0])->orderBy(['sample_id'=>SORT_ASC])->all();
+        $route_gr = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['director_id'=>Yii::$app->user->id])->andWhere(['is_group'=>1])->orderBy(['sample_id'=>SORT_ASC])->all();
         $cnt_not = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['director_id'=>Yii::$app->user->id])->andWhere(['<>','status_id',5])->count('id');
 
         if($model->load(Yii::$app->request->post()) and $cnt_not==0){
@@ -638,19 +637,28 @@ class DirectorController extends Controller
             ->andWhere(['emp_posts.gov_id' => Yii::$app->user->identity->empPosts->gov_id])->all();
         $model->scenario = 'exec';
         $result = ResultAnimal::findOne(['sample_id' => $sample->id]);
-        $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id])->andWhere(['checked'=>1])->all();
+        $test = ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $result->id,'route_id'=>$id])->andWhere(['checked'=>1])->all();
         $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
             ->innerJoin('tamplate_animal', 'tamplate_animal.id=template_animal_regulations.template_id')
             ->where('tamplate_animal.id in (select result_animal_tests.template_id from result_animal_tests where result_id=' . $result->id . ')')
             ->groupBy('regulations.id')->all();
-
+        $conditions = null;
+        if(!($conditions = ResultAnimalConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
+            $conditions = new ResultAnimalConditions();
+            $conditions->sample_id = $sample->id;
+            $conditions->route_id = $model->id;
+            $conditions->result_id = $result->id;
+            $conditions->is_another = 0;
+            $conditions->save();
+        }
         return $this->render('viewanimal', [
             'model' => $model,
             'sample' => $sample,
             'result' => $result,
             'emp' => $emp,
             'test' => $test,
-            'docs' => $docs
+            'docs' => $docs,
+            'conditions'=>$conditions
         ]);
     }
 

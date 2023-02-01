@@ -95,14 +95,9 @@ $qr =function() use ($regmodel) {
 
 <?php $true=false; foreach ($resultanimal as $anim): ?>
 <?php if($true){ echo "<pagebreak>"; }else{$true = true;} ?>
-<div>
-    <?php
 
-    $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
-        ->innerJoin('tamplate_animal', 'tamplate_animal.id=template_animal_regulations.template_id')
-        ->where('tamplate_animal.id in (select result_animal_tests.template_id from result_animal_tests where result_animal_tests.checked = 1 and result_id=' . $anim->id . ')')
-        ->groupBy('regulations.id')->all();//->innerJoin('result_food_tests','template_food.id = result_food_tests.template_id and result_food_tests.checked=1')
-    ;
+    <div>
+    <?php
 
     $samples = $anim->sample;
     $res = "";
@@ -118,27 +113,36 @@ $qr =function() use ($regmodel) {
     ?>
     <b>Tekshiruv obyekti: Namuna nomi:</b> <?= $samples->sampleTypeIs->name_uz ?> <br>
     <b>Hayvon ma'lumotlari:</b> <?= $res?>
-</div>
+    </div>
 
 <div>
     <b>Namuna olingan joy:</b> <?= $sertificate->vetSite->name ?>, <b>manzili:</b> <?= Soato::Full($sertificate->vetSite->soato) ?>
 </div>
+    <div>
+        <b>Tekshirish maqsadi va vazifasi: Kasallikga tashhisi:</b> <?= $samples->suspectedDisease->name_uz?>
+    </div>
 
-<div>
-    <b>Tekshirish usuli bo'yicha NH:</b> <?php $n=0; foreach ($docs as $item){$n++; echo '<br>'.$n.'.'.$item->{'name_'.$lg}.' ';} ?>
-</div>
 
-<div>
-    <b>Tekshirish maqsadi va vazifasi: Kasallikga tashhisi:</b> <?= $samples->suspectedDisease->name_uz?>
-</div>
+    <?php $tpu=false; foreach (RouteSert::find()->where(['sample_id'=>$samples->id])->all() as $route):
+        $cond = \common\models\ResultAnimalConditions::findOne(['sample_id' => $route->sample_id, 'route_id' => $route->id, 'result_id' => $anim->id]) ?>
 
-<div>
-    <b>Tekshirish o'tkazilgan shartoit: Tempratura:</b><?= $anim->temprature?>, <b>Namlik:</b> <?= $anim->humidity?>, <b>Reaktivlar:</b> <?= $anim->reagent_series.' '.$anim->reagent_name?>, <b>Boshqa sharoitlar:</b><?= $anim->conditions?>
-</div>
-
+        <?php if($tpu){ echo "<pagebreak>"; }else{$tpu = true;} ?>
 <div style="text-align: center">
     <b>TEKSHIRUV NATIJALARI</b>
 </div>
+<div>
+    <b>Tekshirish o'tkazilgan shartoit: Tempratura:</b><?= @$cond->temprature?>, <b>Namlik:</b> <?= @$cond->humidity?>, <b>Reaktivlar:</b> <?= @$cond->reagent_series.' '.@$cond->reagent_name?>, <b>Boshqa sharoitlar:</b><?= @$cond->conditions?>
+</div>
+        <?php
+        $docs = \common\models\Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
+            ->innerJoin('tamplate_animal', 'tamplate_animal.id=template_animal_regulations.template_id')
+            ->where('tamplate_animal.id in (select result_animal_tests.template_id from result_animal_tests where result_animal_tests.checked = 1 and result_id=' . $anim->id . ' and route_id='.$route->id.')')
+            ->groupBy('regulations.id')->all();
+        ;
+        ?>
+        <div>
+            <b>Tekshirish usuli bo'yicha NH:</b> <?php $n=0; foreach ($docs as $item){$n++; echo '<br>'.$n.'.'.$item->{'name_'.$lg}.' ';} ?>
+        </div>
 
 <p><b>Namuna raqami:</b> <?= $samples->kod?></p>
 <table class="table table-bordered table-hover" style="text-align: center">
@@ -167,9 +171,10 @@ $qr =function() use ($regmodel) {
     <tbody>
     <tr>
         <td>4Vet</td>
-        <td colspan="4"><?php $route= RouteSert::findOne(['sample_id'=>$samples->id]); $route->vet4 ?></td>
+        <td colspan="4"><?php $route->vet4 ?></td>
     </tr>
-    <?php foreach ($anim->tests as $item): ?>
+    <?php foreach (\common\models\ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $anim->id,'route_id'=>$route->id])->andWhere(['checked'=>1])->all() as $item): ?>
+
         <tr>
             <td><?= $item->template->name_uz?></td>
             <td><?= $item->unit->name_uz ?></td>
@@ -211,8 +216,8 @@ $qr =function() use ($regmodel) {
     </tbody>
 </table>
 
-<?php $anim->ads = intval($anim->ads); $ra = [0=>'Tasdiqlanmadi',1=>'Tasdiqlandi',null=>'Kiritilmagan']; $color = [0=>'',1=>'red',null=>''];?>
-<p>Umumlashgan natija: <span style="color: <?= $color[$anim->ads]?>"><?= $ra[$anim->ads] ?></span></p>
+<?php $cond->ads = intval($cond->ads); $ra = [0=>'Tasdiqlanmadi',1=>'Tasdiqlandi',null=>'Kiritilmagan']; $color = [0=>'',1=>'red',null=>''];?>
+<p>Umumlashgan natija: <span style="color: <?= $color[$cond->ads]?>"><?= $ra[$cond->ads] ?></span></p>
 
 <p>Tekshirish sanasi: <?= $route->updated ?></p>
     <p>Qo'shimcha ma`lumot: Ushbu sinov bayoni faqat tekshirilgan namuna uchun taaluqlidir</p>
@@ -225,4 +230,6 @@ $qr =function() use ($regmodel) {
 <p>
     Tasdiqladi: <?= @$route->director->name ?>
 </p>
+
+<?php endforeach;?>
 <?php endforeach;?>

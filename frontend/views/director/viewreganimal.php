@@ -41,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td colspan="7">Birlashmagan namunalar ro'yhati</td>
             </tr>
-                <?php $cnt = 0; $n=0; foreach ($route as $item): $n++;?>
+                <?php $m = 0 ;$cnd_smp = 1; $cnt = 0; $n=0; foreach ($route as $item): $n++;
+
+                    $cnt_smp = RouteSert::find()->where(['sample_id'=>$item->sample_id])->count('*');
+                    if($m==0){
+                        $m = $cnt_smp;
+                    }
+                ?>
 
                 <tr>
                     <?php $txtcolor = "";
@@ -56,7 +62,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                     <td><span class="fa fa-circle <?= $txtcolor?>"></span> <?= $n?></td>
                     <td><?php $url = Yii::$app->urlManager->createUrl(['/director/viewanimal', 'id' => $item->id]); echo "<a href='{$url}' target='_blank'>{$item->sample->kod}</a>"?></td>
-                    <td><a href="<?= Yii::$app->urlManager->createUrl(['/director/getpdf','id'=>$item->sample_id])?>" target="_blank" class="btn btn-primary">PDF faylni ko'rish</a></td>
+                    <?php if($m == $cnt_smp){ ?>
+                    <td rowspan="<?= $cnt_smp?>">
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/director/getpdf','id'=>$item->sample_id])?>" target="_blank" class="btn btn-primary">PDF faylni ko'rish</a>
+                    </td>
+                    <?php } $m--;?>
                     <td><?= @$item->executor->name ?></td>
                     <td><?= @$item->deadline?></td>
                     <td><?= @$item->ads?></td>

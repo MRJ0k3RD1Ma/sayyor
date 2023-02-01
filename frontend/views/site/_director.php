@@ -123,15 +123,17 @@
 
 <?php
 
-$not = \common\models\ResultAnimal::find()->where('consent_id is not null')->andWhere(['ads'=>0])
-    ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('id');
-$has = \common\models\ResultAnimal::find()->where('consent_id is not null')->andWhere(['ads'=>1])
-    ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('id');
+$not = \common\models\ResultAnimalConditions::find()->andWhere(['ads'=>0])
+    ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('*');
+$has = \common\models\ResultAnimalConditions::find()->andWhere(['ads'=>1])
+    ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('*');
 
 $not_food = \common\models\ResultFood::find()->where('consept_id is not null')->andWhere(['ads'=>0])
     ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('id');
 $has_food = \common\models\ResultFood::find()->where('consept_id is not null')->andWhere(['ads'=>1])
     ->andWhere(['>','updated',date('Y').'-01-01 00:00:00'])->count('id');
+
+
 $this->registerJs("
 function getChartColorsArray(e) {
     e = $(e).attr(\"data-colors\");
