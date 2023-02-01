@@ -177,7 +177,7 @@ $qr =function() use ($samples) {
         <tbody>
         <tr>
             <td>4Vet</td>
-            <td colspan="4"><?php  $route->vet4 ?></td>
+            <td colspan="4"><?=  $route->vet4 ?></td>
         </tr>
         <?php foreach (ResultAnimalTests::find()->indexBy('id')->where(['result_id' => $anim->id,'route_id'=>$route->id])->andWhere(['checked'=>1])->all() as $item): ?>
             <tr>
