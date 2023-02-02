@@ -18,128 +18,63 @@ $this->params['breadcrumbs'][] = ['label' => $reg->code, 'url' => ['regview', 'i
 $this->params['breadcrumbs'][] = $this->title
 ?>
     <div class="sertificates-update">
-
-        <?php $form = ActiveForm::begin(); ?>
-
-        <?= $model->samp_code?> <?= Yii::t('register','Raqamli namunani qabul qilish')?>
-        <?php
-            $lg = 'uz';
-            if(Yii::$app->language == 'ru'){
-                $lg = 'ru';
-            }
-        ?>
-
-        <?php if($route->isNewRecord and $model->is_group == 0){?>
-        <?= $form->field($cs,'status_id')->dropDownList(ArrayHelper::map(SampleStatus::find()->all(),'id','name_'.$lg))?>
-
-        <?= $form->field($cs,'ads')->textInput()?>
-
-        <?= $form->field($route,'director_id')->dropDownList(ArrayHelper::map($director,'id','name'),['prompt'=>Yii::t('test','Direktorni tanlang')])?>
-
-        <?= $form->field($route,'leader_id')->dropDownList(ArrayHelper::map($lider,'id','name'),['prompt'=>Yii::t('test','Labaratoriya mudirini tanlang')])?>
-        <?php }else{ ?>
-            <?= $form->field($cs,'status_id')->dropDownList(ArrayHelper::map(SampleStatus::find()->all(),'id','name_'.$lg),['disabled'=>true])?>
-
-            <?= $form->field($cs,'ads')->textInput(['disabled'=>true])?>
-
-            <?= $form->field($route,'director_id')->dropDownList(ArrayHelper::map($director,'id','name'),['disabled'=>true,'prompt'=>Yii::t('test','Direktorni tanlang')])?>
-
-            <?= $form->field($route,'leader_id')->dropDownList(ArrayHelper::map($lider,'id','name'),['disabled'=>true,'prompt'=>Yii::t('test','Labaratoriya mudirini tanlang')])?>
-
-        <?php } ?>
-
+        <h4><?= $model->samp_code ?> namunaning topshiriqlari ro'yhati <span style="float:right"><a href="<?= Yii::$app->urlManager->createUrl(['/register/incomefood','id'=>$model->id,'regid'=>$reg->id])?>" class="btn btn-primary">Yana topshiriq qo'shish</a></span></h4>
         <div class="table-responsive">
-            <h4>Tanlangan shablonlar ro'yhati</h4>
-            <table class="table table-hover table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Parametr nomi</th>
-                    <th>Birlik</th>
-                    <th>Minimal-maksimal oraliq</th>
-                    <th>Emlashga aloqadorligi</th>
+                    <th>#</th>
+                    <th>Mudir nomi</th>
+                    <th>Status</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php if($result){ foreach ($result->tests as $item): ?>
+                <?php $n=0; foreach (\common\models\FoodRoute::find()->where(['sample_id'=>$model->id])->all() as $item): $n++?>
                     <tr>
-                        <td><?= $item->id?></td>
-                        <td><?= $item->template->name_uz?></td>
-                        <td><?= $item->template->unit->name_uz?></td>
+                        <td><?= $n?></td>
+                        <td><?= $item->leader->name ?></td>
+                        <td><?= $item->status->name_uz?></td>
                         <td>
-                            <?php if ($item->template->unit->type_id == 1) { ?>
-                                <?= $item->template->min_1.'-'.$item->template->max_1 ?>
-                            <?php } elseif ($item->template->unit->type_id == 2) { ?>
-                                <?= Yii::$app->params['result'][$item->template->min_1].'-'.Yii::$app->params['result'][intval($item->template->max_1)]?>
-                            <?php } elseif ($item->template->unit->type_id == 3) { ?>
-                                <?= $item->template->min_1.'-'.$item->template->max_1 ?>
-
-                            <?php } elseif ($item->template->unit->type_id == 4) { ?>
-                                <?= $item->template->min_1.'-'.$item->template->max_1 ?><br>
-                                <?= $item->template->min_2.'-'.$item->template->max_2 ?>
-                            <?php } elseif($item->template->unit->type_id == 5){?>
-                                <?= Yii::$app->params['unit_belgi'][intval($item->template->min_1)].'-'.Yii::$app->params['unit_belgi'][intval($item->template->max_1)]?>
-
-                            <?php } ?>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['/register/incomefood','id'=>$model->id,'regid'=>$reg->id,'route_id'=>$item->id])?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
                         </td>
-
-
                     </tr>
-                <?php endforeach; }?>
+                <?php endforeach;?>
                 </tbody>
             </table>
         </div>
 
-        <?php if($model->is_group == 0 and !$route->executor_id){?>
-            <div class="table-responsive" id="templates_choose">
-                <h4>Shablonlarni tanlash</h4>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>Parametr nomi</th>
-                        <th>Birlik</th>
-                        <th>Minimal-maksimal oraliq</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($template as $item): ?>
-                        <tr>
-                            <td><?= $form->field($route,'temp['.$item->id.']')->checkbox(['value'=>1])->label(false)?></td>
-                            <td><?= $item->id?></td>
-                            <td><?= $item->name_uz?></td>
-                            <td><?= $item->unit->name_uz?></td>
-                            <td>
-                                <?php if ($item->unit->type_id == 1) { ?>
-                                    <?= $item->min_1.'-'.$item->max_1 ?>
-                                <?php } elseif ($item->unit->type_id == 2) { ?>
-                                    <?= Yii::$app->params['result'][intval($item->min_1)].'-'.Yii::$app->params['result'][intval($item->max_1)]?>
-                                <?php } elseif ($item->unit->type_id == 3) { ?>
-                                    <?= $item->min_1.'-'.$item->max_1 ?>
-
-                                <?php } elseif ($item->unit->type_id == 4) { ?>
-                                    <?= $item->min_1.'-'.$item->max_1 ?><br>
-                                    <?= $item->min_2.'-'.$item->max_2 ?>
-                                <?php } elseif($item->unit->type_id == 5){?>
-                                    <?= Yii::$app->params['unit_belgi'][intval($item->min_1)].'-'.Yii::$app->params['unit_belgi'][intval($item->max_1)]?>
-
-                                <?php } ?>
-                            </td>
-
-                        </tr>
-                    <?php endforeach;?>
-                    </tbody>
-                </table>
-            </div>
-        <?php }?>
 
 
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('cp.sertificates', 'Saqlash'), ['class' => 'btn btn-success']) ?>
-        </div>
 
-        <?php ActiveForm::end(); ?>
+        <?php if($route_id != -1){
+            echo $this->render('incomefood/_change',[
+                'model'=>$model,
+                'route'=>$route,
+                'cs'=>$cs,
+                'result'=>$result,
+                'template'=>$template,
+                'director'=>$director,
+                'lider'=>$lider_all,
+                'reg'=>$reg,
+                'director_id'=>$director_id
+            ]);
+        }else{
+            echo $this->render('incomefood/_new',[
+                'model'=>$model,
+                'route'=>$route,
+                'cs'=>$cs,
+                'result'=>$result,
+                'template'=>$template,
+                'director'=>$director,
+                'lider'=>$lider,
+                'reg'=>$reg,
+                'director_id'=>$director_id
+            ]);
+        }?>
+
+
+
 
 
     </div>

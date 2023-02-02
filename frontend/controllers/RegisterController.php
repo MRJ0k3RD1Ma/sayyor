@@ -567,7 +567,7 @@ class RegisterController extends Controller
     }
 
 
-    public function actionIncomesamples($id, $regid,$route_id=null)
+    public function actionIncomesamples($id, $regid,$route_id=-1)
     {
         $reg = SampleRegistration::findOne($regid);
         $model = Samples::findOne($id);
@@ -605,7 +605,7 @@ class RegisterController extends Controller
                             $test->checked = 1;
                             $test->result_id = $result->id;
                             $test->template_id = $item->id;
-                            $test->type_id = $model->animal->type_id;
+                            $test->type_id = $item->unit->type_id;
                             $test->ch_min1 = $item->min;
                             $test->ch_min2 = $item->min_1;
                             $test->ch_max1 = $item->max;
@@ -689,7 +689,7 @@ class RegisterController extends Controller
                             $test->route_id = $route->id;
                             $test->result_id = $result->id;
                             $test->template_id = $item->id;
-                            $test->type_id = $model->animal->type_id;
+                            $test->type_id = $item->unit->type_id;
                             $test->ch_min1 = $item->min;
                             $test->ch_min2 = $item->min_1;
                             $test->ch_max1 = $item->max;
@@ -1025,13 +1025,18 @@ class RegisterController extends Controller
 
     }
 
-    public function actionIncomefood($id, $regid)
+    public function actionIncomefood($id, $regid,$route_id=-1)
     {
         $reg = FoodRegistration::findOne($regid);
         $model = FoodSamples::findOne($id);
         $route = new FoodRoute();
         if($r = FoodRoute::findOne(['sample_id'=>$id])){
             $route = $r;
+        }
+        if($director_id = \common\models\FoodRoute::find()->where(['registration_id'=>$reg->id])->one()){
+            $director_id = $director_id->director_id;
+        }else{
+            $director_id = -1;
         }
         $res = ResultFood::findOne(['sample_id'=>$model->id]);
         if ($reg->status_id < 2) {
@@ -1057,6 +1062,44 @@ class RegisterController extends Controller
             ->andWhere('food_id in (select id from food where id='.$cs->sample->food_id.' or (for_all=1 and category_id='.$cs->sample->category_id.'))')
             ->andWhere($res?'id not in (select template_id from result_food_tests where result_id = '.$res->id.')':'1')
             ->all();
+
+        if($r = FoodRoute::findOne($route_id)){
+            $route = $r;
+            $result = $res;
+            if($route->load(Yii::$app->request->post())){
+                if($route->temp){
+                    foreach ($route->temp as $key=>$i) {
+                        if($i == 1){
+                            $item = TemplateFood::findOne($key);
+                            $test = new ResultFoodTests();
+                            $test->checked = 1;
+                            $test->result_id = $result->id;
+                            $test->template_id = $item->id;
+                            $test->type_id = $item->unit->type_id;
+                            $test->ch_min1 = $item->min_1;
+                            $test->ch_min2 = $item->min_2;
+                            $test->ch_max1 = $item->max_1;
+                            $test->route_id = $route->id;
+                            $test->ch_max2 = $item->max_2;
+                            $test->result = '';
+                            $test->result_2 = '';
+                            $test->change_unit_id = $item->unit_id;
+                            $test->save();
+                            $test = null;
+                        }
+                    }
+                }
+                Yii::$app->session->setFlash('success', Yii::t('test', 'Namunaga shablonlar muvoffaqiyatli yuborildi'));
+                return $this->redirect(['/register/regproductview', 'id' => $regid]);
+            }
+        }else{
+            $route = new FoodRoute();
+//            $route->vet4 = $model->suspectedDisease->vet4 . $model->animal->type->vet4 . $model->sampleTypeIs->vet4;
+            if($director_id != -1){
+                $route->director_id = $director_id;
+            }
+
+        }
 
         if (Yii::$app->request->isPost) {
             if($cs->load(Yii::$app->request->post())){
@@ -1139,6 +1182,7 @@ class RegisterController extends Controller
                         $test->result_2 = '';
                         $test->type_id = $tmp->unit->type_id;
                         $test->checked = 1;
+                        $test->route_id = $route->id;
                         $test->save();
                         $test = null;
                     }
@@ -1151,8 +1195,24 @@ class RegisterController extends Controller
 
         $org_id = Yii::$app->user->identity->empPosts->org_id;
 
-        $directos = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 4])->andWhere(['emp_posts.org_id' => $org_id])->all();
-        $lider = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 3])->andWhere(['emp_posts.org_id' => $org_id])->all();
+        $directos = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 4])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->all();
+
+        $lider = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 3])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->andWhere('employees.id not in (select leader_id from food_route where sample_id='.$model->id.')')
+            ->all();
+        $lider_all = Employees::find()->select(['employees.*'])
+            ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+            ->where(['emp_posts.post_id' => 3])
+            ->andWhere(['emp_posts.org_id' => $org_id])
+            ->all();
+
 
         return $this->render('incomefood', [
             'model' => $model,
@@ -1162,7 +1222,11 @@ class RegisterController extends Controller
             'director' => $directos,
             'lider' => $lider,
             'template'=>$template,
-            'result'=>$res
+            'result'=>$res,
+            'lider_all'=>$lider_all,
+            'route_id'=>$route_id,
+            'director_id'=>$director_id,
+
         ]);
 
 
