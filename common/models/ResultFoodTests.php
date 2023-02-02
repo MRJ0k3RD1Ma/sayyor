@@ -38,7 +38,7 @@ class ResultFoodTests extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type_id', 'template_id', 'result_id','result_type_id','mm_1','mm_2', 'checked','is_change','change_unit_id','true1','true2'], 'integer'],
+            [['type_id', 'template_id', 'result_id','result_type_id','mm_1','route_id','mm_2', 'checked','is_change','change_unit_id','true1','true2'], 'integer'],
             [['result', 'result_2'], 'string', 'max' => 255],
             [['result_id'], 'exist', 'skipOnError' => true, 'targetClass' => ResultFood::className(), 'targetAttribute' => ['result_id' => 'id']],
             [['template_id'], 'exist', 'skipOnError' => true, 'targetClass' => TemplateFood::className(), 'targetAttribute' => ['template_id' => 'id']],
@@ -71,6 +71,7 @@ class ResultFoodTests extends \yii\db\ActiveRecord
             'ch_max1' => Yii::t('model', 'Max'),
             'ch_max2' => Yii::t('model', 'Max 2'),
             'result_type_id' => Yii::t('model', 'Moslik'),
+            'route_id'=>'Route',
             'r_son'=>'Natija',
             'r_bool'=>'Natija',
             'r_1'=>'Natija 1',
@@ -116,5 +117,9 @@ class ResultFoodTests extends \yii\db\ActiveRecord
 
     public function getResultType(){
         return $this->hasOne(ResultType::className(),['id'=>'result_type_id']);
+    }
+
+    public function getRoute(){
+        return $this->hasOne(FoodRoute::class,['id'=>'route_id']);
     }
 }
