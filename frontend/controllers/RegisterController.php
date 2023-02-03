@@ -1232,8 +1232,15 @@ class RegisterController extends Controller
 
     }
 
-    public function actionIncomeproductmulti($id){
+    public function actionIncomeproductmulti($id, $leader_id = null){
         $reg = FoodRegistration::findOne($id);
+        if($director_id = \common\models\FoodRoute::find()->where(['registration_id'=>$reg->id])->one()){
+            $director_id = $director_id->director_id;
+        }else{
+            $director_id = -1;
+        }
+
+
         if($samples = FoodSamples::find()
         ->where('id in (select sample_id from food_compose where registration_id = '.$id.' and (status_id=1 or status_id is null))')
         ->andWhere(['is_group'=>1])->all()){
@@ -1260,12 +1267,15 @@ class RegisterController extends Controller
                     ->all();
             }
 
-            if($r = FoodRoute::find()->where(['registration_id'=>$id,'sample_id'=>$model->id,'is_group'=>1])->one()){
-                $route = $r;
+            if($leader_id){
+                $route = FoodRoute::find()->where(['registration_id'=>$id,'sample_id'=>$model->id,'leader_id'=>$leader_id,'is_group'=>1])->one();
             }else{
                 $route = new FoodRoute();
             }
 
+            if($director_id != -1){
+                $route->director_id = $director_id;
+            }
             if(Yii::$app->request->isPost){
 
                 if($req = Yii::$app->request->post()){
@@ -1287,10 +1297,17 @@ class RegisterController extends Controller
                                     $com->save(false);
                                     $r = $req['FoodRoute'];
                                     $rt = new FoodRoute();
-                                    if ($rtt = FoodRoute::find()->where(['registration_id' => $id, 'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
-                                        $rt = $rtt;
+                                    if($leader_id){
+                                        if ($rtt = FoodRoute::find()->where(['registration_id' => $id, 'leader_id'=>$leader_id,'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
+                                            $rt = $rtt;
+                                        }
                                     }
-                                    $rt->director_id = $r['director_id'];
+
+                                    if($director_id != -1){
+                                        $rt->director_id = $director_id;
+                                    }else{
+                                        $rt->director_id = $r['director_id'];
+                                    }
                                     $rt->leader_id = $r['leader_id'];
                                     $rt->state_id = 1;
                                     $rt->sample_id = $com->sample_id;
@@ -1326,6 +1343,7 @@ class RegisterController extends Controller
                                                 $test->checked = 1;
                                                 $test->result_id = $rst->id;
                                                 $test->template_id = $tmpe->id;
+                                                $test->route_id = $rt->id;
                                                 $test->type_id = $tmpe->unit->type_id;
                                                 $test->ch_min1 = $tmpe->min_1;
                                                 $test->ch_min2 = $tmpe->min_2;
@@ -1382,7 +1400,7 @@ class RegisterController extends Controller
                         foreach ($cs as $key => $item) {
                             if ($com = FoodCompose::findOne(['sample_id'=>$item->sample_id])) {
                                 $rt = new FoodRoute();
-                                if ($rtt = FoodRoute::find()->where(['registration_id' => $id, 'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
+                                if ($rtt = FoodRoute::find()->where(['registration_id' => $id,'leader_id'=>$leader_id, 'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
                                     $rt = $rtt;
                                 }
                                 $rt->director_id = $route->director_id;
@@ -1410,7 +1428,6 @@ class RegisterController extends Controller
                                 $rst->org_id = Yii::$app->user->identity->empPosts->org_id;
                                 $rst->sample_id = $com->sample_id;
                                 $rst->state_id = 1;
-                                $rst->creator_id = $route->executor_id;
                                 $rst->save();
 
                                 if ($req['FoodRoute']['temp']) {
@@ -1425,6 +1442,7 @@ class RegisterController extends Controller
                                             $test->ch_min1 = $tmpe->min_1;
                                             $test->ch_min2 = $tmpe->min_2;
                                             $test->ch_max1 = $tmpe->max_1;
+                                            $test->route_id = $rt->id;
                                             $test->ch_max2 = $tmpe->max_2;
                                             $test->result = '';
                                             $test->result_2 = '';
@@ -1435,7 +1453,7 @@ class RegisterController extends Controller
                                     }
                                 }
                                 Yii::$app->session->setFlash('success', 'Namunalar muvoffaqiyatli qabul qilindi va labaratoriyaga jo`natildi');
-                                return $this->redirect(['regview', 'id' => $id]);
+                                return $this->redirect(['regproductview', 'id' => $id]);
                             }
                         }
                         Yii::$app->session->setFlash('success', 'Namunalarga qo`shimcha shablonlar biriktirildi');
@@ -1447,8 +1465,25 @@ class RegisterController extends Controller
 
             $org_id = Yii::$app->user->identity->empPosts->org_id;
 
-            $directos = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 4])->andWhere(['emp_posts.org_id' => $org_id])->all();
-            $lider = Employees::find()->select(['employees.*'])->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')->where(['emp_posts.post_id' => 3])->andWhere(['emp_posts.org_id' => $org_id])->all();
+            $directos = Employees::find()->select(['employees.*'])
+                ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+                ->where(['emp_posts.post_id' => 4])
+                ->andWhere(['emp_posts.org_id' => $org_id])
+                ->all();
+
+            $lider = Employees::find()->select(['employees.*'])
+                ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+                ->where(['emp_posts.post_id' => 3])
+                ->andWhere(['emp_posts.org_id' => $org_id])
+                ->andWhere('employees.id not in (select leader_id from food_route where registration_id = '.$reg->id.' and is_group=1)')
+                ->all();
+            $lider_all = Employees::find()->select(['employees.*'])
+                ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
+                ->where(['emp_posts.post_id' => 3])
+                ->andWhere(['emp_posts.org_id' => $org_id])
+                ->all();
+
+
 
             return $this->render('incomeproductmulti',[
                 'model'=>$model,
@@ -1460,6 +1495,9 @@ class RegisterController extends Controller
                 'cs'=>$cs,
                 'director' => $directos,
                 'lider' => $lider,
+                'leader_id'=>$leader_id,
+                'director_id'=>$director_id,
+                'lider_all'=>$lider_all
             ]);
 
 
