@@ -1,20 +1,24 @@
 <?php
 
+use common\models\RouteSert;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
+/* @var $task \common\models\TaskForm */
+/* @var $route \common\models\RouteSert */
+/* @var $route_gr \common\models\RouteSert */
 /* @var $searchModel frontend\models\search\RouteSertSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('food', 'Oziq ovqat havfsizligi bo`yicha kelgan namunalar ro\'yhati');
+$this->title = Yii::t('food', 'Hayvon kasalliklari tashhisi bo`yicha kelgan namunalar ro\'yhati');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="route-sert-index">
-
-
 
     <?php $form = ActiveForm::begin() ?>
 
@@ -37,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <tr>
                 <td colspan="7">Birlashmagan namunalar ro'yhati</td>
             </tr>
-            <?php $cnt = 0; $n=0; foreach ($route as $item): $n++;?>
+            <?php $m = 0 ;$cnd_smp = 1; $cnt = 0; $n=0; foreach ($route as $item): $n++;
+
+                $cnt_smp = \common\models\FoodRoute::find()->where(['sample_id'=>$item->sample_id])->count('*');
+                if($m==0){
+                    $m = $cnt_smp;
+                }
+                ?>
 
                 <tr>
                     <?php $txtcolor = "";
@@ -52,19 +62,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                     <td><span class="fa fa-circle <?= $txtcolor?>"></span> <?= $n?></td>
                     <td><?php $url = Yii::$app->urlManager->createUrl(['/director/viewfood', 'id' => $item->id]); echo "<a href='{$url}' target='_blank'>{$item->sample->samp_code}</a>"?></td>
-                    <td><a href="<?= Yii::$app->urlManager->createUrl(['/director/getpdffood','id'=>$item->sample_id])?>" target="_blank" class="btn btn-primary">PDF faylni ko'rish</a></td>
+                    <?php if($m == $cnt_smp){ ?>
+                        <td rowspan="<?= $cnt_smp?>">
+                            <a href="<?= Yii::$app->urlManager->createUrl(['/director/getpdffood','id'=>$item->sample_id])?>" target="_blank" class="btn btn-primary">PDF faylni ko'rish</a>
+                        </td>
+                    <?php } $m--;?>
                     <td><?= @$item->executor->name ?></td>
                     <td><?= @$item->deadline?></td>
                     <td><?= @$item->ads?></td>
                     <td><?= @$item->created?></td>
-                    <td><?= "<span class='" . @$item->status->icon . "'>" . @$item->status->class . ' ' . $item->status->{'name_uz' } . "</span>"?></td>
+                    <td><?= @$item->status->class . ' ' . $item->status->{'name_uz' } . "</span>"?></td>
                 </tr>
             <?php endforeach;?>
 
             <tr><td colspan="7">Birlashgan namunalar ro'yhati</td></tr>
 
-            <?php $all = count($route_gr);
-            $true = true; foreach ($route_gr as $item): $n++;?>
+            <?php
+            $all = count($route_gr);
+            $true = true;
+            foreach ($route_gr as $item): $n++;?>
                 <tr>
                     <?php $txtcolor = "";
                     switch ($item->status_id){
@@ -86,31 +102,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td><?= @$item->deadline?></td>
                     <td><?= @$item->ads?></td>
                     <td><?= @$item->created?></td>
-                    <td><?= "<span class='" . @$item->status->icon . "'>" . @$item->status->class . ' ' . $item->status->{'name_uz' } . "</span>"?></td>
+                    <td><?= @$item->status->class . ' ' . $item->status->{'name_uz' } . "</span>"?></td>
                 </tr>
             <?php endforeach;?>
             </tbody>
         </table>
     </div>
+
     <?php if($cnt_not == 0){?>
         <?= $form->field($model,'results_conformity_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\ResultsConformity::find()->where(['organization_id'=>Yii::$app->user->identity->empPosts->org_id])->all(),'id','code'))?>
         <button class="btn btn-success" type="submit">Natijalarni tasdiqlash</button>
     <?php }?>
-    <?php
-    if($cnt != 0){
-        $data = [];
-        foreach ($emp as $i) {
-            $data[$i->id] = \common\models\FoodRoute::find()->where(['executor_id' => $i->id])
-                    ->andWhere(['<>', 'status_id', 3])->count('id')
-                . ' - ' . $i->name;
-        }
-        ?>
-        <?= $form->field($task, 'executor_id')->dropDownList($data, ['prompt' => Yii::t('leader', 'Labarantni tanlang')]) ?>
-        <?= $form->field($task, 'deadline')->textInput(['type' => 'date']) ?>
-        <?= $form->field($task, 'ads')->textInput() ?>
-        <button class="btn btn-success" type="submit">Saqlash</button>
-    <?php }?>
+
     <?php ActiveForm::end() ?>
 
 
+
 </div>
+

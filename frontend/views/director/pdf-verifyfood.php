@@ -30,6 +30,7 @@ $composite = $regmodel->comp;
 $samples = $model;
 $sertificate = $samples->sert;
 $resultanimal = ResultFood::findOne(['sample_id' => $samples->id]);
+$routes = FoodRoute::find()->where(['sample_id' => $samples->id])->all();
 $route = FoodRoute::findOne(['sample_id' => $samples->id]);
 $routesert = $route->registration_id;
 
@@ -119,13 +120,26 @@ $lg = 'uz';
     <b>Tekshiruv maqsadi va vazifasi:</b> <?= @$sertificate->verificationPupose->name_uz?>
 </div>
 <br>
-<div>
-    <b>Tekshirish usuli bo'yicha NH:</b> <?php foreach ($docs as $item){echo $item->{'name_'.$lg};}?>
-</div>
 
-<br>
+<?php $true=false; foreach (FoodRoute::find()->where(['sample_id'=>$samples->id])->orderBy(['sample_id'=>SORT_ASC])->all() as $route):
+    $cond = \common\models\ResultFoodConditions::findOne(['sample_id' => $model->id, 'route_id' => $route->id, 'result_id' => $resultanimal->id]) ?>
+
+
+    <?php if($true){ echo "<pagebreak>"; }else{$true = true;} ?>
+
 <div style="text-align: center">
     <b>TEKSHIRUV NATIJALARI</b>
+</div>
+<br>
+    <?php
+    $docs = \common\models\Regulations::find()->select(['regulations.*'])->innerJoin('template_food_regulations', 'template_food_regulations.regulation_id = regulations.id')
+        ->innerJoin('template_food', 'template_food.id=template_food_regulations.template_id')
+        ->where('template_food.id in (select result_food_tests.template_id from result_food_tests where result_food_tests.checked = 1 and result_id=' . $resultanimal->id . ' and route_id='.$route->id.')')
+        ->groupBy('regulations.id')->all();
+    ;
+    ?>
+<div>
+    <b>Tekshirish usuli bo'yicha NH:</b> <?php foreach ($docs as $item){echo $item->{'name_'.$lg};}?>
 </div>
 <br>
 <table class="table table-bordered table-hover" style="text-align: center">
@@ -159,7 +173,7 @@ $lg = 'uz';
         <td>Namuna raqami</td>
         <td colspan="3"><?= $samples->samp_code?> - <?= $samples->coments ?></td>
     </tr>
-    <?php foreach ($resultanimal->tests as $item): ?>
+    <?php foreach (\common\models\ResultFoodTests::find()->where(['route_id'=>$route->id,'result_id'=>$resultanimal->id])->all() as $item): ?>
         <tr>
             <td><?= $item->template->group->name_uz ?></td>
             <td><?= $item->template->name_uz?></td>
@@ -198,8 +212,10 @@ $lg = 'uz';
 </table>
 
 
-<?php $ra = [0=>'Tasdiqlanmadi',1=>'Tasdiqlandi']; $color = [0=>'',1=>'red'];?>
-<p>Umumlashgan natija: <span style="color: <?= $color[$resultanimal->ads]?>"><?= $ra[$resultanimal->ads] ?></span></p>
+
+
+<?php $ra = [''=>'Kiritilmagan',null=>'Kiritilmagan',0=>'Tasdiqlanmadi',1=>'Tasdiqlandi']; $color = [null=>'Kiritilmagan',''=>'Kiritilmagan',0=>'',1=>'red'];?>
+<p>Umumlashgan natija: <span style="color: <?= $color[@$cond->ads]?>"><?= $ra[@$cond->ads] ?></span></p>
 
 <p>Tekshirish sanasi: <?= $route->updated ?></p>
 <p>Qo'shimcha ma`lumot: Ushbu sinov bayoni faqat tekshirilgan namuna uchun taaluqlidir</p>
@@ -210,3 +226,5 @@ $lg = 'uz';
 <p>
     Tasdiqladi: <?= @$route->director->name ?>
 </p>
+
+<?php endforeach; ?>

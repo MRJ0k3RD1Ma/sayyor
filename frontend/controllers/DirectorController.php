@@ -550,6 +550,7 @@ class DirectorController extends Controller
 
 
     public function actionGetpdffood($id,$do=false){
+
         if(file_exists(Yii::$app->basePath.'/web/pdf/food_samples_'.$id.'.pdf')){
             Yii::$app->response->sendFile(Yii::$app->basePath.'/web/pdf/food_samples_'.$id.'.pdf', 'Tekshiruv bayonnomasi', ['inline' => true])->send();
             exit;
