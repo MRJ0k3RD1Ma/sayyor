@@ -499,39 +499,40 @@ class DirectorController extends Controller
                         ->where('template_food.id in (select result_food_tests.template_id from result_food_tests where result_food_tests.checked = 1 and result_id=' . $result->id . ')')
                         ->groupBy('regulations.id')->all();//->innerJoin('result_food_tests','template_food.id = result_food_tests.template_id and result_food_tests.checked=1')
                     ;
-                    $pdf = new Pdf([
-                        'mode' => Pdf::MODE_UTF8, // leaner size using standard fonts
-                        'destination' => Pdf::DEST_BROWSER,
-                        'content' => $this->renderPartial('pdf-verifyfood', ['model' => $item->sample, 'regmodel' => $reg, 'docs' => $docs,'done'=>true]),
-                        'options' => [
-                        ],
-                        'methods' => [
-                            'SetTitle' => "Tekshiruv bayonnomasi",
-                            'SetHeader' => [' ' . '|| ' . date("r")],
-                            'SetFooter' => ['| {PAGENO} |'],
-                            'SetAuthor' => '@QalandarDev',
-                            'SetCreator' => '@QalandarDev',
-                        ]
-                    ]);
-                    try {
 
-                        $upload_dir = Yii::getAlias('@uploads');
-                        $content = $pdf->render();
-                        $fileName = $upload_dir . "/../pdf/" . $sample::tableName() . "_" . $sample->id . ".pdf";
-                        if (file_exists($fileName)) {
-                            unlink($fileName);
-                        }
-                        $file = fopen($fileName, 'wb+');
-
-                        fwrite($file, $content);
-
-                        fclose($file);
-
-                    } catch (MpdfException|CrossReferenceException|PdfTypeException|PdfParserException|InvalidConfigException $e) {
-                        return $e;
-                    }
                 }
 
+                $pdf = new Pdf([
+                    'mode' => Pdf::MODE_UTF8, // leaner size using standard fonts
+                    'destination' => Pdf::DEST_BROWSER,
+                    'content' => $this->renderPartial('pdf-verifyfood', ['model' => $item->sample, 'regmodel' => $reg, 'docs' => $docs,'done'=>true]),
+                    'options' => [
+                    ],
+                    'methods' => [
+                        'SetTitle' => "Tekshiruv bayonnomasi",
+                        'SetHeader' => [' ' . '|| ' . date("r")],
+                        'SetFooter' => ['| {PAGENO} |'],
+                        'SetAuthor' => '@QalandarDev',
+                        'SetCreator' => '@QalandarDev',
+                    ]
+                ]);
+                try {
+
+                    $upload_dir = Yii::getAlias('@uploads');
+                    $content = $pdf->render();
+                    $fileName = $upload_dir . "/../pdf/" . $sample::tableName() . "_" . $sample->id . ".pdf";
+                    if (file_exists($fileName)) {
+                        unlink($fileName);
+                    }
+                    $file = fopen($fileName, 'wb+');
+
+                    fwrite($file, $content);
+
+                    fclose($file);
+
+                } catch (MpdfException|CrossReferenceException|PdfTypeException|PdfParserException|InvalidConfigException $e) {
+                    return $e;
+                }
 
                 Yii::$app->session->setFlash('success','Namunalar muvoffaqiyatli tasdiqlandi');
                 return $this->refresh();
