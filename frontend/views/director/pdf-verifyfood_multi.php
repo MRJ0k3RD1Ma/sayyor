@@ -108,19 +108,16 @@ $lg = 'uz';
 <?php if($true){ echo "<pagebreak>"; }else{$true = true;} ?>
  <?php
 
-    $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_animal_regulations', 'template_animal_regulations.regulation_id = regulations.id')
-        ->innerJoin('template_food', 'template_food.id=template_animal_regulations.template_id')
-        ->where('template_food.id in (select result_food_tests.template_id from result_food_tests where result_food_tests.checked = 1 and result_id=' . $resanim->id . ')')
-        ->groupBy('regulations.id')->all();
+    $sample = $resanim->sample;
     $route = FoodRoute::findOne(['sample_id'=>$resanim->sample_id]);
     ?>
 <div>
     <b>Tekshiruv obyekti:</b>
-    <b>Mahsulot guruhi:</b><?= $resanim->sample->category->{'name_'.$lg}.'-'.$resanim->sample->food->{'name_'.$lg} ?>
+    <b>Mahsulot guruhi:</b><?= $sample->category->{'name_'.$lg}.'-'.$sample->food->{'name_'.$lg} ?>
     <b>Qo'shimcha ma'lumotlar:</b>
-    <b>Ishlab chiqarilgan davlat:</b> <?= @$resanim->sample->country->name_uz ?>
-    <b>Ishlab chiqaruvchi:</b> <?= $resanim->sample->producer?>
-    <b>Namuna kodi:</b> <?= $resanim->sample->samp_code?>
+    <b>Ishlab chiqarilgan davlat:</b> <?= @$sample->country->name_uz ?>
+    <b>Ishlab chiqaruvchi:</b> <?= $sample->producer?>
+    <b>Namuna kodi:</b> <?= $sample->samp_code?>
 
 </div>
 <br>
@@ -132,15 +129,28 @@ $lg = 'uz';
     <b>Tekshiruv maqsadi va vazifasi:</b> <?= @$sertificate->verificationPupose->name_uz?>
 </div>
 <br>
-<div>
-    <b>Tekshirish usuli bo'yicha NH:</b> <?php foreach ($docs as $item){echo $item->{'name_'.$lg};}?>
-</div>
 
-<br>
-<div style="text-align: center">
-    <b>TEKSHIRUV NATIJALARI</b>
-</div>
-<br>
+    <?php $tpu=false; foreach (FoodRoute::find()->where(['sample_id'=>$samples->id])->all() as $route):
+        $cond = \common\models\ResultFoodConditions::findOne(['sample_id' => $route->sample_id, 'route_id' => $route->id, 'result_id' => $resanim->id]) ?>
+
+        <?php if($tpu){ echo "<pagebreak>"; }else{$tpu = true;} ?>
+        <div style="text-align: center">
+            <b>TEKSHIRUV NATIJALARI</b>
+        </div>
+        <div>
+            <b>Tekshirish o'tkazilgan shartoit: Tempratura:</b><?= @$cond->temprature?>, <b>Namlik:</b> <?= @$cond->humidity?>, <b>Reaktivlar:</b> <?= @$cond->reagent_series.' '.@$cond->reagent_name?>, <b>Boshqa sharoitlar:</b><?= @$cond->conditions?>
+        </div>
+        <?php
+        $docs = \common\models\Regulations::find()->select(['regulations.*'])->innerJoin('template_food_regulations', 'template_food_regulations.regulation_id = regulations.id')
+            ->innerJoin('template_food', 'template_food.id=template_food_regulations.template_id')
+            ->where('template_food.id in (select result_food_tests.template_id from result_food_tests where result_food_tests.checked = 1 and result_id=' . $resanim->id . ' and route_id='.$route->id.')')
+            ->groupBy('regulations.id')->all();
+        ;
+        ?>
+        <div>
+            <b>Tekshirish usuli bo'yicha NH:</b> <?php $n=0; foreach ($docs as $item){$n++; echo '<br>'.$n.'.'.$item->{'name_'.$lg}.' ';} ?>
+        </div>
+
 <table class="table table-bordered table-hover" style="text-align: center">
     <thead>
     <tr>
@@ -211,7 +221,7 @@ $lg = 'uz';
 </table>
 
 
-<?php $ra = [0=>'Tasdiqlanmadi',1=>'Tasdiqlandi']; $color = [0=>'',1=>'red'];?>
+<?php $ra = [null=>'Kiritilmagan',0=>'Tasdiqlanmadi',1=>'Tasdiqlandi']; $color = [null=>'Kiritilmagan',0=>'',1=>'red'];?>
 <p>Umumlashgan natija: <span style="color: <?= $color[$resanim->ads]?>"><?= $ra[$resanim->ads] ?></span></p>
 
 <p>Tekshirish sanasi: <?= $route->updated ?></p>
@@ -224,4 +234,4 @@ $lg = 'uz';
     Tasdiqladi: <?= @$route->director->name ?>
 </p>
 
-<?php endforeach; ?>
+<?php endforeach; endforeach;?>
