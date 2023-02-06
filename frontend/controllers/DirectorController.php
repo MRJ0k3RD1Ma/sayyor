@@ -23,6 +23,7 @@ use common\models\ResultAnimal;
 use common\models\ResultAnimalConditions;
 use common\models\ResultAnimalTests;
 use common\models\ResultFood;
+use common\models\ResultFoodConditions;
 use common\models\ResultFoodTests;
 use common\models\ResultsConformity;
 use common\models\RouteSert;
@@ -801,7 +802,14 @@ class DirectorController extends Controller
         }
         $result = ResultFood::findOne(['sample_id' => $sample->id]);
         $test = ResultFoodTests::find()->indexBy('id')->where(['result_id' => $result->id])->andWhere(['checked' => 1])->all();
-
+        $conditions = null;
+        if(!($conditions = ResultFoodConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
+            $conditions = new ResultFoodConditions();
+            $conditions->sample_id = $sample->id;
+            $conditions->route_id = $model->id;
+            $conditions->result_id = $result->id;
+            $conditions->save();
+        }
         $docs = Regulations::find()->select(['regulations.*'])->innerJoin('template_food_regulations', 'template_food_regulations.regulation_id = regulations.id')
             ->innerJoin('template_food', 'template_food_regulations.template_id = template_food.id')
             ->orderBy('template_food_regulations.regulation_id')
@@ -813,7 +821,8 @@ class DirectorController extends Controller
             'result' => $result,
             'emp' => $emp,
             'test' => $test,
-            'docs' => $docs
+            'docs' => $docs,
+            'conditions'=>$conditions
         ]);
     }
 

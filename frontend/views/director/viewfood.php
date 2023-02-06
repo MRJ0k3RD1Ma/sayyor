@@ -186,7 +186,7 @@ YiiAsset::register($this);
             <div class="col-md-6">
                 <h3>Tekshiruv sharoiti</h3>
                 <?= DetailView::widget([
-                    'model' => $result,
+                    'model' => $conditions,
                     'attributes' => [
                         'code',
                         'temprature',
@@ -211,10 +211,10 @@ YiiAsset::register($this);
 //                        'creator_id',
 
                         [
-                            'attribute'=>'creator_id',
+                            'label'=>'Bajaruvchi',
                             'value'=>function($d){
-                                if($d->creator_id){
-                                    return $d->creator->name;
+                                if($d->route){
+                                    return @$d->route->executor->name;
                                 }else{
                                     return null;
                                 }
