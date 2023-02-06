@@ -17,6 +17,7 @@ use common\models\ResultAnimal;
 use common\models\ResultAnimalConditions;
 use common\models\ResultAnimalTests;
 use common\models\ResultFood;
+use common\models\ResultFoodConditions;
 use common\models\ResultFoodTests;
 use common\models\RouteSert;
 use common\models\SampleRecomendation;
@@ -148,7 +149,7 @@ class LabController extends Controller
 
             foreach ($route as $item){
                 $result = [];
-                if(!($result = ResultAnimalConditions::findOne(['sample_id'=>$item->sample_id]))){
+                if(!($result = ResultAnimalConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>$item->sample_id]))){
                     $result = new ResultAnimalConditions();
                 }
                 $result->route_id = $item->id;
@@ -164,7 +165,7 @@ class LabController extends Controller
             }
             foreach ($route_gr as $item){
                 $result = [];
-                if(!($result = ResultAnimalConditions::findOne(['sample_id'=>$item->sample_id]))){
+                if(!($result = ResultAnimalConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>$item->sample_id]))){
                     $result = new ResultAnimalConditions();
                 }
                 $result->route_id = $item->id;
@@ -196,14 +197,29 @@ class LabController extends Controller
 
         $route = FoodRoute::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>0])->all();
         $route_gr = FoodRoute::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>1])->all();
-        $test = new TestForm();
         $res = ResultFood::findOne(['sample_id'=>FoodRoute::findOne(['registration_id'=>$id])->sample_id]);
-        $test->temprature = $res->temprature;
 
+        $rid = 1;
+        if(!($rid = $route[0]->id)){
+            $rid=$route_gr[0]->id;
+        }
+        $test = null;
+        if(!($test = ResultFoodConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>FoodRoute::findOne(['registration_id'=>$id,'executor_id'=>Yii::$app->user->id])->sample_id]))){
+            $test = new ResultFoodConditions();
+            $test->route_id = $model->id;
+            $test->result_id = $res->id;
+            $test->save();
+        }
         if($test->load(Yii::$app->request->post())){
 
             foreach ($route as $item){
-                $result = ResultFood::findOne(['sample_id'=>$item->sample_id]);
+                $result = [];
+                if(!($result = ResultFoodConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>$item->sample_id]))){
+                    $result = new ResultFoodConditions();
+                }
+                $result->route_id = $item->id;
+                $result->sample_id = $item->sample_id;
+                $result->result_id = ResultFood::findOne(['sample_id'=>$item->sample_id])->id;
                 $result->temprature = $test->temprature;
                 $result->humidity = $test->humidity;
                 $result->reagent_name = $test->reagent_name;
@@ -213,7 +229,13 @@ class LabController extends Controller
                 $result->save(false);
             }
             foreach ($route_gr as $item){
-                $result = ResultFood::findOne(['sample_id'=>$item->sample_id]);
+                $result = [];
+                if(!($result = ResultFoodConditions::findOne(['route_id'=>$rid,'result_id'=>$res->id,'sample_id'=>$item->sample_id]))){
+                    $result = new ResultFoodConditions();
+                }
+                $result->route_id = $item->id;
+                $result->sample_id = $item->sample_id;
+                $result->result_id = ResultFood::findOne(['sample_id'=>$item->sample_id])->id;
                 $result->temprature = $test->temprature;
                 $result->humidity = $test->humidity;
                 $result->reagent_name = $test->reagent_name;
@@ -450,20 +472,31 @@ class LabController extends Controller
 
         $result = ResultFood::findOne(['sample_id' => $sample->id]);
 
-        $test = ResultFoodTests::find()->indexBy('id')->where(['result_id' => $result->id])->all();
-        $result->creator_id = Yii::$app->user->id;
+        $test = ResultFoodTests::find()->indexBy('id')->where(['result_id' => $result->id,'route_id'=>$model->id])->all();
 
-        if($result->load(Yii::$app->request->post())){
-            if($result->is_change == 0){
-                $result->why_change = "";
+        $conditions = null;
+        if(!($conditions = ResultFoodConditions::findOne(['route_id'=>$model->id,'result_id'=>$result->id,'sample_id'=>$sample->id]))){
+            $conditions = new ResultFoodConditions();
+            $conditions->sample_id = $sample->id;
+            $conditions->route_id = $model->id;
+            $conditions->result_id = $result->id;
+            $conditions->save();
+        }
+
+        if($conditions->load($this->request->post())){
+            if($conditions->is_change == 0){
+                $conditions->why_change = "";
             }
+            $conditions->save();
+            $result->creator_id = Yii::$app->user->id;
             $result->save();
         }
+
         if (Model::loadMultiple($test, Yii::$app->request->post())) {
 
             foreach ($test as $item) {
 
-                if($result->is_change == 0){
+                if($conditions->is_change == 0){
                     $item->is_change = 0;
                 }
 
@@ -520,7 +553,8 @@ class LabController extends Controller
             'result' => $result,
             'test' => $test,
             'docs' => $docs,
-            'recom'=>$recom
+            'recom'=>$recom,
+            'conditions'=>$conditions,
 
         ]);
     }
@@ -530,7 +564,7 @@ class LabController extends Controller
     {
         $model = FoodRoute::findOne($id);
         $model->status_id = 4;
-        $sample = ResultFood::findOne(['sample_id'=>$model->sample_id]);
+        $sample = ResultFoodConditions::findOne(['sample_id'=>$model->sample_id,'result_id'=>ResultFood::findOne(['sample_id'=>$model->sample_id])->id,'route_id'=>$model->id]);
         if($sample->radiologik==0 and $sample->kimyoviy==0 and $sample->mikrobiologik==0 and $sample->mikroskopik==0 and $sample->organoleptik==0){
             Yii::$app->session->setFlash('error', Yii::t('lab', 'Vet4 uchun natijalar kiritilmagan'));
             return $this->redirect(['viewfood', 'id' => $id]);

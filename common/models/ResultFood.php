@@ -45,11 +45,9 @@ class ResultFood extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code_id', 'sample_id',  'creator_id', 'consept_id', 'state_id', 'org_id','organoleptik','mikroskopik','mikrobiologik','kimyoviy','radiologik','is_change',], 'integer'],
+            [['code_id', 'sample_id',  'creator_id', 'consept_id', 'state_id', 'org_id'], 'integer'],
             [['created', 'updated','end_date'], 'safe'],
-            [['temprature','humidity'],'required','on'=>'lab'],
-            [['why_change'],'string'],
-            [['code', 'ads', 'reagent_name', 'reagent_series','conditions','temprature','humidity',], 'string', 'max' => 255],
+            [['code', ], 'string', 'max' => 255],
             [['org_id'], 'exist', 'skipOnError' => true, 'targetClass' => Organizations::className(), 'targetAttribute' => ['org_id' => 'id']],
             [['sample_id'], 'exist', 'skipOnError' => true, 'targetClass' => FoodSamples::className(), 'targetAttribute' => ['sample_id' => 'id']],
             [['state_id'], 'exist', 'skipOnError' => true, 'targetClass' => StateList::className(), 'targetAttribute' => ['state_id' => 'id']],

@@ -61,8 +61,6 @@ class ResultFoodConditions extends \yii\db\ActiveRecord
             'result_id' => 'Result ID',
             'ads' => Yii::t('model', 'Umumlashgan natija'),
             'sample_id' => Yii::t('model', 'Namuna'),
-            'creator_id' => Yii::t('model', 'Kirituvchi'),
-            'consept_id' => Yii::t('model', 'Tasdiqlovchi'),
             'created' => Yii::t('model', 'Yaratilgan'),
             'updated' => Yii::t('model', 'O\'zgartirilgan'),
             'org_id' => Yii::t('model', 'Tashkilot'),
@@ -80,5 +78,14 @@ class ResultFoodConditions extends \yii\db\ActiveRecord
             'is_change' => Yii::t('model', 'Normalarni o`zgartirish'),
             'why_change' => Yii::t('model', 'Sababi'),
         ];
+    }
+
+
+    public function getCreator(){
+        return $this->hasOne(Employees::class,['id'=>'creator_id']);
+    }
+
+    public function getRoute(){
+        return $this->hasOne(FoodRoute::class,['id'=>'route_id']);
     }
 }

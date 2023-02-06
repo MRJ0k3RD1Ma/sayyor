@@ -166,22 +166,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="row">
                 <div class="col-md-6">
-                    <?= $form->field($result, 'temprature')->textInput(['type' => 'number']) ?>
+                    <?= $form->field($conditions, 'temprature')->textInput(['type' => 'number']) ?>
 
-                    <?= $form->field($result, 'humidity')->textInput(['type' => 'number']) ?>
+                    <?= $form->field($conditions, 'humidity')->textInput(['type' => 'number']) ?>
 
-                    <?= $form->field($result, 'reagent_series')->textInput() ?>
+                    <?= $form->field($conditions, 'reagent_series')->textInput() ?>
 
-                    <?= $form->field($result, 'reagent_name')->textInput() ?>
+                    <?= $form->field($conditions, 'reagent_name')->textInput() ?>
 
                 </div>
                 <div class="col-md-6">
-                    <?= $form->field($result, 'conditions')->textInput() ?>
+                    <?= $form->field($conditions, 'conditions')->textInput() ?>
 
-                    <?= $form->field($result, 'end_date')->textInput(['type' => 'date']) ?>
-                    <?= $form->field($result, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;']) ?>
+                    <?= $form->field($conditions, 'end_date')->textInput(['type' => 'date']) ?>
+                    <?= $form->field($conditions, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;']) ?>
 
-                    <?= $form->field($result, 'why_change')->textInput(['disabled'=> $result->is_change==0 ? true : false]) ?>
+                    <?= $form->field($conditions, 'why_change')->textInput(['disabled'=> $conditions->is_change==0 ? true : false]) ?>
 
                 </div>
             </div>
@@ -208,7 +208,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="hidden" hidden> <?= $form->field($item, '[' . $item->id . ']checked')->checkbox(['value' => 1, 'data-id' => $item->id, 'class' => 'checkboxok'], false)->label(false) ?></div>
                         <tr id="tr-<?= $item->id ?>"
                             style="<?= $item->checked == 1 ? 'background: #fff;' : 'background: #e9e9ef;' ?>">
-                            <td><?= $item->id ?></td>
+                            <td><?= $item->template_id ?></td>
                             <td><?= $item->template->{'name_' . $lg} ?></td>
                             <td><?= $item->unit->{'name_' . $lg} ?></td>
 
@@ -227,7 +227,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?= Yii::$app->params['unit_belgi'][intval($item->ch_min1)].' - '.Yii::$app->params['unit_belgi'][intval($item->ch_max1)]?>
                                 <?php }?>
 
-                                <?= $form->field($item, '['.$item->id.']is_change')->checkbox(['class'=>'minmaxedit','value'=>1,'disabled'=>$result->is_change==0?true:false,'data-key'=>$item->id]) ?>
+                                <?= $form->field($item, '['.$item->id.']is_change')->checkbox(['class'=>'minmaxedit','value'=>1,'disabled'=>$conditions->is_change==0?true:false,'data-key'=>$item->id]) ?>
                                 <div class="changeminmax" data-key="<?= $item->id ?>" style="margin-top:10px; display: none">
 
                                     <?= $form->field($item,'['.$item->id.']change_unit_id')->dropDownList(
@@ -332,7 +332,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tbody>
                 </table>
 
-                <?= $form->field($result,'ads')->dropDownList([0=>Yii::t('lab','Tasdiqlandi'),1=>Yii::t('lab','Tasdiqlanmadi')],['prompt'=>'Umumiy natijani tanlang'])?>
+                <?= $form->field($conditions,'ads')->dropDownList([0=>Yii::t('lab','Tasdiqlandi'),1=>Yii::t('lab','Tasdiqlanmadi')],['prompt'=>'Umumiy natijani tanlang'])?>
 
 
             </div>
@@ -340,22 +340,22 @@ $this->params['breadcrumbs'][] = $this->title;
             <h4>O`tkazilgan tekshiruv 4VET uchun</h4>
             <div class="row">
                 <div class="col-md-2">
-                    <?= $form->field($result,'organoleptik')->checkbox(['value'=>1])?>
+                    <?= $form->field($conditions,'organoleptik')->checkbox(['value'=>1])?>
                 </div>
                 <div class="col-md-2">
-                    <?= $form->field($result,'mikroskopik')->checkbox(['value'=>1])?>
+                    <?= $form->field($conditions,'mikroskopik')->checkbox(['value'=>1])?>
 
                 </div>
                 <div class="col-md-2">
-                    <?= $form->field($result,'mikrobiologik')->checkbox(['value'=>1])?>
+                    <?= $form->field($conditions,'mikrobiologik')->checkbox(['value'=>1])?>
 
                 </div>
                 <div class="col-md-2">
-                    <?= $form->field($result,'kimyoviy')->checkbox(['value'=>1])?>
+                    <?= $form->field($conditions,'kimyoviy')->checkbox(['value'=>1])?>
 
                 </div>
                 <div class="col-md-2">
-                    <?= $form->field($result,'radiologik')->checkbox(['value'=>1])?>
+                    <?= $form->field($conditions,'radiologik')->checkbox(['value'=>1])?>
 
                 </div>
                 <div class="col-md-2"></div>
@@ -397,22 +397,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="row">
             <div class="col-md-6">
-                <?= $form->field($result, 'temprature')->textInput(['type' => 'number','disabled'=>true]) ?>
+                <?= $form->field($conditions, 'temprature')->textInput(['type' => 'number','disabled'=>true]) ?>
 
-                <?= $form->field($result, 'humidity')->textInput(['type' => 'number','disabled'=>true]) ?>
+                <?= $form->field($conditions, 'humidity')->textInput(['type' => 'number','disabled'=>true]) ?>
 
-                <?= $form->field($result, 'reagent_series')->textInput(['disabled'=>true]) ?>
+                <?= $form->field($conditions, 'reagent_series')->textInput(['disabled'=>true]) ?>
 
-                <?= $form->field($result, 'reagent_name')->textInput(['disabled'=>true]) ?>
+                <?= $form->field($conditions, 'reagent_name')->textInput(['disabled'=>true]) ?>
 
             </div>
             <div class="col-md-6">
-                <?= $form->field($result, 'conditions')->textInput(['disabled'=>true]) ?>
+                <?= $form->field($conditions, 'conditions')->textInput(['disabled'=>true]) ?>
 
-                <?= $form->field($result, 'end_date')->textInput(['type' => 'date','disabled'=>true]) ?>
-                <?= $form->field($result, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;','disabled'=>true]) ?>
+                <?= $form->field($conditions, 'end_date')->textInput(['type' => 'date','disabled'=>true]) ?>
+                <?= $form->field($conditions, 'is_change')->checkbox(['value'=>1,'style'=>'margin-top:35px;','disabled'=>true]) ?>
 
-                <?= $form->field($result, 'why_change')->textInput(['disabled'=> true]) ?>
+                <?= $form->field($conditions, 'why_change')->textInput(['disabled'=> true]) ?>
 
             </div>
         </div>
@@ -436,7 +436,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $result_type = \yii\helpers\ArrayHelper::map(\common\models\ResultType::find()->all(),'id','name_uz');
                 foreach ($test as $i => $item): $n++; ?>
                     <tr style="background: #e9e9ef;">
-                        <td><?= $item->id ?></td>
+                        <td><?= $item->template_id ?></td>
                         <td><?= $item->template->{'name_' . $lg} ?></td>
                         <td><?= $item->unit->{'name_' . $lg} ?></td>
 
@@ -477,7 +477,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <?= $form->field($result,'ads')->dropDownList([0=>Yii::t('lab','Tasdiqlandi'),1=>Yii::t('lab','Tasdiqlanmadi')],['disabled'=>true])?>
+            <?= $form->field($conditions,'ads')->dropDownList([0=>Yii::t('lab','Tasdiqlandi'),1=>Yii::t('lab','Tasdiqlanmadi')],['disabled'=>true])?>
 
 
         </div>
@@ -527,10 +527,10 @@ $this->registerJs("
         }
     })
       
-    $('#resultfood-is_change').change(function(){
+    $('#resultfoodconditions-is_change').change(function(){
         
-        if($('#resultfood-is_change').is(':checked')){
-            $('#resultfood-why_change').prop('disabled',false);
+        if($('#resultfoodconditions-is_change').is(':checked')){
+            $('#resultfoodconditions-why_change').prop('disabled',false);
             $('.checkboxok').each(function(){
                  var id = this.getAttribute('data-id');
                  if(this.checked){
@@ -538,7 +538,7 @@ $this->registerJs("
                  }
             });
         }else{
-            $('#resultfood-why_change').prop('disabled',true);
+            $('#resultfoodconditions-why_change').prop('disabled',true);
             $('.unitresult.false').css('display','none');
             $('.unitresult.true').css('display','block');
             $('.checkboxok').each(function(){
