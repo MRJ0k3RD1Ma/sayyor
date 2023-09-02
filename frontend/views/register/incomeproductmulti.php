@@ -34,7 +34,9 @@ $this->params['breadcrumbs'][] = $this->title
                 </tr>
                 </thead>
                 <tbody>
-                <?php $n=0; foreach (\common\models\FoodRoute::find()->where(['registration_id'=>$reg->id,'is_group'=>1])->orderBy('leader_id')->groupBy(['leader_id'])->all() as $item): $n++?>
+                <?php $n=0; foreach (\common\models\FoodRoute::find()->where(['registration_id'=>$reg->id,'is_group'=>1])
+                                         ->orderBy('leader_id')
+                                         ->groupBy(['leader_id'])->all() as $item): $n++?>
                     <tr>
                         <td><?= $n?></td>
                         <td><?= $item->leader->name ?></td>

@@ -130,7 +130,9 @@ class LabController extends Controller
 
         $route = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>0])->all();
         $route_gr = RouteSert::find()->where(['registration_id'=>$id])->andWhere(['executor_id'=>Yii::$app->user->id])->andWhere(['is_group'=>1])->all();
-
+        if(!RouteSert::findOne(['registration_id'=>$id,'executor_id'=>Yii::$app->user->id])){
+            return "Bunday namuna topilmadi yoki bu namunani tekshirish uchun sizga ruxsat berilmagan!";
+        }
         $res = ResultAnimal::findOne(['sample_id'=>RouteSert::findOne(['registration_id'=>$id,'executor_id'=>Yii::$app->user->id])->sample_id]);
         $rid = 1;
         if(!($rid = $route[0]->id)){

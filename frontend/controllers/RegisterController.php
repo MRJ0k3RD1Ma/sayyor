@@ -802,7 +802,7 @@ class RegisterController extends Controller
                                    $com->save(false);
                                    $r = $req['RouteSert'];
                                    $rt = new RouteSert();
-                                   if ($rtt = RouteSert::find()->where(['registration_id'=>$reg->id,'leader_id'=>$leader_id, 'is_group' => 1])->one()) {
+                                   if ($rtt = RouteSert::find()->where(['registration_id'=>$reg->id,'leader_id'=>$leader_id,'sample_id'=>$key, 'is_group' => 1])->one()) {
                                        $rt = $rtt;
                                    }
                                    if($director_id != -1){
@@ -1297,10 +1297,13 @@ class RegisterController extends Controller
                                     $com->save(false);
                                     $r = $req['FoodRoute'];
                                     $rt = new FoodRoute();
-                                    if($leader_id){
-                                        if ($rtt = FoodRoute::find()->where(['registration_id' => $id, 'leader_id'=>$leader_id,'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
-                                            $rt = $rtt;
-                                        }
+                                    if ($rtt = FoodRoute::find()->where(['registration_id' => $id, 'leader_id'=>$leader_id,'sample_id' => $com->sample_id, 'is_group' => 1])->one()) {
+                                        $rt = $rtt;
+                                    }
+                                    if($director_id != -1){
+                                        $rt->director_id = $director_id;
+                                    }else{
+                                        $rt->director_id = $r['director_id'];
                                     }
 
                                     if($director_id != -1){
@@ -1475,8 +1478,10 @@ class RegisterController extends Controller
                 ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
                 ->where(['emp_posts.post_id' => 3])
                 ->andWhere(['emp_posts.org_id' => $org_id])
-                ->andWhere('employees.id not in (select leader_id from food_route where registration_id = '.$reg->id.' and is_group=1)')
+                ->andWhere('employees.id not in (select leader_id from food_route where registration_id = '.$reg->id.' and is_group = 1)')
                 ->all();
+
+
             $lider_all = Employees::find()->select(['employees.*'])
                 ->innerJoin('emp_posts', 'emp_posts.emp_id = employees.id')
                 ->where(['emp_posts.post_id' => 3])
