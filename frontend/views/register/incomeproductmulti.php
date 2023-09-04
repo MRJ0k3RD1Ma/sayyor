@@ -35,7 +35,9 @@ $this->params['breadcrumbs'][] = $this->title
                 </thead>
                 <tbody>
               
-                <?php $n=0; foreach (\common\models\FoodRoute::find()->where(['registration_id'=>$reg->id,'is_group'=>1])
+                <?php
+                if(\common\models\FoodRoute::find()->where(['registration_id'=>$reg->id,'is_group'=>1])->all()){
+                $n=0; foreach (\common\models\FoodRoute::find()->where(['registration_id'=>$reg->id,'is_group'=>1])
                                          ->orderBy('leader_id')
                                          ->groupBy(['leader_id'])->all() as $item): $n++?>
                     <tr>
@@ -46,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title
                             <a href="<?= Yii::$app->urlManager->createUrl(['/register/incomeproductmulti','id'=>$reg->id,'leader_id'=>$item->leader_id])?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
                         </td>
                     </tr>
-                <?php endforeach;?>
+                <?php endforeach; }?>
                 </tbody>
             </table>
         </div>
